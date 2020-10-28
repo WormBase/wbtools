@@ -1,0 +1,4 @@
+psycopg2-binary
+numpy~=1.19.2
+pdfminer~=20191125
+fabric~=2.5.0
