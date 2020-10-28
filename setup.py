@@ -12,8 +12,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/valearna/wbtools",
-    package_dir={'': 'wbtools'},
-    packages=setuptools.find_packages('wbtools'),
+    packages=setuptools.find_packages(include=['wbtools', 'wbtools.*']),
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
