@@ -5,6 +5,9 @@ from wbtools.db.dbmanager import WBDBManager
 
 class WBPaperDBManager(WBDBManager):
 
+    def __init__(self, dbname, user, password, host):
+        super().__init__(dbname, user, password, host)
+
     def _get_single_field(self, paper_id: str, field_name: str) -> Union[str, None]:
         """
         get a specific field for a paper from a single field table

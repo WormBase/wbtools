@@ -3,6 +3,9 @@ from wbtools.db.dbmanager import WBDBManager
 
 class WBPersonDBManager(WBDBManager):
 
+    def __init__(self, dbname, user, password, host):
+        super().__init__(dbname, user, password, host)
+
     def get_person_id_from_email_address(self, email_address):
         self.cur.execute("SELECT * FROM two_email WHERE two_email='{}'".format(email_address))
         res = self.cur.fetchone()
