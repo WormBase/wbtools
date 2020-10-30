@@ -14,6 +14,9 @@ stop_words = set(stopwords.words('english'))
 def remove_references(document):
     try:
         document = document[0:document.rindex("References")]
+    except:
+        pass
+    try:
         document = document[0:document.rindex("REFERENCES")]
     except:
         pass

@@ -2,24 +2,23 @@ import logging
 import os
 import re
 import numpy as np
+
+from wbtools.db.paper import WBPaperDBManager
+from wbtools.lib.nlp import preprocess, get_documents_from_text
+from wbtools.lib.timeout import timeout
 from io import StringIO
 from dataclasses import dataclass, field
-from collections import defaultdict
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.pdfpage import PDFPage
 from fabric.connection import Connection
 
-from wbtools.lib.dbmanager import DBManager
-from wbtools.lib.nlp import get_documents_from_text, preprocess
-from wbtools.lib.timeout import timeout
+
+logger = logging.getLogger(__name__)
 
 
 TAZENDRA_SSH_HOST = "tazendra.caltech.edu"
-
-
-logger = logging.getLogger(__name__)
 
 
 class PaperFileReader(object):
@@ -72,7 +71,8 @@ class PaperFileReader(object):
         if remote_file:
             text = self.download_paper_and_extract_txt(dir_path + filename, pdf)
         else:
-            text = open(os.path.join(dir_path, filename), 'r').read()
+            with open(os.path.join(dir_path, filename), 'r') as file:
+                text = file.read()
         if np.average([len(w) for w in preprocess(text)]) < 1.001:
             text = text.replace("\n", "")
         return text
@@ -80,7 +80,7 @@ class PaperFileReader(object):
 
 @dataclass
 class WBPaper:
-    wb_paperid: str = ''
+    paper_id: str = ''
     main_text: str = ''
     ocr_text: str = ''
     temp_text: str = ''
@@ -88,13 +88,35 @@ class WBPaper:
     html_text: str = ''
     supplemental_docs: list = field(default_factory=list)
 
-    def get_docs_from_merged_text(self, remove_ref_section: bool = False, split_sentences: bool = False):
+    def get_text_docs(self, remove_ref_section: bool = False, split_sentences: bool = False,
+                      lowercase: bool = False, tokenize: bool = False, remove_stopwords: bool = False,
+                      remove_alpha: bool = False):
         merged_text_arr = [self.main_text if self.main_text else self.html_text if self.html_text else self.ocr_text if
                            self.ocr_text else self.aut_text if self.aut_text else self.temp_text,
                            *self.supplemental_docs]
-        return [d for doc in merged_text_arr for d in get_documents_from_text(doc, split_sentences, remove_ref_section)]
+        docs = [d for doc in merged_text_arr for d in get_documents_from_text(doc, split_sentences, remove_ref_section)]
+        return [preprocess(doc, lower=lowercase, tokenize=tokenize, remove_stopwords=remove_stopwords,
+                           remove_alpha=remove_alpha) for doc in docs]
 
-    def add_file(self, dir_path, filename, paper_reader: PaperFileReader, remote_file: bool = False, pdf: bool = False):
+    def add_file(self, dir_path, filename, paper_reader: PaperFileReader = None, remote_file: bool = False,
+                 pdf: bool = False):
+        """
+        add one or more files to the paper. Information about the type of file is derived from file name. If the file
+        path points to a directory, all supplementary files in it are loaded.
+        Args:
+            dir_path (str): path to the base directory
+            filename (str): name of the file to load
+            paper_reader (PaperFileReader): a paper reader to access content from local file systems or from a remote
+                                            ssh server. Note that for local files the paper reader is not mandatory and
+                                            a new one is created in case it is not provided. For remote files this field
+                                            is required
+            remote_file: whether the file is on a remote location
+            pdf: whether the file is in pdf format
+        """
+        if not paper_reader and remote_file:
+            raise Exception("a paper reader must be provided to access remote files")
+        if not paper_reader:
+            paper_reader = PaperFileReader()
         if dir_path.endswith("supplemental/") and re.match(r'^[0-9]+$', filename):
             filenames = paper_reader.get_supplemental_file_names(dir_path + filename)
             dir_path = dir_path + filename + "/"
@@ -103,9 +125,9 @@ class WBPaper:
         for filename in filenames:
             logger.info("Adding file " + dir_path + filename)
             if "_lib" not in filename and "Fig" not in filename and "Figure" not in filename:
-                wb_paperid, author_year, additional_options = self.get_matches_from_filename(filename)
-                if not self.wb_paperid:
-                    self.wb_paperid = wb_paperid
+                wb_paperid, author_year, additional_options = self._get_matches_from_filename(filename)
+                if not self.paper_id:
+                    self.paper_id = wb_paperid
                 if author_year and ("_supp" in author_year or "_Supp" in author_year or "_Table" in author_year or
                                     "_table" in author_year or "_mmc" in author_year or "_Stable" in author_year or
                                     "_Movie" in author_year or "_movie" in author_year or "supplementary" in author_year
@@ -129,78 +151,20 @@ class WBPaper:
                 else:
                     logger.warning("No rule to read filename: " + filename)
 
+    def load_text_from_pdf_files_in_db(self, wb_paper_db_manager: WBPaperDBManager, paper_file_reader: PaperFileReader):
+        for file_path in wb_paper_db_manager.get_file_paths(self.paper_id):
+            filename = file_path.split("/")[-1]
+            dir_path = file_path.rstrip(filename)
+            self.add_file(dir_path=dir_path, filename=filename, paper_reader=paper_file_reader, remote_file=True,
+                          pdf=True)
+
     def has_same_wbpaper_id_as_filename(self, filename):
-        return self.get_matches_from_filename(filename)[0] == self.wb_paperid
+        return self._get_matches_from_filename(filename)[0] == self.paper_id
 
     @staticmethod
-    def get_matches_from_filename(filename):
+    def _get_matches_from_filename(filename):
         match = re.match(r'^([0-9]+[-_])?([^_]+)?(_.*)?\..*$', filename)
         if match:
             return match.group(1)[:-1] if match.group(1) else None, match.group(2), match.group(3)
         else:
             raise Exception("Can't extract WBPaperID from filename: " + filename)
-
-
-class CorpusManager(object):
-
-    def __init__(self, split_sentences: bool = False, remove_references: bool = False, tokenize: bool = False,
-                 remove_stopwords: bool = False, remove_alpha: bool = False):
-        self.corpus = defaultdict(list)
-
-        self.split_sentences = split_sentences
-        self.remove_ref_section = remove_references
-        self.tokenize = tokenize
-        self.remove_stopwords = remove_stopwords
-        self.remove_alpha = remove_alpha
-
-    def add_wb_paper(self, wb_paper: WBPaper):
-        docs = wb_paper.get_docs_from_merged_text(remove_ref_section=self.remove_ref_section,
-                                                  split_sentences=self.split_sentences)
-        for doc in docs:
-            preprocessed_doc = preprocess(doc, tokenize=self.tokenize, remove_stopwords=self.remove_stopwords,
-                                          remove_alpha=self.remove_alpha)
-            self.corpus[wb_paper.wb_paperid].append(preprocessed_doc)
-
-    def rem_wb_paper(self, wb_paper: WBPaper):
-        del self.corpus[wb_paper.wb_paperid]
-
-    def add_or_update_wb_paper(self, wb_paper: WBPaper):
-        if wb_paper.wb_paperid in self.corpus:
-            self.rem_wb_paper(wb_paper)
-        self.add_wb_paper(wb_paper)
-
-    def load_from_dir_with_txt_files(self, dir_path):
-        paper_reader = PaperFileReader()
-        paper = WBPaper()
-        for f in sorted(os.listdir(dir_path)):
-            if os.path.isfile(os.path.join(dir_path, f)) and f.endswith(".txt"):
-                if paper.wb_paperid and not paper.has_same_wbpaper_id_as_filename(f):
-                    self.add_or_update_wb_paper(paper)
-                    paper = WBPaper()
-                paper.add_file(dir_path=dir_path, filename=f, paper_reader=paper_reader, remote_file=False, pdf=False)
-
-    def load_from_wb_database(self, dbname, user, password, host, tazendra_ssh_user, tazendra_ssh_passwd, from_date):
-        dbmanager = DBManager(dbname, user, password, host)
-        paper_reader = PaperFileReader(tazendra_ssh_user=tazendra_ssh_user, tazendra_ssh_passwd=tazendra_ssh_passwd)
-        for paper_id, file_paths in dbmanager.get_wb_papers_files_paths(from_date=from_date).items():
-            logger.info("Processing paper " + paper_id)
-            paper = WBPaper(wb_paperid=paper_id)
-            for file_path in file_paths:
-                filename = file_path.split("/")[-1]
-                dir_path = file_path.rstrip(filename)
-                paper.add_file(dir_path=dir_path, filename=filename, paper_reader=paper_reader, remote_file=True,
-                               pdf=True)
-            self.add_or_update_wb_paper(paper)
-
-    def size(self):
-        return len(self.corpus)
-
-    def get_flat_corpus_list(self):
-        return [doc for paper_id, doc_list in self.corpus for doc in doc_list]
-
-    def get_idx_paperid_map(self):
-        return {idx: paper_id for idx, paper_id in enumerate([paper_id for paper_id, doc_list in self.corpus for doc in
-                                                              doc_list])}
-
-    def get_docs_from_paper_id(self, paper_id):
-        return self.corpus[paper_id]

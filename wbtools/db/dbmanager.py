@@ -1,9 +1,7 @@
-from collections import defaultdict
-
 import psycopg2
 
 
-class DBManager(object):
+class WBDBManager(object):
 
     def __init__(self, dbname, user, password, host):
         connection_str = "dbname='" + dbname
@@ -19,12 +17,3 @@ class DBManager(object):
         self.conn.commit()
         self.cur.close()
         self.conn.close()
-
-    def get_wb_papers_files_paths(self, from_date: str = '1970-01-01'):
-        self.cur.execute("SELECT * FROM pap_electronic_path WHERE pap_timestamp >= '{}' ORDER BY joinkey"
-                         .format(from_date))
-        rows = self.cur.fetchall()
-        papid_files = defaultdict(list)
-        for row in rows:
-            papid_files[row[0]].append(row[1])
-        return papid_files
