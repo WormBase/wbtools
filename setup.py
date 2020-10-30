@@ -8,7 +8,7 @@ setuptools.setup(
     version="0.0.1",
     author="Valerio Arnaboldi",
     author_email="valearna@caltech.edu",
-    description="Interface to WB curation data, including corpus management and NLP functions",
+    description="Interface to WB curation data, including literature management and NLP functions",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/valearna/wbtools",

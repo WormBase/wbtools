@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from wbtools.corpus.corpus import CorpusManager
+from wbtools.literature.corpus import CorpusManager
 
 TESTDATA_DIR = os.path.join(os.path.dirname(__file__), 'data', 'text_files')
 

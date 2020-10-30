@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from wbtools.corpus.paper import WBPaper
+from wbtools.literature.paper import WBPaper
 
 TESTDATA_DIR = os.path.join(os.path.dirname(__file__), 'data', 'text_files')
 

@@ -2,7 +2,7 @@ import logging
 import os
 from typing import Generator
 
-from wbtools.corpus.paper import WBPaper, PaperFileReader
+from wbtools.literature.paper import WBPaper, PaperFileReader
 from wbtools.db.paper import WBPaperDBManager
 
 logger = logging.getLogger(__name__)
@@ -22,7 +22,7 @@ class CorpusManager(object):
 
     def load_from_dir_with_txt_files(self, dir_path: str):
         """
-        load corpus from a set of text files with file name in the following format:
+        load literature from a set of text files with file name in the following format:
         <WBPaperID>_<Author><Year>_<additional_options>.txt
 
         Only files with .txt extension are loaded. Paper ID is derived from the file name and additional options are
