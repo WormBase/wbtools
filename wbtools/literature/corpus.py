@@ -10,8 +10,7 @@ logger = logging.getLogger(__name__)
 
 class CorpusManager(object):
 
-    def __init__(self, split_sentences: bool = False, remove_references: bool = False, lowercase: bool = False,
-                 tokenize: bool = False, remove_stopwords: bool = False, remove_alpha: bool = False):
+    def __init__(self):
         self.corpus = {}
 
     def add_or_update_wb_paper(self, wb_paper: WBPaper):
