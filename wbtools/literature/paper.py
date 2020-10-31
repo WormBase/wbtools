@@ -57,7 +57,11 @@ class PaperFileReader(object):
     def get_supplemental_file_names(self, supp_dir_path):
         with Connection(TAZENDRA_SSH_HOST, self.tazendra_ssh_user,
                         connect_kwargs={"password": self.tazendra_ssh_passwd}) as c, c.sftp() as sftp:
-            return [filename for filename in sftp.listdir(supp_dir_path) if filename.endswith(".pdf")]
+            try:
+                return [filename for filename in sftp.listdir(supp_dir_path) if filename.endswith(".pdf")]
+            except UnicodeDecodeError:
+                logger.error("Cannot read non-unicode chars in filenames due to bug in ssh library")
+                return []
 
     def download_paper_and_extract_txt(self, file_url, pdf: bool = False):
         with Connection(TAZENDRA_SSH_HOST, self.tazendra_ssh_user, connect_kwargs={"password": self.tazendra_ssh_passwd}) as \
@@ -168,3 +172,9 @@ class WBPaper:
             return match.group(1)[:-1] if match.group(1) else None, match.group(2), match.group(3)
         else:
             raise Exception("Can't extract WBPaperID from filename: " + filename)
+
+    def is_temp(self):
+        return not self.main_text
+
+    def has_supplementary_material(self):
+        return self.supplemental_docs
