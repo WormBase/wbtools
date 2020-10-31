@@ -45,7 +45,7 @@ class CorpusManager(object):
         paper_ids = db_manager.get_all_paper_ids(added_or_modified_after=from_date)
         db_manager.close()
         for paper_id in paper_ids:
-            paper = WBPaper(paper_id=paper_id, tazendra_ssh_user=tazendra_ssh_user, 
+            paper = WBPaper(paper_id=paper_id, tazendra_ssh_user=tazendra_ssh_user,
                             tazendra_ssh_passwd=tazendra_ssh_passwd)
             paper.load_text_from_pdf_files_in_db(db_name=db_name, db_user=db_user, db_password=db_password,
                                                  db_host=db_host)
