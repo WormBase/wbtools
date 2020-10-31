@@ -7,7 +7,6 @@ from wbtools.db.paper import WBPaperDBManager
 from wbtools.lib.nlp import preprocess, get_documents_from_text
 from wbtools.lib.timeout import timeout
 from io import StringIO
-from dataclasses import dataclass, field
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
@@ -82,15 +81,20 @@ class PaperFileReader(object):
         return text
 
 
-@dataclass
-class WBPaper:
-    paper_id: str = ''
-    main_text: str = ''
-    ocr_text: str = ''
-    temp_text: str = ''
-    aut_text: str = ''
-    html_text: str = ''
-    supplemental_docs: list = field(default_factory=list)
+class WBPaper(object):
+
+    def __init__(self, paper_id: str = '', main_text: str = '', ocr_text: str = '', temp_text: str = '',
+                 aut_text: str = '', html_text: str = '', supplemental_docs: list = None, tazendra_ssh_user: str = '',
+                 tazendra_ssh_passwd: str = ''):
+        self.paper_id = paper_id
+        self.main_text = main_text
+        self.ocr_text = ocr_text
+        self.temp_text = temp_text
+        self.aut_text = aut_text
+        self.html_text = html_text
+        self.supplemental_docs = supplemental_docs if supplemental_docs else []
+        self.paper_file_reader = PaperFileReader(tazendra_ssh_user=tazendra_ssh_user,
+                                                 tazendra_ssh_passwd=tazendra_ssh_passwd)
 
     def get_text_docs(self, remove_ref_section: bool = False, split_sentences: bool = False,
                       lowercase: bool = False, tokenize: bool = False, remove_stopwords: bool = False,
@@ -102,27 +106,22 @@ class WBPaper:
         return [preprocess(doc, lower=lowercase, tokenize=tokenize, remove_stopwords=remove_stopwords,
                            remove_alpha=remove_alpha) for doc in docs]
 
-    def add_file(self, dir_path, filename, paper_reader: PaperFileReader = None, remote_file: bool = False,
-                 pdf: bool = False):
+    def add_file(self, dir_path, filename, remote_file: bool = False, pdf: bool = False):
         """
         add one or more files to the paper. Information about the type of file is derived from file name. If the file
         path points to a directory, all supplementary files in it are loaded.
         Args:
             dir_path (str): path to the base directory
             filename (str): name of the file to load
-            paper_reader (PaperFileReader): a paper reader to access content from local file systems or from a remote
-                                            ssh server. Note that for local files the paper reader is not mandatory and
-                                            a new one is created in case it is not provided. For remote files this field
-                                            is required
             remote_file: whether the file is on a remote location
             pdf: whether the file is in pdf format
         """
-        if not paper_reader and remote_file:
+        if not self.paper_file_reader and remote_file:
             raise Exception("a paper reader must be provided to access remote files")
-        if not paper_reader:
+        if not self.paper_file_reader:
             paper_reader = PaperFileReader()
         if dir_path.endswith("supplemental/") and re.match(r'^[0-9]+$', filename):
-            filenames = paper_reader.get_supplemental_file_names(dir_path + filename)
+            filenames = self.paper_file_reader.get_supplemental_file_names(dir_path + filename)
             dir_path = dir_path + filename + "/"
         else:
             filenames = [filename]
@@ -137,34 +136,34 @@ class WBPaper:
                                     "_Movie" in author_year or "_movie" in author_year or "supplementary" in author_year
                                     or "Supplementary" in author_year or
                                     re.match(r'[_-][Ss][0-9]+', author_year)):
-                    self.supplemental_docs.append(paper_reader.get_text_from_file(dir_path, filename, remote_file, pdf))
+                    self.supplemental_docs.append(self.paper_file_reader.get_text_from_file(
+                        dir_path, filename, remote_file, pdf))
                     return
                 if not additional_options:
-                    self.main_text = paper_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
+                    self.main_text = self.paper_file_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
                 elif "Supp" in additional_options or "supp" in additional_options or "Table" in additional_options or \
                         "table" in additional_options or "Movie" in additional_options or "movie" in additional_options:
-                    self.supplemental_docs.append(paper_reader.get_text_from_file(dir_path, filename, remote_file, pdf))
+                    self.supplemental_docs.append(self.paper_file_reader.get_text_from_file(
+                        dir_path, filename, remote_file, pdf))
                 elif "ocr" in additional_options:
-                    self.ocr_text = paper_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
+                    self.ocr_text = self.paper_file_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
                 elif "temp" in additional_options:
-                    self.temp_text = paper_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
+                    self.temp_text = self.paper_file_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
                 elif "aut" in additional_options:
-                    self.aut_text = paper_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
+                    self.aut_text = self.paper_file_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
                 elif "html" in additional_options:
-                    self.html_text = paper_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
+                    self.html_text = self.paper_file_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
                 else:
                     logger.warning("No rule to read filename: " + filename)
 
-    def load_text_from_pdf_files_in_db(self, db_name, db_user, db_password, db_host,
-                                       paper_file_reader: PaperFileReader):
+    def load_text_from_pdf_files_in_db(self, db_name, db_user, db_password, db_host):
         wb_paper_db_manager = WBPaperDBManager(db_name, db_user, db_password, db_host)
         file_paths = wb_paper_db_manager.get_file_paths(self.paper_id)
         wb_paper_db_manager.close()
         for file_path in file_paths:
             filename = file_path.split("/")[-1]
             dir_path = file_path.rstrip(filename)
-            self.add_file(dir_path=dir_path, filename=filename, paper_reader=paper_file_reader, remote_file=True,
-                          pdf=True)
+            self.add_file(dir_path=dir_path, filename=filename, remote_file=True, pdf=True)
 
     def has_same_wbpaper_id_as_filename(self, filename):
         return self._get_matches_from_filename(filename)[0] == self.paper_id

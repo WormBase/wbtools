@@ -31,24 +31,24 @@ class CorpusManager(object):
         Args:
             dir_path (str): path to the input directory containing text files
         """
-        paper_reader = PaperFileReader()
         paper = WBPaper()
         for f in sorted(os.listdir(dir_path)):
             if os.path.isfile(os.path.join(dir_path, f)) and f.endswith(".txt"):
                 if paper.paper_id and not paper.has_same_wbpaper_id_as_filename(f):
                     self.add_or_update_wb_paper(paper)
                     paper = WBPaper()
-                paper.add_file(dir_path=dir_path, filename=f, paper_reader=paper_reader, remote_file=False, pdf=False)
+                paper.add_file(dir_path=dir_path, filename=f, remote_file=False, pdf=False)
 
     def load_from_wb_database(self, db_name, db_user, db_password, db_host, tazendra_ssh_user, tazendra_ssh_passwd,
                               from_date):
-        paper_reader = PaperFileReader(tazendra_ssh_user=tazendra_ssh_user, tazendra_ssh_passwd=tazendra_ssh_passwd)
         db_manager = WBDBManager(db_name, db_user, db_password, db_host)
         paper_ids = db_manager.get_all_paper_ids(added_or_modified_after=from_date)
         db_manager.close()
         for paper_id in paper_ids:
-            paper = WBPaper(paper_id=paper_id)
-            paper.load_text_from_pdf_files_in_db(db_name, db_user, db_password, db_host, paper_reader)
+            paper = WBPaper(paper_id=paper_id, tazendra_ssh_user=tazendra_ssh_user, 
+                            tazendra_ssh_passwd=tazendra_ssh_passwd)
+            paper.load_text_from_pdf_files_in_db(db_name=db_name, db_user=db_user, db_password=db_password,
+                                                 db_host=db_host)
             self.add_or_update_wb_paper(paper)
 
     def size(self):
