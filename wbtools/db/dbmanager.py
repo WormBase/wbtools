@@ -17,3 +17,9 @@ class WBDBManager(object):
         self.conn.commit()
         self.cur.close()
         self.conn.close()
+
+    def get_all_paper_ids(self, added_or_modified_after: str = '1970-010-1'):
+        self.cur.execute("SELECT DISTINCT joinkey from pap_electronic_path WHERE pap_timestamp > '{}' ORDER BY joinkey"
+                         .format(added_or_modified_after))
+        rows = self.cur.fetchall()
+        return [row[0] for row in rows]

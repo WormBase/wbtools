@@ -155,12 +155,15 @@ class WBPaper:
                 else:
                     logger.warning("No rule to read filename: " + filename)
 
-    def load_text_from_pdf_files_in_db(self, wb_paper_db_manager: WBPaperDBManager, paper_file_reader: PaperFileReader):
+    def load_text_from_pdf_files_in_db(self, db_name, db_user, db_password, db_host,
+                                       paper_file_reader: PaperFileReader):
+        wb_paper_db_manager = WBPaperDBManager(db_name, db_user, db_password, db_host)
         for file_path in wb_paper_db_manager.get_file_paths(self.paper_id):
             filename = file_path.split("/")[-1]
             dir_path = file_path.rstrip(filename)
             self.add_file(dir_path=dir_path, filename=filename, paper_reader=paper_file_reader, remote_file=True,
                           pdf=True)
+        wb_paper_db_manager.close()
 
     def has_same_wbpaper_id_as_filename(self, filename):
         return self._get_matches_from_filename(filename)[0] == self.paper_id

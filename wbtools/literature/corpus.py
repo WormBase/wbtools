@@ -2,6 +2,7 @@ import logging
 import os
 from typing import Generator
 
+from wbtools.db.dbmanager import WBDBManager
 from wbtools.literature.paper import WBPaper, PaperFileReader
 from wbtools.db.paper import WBPaperDBManager
 
@@ -39,12 +40,15 @@ class CorpusManager(object):
                     paper = WBPaper()
                 paper.add_file(dir_path=dir_path, filename=f, paper_reader=paper_reader, remote_file=False, pdf=False)
 
-    def load_from_wb_database(self, wb_paper_db_manager: WBPaperDBManager, tazendra_ssh_user, tazendra_ssh_passwd,
+    def load_from_wb_database(self, db_name, db_user, db_password, db_host, tazendra_ssh_user, tazendra_ssh_passwd,
                               from_date):
         paper_reader = PaperFileReader(tazendra_ssh_user=tazendra_ssh_user, tazendra_ssh_passwd=tazendra_ssh_passwd)
-        for paper_id in wb_paper_db_manager.get_all_paper_ids(added_or_modified_after=from_date):
+        db_manager = WBDBManager(db_name, db_user, db_password, db_host)
+        paper_ids = db_manager.get_all_paper_ids(added_or_modified_after=from_date)
+        db_manager.close()
+        for paper_id in paper_ids:
             paper = WBPaper(paper_id=paper_id)
-            paper.load_text_from_pdf_files_in_db(wb_paper_db_manager, paper_reader)
+            paper.load_text_from_pdf_files_in_db(db_name, db_user, db_password, db_host, paper_reader)
             self.add_or_update_wb_paper(paper)
 
     def size(self):

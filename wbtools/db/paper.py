@@ -64,12 +64,6 @@ class WBPaperDBManager(WBDBManager):
         else:
             return None
 
-    def get_all_paper_ids(self, added_or_modified_after: str = '1970-010-1'):
-        self.cur.execute("SELECT DISTINCT joinkey from pap_electronic_path WHERE pap_timestamp > '{}' ORDER BY joinkey"
-                         .format(added_or_modified_after))
-        rows = self.cur.fetchall()
-        return [row[0] for row in rows]
-
     def get_file_paths(self, paper_id: str):
         """
         get the list of file paths associated with the specified paper_id
