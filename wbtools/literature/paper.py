@@ -159,7 +159,6 @@ class WBPaper(object):
     def load_text_from_pdf_files_in_db(self, db_name, db_user, db_password, db_host):
         wb_paper_db_manager = WBPaperDBManager(db_name, db_user, db_password, db_host)
         file_paths = wb_paper_db_manager.get_file_paths(self.paper_id)
-        wb_paper_db_manager.close()
         for file_path in file_paths:
             filename = file_path.split("/")[-1]
             dir_path = file_path.rstrip(filename)
