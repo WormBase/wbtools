@@ -3,8 +3,8 @@ import os
 from typing import Generator
 
 from wbtools.db.dbmanager import WBDBManager
-from wbtools.literature.paper import WBPaper, PaperFileReader
-from wbtools.db.paper import WBPaperDBManager
+from wbtools.literature.paper import WBPaper
+
 
 logger = logging.getLogger(__name__)
 
@@ -43,7 +43,6 @@ class CorpusManager(object):
                               from_date):
         db_manager = WBDBManager(db_name, db_user, db_password, db_host)
         paper_ids = db_manager.get_all_paper_ids(added_or_modified_after=from_date)
-        db_manager.close()
         for paper_id in paper_ids:
             paper = WBPaper(paper_id=paper_id, tazendra_ssh_user=tazendra_ssh_user,
                             tazendra_ssh_passwd=tazendra_ssh_passwd)
@@ -56,7 +55,7 @@ class CorpusManager(object):
 
     def get_flat_corpus_list_and_idx_paperid_map(self, split_sentences, remove_ref_section, lowercase, tokenize,
                                                  remove_stopwords, remove_alpha):
-        flat_list = [doc for paper in self.corpus.values() for doc in paper.get_docs_from_merged_text(
+        flat_list = [doc for paper in self.corpus.values() for doc in paper.get_text_docs(
             remove_ref_section=remove_ref_section, split_sentences=split_sentences,
             lowercase=lowercase, tokenize=tokenize, remove_stopwords=remove_stopwords,
             remove_alpha=remove_alpha)]
