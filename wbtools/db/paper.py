@@ -1,5 +1,7 @@
 from typing import Union
 
+import psycopg2
+
 from wbtools.db.dbmanager import WBDBManager
 
 
@@ -18,12 +20,10 @@ class WBPaperDBManager(WBDBManager):
         Returns:
             str: the value of the specified field for the paper
         """
-        self.cur.execute("SELECT * FROM pap_{} WHERE joinkey = '{}'".format(field_name, paper_id))
-        res = self.cur.fetchone()
-        if res:
-            return res[1]
-        else:
-            return None
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            curs.execute("SELECT * FROM pap_%s WHERE joinkey = '%s'", (field_name, paper_id))
+            res = curs.fetchone()
+            return res[1] if res else None
 
     def get_paper_abstract(self, paper_id):
         return self._get_single_field(paper_id=paper_id, field_name="abstract")
@@ -35,13 +35,14 @@ class WBPaperDBManager(WBDBManager):
         return self._get_single_field(paper_id=paper_id, field_name="journal")
 
     def get_pmid(self, paper_id):
-        self.cur.execute(
-            "SELECT * FROM pap_identifier WHERE joinkey = '{}' AND pap_identifier LIKE 'pmid%'".format(paper_id))
-        res = self.cur.fetchone()
-        if res and res[1].startswith("pmid"):
-            return res[1].replace("pmid", "")
-        else:
-            return None
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            curs.execute(
+                "SELECT * FROM pap_identifier WHERE joinkey = '%s' AND pap_identifier LIKE 'pmid%'", (paper_id, ))
+            res = curs.fetchone()
+            if res and res[1].startswith("pmid"):
+                return res[1].replace("pmid", "")
+            else:
+                return None
 
     def get_svm_value(self, svm_type: str, paper_id: str):
         """
@@ -56,13 +57,11 @@ class WBPaperDBManager(WBDBManager):
             Union[str, None]: the value associated to the svm ('low', 'medium', or 'high') or None if the paper has not
                               been classified by SVMs yet
         """
-        self.cur.execute("SELECT cur_svmdata from cur_svmdata WHERE cur_paper = '{}' AND cur_datatype = '{}'".format(
-            paper_id, svm_type))
-        row = self.cur.fetchone()
-        if row:
-            return row[0]
-        else:
-            return None
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            curs.execute("SELECT cur_svmdata from cur_svmdata WHERE cur_paper = '%s' AND cur_datatype = '%s'",
+                         (paper_id, svm_type))
+            row = curs.fetchone()
+            return row[0] if row else None
 
     def get_file_paths(self, paper_id: str):
         """
@@ -73,7 +72,8 @@ class WBPaperDBManager(WBDBManager):
         Returns:
             list[str]: a list of electronic paths to the files
         """
-        self.cur.execute("SELECT pap_electronic_path FROM pap_electronic_path WHERE joinkey = '{}' ORDER BY joinkey"
-                         .format(paper_id))
-        rows = self.cur.fetchall()
-        return [row[0] for row in rows]
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            curs.execute("SELECT pap_electronic_path FROM pap_electronic_path WHERE joinkey = '%s' ORDER BY joinkey",
+                         (paper_id, ))
+            rows = curs.fetchall()
+            return [row[0] for row in rows] if rows else []
