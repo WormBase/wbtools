@@ -10,12 +10,12 @@ class WBPersonDBManager(WBDBManager):
 
     def get_person_id_from_email_address(self, email_address):
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
-            curs.execute("SELECT * FROM two_email WHERE two_email='%s'", (email_address, ))
+            curs.execute("SELECT * FROM two_email WHERE two_email=%s", (email_address, ))
             res = curs.fetchone()
             if res:
                 return res[0]
             else:
-                curs.execute("SELECT * FROM two_old_email WHERE two_old_email='%s'", (email_address, ))
+                curs.execute("SELECT * FROM two_old_email WHERE two_old_email=%s", (email_address, ))
                 res = curs.fetchone()
                 if res:
                     return res[0]
@@ -23,7 +23,7 @@ class WBPersonDBManager(WBDBManager):
 
     def get_current_email_address_for_person(self, person_id):
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
-            curs.execute("SELECT * FROM two_email WHERE joinkey='%s'", (person_id, ))
+            curs.execute("SELECT * FROM two_email WHERE joinkey=%s", (person_id, ))
             res = curs.fetchone()
             return res[2] if res else None
 
@@ -35,6 +35,6 @@ class WBPersonDBManager(WBDBManager):
                          "ON pap_author_corresponding.author_id = pap_author_possible.author_id "
                          "JOIN pap_author on pap_author.pap_author = pap_author_corresponding.author_id "
                          "JOIN two_email ON two_email.joinkey = pap_author_possible.pap_author_possible "
-                         "WHERE pap_author.joinkey = '%s'", (paper_id, ))
+                         "WHERE pap_author.joinkey = %s", (paper_id, ))
             res = curs.fetchone()
             return [res[0]] if res else []

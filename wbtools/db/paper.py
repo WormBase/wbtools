@@ -1,4 +1,5 @@
 from typing import Union
+from psycopg2 import sql
 
 import psycopg2
 
@@ -21,7 +22,7 @@ class WBPaperDBManager(WBDBManager):
             str: the value of the specified field for the paper
         """
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
-            curs.execute("SELECT * FROM pap_%s WHERE joinkey = '%s'", (field_name, paper_id))
+            curs.execute("SELECT * FROM pap_{} WHERE joinkey = %s".format(sql.Identifier(field_name)), (paper_id, ))
             res = curs.fetchone()
             return res[1] if res else None
 
@@ -37,7 +38,7 @@ class WBPaperDBManager(WBDBManager):
     def get_pmid(self, paper_id):
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
             curs.execute(
-                "SELECT * FROM pap_identifier WHERE joinkey = '%s' AND pap_identifier LIKE 'pmid%'", (paper_id, ))
+                "SELECT * FROM pap_identifier WHERE joinkey = %s AND pap_identifier LIKE 'pmid%'", (paper_id, ))
             res = curs.fetchone()
             if res and res[1].startswith("pmid"):
                 return res[1].replace("pmid", "")
@@ -58,7 +59,7 @@ class WBPaperDBManager(WBDBManager):
                               been classified by SVMs yet
         """
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
-            curs.execute("SELECT cur_svmdata from cur_svmdata WHERE cur_paper = '%s' AND cur_datatype = '%s'",
+            curs.execute("SELECT cur_svmdata from cur_svmdata WHERE cur_paper = %s AND cur_datatype = %s",
                          (paper_id, svm_type))
             row = curs.fetchone()
             return row[0] if row else None
@@ -73,7 +74,7 @@ class WBPaperDBManager(WBDBManager):
             list[str]: a list of electronic paths to the files
         """
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
-            curs.execute("SELECT pap_electronic_path FROM pap_electronic_path WHERE joinkey = '%s' ORDER BY joinkey",
+            curs.execute("SELECT pap_electronic_path FROM pap_electronic_path WHERE joinkey = %s ORDER BY joinkey",
                          (paper_id, ))
             rows = curs.fetchall()
             return [row[0] for row in rows] if rows else []
