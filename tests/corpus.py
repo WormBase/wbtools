@@ -17,6 +17,14 @@ class TestCorpusManager(unittest.TestCase):
         self.assertTrue(cm.get_paper('00026804').get_text_docs() != "")
         self.assertGreater(len(cm.get_paper('00026804').supplemental_docs), 0)
 
+    def test_get_flat_corpus_list_and_idx_paperid_map(self):
+        cm = CorpusManager()
+        cm.load_from_dir_with_txt_files(dir_path=TESTDATA_DIR)
+        flat_list, idx_paperid_map = cm.get_flat_corpus_list_and_idx_paperid_map(tokenize=True, remove_stopwords=True,
+                                                                                 remove_alpha=True)
+        self.assertEqual(len(flat_list), len(idx_paperid_map))
+        self.assertTrue(len(idx_paperid_map[0]) == 8)
+
 
 if __name__ == '__main__':
     unittest.main()

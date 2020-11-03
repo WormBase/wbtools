@@ -53,8 +53,9 @@ class CorpusManager(object):
     def size(self):
         return len(self.corpus)
 
-    def get_flat_corpus_list_and_idx_paperid_map(self, split_sentences, remove_ref_section, lowercase, tokenize,
-                                                 remove_stopwords, remove_alpha):
+    def get_flat_corpus_list_and_idx_paperid_map(self, split_sentences: bool = False, remove_ref_section: bool = False,
+                                                 lowercase: bool = False, tokenize: bool = False,
+                                                 remove_stopwords: bool = False, remove_alpha: bool = False):
         flat_list_with_ids = [(doc, paper.paper_id) for paper in self.corpus.values() for doc in paper.get_text_docs(
             remove_ref_section=remove_ref_section, split_sentences=split_sentences,
             lowercase=lowercase, tokenize=tokenize, remove_stopwords=remove_stopwords,
