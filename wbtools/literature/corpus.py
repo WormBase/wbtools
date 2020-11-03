@@ -55,11 +55,11 @@ class CorpusManager(object):
 
     def get_flat_corpus_list_and_idx_paperid_map(self, split_sentences, remove_ref_section, lowercase, tokenize,
                                                  remove_stopwords, remove_alpha):
-        flat_list = [doc for paper in self.corpus.values() for doc in paper.get_text_docs(
+        flat_list_with_ids = [(doc, paper.paper_id) for paper in self.corpus.values() for doc in paper.get_text_docs(
             remove_ref_section=remove_ref_section, split_sentences=split_sentences,
             lowercase=lowercase, tokenize=tokenize, remove_stopwords=remove_stopwords,
             remove_alpha=remove_alpha)]
-        return flat_list, {idx: paper_id for idx, paper_id in enumerate(flat_list)}
+        return [d[0] for d in flat_list_with_ids], {idx: d[1] for idx, d in enumerate(flat_list_with_ids)}
 
     def get_paper(self, paper_id) -> WBPaper:
         return self.corpus[paper_id]
