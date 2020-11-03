@@ -1,0 +1,546 @@
+Current Biology, Vol. 15, 1695–1699, September 20, 2005, ©2005 Elsevier Ltd All rights reserved. DOI 10.1016/j.cub.2005.08.047
+
+Intraflagellar Transport
+Is Required for the Vectorial Movement
+of TRPV Channels in the Ciliary Membrane
+
+Hongmin Qin,1,3 Dylan T. Burnette,1,3
+Young-Kyung Bae,2 Paul Forscher,1
+Maureen M. Barr,2,* and Joel L. Rosenbaum1,*
+1Department of Molecular, Cellular and Developmental
+
+Biology
+
+Yale University
+New Haven, Connecticut 06511
+2 School of Pharmacy
+University of Wisconsin
+Madison, Wisconsin 53705
+
+Summary
+
+The membranes of all eukaryotic motile (9 + 2) and
+immotile primary (9 + 0) cilia harbor channels and re-
+ceptors involved in sensory transduction (reviewed
+by [1]). These membrane proteins are transported
+from the cytoplasm onto the ciliary membrane by ves-
+icles targeted for exocytosis at a point adjacent to
+the ciliary basal body [2, 3]. Here, we use time-lapse
+fluorescence microscopy to demonstrate that select
+GFP-tagged sensory receptors undergo rapid vecto-
+rial transport along the entire length of the cilia of
+Caenorhabditis elegans sensory neurons. Transient
+receptor potential vanilloid (TRPV) channels OSM-9
+and OCR-2 [4, 5] move in ciliary membranes at rates
+comparable to the intraflagellar transport (IFT) ma-
+chinery located between the membrane and the un-
+derlying axonemal microtubules [6–8]. OSM-9 motility
+is disrupted in certain IFT mutant backgrounds. Sur-
+prisingly, motility of
+receptor potential
+polycystin (TRPP) channel PKD-2 (polycystic kidney
+disease-2) [9], a mechano-receptor [10], was not de-
+tected. Our study demonstrates that IFT, previously
+shown to be necessary for transport of axonemal
+components [11], is also involved in the motility of
+TRPV membrane protein movement along cilia of C. ele-
+gans sensory cells.
+
+transient
+
+Results and Discussion
+
+Ciliary membrane proteins, synthesized on the rough
+endoplasmic reticulum, move from the Golgi in vesicles
+along microtubule tracks to a position adjacent to the
+ciliary basal body, where they undergo exocytosis [2,
+3]. From the site of exocytosis, they are able to reach
+the cilia [3] and spread throughout the ciliary mem-
+brane either by diffusion or a motor-dependent motility
+mechanism. To directly observe the dynamics of motil-
+ity of ciliary membrane proteins, we used transgenic
+Caenorhabditis elegans animals expressing GFP-tagged
+OSM-9 and OCR-2 TRPV channels. These two mem-
+brane proteins are located on sensory cilia, where they
+function in several sensory-transduction modalities, in-
+
+*Correspondence:
+pharmacy.wisc.edu [M.M.B.]
+3 These authors contributed equally to this study.
+
+joel.rosenbaum@yale.edu [J.L.R.]; mmbarr@
+
+cluding osmosensation, chemosensation, olfaction,
+and mechanosensation [4, 5]. Proper targeting to the
+cilia and functioning of these proteins requires the pres-
+ence of both proteins, suggesting that they form a pro-
+tein complex [5]. When observed by time-lapse fluores-
+cence microscopy, both OSM-9::GFP and OCR-2::
+GFP moved bidirectionally in sensory cilia (Figures 1
+and 2 and Table 1; also Movie S1 available with this
+article online). The rate of movement toward the tip was
+slower than the rate toward the cell body (Table 1), as
+reported for intraflagellar transport (IFT) [8]. To further
+compare OSM-9 and OCR-2 movement to IFT, we ana-
+lyzed the rates of anterograde and retrograde move-
+ment in the cilia of the IFT particle polypeptide OSM-6
+(IFT52)::GFP (Table 1). In both directions the rate of
+movement of OSM-9 and OCR-2 was similar to that of
+IFT, suggesting that IFT is responsible for this motility.
+However, in contrast to the continuous movement of
+IFT particles along the entire length of cilia, OSM-9 and
+OCR-2 motility was saltatory and more obvious in the dis-
+tal part of the cilium than in the proximal segment.
+OSM-9 and OCR-2 motility is, therefore, qualitatively dif-
+ferent than the continuous movement of the IFT particles.
+IFT is a motility process required for the assembly
+and maintenance of most eukaryotic cilia (reviewed by
+[12]). It has been shown to be required for the transport
+of axonemal precursors to the flagellar-tip assembly
+site and for the transport of turnover products back to
+the base [11], but its role in moving ciliary membrane
+proteins has not been demonstrated. To determine if
+IFT is involved in the vectorial transport of these TRPV
+channels in cilia, we examined the motility of OSM-
+9::GFP in IFT-defective mutants. We selected mutants
+that still possessed sensory cilia, enabling us to visual-
+ize GFP-tagged proteins in the cilia. The mutant back-
+grounds used included daf-10(p821) and che-3(e1124),
+which encode the C. elegans homologs of IFT complex
+A protein IFT122 and the retrograde IFT motor cyto-
+plasmic dynein 1b heavy chain (DHC), respectively [8,
+13, 14]. We also examined the effect of mutations in
+kinesin-2 and OSM-3 kinesin, two anterograde IFT mo-
+tors [15], on OSM-9 movement. Complex B polypeptide
+mutants, e.g., osm-6 (IFT52), osm-5 (IFT88), and osm-
+1(IFT172), were not amenable to analysis because cilia
+of this class of mutants are extremely stunted [16, 14],
+and their use in these motility studies is thus prohibited.
+In the cilia of wild-type animals, OSM-9::GFP is
+evenly distributed along the cilium (Figure 3) and moves
+at a rate similar to IFT (Figure 1 and Table1). In both
+daf-10 and che-3 mutants, however, OSM-9::GFP accu-
+mulates in aggregates along the length of the cilium
+and at the base of the cilium and is not detected mov-
+ing in the cilium (Figure 3 and data not shown). These
+results indicate that IFT is required for the proper distri-
+bution and movement of these TRPV membrane chan-
+nels in the cilium (Figure 3). Moreover, the fact that
+OCR-2 and OSM-9 are still in the cilia of the mutants,
+but are not moving, and that these organisms have sen-
+sory defects is suggestive that the motility of these
+channels is important for the sensory activity of the
+
+Current Biology
+1696
+
+Figure 1. Visualization of OSM-9::GFP Movement along Cilia
+(A) Anterograde movement of OSM-9::GFP in phasmid neuronal
+cilia. In all figures, cilia are oriented with the proximal-distal axis
+running from bottom to top. For orientation purposes, (A1) is a fluo-
+rescence micrograph of phasmid cilia (yellow box) in the C. elegans
+hermaphrodite tail. White lines were drawn to illustrate the outline
+of the animal’s body. (A2) is a higher magnification of the region
+used to record the movie (see Supplemental Data), and the yellow
+rectangle demarcates the region used to generate the montage in
+
+cilia. In Chlamydmonas, IFT is indeed required for fla-
+gellar sensory-signal transduction; when IFT is de-
+fective, mating cannot be completed even in the pres-
+ence of structurally normal flagella [17].
+
+Kinesin-2 and OSM-3-kinesin act cooperatively to
+build cilia on amphid neurons [15]. To our surprise, in
+the phasmid cilia (sensory cilia in the tail of the worm),
+OSM-9::GFP appears to move at near wild-type rates
+in the anterograde motor single-mutant backgrounds,
+including kap-1(ok676), klp-11(tm324), and osm-3(p802)
+(Table 2). Similarly, a mutation in a single anterograde
+IFT motor subunit does not stop IFT particle antero-
+grade movements in C. elegans [15]. This differs from
+the effect of anterograde IFT motor mutations in Chla-
+mydomonas flagella, where similar mutations in antero-
+grade IFT motor subunits abolish IFT particle move-
+ment [18] as well as the movement of membrane
+proteins (J.L.R. and K. Huang, unpublished data). The
+reason for the difference in effect of mutation in IFT
+anterograde kinesin motors on the movement of IFT
+particles and membrane proteins in C. elegans and
+Chlamydomonas flagella is probably that C. elegans
+has two overlapping anterograde motors [15], whereas
+Chlamydomonas has only one [18].
+
+A third membrane channel, the TRPP mechanorecep-
+tor channel PKD-2 [9], was examined for movement.
+PKD is found throughout the cilia of male-specific sen-
+sory neurons but mostly concentrates at the cilia base,
+which correlates to the distal-most dendrite and basal-
+body/transition-zone regions (Figure 4). In the IFT Com-
+plex B polypeptide mutant osm-5, the accumulation of
+PKD-2 in the membranes of stunted cilia is even more
+dramatic ([14], data not shown), suggesting that IFT
+plays a role in distributing PKD-2 throughout the cilia
+and/or recycling TRPP channels out of the cilia. To test
+this directly, we observed PKD-2::GFP within the cilia
+of wild-type males; we failed to detect any movement
+of PKD-2. These results suggest that, in contrast to the
+active transport of OSM-9 and OCR-2, PKD-2 is teth-
+ered, principally at the ciliary base, and is not actively
+moved by IFT, and the small amount that is in the cilium
+proper gets there by diffusion.
+
+Thus, there are two obvious differences between the
+two TRPV channels, OSM-9 and OCR-2, and the TRPP
+PKD2 channel
+in the cilia: The former move and are
+
+(A3). (A3) shows an OSM-9::GFP particle moving in the anterograde
+direction, underlined in yellow. (B and C) OSM-9::GFP and OSM-
+6::GFP kymographs. Fluorescence micrographs (B1 and C1) with
+arrows corresponding to phasmid cilia (B2 and C2) used to gener-
+ate kymographs for OSM-9::GFP (B3) and OSM-6::GFP (C3). Kymo-
+graphs (B3 and C3) and corresponding lines (B4 and C4) were used
+to measure the anterograde velocity of the movement. Similar ap-
+proaches were used to obtain the retrograde velocity rates. Scale
+bar = 2.5 ␮m. Panel (A) was generated from movies collected on
+an Olympus microscope equipped with a 100×, 1.35 NA objective
+lensand an Ultraview spinning-disc confocal head. Panels (B) and
+(C) were obtained with a Nikon Eclipse TE2000 microscope equipped
+with a 100×, 1.4 NA objective lens and a forced-air-cooled Photo-
+metrics Cascade 512B with a CCD87 CCD. All the images were
+collected at 200 ms per frame for 1–2 min. Transgenic animals were
+anaesthetized with 1 mM levamisole, mounted on agarose pads,
+and maintained at 22°C. Kymographs and movies were created
+with Metamorph software.
+
+IFT Required for Membrane-Channel Movement
+1697
+
+Figure 2. Visualization of OCR-2::GFP Move-
+ment along Cilia
+(A) Anterograde movement of OCR-2::GFP in
+amphid neuronal cilia. Cilia are oriented with
+the proximal-distal axis running from bottom
+to top. (A1) OCR-2::GFP localization in cilia,
+with the yellow rectangle demarcating the
+region used to generate the montage in (A2).
+(A2) shows an OCR-2::GFP particle moving
+in the anterograde direction, underlined in
+yellow. (B1) Fluorescence micrograph of the
+phasmid cilia used to generate kymographs
+for OCR-2::GFP. (B2) Arrow delineating the
+line used to generate the kymograph (B3).
+Kymograph (B3) and corresponding lines
+(B4) used to measure the anterograde veloc-
+ity of OCR-2::GFP movement. Similar ap-
+proaches were used to obtain the retrograde
+velocity. The scale bar represents 2.5 ␮m.
+
+found uniformly distributed along the cilium, whereas
+the latter does not move, is greatly enriched at the cilia
+base, and is present at much lower and variable levels
+along the length of the cilium. These differences may
+be due to the nature of the receptors. OSM-9 and OCR-2
+are involved in chemosensation as demonstrated by
+the inability of the mutants to perceive and respond to
+changes in osmolarity and chemical stimuli. On the
+other hand, mammalian PKD2/polycystin 2 acts as a
+mechanosensor in the kidney, where it is found on the
+primary cilia of renal epithelial cells that sense fluid flow
+[19] and mediates calcium influx in response to physio-
+logical fluid flow [10]. What stimulates PKD2 in C. ele-
+gans is less clear, but mechanosensation could be in-
+
+volved in locating the vulva [20], the mating process in
+which PKD-2 is known to function [9]. These differ-
+ences in function of the channels could explain their
+different distribution and motilities. The chemosensors
+are moving and spread all over the cilium to maximize
+the amount of external medium with which they come
+in contact. The mechanosensors are concentrated near
+the base of the cilium (Figure 4), the ideal location to
+sense and react to movements of the cilium.
+
+Why might the movement of channels and receptors
+be important for certain ciliary sensory function? The
+movement could provide a mechanism for receptors or
+channels to communicate with signaling molecules lo-
+calized around the basal body/centriole, where there is
+
+Table 1. Bidirectional-Movement Velocities of OSM-6::GFP, OSM-9::GFP, and OCR-2::GFP in the Phasmid Cilia of Wild-Type C. elegans
+
+Transgenic Strain
+
+Average Velocity (␮m/s)
+
+Number of Cilia/Number
+of GFP Particles
+
+Anterograde (from ciliary base to the tip)
+
+Retrograde (from ciliary tip to the base)
+
+OSM-6::GFP
+OSM-9::GFP
+OCR-2::GFP
+
+OSM-6::GFP
+OSM-9::GFP
+OCR-2::GFP
+
+0.70 +/− 0.07
+0.70 +/− 0.17
+0.86 +/− 0.19
+
+1.00 +/− 0.12
+1.21 +/− 0.17
+1.23 +/− 0.10
+
+12/123
+11/88
+11/88
+
+12/106
+9/45
+9/45
+
+Current Biology
+1698
+
+Figure 3. OSM-9::GFP Ciliary Distribution Pattern in Sensory Neurons of Wild-Type and IFT Mutant C. elegans
+(A and B) Cartoons depicting outer-labial quadrant neuron (OLQ) and phasmid cilia, respectively. Dendrites are color coded white, the
+transition-zone/basal-body region is indicated by a red bead, and cilia are colored dark gray. The outline of the worm head and tail are
+shaded light gray.
+(C and D) In wild-type, OSM-9::GFP is concentrated in OLQ (C) and phasmid cilia (D). In other sensory cilia in the head, the OSM-9::GFP
+signal is very dim [4].
+(E and F) In the daf-10(p821) mutant [27], OSM-9::GFP forms abnormally large aggregates at the base of, or within, OLQ and phasmid
+cilia (arrowheads).
+(G and H) In the che-3(e1124) mutant [28], OSM-9::GFP forms large puncta within OLQ cilia or aggregates at the ciliary base. In che-3 phasmid
+cilia, OSM-9::GFP concentrates in enlarged bulb-like cilia (arrow). All the images are 2D projections generated on an Olympus microscope
+equipped with a 100×, 1.35 NA objective lens and an Ultraview spinning-disc confocal head. The scale bar represents 5 ␮m.
+
+Table 2. Anterograde Velocities of OSM-9::GFP in Kinesin-2
+Mutant Backgrounds
+
+Mutant Strain
+
+Average Velocity
+(␮m/sec)
+
+Number of Cilia/Number
+of GFP Particles
+
+kap-1
+klp-11
+osm-3
+
+0.91 +/− 0.21
+0.86 +/− 0.18
+0.92 +/− 0.16
+
+4/32
+6/48
+11/88
+
+a reservoir of IFT particles and other ciliary proteins
+[21–23], such as the protein kinases involved in signal-
+ing pathways controlling the cell cycle [24]. In this man-
+ner, sensory receptors and the IFT machinery may initi-
+ate retrograde signaling from the environment, along
+the cilium, through the dendrite, and finally to the cell
+body and nucleus.
+
+In addition, ciliary movement of membrane receptors
+may serve as a mechanism to control the number, activ-
+ity, and turnover of receptors and channels on the cili-
+
+Figure 4. PKD-2::GFP Ciliary Distribution in Wild-Type Sensory Neurons
+(A) A diagram showing the distribution of PKD-2::GFP in the ciliary axonemes and bases of cilia of cephalic male-specific (CEM) head neurons.
+(B–D) PKD-2::GFP is enriched in the base of cilia and is also distributed along the ciliary axoneme. (B) A fluorescent image of an adult male
+head expressing PKD-2::GFP. (C) The CEM neuronal cilia labeled with β-tubulin (Ppkd-2:TBB-4::DsRed2) to show the position of cilia. (D)
+Merged image with a differential interference contrast (DIC) image underlaid. The confocal image was collected with a 63×, 1.4 N.A. objective
+lens on a BioRad MRC 1024 laser-scanning microscope (Lasersharp2000TM software) and projected as a Z series. The scale bar represents
+5 ␮m.
+
+IFT Required for Membrane-Channel Movement
+1699
+
+ary membrane. In the outer segment of mammalian
+photoreceptors, rapid protein turnover is essential for
+normal cellular maintenance, with defects in IFT result-
+ing in retinal degeneration [25, 26].
+
+IFT is a motility process that is fundamental to all
+aspects of ciliary assembly, maintenance, and function.
+Inhibiting IFT may stop the movement of membrane
+proteins because they are cargo of this transport sys-
+tem as suggested by the results of this study; alterna-
+tively, the effect may be less direct. Membrane proteins
+may move by an uncharacterized motor, and their
+movement may stop because of the general infirmity of
+the cilia with attenuated IFT. IFT-dependent movement
+of ciliary membrane proteins has also been seen in
+Chlamydomonas ([6]; J.L.R. and K. Huang, unpublished
+data), and it may be that in this organism in which the
+flagella can be isolated, the binding partners of these
+membrane proteins and the motors responsible for their
+movement will be identified.
+
+Supplemental Data
+A supplemental movie may be found with this article online at
+http://www.current-biology.com/cgi/content/full/15/18/1695/DC1/.
+
+Acknowledgments
+
+We thank Antony Jose and Michael Koelle for the OCR-2::GFP
+strain, Cori Bargmann for the OSM-9::GFP strain, and the Caeno-
+rhabditis Genetics Center for strains. We are also grateful to Jona-
+than Scholey for critical comments on this manuscript and to Den-
+nis Diener for insightful discussions throughout the course of this
+work. The Barr laboratory is a member of the Johns Hopkins Uni-
+versity Polycystic Kidney Disease Center for Excellence. This re-
+search was supported by grants from the Natioal
+Institutes of
+Health (to M.M.B. and J.L.R.) and the Polycystic Kidney Disease
+Foundation (to M.M.B. and H.Q.).
+
+Received: June 15, 2005
+Revised: August 1, 2005
+Accepted: August 9, 2005
+Published: September 20, 2005
+
+References
+
+1. Pazour, G.J., and Witman, G.B. (2003). The vertebrate primary
+cilium is a sensory organelle. Curr. Opin. Cell Biol. 15, 105–110.
+2. Deretic, D., and Papermaster, D.S. (1991). Polarized sorting of
+rhodopsin on post-Golgi membranes in frog retinal photore-
+ceptor cells. J. Cell Biol. 113, 1281–1293.
+
+3. Rogalski, A.A., and Bouck, G.B. (1982). Flagellar surface anti-
+gens in Euglena: Immunological evidence for an external glyco-
+protein pool and its transfer to the regenerating flagellum. J.
+Cell Biol. 93, 758–766.
+
+4. Colbert, H.A., Smith, T.L., and Bargmann, C.I. (1997). OSM-9, a
+novel protein with structural similarity to channels, is required
+for olfaction, mechanosensation, and olfactory adaptation in
+Caenorhabditis elegans. J. Neurosci. 17, 8259–8269.
+
+5. Tobin, D., Madsen, D., Kahn-Kirby, A., Peckol, E., Moulder, G.,
+Barstead, R., Maricq, A., and Bargmann, C. (2002). Combinato-
+rial expression of TRPV channel proteins defines their sensory
+functions and subcellular localization in C. elegans neurons.
+Neuron 35, 307–318.
+
+6. Kozminski, K.G., Johnson, K.A., Forscher, P., and Rosenbaum,
+J.L. (1993). A motility in the eukaryotic flagellum unrelated to
+flagellar beating. Proc. Natl. Acad. Sci. USA 90, 5519–5523.
+
+7. Orozco, J.T., Wedaman, K.P., Signor, D., Brown, H., Rose, L.,
+and Scholey, J.M. (1999). Movement of motor and cargo along
+cilia. Nature 398, 674.
+
+8. Signor, D., Wedaman, K.P., Orozco, J.T., Dwyer, N.D., Barg-
+mann, C.I., Rose, L.S., and Scholey, J.M. (1999). Role of a class
+
+DHC1b dynein in retrograde transport of IFT motors and IFT
+raft particles along cilia, but not dendrites, in chemosensory
+neurons of living Caenorhabditis elegans. J. Cell Biol. 147,
+519–530.
+
+9. Barr, M.M., DeModena, J., Braun, D., Nguyen, C.Q., Hall, D.H.,
+and Sternberg, P.W. (2001). The Caenorhabditis elegans au-
+tosomal dominant polycystic kidney disease gene homologs
+lov-1 and pkd-2 act in the same pathway. Curr. Biol. 11, 1341–
+1346.
+
+10. Nauli, S.M., Alenghat, F.J., Luo, Y., Williams, E., Vassilev, P., Li,
+X., Elia, A.E., Lu, W., Brown, E.M., Quinn, S.J., et al. (2003).
+Polycystins 1 and 2 mediate mechanosensation in the primary
+cilium of kidney cells. Nat. Genet. 33, 129–137.
+
+11. Qin, H., Diener, D.R., Geimer, S., Cole, D.G., and Rosenbaum,
+J.L. (2004). Intraflagellar transport (IFT) cargo: IFT transports
+flagellar precursors to the tip and turnover products to the cell
+body. J. Cell Biol. 164, 255–266.
+
+12. Rosenbaum, J.L., and Witman, G.B. (2002). Intraflagellar trans-
+
+port. Nat. Rev. Mol. Cell Biol. 3, 813–825.
+
+13. Wicks, S.R., de Vries, C.J., van Luenen, H.G., and Plasterk, R.H.
+(2000). CHE-3, a cytosolic dynein heavy chain, is required for
+sensory cilia structure and function in Caenorhabditis elegans.
+Dev. Biol. 221, 295–307.
+
+14. Qin, H., Rosenbaum, J.L., and Barr, M.M. (2001). An autosomal
+recessive polycystic kidney disease gene homolog is involved
+in intraflagellar transport in C. elegans ciliated sensory neu-
+rons. Curr. Biol. 11, 457–461.
+
+15. Snow, J.J., Ou, G., Gunnarson, A.L., Walker, M.R., Zhou, H.M.,
+Brust-Mascher, I., and Scholey, J.M. (2004). Two anterograde
+intraflagellar transport motors cooperate to build sensory cilia
+on C. elegans neurons. Nat. Cell Biol. 6, 1109–1113.
+
+16. Perkins, L.A., Hedgecock, E.M., Thomson, J.N., and Culotti,
+J.G. (1986). Mutant sensory cilia in the nematode Caenorhab-
+ditis elegans. Dev. Biol. 117, 456–487.
+
+17. Pan, J., and Snell, W.J. (2002). Kinesin-II is required for flagellar
+sensory transduction during fertilization in Chlamydomonas.
+Mol. Biol. Cell 13, 1417–1426.
+
+18. Kozminski, K.G., Beech, P.L., and Rosenbaum, J.L. (1995). The
+Chlamydomonas kinesin-like protein FLA10 is involved in mo-
+tility associated with the flagellar membrane. J. Cell Biol. 131,
+1517–1527.
+
+19. Praetorius, H.A., and Spring, K.R. (2001). Bending the MDCK
+cell primary cilium increases intracellular calcium. J. Membr.
+Biol. 184, 71–79.
+
+20. Barr, M.M., and Sternberg, P.W. (1999). A polycystic kidney-
+disease gene homologue required for male mating behaviour
+in C. elegans. Nature 401, 386–389.
+
+21. Cole, D.G., Diener, D.R., Himelblau, A.L., Beech, P.L., Fuster,
+J.C., and Rosenbaum, J.L. (1998). Chlamydomonas kinesin-II-
+dependent intraflagellar transport (IFT): IFT particles contain
+proteins required for ciliary assembly in Caenorhabditis ele-
+gans sensory neurons. J. Cell Biol. 141, 993–1008.
+
+22. Deane, J.A., Cole, D.G., Seeley, E.S., Diener, D.R., and Rosen-
+baum, J.L. (2001). Localization of intraflagellar transport pro-
+tein IFT52 identifies basal body transitional fibers as the dock-
+ing site for IFT particles. Curr. Biol. 11, 1586–1590.
+
+23. Badano, J.L., Teslovich, T.M., and Katsanis, N. (2005). The centro-
+
+some in human genetic disease. Nat. Rev. Genet. 6, 194–205.
+
+24. Bradley, B.A., and Quarmby, L.M. (2005). A NIMA-related ki-
+nase, Cnk2p, regulates both flagellar length and cell size in
+Chlamydomonas. J. Cell Sci. 118, 3317–3326.
+
+25. Marszalek, J.R., Liu, X., Roberts, E.A., Chui, D., Marth, J.D.,
+Williams, D.S., and Goldstein, L.S. (2000). Genetic evidence for
+selective transport of opsin and arrestin by kinesin-II in mam-
+malian photoreceptors. Cell 102, 175–187.
+
+26. Pazour, G.J., Baker, S.A., Deane, J.A., Cole, D.G., Dickert, B.L.,
+Rosenbaum, J.L., Witman, G.B., and Besharse, J.C. (2002). The
+intraflagellar transport protein, IFT88, is essential for vertebrate
+photoreceptor assembly and maintenance. J. Cell Biol. 157,
+103–113.
+
+27. Culotti, J.G., and Russell, R.L. (1978). Osmotic avoidance de-
+fective mutants of the nematode Caenorhabditis elegans. Ge-
+netics 90, 243–256.
+
+28. Lewis, J.A., and Hodgkin, J.A. (1977). Specific neuroanatomical
+changes in chemosensory mutants of the nematode Caeno-
+rhabditis elegans. J. Comp. Neurol. 172, 489–510.
+
+

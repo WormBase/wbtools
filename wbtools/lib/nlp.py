@@ -1,3 +1,5 @@
+import itertools
+
 from gensim.models import KeyedVectors
 from nltk import word_tokenize
 from nltk.corpus import stopwords
@@ -42,8 +44,13 @@ def preprocess(doc, lower: bool = False, tokenize: bool = False, remove_stopword
     return doc
 
 
-def get_softcosine_index(model_path, corpus_list_token):
-    model = KeyedVectors.load_word2vec_format(model_path, binary=True)
+def get_softcosine_index(model_path: str = '', model=None, corpus_list_token: list = None):
+    if model_path:
+        model = KeyedVectors.load_word2vec_format(model_path, binary=True)
+    elif model:
+        model = model.wv
+    else:
+        raise Exception('no model or model path provided')
     termsim_index = WordEmbeddingSimilarityIndex(model)
     dictionary = Dictionary(corpus_list_token)
     bow_corpus = [dictionary.doc2bow(doc) for doc in corpus_list_token]
@@ -52,7 +59,7 @@ def get_softcosine_index(model_path, corpus_list_token):
 
 
 def get_similar_documents(similarity_index, dictionary, query_documents, idx_filename_map):
-    sims = similarity_index[dictionary.doc2bow(" ".join(query_documents))]
+    sims = similarity_index[dictionary.doc2bow(list(itertools.chain.from_iterable(query_documents)))]
     result_list = [idx_filename_map[i] for i in [a[0] for a in sims]]
     score_list = [a[1] for a in sims]
     return [(score, result) for score, result in zip(score_list, result_list)]

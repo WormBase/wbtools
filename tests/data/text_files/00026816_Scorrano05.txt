@@ -1,0 +1,739 @@
+Journal of Bioenergetics and Biomembranes, Vol. 37, No. 3, June 2005 ( C(cid:1) 2005)
+DOI: 10.1007/s10863-005-6572-x
+
+Proteins That Fuse and Fragment Mitochondria in Apoptosis:
+Con-Fissing a Deadly Con-Fusion?
+
+Luca Scorrano1
+
+During apoptosis, mitochondria undergo multiple changes that culminate in the release of cytochrome
+c and other proapoptotic cofactors. Recently, a role for previously overlooked morphological changes,
+ﬁssion of the mitochondrial reticulum and remodeling of mitochondrial cristae, has been suggested
+in mammalian cells and in developmental apoptosis of C. elegans. Mitochondrial morphology is
+determined by fusion and ﬁssion processes, controlled by a growing set of “mitochondria-shaping”
+proteins, whose levels and function appear to regulate the mitochondrial pathways of cell death.
+Expression of pro-fusion proteins, as well as of inhibition of pro-ﬁssion molecules reduces apoptosis,
+suggesting a linear relationship between fragmentation and death. Mechanisms by which mitochon-
+drial fragmentation promotes apoptosis and interactions between fragmentation and remodeling of
+the inner membrane are largely unclear. A tempting, unifying hypothesis suggests that ﬁssion is
+coupled to cristae remodeling to maximize cytochrome c release.
+
+KEY WORDS: Mitochondria; fusion; ﬁssion; apoptosis; cytochrome c; dynamin-related protein 1; OPA1;
+mitofusin; BCL-2 family members.
+
+Mitochondria are crucial organelles for life and death
+of the cell. They produce most of the ATP needed for en-
+doergonic processes and are strategically located at the
+sites of greater energy demand. They modulate cytoso-
+lic Ca2+
+transients, hence regulating complex signaling
+processes (Duchen, 2000; Orrenius et al., 2003; Rizzuto
+et al., 2000). The discovery by Korsmeyer and coworkers
+that the antiapoptotic oncogene BCL-2 targets its prod-
+uct to mitochondria (Hockenbery et al., 1990) suggested
+that they also play a crucial role in controlling cell death.
+This was subsequently substantiated by an enormous body
+of evidence showing that during apoptosis mitochondria
+integrate diverse stimuli by releasing protein cofactors
+needed for the efﬁcient activation of effector caspases in
+the cytosol [for a review, see for example (Danial and
+Korsmeyer, 2004; Green and Reed, 1998; Wang, 2001)].
+This release is either accompanied or preceded by mito-
+chondrial dysfunction, an issue beyond the topic of this
+review, but exhaustively addressed by other papers in this
+issue and for example by (Bernardi et al., 2001; Green and
+
+1 Dulbecco-Telethon Institute, Venetian Institute of Molecular Medicine,
+Via Orus 2, I-35129 Padova, Italy; e-mail: luca.scorrano@unipd.it.
+
+Kroemer, 2004). Notwithstanding the recognition of a cru-
+cial involvement of mitochondria in apoptosis, the initial
+observation that mitochondrial structure was untouched
+during the process, as opposed to what happened dur-
+ing necrotic death, held true for several years and is still
+widely accepted. As a discriminating criterion between
+necrosis and apoptosis, Pathology textbooks often indi-
+cate the absence of mitochondrial structural changes in
+the latter. Alterations in mitochondrial morphology were
+occasionally reported during apoptosis (De Vos et al.,
+1998; Mancini et al., 1997; Mootha et al., 2001; Sanchez-
+Alcazar et al., 2001), but their functional role in pro-
+grammed cell death was unclear and they were often
+considered as epiphenomena of the caspase-operated cell
+dismantling process. Our understanding of the functional
+role of mitochondrial structural changes during apopto-
+sis greatly improved in the last years. This was mainly
+the consequence of a deeper knowledge of the molecular
+machinery of mitochondrial fusion and ﬁssion, and of the
+use of powerful techniques of electron tomography (ET)
+coupled to 3D image reconstruction to investigate mito-
+chondrial structure during apoptosis. Here we will discuss
+in some details the mechanisms that could participate in
+
+165
+
+0091-0627/05/0600-0165/0 C(cid:1) 2005 Springer Science+Business Media, Inc.
+
+166
+
+Scorrano
+
+the regulation of inner mitochondrial membrane remod-
+eling during apoptosis; and the possible relationship be-
+tween dynamics of the inner membrane and that of the
+mitochondrial reticulum.
+
+THE MOLECULAR TOOLKIT FOR
+MITOCHONDRIAL FUSION AND
+FRAGMENTATION
+
+Mitochondria are double-membrane bounded or-
+ganelles. It is reasonable to think that fusion-ﬁssion pro-
+cesses are therefore highly complex, since they can act on
+the two membranes coordinately or separately. A further
+level of complexity is added by the organization of the
+mitochondrial inner membrane into cristae. Altogether,
+these considerations call for a precise regulation of mi-
+tochondrial dynamics. “Mitochondria-shaping” proteins,
+characterized originally in the budding yeast, include both
+pro-fusion and pro-ﬁssion members (Shaw and Nunnari,
+2002). Several other mitochondria-shaping proteins have
+been identiﬁed in a screening of a yeast petite mutant
+library (Dimmer et al., 2002), further conﬁrming how
+tightly regulated is this process.
+
+et al., 1999). Thus, inner membrane ﬁssion persists even
+when outer membrane ﬁssion is blocked. A possible
+participant in inner membrane ﬁssion is Mdm33p, an
+inner mitochondrial membrane protein with predicted
+coiled-coil domains whose over expression leads to
+formation of inner membrane septa followed by ﬁssion of
+the mitochondrial reticulum (Messerschmitt et al., 2003).
+Fusion process also involves proteins localized
+both at the outer and at the inner mitochondrial mem-
+brane. A crucial role has been ascribed to the GTPase
+Fzo1p (Hermann et al., 1998; Rapaport et al., 1998),
+which protrudes towards the cytosol,
+interplays with
+the adapter Ugo1p in the outer membrane (Sesaki and
+Jensen, 2001), and associates with the inner membrane
+dynamin-related protein Mgm1p to coordinate the fu-
+sion of the four membranes of two juxtaposed mito-
+chondria (Sesaki et al., 2003b; Wong et al., 2000; Wong
+et al., 2003). Mgm1p is cleaved and presumably acti-
+vated by Ugo2p/Pcp1p/Rbd1p, a rhomboid-like protease
+of the inner mitochondrial membrane (Herlan et al., 2003;
+McQuibban et al., 2003; Sesaki et al., 2003a). In vitro as-
+says of reconstituted mitochondrial fusion indicate the re-
+quirement of mitochondrial membrane potential for inner
+membrane fusion.
+
+Fusion and Fission in Budding Yeast
+
+Fusion and Fission in Mammalian Cells
+
+Among the many genes discovered to affect mito-
+chondrial morphology in yeast, some encode for “mas-
+ter” proteins that are essential components of the import
+machinery (Meisinger et al., 2004) or are structural com-
+ponents of the lid of the proteasome (Rinaldi et al., 1998).
+Their effect on mitochondrial shape is therefore a sec-
+ondary to their primary general function. Other proteins
+directly control the fusion–ﬁssion equilibrium and we will
+analyze them in deeper detail.
+
+Fission of mitochondrial membranes is accom-
+plished by the recruitment of
+the dynamin-related
+large GTPase Dnm1p to the outer membrane, where it
+complexes with the adapter Mdv1p and the integral outer
+membrane protein Fis1p (Bleazard et al., 1999; Mozdy
+et al., 2000; Sesaki and Jensen, 1999; Tieu et al., 2002).
+Another protein, Gag3p, interacts with Dnm1p in a yeast
+two-hybrid assay and might function as an essential
+component of the severing machinery (Fekkes et al.,
+2000). How inner mitochondrial membrane is severed
+is still unclear, but experimental evidences suggest that
+separate ﬁssion machinery exists. In Caenorhabditis
+elegans, expression of dominant negative mutants of
+DRP-1, the homologue of yeast Dnm1, results in frag-
+mented matrix compartments, which are still connected
+each other by tubules of outer membrane (Labrousse
+
+Mammalian orthologues of DNM1 and FIS1, called
+dynamin-related protein-1 (Drp-1) and hFis1, respec-
+tively, have been identiﬁed and shown to participate in mi-
+tochondrial ﬁssion (James et al., 2003a; Labrousse et al.,
+1999; Smirnova et al., 2001). Levels of DRP-1 control
+mitochondrial ﬁssion and DRP-1 is rapidly degraded, un-
+less protected by sumoylation by SUMO1 (Harder et al.,
+2004). Endophilin B1, a fatty acyl transferase belong-
+ing to a family involved in endocytic vesicle formation,
+controls ﬁssion of mitochondrial outer membranes, prob-
+ably downstream of DRP-1 (Karbowski et al., 2004b). No
+homologues of mdm33p have been identiﬁed so far, but
+silencing of mitoﬁlin, a protein of the inner mitochondrial
+membrane, has been reported to cause the disappearance
+of regular cristae (John et al., 2005). The associated mi-
+tochondrial dysfunction questions its speciﬁcity and calls
+for deeper analysis.
+
+Two FZO1 homologues have been identiﬁed, mito-
+fusin (Mfn) 1 and 2 (Rojo et al., 2002; Santel et al., 2003;
+Santel and Fuller, 2001). Both are required for embryonic
+development, as substantiated by their genetic ablation in
+the mouse (Chen et al., 2003), but it is unclear whether
+Mfn redundancy reﬂects functional differences between
+MFN1 and MFN2. MFN1 structure has been deeply inves-
+tigated, identifying a heptad-repeat region that mediates
+
+Apoptosis and Mitochondrial Fusion–Fission
+
+167
+
+mitochondrial tethering by homotypic trans interaction
+prior to fusion (Koshiba et al., 2004). Several functional
+data recently emerged on MFN2: inactivating mutations
+have been associated with Charcot-Marie-Tooth type IIa
+axonal neuropathy (Kijima et al., 2005; Zuchner et al.,
+2004); levels of MFN2 are reduced in obese patients
+(Bach et al., 2003) and its overexpression can inhibit
+neointimal proliferation in rodent models of hypertension
+(Chen et al., 2004); ability of MFN2 to promote mito-
+chondrial fusion is lower than MFN1, correlating with its
+GTPase activity (Ishihara et al., 2004). The mammalian
+orthologue of mgm1p is the inner membrane dynamin-
+related protein OPA1. Mutations in Opa1 are associated
+with autosomal dominant optic atrophy (DOA), the lead-
+ing cause of inherited blindness (Alexander et al., 2000;
+Delettre et al., 2000). Function of OPA1 is unclear as
+well as its interaction with other mitochondria shaping
+proteins. It has been proposed that OPA1 participates in
+a ﬁssion/fragmentation pathway (Griparic et al., 2004;
+Misaka et al., 2002; Satoh et al., 2003) or in the mainte-
+nance of the structural integrity of the mitochondrial retic-
+ulum (Olichon et al., 2003). We therefore took a genetic
+approach to investigate the role of OPA1 in shaping mito-
+chondria. OPA1 promotes the formation of a branched net-
+work of tubular and interconnected mitochondria, which
+spans the entire volume of the cytoplasm, as substantiated
+by 3D-image reconstruction and volumetric rendering of
+stacks of mitochondrial images. Reduction of OPA1 lev-
+els by RNA interference (RNAi) results in globular and
+fragmented mitochondria as a consequence of reduced fu-
+sion, speciﬁcally measured by polyethylene glycol (PEG)
+fusion assays. On the other hand, expression of OPA1 in-
+creases mitochondrial fusion rates. A genetic dissection
+of the determinants of OPA1 function reveals an abso-
+lute requirement for MFN1 but not for MFN2. In com-
+plex, OPA1 impinges on MFN1-dependent fusion to regu-
+late morphology of the mitochondrial reticulum (Cipolat
+et al., 2004). Our results raise the question of whether
+OPA1 functions primarily at the level of inner membrane,
+or it acts as a global controller of the mitochondrial retic-
+ulum. This question appears crucial, not only to under-
+stand the pathogenesis of dominant optic atrophy in which
+OPA1 is mutated, but also to clarify the relative role of
+fusion/ﬁssion of the mitochondrial reticulum vs. changes
+in the mitochondrial ultrastructure during apoptosis.
+
+STRUCTURE OF MITOCHONDRIAL
+INNER MEMBRANE
+
+The complexity of mitochondrial dynamics is fur-
+ther bamboozled by the ultrastructural organization of
+
+the inner membrane. Mitochondrial cristae, which ac-
+cording to the Palade’s model were widely opened baf-
+ﬂes of the inner membrane (Palade, 1952), have been
+identiﬁed as a separate compartment connected by nar-
+row tubular junctions to the thin intermembrane space
+(Frey and Mannella, 2000). This structural organiza-
+tion raises two crucial questions: which molecules de-
+termine its formation, and which are its functional
+consequences.
+
+To date, no single mitochondria-shaping protein has
+been identiﬁed to affect only cristae structure. In the bud-
+ding yeast, mdm33p as well as mgm1p are required for
+normal cristae morphology and at the same time for an ap-
+propriate mitochondrial reticulum (Messerschmitt et al.,
+2003; Sesaki et al., 2003b; Shepard and Yaffe, 1999; Wong
+et al., 2000; Wong et al., 2003). In mammalian cells, lev-
+els of OPA1 regulate both mitochondrial ultrastructure
+and shape of the mitochondrial reticulum (Cipolat et al.,
+2004; Griparic et al., 2004; Olichon et al., 2003). Genetic
+tools will probably help us in dissecting the molecular
+machinery that regulates cristae morphology. For exam-
+ple, our recent discovery that OPA1 needs MFN1 to reg-
+ulate dynamics of the mitochondrial reticulum (Cipolat
+et al., 2004), suggests that OPA1 could have a further
+function in regulating shape of the cristae, this time inde-
+pendently from outer membrane fzo1p homologues. Such
+a scenario would dissociate genetically and functionally
+the effects of OPA1 on the inner vs. those on the outer
+membrane.
+
+It has been proposed that mdm38p, which is tar-
+geted to the inner mitochondrial membrane, plays a
+role in regulating its shape (Dimmer et al., 2002).
+This raised considerable interest, since its human ho-
+mologue LETM1 is downregulated in Wolff–Hirschhorn
+syndrome, a complex genetic disease (Endele et al.,
+1999; Schlickum et al., 2004). Recent evidences point
+home-
+to a role for mdm38p in mitochondrial K
+ostasis rather than as a mitochondria-shaping protein
+(Nowikovsky et al., 2004). These ﬁndings leave mito-
+chondrial inner membrane still without a speciﬁc shaping
+protein.
+
++
+
+Functional consequences of the inner mitochondrial
+membrane compartmentalization have been revealed by
+both in silico and wet biology approaches. Computer-
+modeling studies suggested gradients of ions and small
+molecules along the narrow tubular junction of the cristae.
+(Mannella et al., 2001). These junctions are responsible
+for the segregation of cytochrome c in the cristae com-
+partment (Bernardi and Azzone, 1981; Scorrano et al.,
+2002), where the majority of the respiratory chain com-
+plexes also localize (D’Herde et al., 2001; Perotti et al.,
+1983).
+
+168
+
+Scorrano
+
+DYNAMIC OF MITOCHONDRIAL INNER
+MEMBRANE DURING APOPTOSIS
+
+Intramitochondrial compartmentalization of cy-
+tochrome c raised the question of how its release can
+be fast and complete in the absence of mitochondrial
+swelling. We showed that “BH3-only” members of the
+BCL-2 family accomplished it by inducing a profound
+remodeling of the cristae, with fusion of the individual
+cristae and widening of the narrow tubular junction up
+to 70 nm. These changes increase the amount of free cy-
+tochrome c that redistributes to the intermembrane space,
+from where it can be released in the cytosol trough outer
+membrane pathways (Scorrano et al., 2002). A major
+dilemma is to understand the molecular mechanisms that
+regulate not only cristae formation, but also their remod-
+eling during apoptosis. A natural candidate for this has
+been suggested in OPA1, which is located at the inner mi-
+tochondrial membrane. Down regulation of OPA1 levels
+causes mitochondrial fragmentation and dysfunction, with
+release of cytochrome c and apoptosis. These are accom-
+panied by morphological changes of the cristae (Olichon
+et al., 2003), raising the possibility that OPA1 is required
+for the maintenance of their shape. Alternatively, cristae
+changes could be a consequence of the mitochondrial frag-
+mentation induced by silencing of OPA1.
+
+The relationship between ﬁssion and remodeling of
+the inner mitochondrial membrane is poorly understood,
+but a recent work by Shore and coworkers shed new light
+on this. In a set of elegant experiments, they showed that
+during apoptosis, mitochondrial Ca2+
+uptake results in
+DRP-1 mediated mitochondrial ﬁssion and remodeling of
+the cristae (Germain et al., 2005). The latter is sensitive
+to cyclosporine A, which blocks the permeability transi-
+tion pore, a large conductance, voltage dependent channel
+of the inner mitochondrial membrane (Bernardi, 1999)
+involved in cristae remodeling (Scorrano et al., 2002).
+These results raise the intriguing possibility that ﬁssion is
+coupled to cristae remodeling trough a yet unknown sig-
+nal that propagates from DRP-1 to the inner mitochondrial
+membrane. They also call for additional evidence before
+concluding that OPA1 controls cristae morphology. An
+answer could come from overexpression experiments fol-
+lowed by analysis of the shape of the inner membrane in
+normal and apoptotic mitochondria. These experiments,
+coupled to analyses of intramitochondrial cytochrome c
+redistribution, should also answer to another unresolved
+question: how does OPA1 control the formation and main-
+tenance of the narrow tubular junction? In analogy to the
+function of classic dynamins that tubulate membranes by
+forming a homopolymeric tangle of interconnected sub-
+units around the lipid bundle, it has been proposed that
+
+OPA1 generates and maintains the narrow tubular junc-
+tion of the cristae (Shaw and Nunnari, 2002). The general
+consensus is that OPA1 is located at the inner mitochon-
+drial membrane, facing the intermembrane space (Olichon
+et al., 2002; Wong et al., 2000). A tempting hypothesis
+is that a ring of OPA1 molecules, inserted or attached
+to the neck of the cristae junction, works by pulling the
+membrane from inside. This model would be compatible
+with the existence of two pools of OPA1, one that reg-
+ulates mitochondrial fusion together with MFN1 and is
+inserted in the inner membrane, the other only loosely at-
+tached to the membrane, perhaps localized at the neck of
+the cristae junction, where it controls the diameter of this
+structure. The double pool of OPA1 molecules could rep-
+resent the mammalian counterpart of mgm1p processing
+by pcp1p in the yeast (Herlan et al., 2003; McQuibban
+et al., 2003), a protease belonging to the family of rhom-
+boid intramembranous proteases that localizes to the inner
+mitochondrial membrane. To this end it will be essential
+to understand whether PARL, the mammalian homologue
+of pcp1p, processes OPA1.
+
+MITOCHONDRIAL FISSION AND APOPTOSIS:
+WHICH ROLE FOR THE INNER MEMBRANE?
+
+A set of evidences suggests that mitochondrial ﬁssion
+is an early step during apoptosis. Death by mitochondria-
+utilizing intrinsic stimuli is accompanied by mitochon-
+drial fragmentation and blunted by dominant negative
+DRP-1 (Frank et al., 2001). Further analysis revealed
+that early in the course of cell death, MFN1 depen-
+dent mitochondrial fusion is largely inhibited (Karbowski
+et al., 2004a) and combined overexpression of MFN1 and
+MFN2 protects from death by intrinsic stimuli like etopo-
+side and BID (Sugioka et al., 2004). Similarly, expression
+of hFis1 results in cytochrome c release and death (James
+et al., 2003b) and its downregulation by RNA interfer-
+ence prevents apoptosis to a greater extent than DRP-1
+silencing (Lee et al., 2004). A crucial role for the ﬁssion
+machinery seems to be conﬁrmed also by results obtained
+in the yeast, where DRP-1 homologue dnm1p mediates
+mitochondrial fragmentation and death following several
+stimuli, suggesting an old evolutionary role for mitochon-
+drial ﬁssion in death (Fannjiang et al., 2004). In complex,
+these data seem to establish a linear correlation between
+fragmentation and apoptosis, but the picture is probably
+not so simple. First, not always ﬁssion promotes apopto-
+sis, as conﬁrmed by the ability of overexpressed DRP-1
+to inhibit death by ceramide (Szabadkai et al., 2004). In
+this case, DRP-1 appears to protect by blunting the mi-
+tochondrial Ca2+
+waves that transmit ceramide-mediated
+
+Apoptosis and Mitochondrial Fusion–Fission
+
+169
+
+apoptotic signal (Pacher and Hajnoczky, 2001). Second,
+a crucial recent ﬁnding by the group of G. Shore showed
+DRP-1 dependent remodeling of the inner membrane dur-
+ing apoptosis, establishing for the ﬁrst time a relationship
+between changes in the morphology of the mitochondrial
+reticulum and remodelling of cristae structure. These ex-
+periments suggest for the ﬁrst time a potential mechanism
+for the effect of mitochondria-shaping proteins on death: if
+ﬁssion is associated with cristae remodeling, fragmented
+mitochondria are prompted for maximal release of cy-
+tochrome c. Further analysis is required to support this
+possibility, but if it stands, nature would have marveled
+us once more, coupling ﬁssion of the outer membrane to
+fusion of the individual cristae.
+
+ACKNOWLEDGMENTS
+
+L.S.
+
+is an Assistant Telethon Scientist of
+
+the
+Dulbecco-Telethon Institute. Work in his laboratory is
+supported by Telethon Italy (TCP020126), Compagnia di
+San Paolo (CSP05B), Human Frontier Science Program
+Organization (CDA0025/2004C), AIRC Italy (85/05).
+
+REFERENCES
+
+Alexander, C., Votruba, M., Pesch, U. E., Thiselton, D. L., Mayer, S.,
+Moore, A., Rodriguez, M., Kellner, U., Leo-Kottler, B., Auburger,
+G., Bhattacharya, S. S., and Wissinger, B. (2000). Nat. Genet. 26,
+211–215.
+
+Bach, D., Pich, S., Soriano, F. X., Vega, N., Baumgartner, B., Oriola, J.,
+Daugaard, J. R., Lloberas, J., Camps, M., Zierath, J. R., Rabasa-
+Lhoret, R., Wallberg-Henriksson, H., Laville, M., Palacin, M., Vi-
+dal, H., Rivera, F., Brand, M., and Zorzano, A. (2003). J. Biol.
+Chem. 278, 17190–17197.
+
+Bernardi, P. (1999). Physiol. Rev. 79, 1127–1155.
+Bernardi, P., and Azzone, G. F. (1981). J. Biol. Chem. 256, 7187–7192.
+Bernardi, P., Petronilli, V., Di Lisa, F., and Forte, M. (2001). Trends.
+
+Biochem. Sci. 26, 112–117.
+
+Bleazard, W., McCaffery, J. M., King, E. J., Bale, S., Mozdy, A., Tieu,
+Q., Nunnari, J., and Shaw, J. M. (1999). Nat. Cell Biol. 1, 298–304.
+Chen, H., Detmer, S. A., Ewald, A. J., Grifﬁn, E. E., Fraser, S. E., and
+
+Chan, D. C. (2003). J. Cell Biol. 160, 189–200.
+
+Chen, K. H., Guo, X., Ma, D., Guo, Y., Li, Q., Yang, D., Li, P., Qiu,
+X., Wen, S., Xiao, R. P., and Tang, J. (2004). Nat. Cell Biol. 6,
+872–883.
+
+Cipolat, S., de Brito, O. M., Dal Zilio, B., and Scorrano, L. (2004). Proc.
+
+Natl. Acad. Sci. U.S.A 101, 15927–15932.
+
+D’Herde, K., De Prest, B., Mussche, S., Schotte, P., Beyaert, R., Coster,
+
+R. V., and Roels, F. (2001). Cell Death. Differ. 7, 331–337.
+Danial, N. N., and Korsmeyer, S. J. (2004). Cell 116, 205–219.
+De Vos, K., Goossens, V., Boone, E., Vercammen, D., Vancompernolle,
+K., Vandenabeele, P., Haegeman, G., Fiers, W., and Grooten, J.
+(1998). J. Biol. Chem. 273, 9673–9680.
+
+Delettre, C., Lenaers, G., Griffoin, J. M., Gigarel, N., Lorenzo, C.,
+Belenguer, P., Pelloquin, L., Grosgeorge, J., Turc-Carel, C., Perret,
+E., Astarie-Dequeker, C., Lasquellec, L., Arnaud, B., Ducommun,
+B., Kaplan, J., and Hamel, C. P. (2000). Nat. Genet. 26, 207–210.
+Dimmer, K. S., Fritz, S., Fuchs, F., Messerschmitt, M., Weinbach, N.,
+Neupert, W., and Westermann, B. (2002). Mol. Biol. Cell 13, 847–
+853.
+
+Duchen, M. R. (2000). J. Physiol. 529 Pt 1:57–68., 57–68.
+Endele, S., Fuhry, M., Pak, S. J., Zabel, B. U., and Winterpacht, A.
+
+(1999). Genomics 60, 218–225.
+
+Fannjiang, Y., Cheng, W. C., Lee, S. J., Qi, B., Pevsner, J., McCaffery,
+J. M., Hill, R. B., Basanez, G., and Hardwick, J. M. (2004). Genes
+Dev. 18, 2785–2797.
+
+Fekkes, P., Shepard, K. A., and Yaffe, M. P. (2000). J. Cell Biol. 151,
+
+333–340.
+
+Frank, S., Gaume, B., Bergmann-Leitner, E. S., Leitner, W. W., Robert,
+E. G., Catez, F., Smith, C. L., and Youle, R. J. (2001). Dev. Cell 1,
+515–525.
+
+Frey, T. G., and Mannella, C. A. (2000). Trends. Biochem. Sci. 25, 319–
+
+324.
+
+Germain, M., Mathai, J. P., McBride, H. M., and Shore, G. C. (2005).
+
+EMBO J. 24, 1546–1556.
+
+Green, D. R., and Kroemer, G. (2004). Science 305, 626–629.
+Green, D. R., and Reed, J. C. (1998). Science 281, 1309–1312.
+Griparic, L., van der Wel, N. N., Orozco, I. J., Peters, P. J., and van der
+
+Bliek, A. M. (2004). J. Biol. Chem. 279, 18792–18798.
+
+Harder, Z., Zunino, R., and McBride, H. (2004). Curr. Biol. 14, 340–345.
+Herlan, M., Vogel, F., Bornhovd, C., Neupert, W., and Reichert, A. S.
+
+(2003). J. Biol. Chem. 278, 27781–27788.
+
+Hermann, G. J., Thatcher, J. W., Mills, J. P., Hales, K. G., Fuller, M. T.,
+
+Nunnari, J., and Shaw, J. M. (1998). J. Cell Biol. 143, 359–373.
+
+Hockenbery, D. M., Nunez, G., Milliman, C., Schreiber, R. D., and
+
+Korsmeyer, S. J. (1990). Nature 348, 334–336.
+
+Ishihara, N., Eura, Y., and Mihara, K. (2004). J. Cell Sci. 117, 6535–
+
+6546.
+
+James, D. I., Parone, P. A., Mattenberger, Y., and Martinou, J. C. (2003a).
+
+J. Biol. Chem. 278, 36373–36379.
+
+James, D. I., Parone, P. A., Mattenberger, Y., and Martinou, J. C. (2003b).
+
+J. Biol. Chem. 278, 36373–36379.
+
+John, G. B., Shang, Y., Li, L., Renken, C., Mannella, C. A., Selker, J.
+M., Rangell, L., Bennett, M. J., and Zha, J. (2005). Mol. Biol. Cell
+16, 1543–1554.
+
+Karbowski, M., Arnoult, D., Chen, H., Chan, D. C., Smith,
+(2004a). J. Cell Biol. 164, 493–
+
+C. L., and Youle, R. J.
+499.
+
+Karbowski, M., Jeong, S. Y., and Youle, R. J. (2004b). J. Cell Biol. 166,
+
+1027–1039.
+
+Kijima, K., Numakura, C., Izumino, H., Umetsu, K., Nezu, A., Shiiki, T.,
+Ogawa, M., Ishizaki, Y., Kitamura, T., Shozawa, Y., and Hayasaka,
+K. (2005). Hum. Genet. 116, 23–27.
+
+Koshiba, T., Detmer, S. A., Kaiser, J. T., Chen, H., McCaffery, J. M.,
+
+and Chan, D. C. (2004). Science 305, 858–862.
+
+Labrousse, A. M., Zappaterra, M. D., Rube, D. A., and van der Bliek,
+
+A. M. (1999). Mol. Cell 4, 815–826.
+
+Lee, Y. J., Jeong, S. Y., Karbowski, M., Smith, C. L., and Youle, R. J.
+
+(2004). Mol. Biol. Cell 15, 5001–5011.
+
+Mancini, M., Anderson, B. O., Caldwell, E., Sedghinasab, M., Paty,
+P. B., and Hockenbery, D. M. (1997). J. Cell Biol. 138, 449–
+469.
+
+Mannella, C. A., Pfeiffer, D. R., Bradshaw, P. C., Moraru, I. I.,
+Slepchenko, B., Loew, L. M., Hsieh, C. E., Buttle, K., and Marko,
+M. (2001). IUBMB Life 52, 93–100.
+
+McQuibban, G. A., Saurya, S., and Freeman, M. (2003). Nature 423,
+
+537–541.
+
+Meisinger, C., Rissler, M., Chacinska, A., Szklarz, L. K., Milenkovic,
+D., Kozjak, V., Schonﬁsch, B., Lohaus, C., Meyer, H. E., Yaffe, M.
+P., Guiard, B., Wiedemann, N., and Pfanner, N. (2004). Dev. Cell
+7, 61–71.
+
+Messerschmitt, M., Jakobs, S., Vogel, F., Fritz, S., Dimmer, K. S.,
+Neupert, W., and Westermann, B. (2003). J. Cell Biol. 160, 553–
+564.
+
+Misaka, T., Miyashita, T., and Kubo, Y. (2002). J. Biol. Chem. 277,
+
+15834–15842.
+
+Mootha, V. K., Wei, M. C., Buttle, K. F., Scorrano, L., Panoutsakopoulou,
+V., Mannella, C. A., and Korsmeyer, S. J. (2001). EMBO J. 20, 661–
+671.
+
+170
+
+Scorrano
+
+Mozdy, A. D., McCaffery, J. M., and Shaw, J. M. (2000). J. Cell Biol.
+
+151, 367–380.
+
+Nowikovsky, K., Froschauer, E. M., Zsurka, G., Samaj, J., Reipert, S.,
+Kolisek, M., Wiesenberger, G., and Schweyen, R. J. (2004). J. Biol.
+Chem. 279, 30307–30315.
+
+Olichon, A., Baricault, L., Gas, N., Guillou, E., Valette, A.,
+Belenguer, P., and Lenaers, G. (2003). J. Biol. Chem. 278, 7743–
+7746.
+
+Olichon, A., Emorine, L. J., Descoins, E., Pelloquin, L., Brichese,
+L., Gas, N., Guillou, E., Delettre, C., Valette, A., Hamel, C. P.,
+Ducommun, B., Lenaers, G., and Belenguer, P. (2002). FEBS Lett.
+523, 171–176.
+
+Orrenius, S., Zhivotovsky, B., and Nicotera, P. (2003). Nat. Rev. Mol.
+
+Cell Biol. 4, 552–565.
+
+Pacher, P., and Hajnoczky, G. (2001). EMBO J. 20, 4107–4121.
+Palade, G. E. (1952). Anat. Rec. 114, 427–451.
+Perotti, M. E., Anderson, W. A., and Swift, H. (1983). J. Histochem.
+
+Cytochem. 31, 351–365.
+
+Rapaport, D., Brunner, M., Neupert, W., and Westermann, B. (1998).
+
+J. Biol. Chem. 273, 20150–20155.
+
+Rinaldi, T., Ricci, C., Porro, D., Bolotin-Fukuhara, M., and Frontali, L.
+
+(1998). Mol. Biol. Cell 9, 2917–2931.
+
+Rizzuto, R., Bernardi, P., and Pozzan, T. (2000). J. Physiol. 529 Pt 1,
+
+37–47.
+
+Rojo, M., Legros, F., Chateau, D., and Lombes, A. (2002). J. Cell Sci.
+
+115, 1663–1674.
+
+Sanchez-Alcazar, J. A., Schneider, E., Martinez, M. A., Carmona, P.,
+Hernandez-Munoz, I., Siles, E., De La Torre, P., Ruiz-Cabello, J.,
+Garcia, I., and Solis-Herruzo, J. A. (2001). J. Biol. Chem. 275,
+13353–13361.
+
+Santel, A., Frank, S., Gaume, B., Herrler, M., Youle, R. J., and Fuller,
+
+M. T. (2003). J. Cell Sci. Pt,
+
+Santel, A., and Fuller, M. T. (2001). J. Cell Sci. 114, 867–874.
+Satoh, M., Hamamoto, T., Seo, N., Kagawa, Y., and Endo, H. (2003).
+
+Biochem. Biophys. Res. Commun. 300, 482–493.
+
+Schlickum, S., Moghekar, A., Simpson, J. C., Steglich, C., O’Brien,
+R. J., Winterpacht, A., and Endele, S. U. (2004). Genomics 83,
+254–261.
+
+Scorrano, L., Ashiya, M., Buttle, K., Weiler, S., Oakes, S. A., Man-
+nella, C. A., and Korsmeyer, S. J. (2002). Dev. Cell 2, 55–
+67.
+
+Sesaki, H., and Jensen, R. E. (1999). J. Cell Biol. 147, 699–706.
+Sesaki, H., and Jensen, R. E. (2001). J. Cell Biol. 152, 1123–1134.
+Sesaki, H., Southard, S. M., Hobbs, A. E., and Jensen, R. E. (2003a).
+
+Biochem. Biophys. Res. Commun. 308, 276–283.
+
+Sesaki, H., Southard, S. M., Yaffe, M. P., and Jensen, R. E. (2003b).
+
+Mol. Biol. Cell 14, 2342–2356.
+
+Shaw, J. M., and Nunnari, J. (2002). Trends Cell Biol. 12, 178–184.
+Shepard, K. A., and Yaffe, M. P. (1999). J. Cell Biol. 144, 711–720.
+Smirnova,
+
+Shurland, D.
+
+E., Griparic,
+
+L.,
+
+L.,
+
+van
+(2001). Mol. Biol. Cell 12, 2245–
+
+and
+
+der Bliek, A. M.
+2256.
+
+Sugioka, R., Shimizu, S., and Tsujimoto, Y. (2004). J. Biol. Chem. 279,
+
+52726–52734.
+
+Szabadkai, G., Simoni, A. M., Chami, M., Wieckowski, M. R., Youle,
+
+R. J., and Rizzuto, R. (2004). Mol. Cell 16, 59–68.
+
+Tieu, Q., Okreglak, V., Naylor, K., and Nunnari, J. (2002). J. Cell Biol.
+
+158, 445–452.
+
+Wang, X. (2001). Genes Dev. 15, 2922–2933.
+Wong, E. D., Wagner, J. A., Gorsich, S. W., McCaffery, J. M., Shaw, J.
+
+M., and Nunnari, J. (2000). J. Cell Biol. 151, 341–352.
+
+Wong, E. D., Wagner, J. A., Scott, S. V., Okreglak, V., Holewinske, T.
+J., Cassidy-Stone, A., and Nunnari, J. (2003). J. Cell Biol. 160,
+303–311.
+
+Zuchner, S., Mersiyanova, I. V., Muglia, M., Bissar-Tadmouri, N.,
+Rochelle, J., Dadali, E. L., Zappia, M., Nelis, E., Patitucci, A.,
+Senderek, J., Parman, Y., Evgrafov, O., Jonghe, P. D., Takahashi,
+Y., Tsuji, S., Pericak-Vance, M. A., Quattrone, A., Battologlu, E.,
+Polyakov, A. V., Timmerman, V., Schroder, J. M., and Vance, J. M.
+(2004). Nat. Genet. 36, 449–451.
+
+

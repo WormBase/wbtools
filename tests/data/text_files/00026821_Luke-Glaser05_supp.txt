@@ -1,0 +1,72 @@
+Supplemental Data
+The BTB Protein MEL-26 Promotes Cytokinesis
+in C. elegans by a CUL-3-Independent Mechanism
+
+S1
+
+Sarah Luke-Glaser, Lionel Pintard,
+Chenggang Lu, Paul E. Mains,
+and Matthias Peter
+
+Figure S1. Analysis of Cortical Ruffling of
+Wild-Type, cul-3(RNAi), mei-1(ct46gf), and
+mel-26(ct61sb4lf) Embryos
+Analysis of cortical ruffling of wild-type (n ⫽
+5), cul-3(RNAi) (n ⫽ 5; dark red), mei-1(ct46gf)
+(n ⫽ 5; light blue), and mel-26(ct61sb4lf) (n ⫽
+4; blue) embryos. Membrane ingressions
+(ruffles) in addition to the pseudocleavage
+formation that persisted for at least 50 s were
+counted until pronuclear meeting (time ⫽ 0),
+and blotted against time (in seconds). Note
+that mei-1(ct46gf) does not display ruffling.
+
+Table 1. Abbreviations
+
+Abbreviation
+
+Description/Function
+
+RFL-1
+CUL-3
+MEL-26
+MEI-1
+
+TBB-2
+CYK-1
+ZYG-9
+
+POD-1
+NMY-2
+WT
+lf
+gf
+MATH
+BTB
+MAP
+
+Ectopic membrane ruffling-1 E1 for Neddd8
+Cullin-3. Serves as scaffold in E3 ligases that target proteins for ubiquitin-dependent degradation.
+Maternal effect lethal-26. Substrate-specific adaptor in CUL-3 complex. Degraded by CUL-3.
+Meiosis-1 katanin-like AAATpase. Severs microtubules. Degraded by the CUL-3/MEL-26 complex
+
+at the meiosis-to-mitosis transition.
+
+Tubulin beta ␤-tubulin
+Cytokinesis defect. Formin homology protein. Involved in polymerization of actin.
+Zygote-defective, embryonic lethal XMAP215 ortholog (microtubule-associated protein required for
+
+formation of long microtubules).
+
+Polarity- and osmotic sensitivity-defective Coronin-like protein.
+Nonmuscular myosin-2
+Wild-type
+Loss-of-function mutation
+Gain-of-function mutation
+Meprin and TRAF homology protein domain
+Bric a` brac, tramtrack, broad complex protein domain
+Microtubule-associated protein
+
+This table lists the abbreviations used in this article.
+
+

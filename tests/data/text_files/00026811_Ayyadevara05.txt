@@ -1,0 +1,2267 @@
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+ 
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Aging Cell
+
+ (2005) 
+
+4
+
+, pp257–271
+
+Doi: 10.1111/j.1474-9726.2005.00168.x
+
+Blackwell Publishing, Ltd.
+
+Lifespan and stress resistance of 
+Caenorhabditis elegans
+ 
+are increased by expression of glutathione transferases 
+capable of metabolizing the lipid peroxidation product 
+4-hydroxynonenal
+
+1,4
+
+1,2
+ 
+
+1,2,5
+
+1,2,4,5
+ 
+
+ Mark R. Engle,
+
+Srinivas Ayyadevara,
+2
+1
+1
+Sharda P. Singh,
+ Abhijit Dandapat,
+ Cheryl F. Lichti,
+ 
+3
+s
+Helen Bene
+,
+ Robert J. Shmookler Reis,
+6
+Eva Liebau
+ and Piotr Zimniak
+1
+Department of Pharmacology & Toxicology, 
+3
+Department of Neurobiology 
+Biochemistry & Molecular Biology, 
+4
+and Developmental Sciences, and 
+Department of Geriatrics, 
+University of Arkansas for Medical Sciences, Little Rock, AR 72205, USA 
+5
+Central Arkansas Veterans Healthcare System, Little Rock, 
+AR 72205, USA 
+6
+Bernhard Nocht Institute for Tropical Medicine, Hamburg, Germany 
+
+2
+Department of 
+
+Summary
+
+gst-10
+
+mGsta4
+
+mGsta4
+
+  cDNAs,  respectively. 
+
+ were placed upstream of 
+
+Caenorhabditis elegans
+ expresses a glutathione transferase
+(GST) belonging to the Pi class, for which we propose the
+name  CeGSTP2-2.  CeGSTP2-2  (the  product  of  the 
+gst-10
+gene) has the ability to conjugate the lipid peroxidation
+product 4-hydroxynonenal (4-HNE). Transgenic 
+C. elegans
+strains  were  generated  in  which  the  5′′′′
+-flanking  region
+and promoter of 
+gst-10
+and 
+  encodes  the
+murine  mGSTA4-4,  an  enzyme  with  particularly  high
+catalytic  efficiency  for  4-HNE.  The  localization  of  both
+transgenes was similar to that of native CeGSTP2-2. The
+4-HNE-conjugating activity in worm lysates increased in
+the order: control < 
+ transgenic;
+and  the  amount  of  4-HNE-protein  adducts  decreased  in
+the  same  order,  indicating  that  the  transgenic  enzymes
+were active and effective in limiting electrophilic damage
+by 4-HNE. Stress resistance and lifespan were measured
+in  transgenic  animals  (five  independent  lines  each)  and
+were  compared  with  two  independent  control  lines.
+Resistance to paraquat, heat shock, ultraviolet irradiation
+and hydrogen peroxide was greater in transgenic strains.
+Median lifespan of 
+ transgenic strains
+vs.  control  strains  was  increased  by  13%  and  22%,
+respectively. In addition to the cause–effect relationship
+
+ transgenic < 
+
+mGsta4
+
+mGsta4
+
+gst-10
+
+ and 
+
+gst-10
+
+Correspondence
+Piotr Zimniak, Department of Pharmacology & Toxicology, #638, 
+University of Arkansas for Medical Sciences, 4301 West Markham Street, Little 
+Rock, AR 72205, USA. Tel.: +1 501 257 4843; fax: +1 501 257 4822; 
+e-mail: zimniakpiotr@uams.edu
+
+Accepted for publication 
+
+8 August 2005
+
+C. elegans
+
+between  GST  expression  and  lifespan  observed  in  the
+transgenic lines, correlative evidence was also obtained
+in a series of congenic lines of 
+ in which lifespan
+paralleled the 4-HNE-conjugating activity in whole-animal
+lysates. We conclude that electrophilic damage by 4-HNE
+may contribute to organismal aging.
+Key words 4-hydroxynonenal; aging; 
+; longevity
+regulation; molecular biology of aging; oxidative stress;
+stress resistance; transgenes.
+
+C. elegans
+
+Introduction
+
+The complete oxidation of food using molecular oxygen as the
+ultimate  electron  acceptor,  with  the  concomitant  capture  of
+free energy released in the process, was a major evolutionary
+innovation.  It  is  likely  that  the  switch  from  fermentative  to
+oxidative metabolism permitted many salient features of extant
+life  forms,  including  size,  mobility,  predation,  nervous  system
+function and perhaps even multicellularity (Lane, 2002). These
+advances  came,  however,  at  a  price.  A  small  but  significant
+fraction of electrons flowing through the mitochondrial respir-
+atory chain prematurely leaks to molecular oxygen and forms
+the superoxide radical and other ‘reactive oxygen species’ (ROS)
+(Cadenas  &  Davies,  2000).  Other  biochemical  and  physical
+processes also generate ROS, either as byproducts or as part of
+their function. Mitochondria are usually the predominant ROS
+producers. In contrast to the dioxygen molecule, ROS and their
+downstream  products  such  as  peroxynitrite  (Crow,  2000)  are
+highly  reactive  and  readily  damage  cellular  constituents.  If
+unopposed by appropriate defense mechanisms, ROS create a
+state of oxidative stress that has been implicated in the etiology
+of  a  variety  of  diseases,  most  of  which  are  degenerative
+(Scandalios, 1997; Mates 
+., 2005), and
+in aging (Harman, 1956, 2003; Beckman & Ames, 1998; Cadenas
+& Davies, 2000).
+
+., 1999; McEwen 
+
+et al
+
+et al
+
+The  considerable  reactivity  of  some  ROS  leads  to  their  low
+selectivity. Although all cellular constituents can be targets of
+ROS, radical-initiated reaction with polyunsaturated fatty acids
+is  unique  because  it  results  in  a  chain  reaction  (Gutteridge  &
+Halliwell, 1990). The resulting amplification of the original insult
+may be of biological significance. The products of the process,
+lipid hydroperoxides, change the properties of membranes, act
+as oxidants or can be converted (Schneider 
+., 2001, 2004;
+α
+Sun & Salomon, 2004) to a variety of 
+-unsaturated aldehydes
+of  which  4-hydroxynon-2-enal  (4-HNE)  is  the  most  abundant
+
+et al
+
+β
+,
+
+© Blackwell Publishing Ltd/Anatomical Society of Great Britain and Ireland 2005
+
+257
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+258
+
+4-Hydroxynonenal metabolism affects lifespan, S. Ayyadevara 
+
+et al.
+
+ 
+
+and prototypical example. At physiological concentrations,
+4-HNE  is  a  signaling  molecule  which  modulates  a  variety  of
+fundamental  biological  processes  (reviewed  by  Petersen  &
+Doorn,  2004).  The  compound  becomes  toxic  at  higher  levels
+owing to its electrophilic character (Esterbauer 
+., 1991). It
+forms  Michael  adducts  with  nucleophilic  centers  on  proteins
+and  nucleic  acids  (Petersen  &  Doorn,  2004),  can  cross-link
+proteins and contributes to the formation of lipofuscin (Xu &
+Sayre, 1998; Xu 
+
+., 2000), among other properties.
+
+et al
+
+et al
+
+The metabolism of 4-HNE can be oxidative (oxidation of the
+aldehyde  function  to  a  carboxylic  acid),  reductive  (reduction
+of the aldehyde function, or reduction of the double bond in
+position  2)  or  conjugative  (Michael  adduct  formation  with
+glutathione) (reviewed by Petersen & Doorn, 2004). Conjugation
+with glutathione is probably the predominant pathway in most
+tissues  (Petersen  &  Doorn,  2004)  and,  although  catalysed  by
+most glutathione transferases (GSTs), it is most efficiently carried
+out  by  specialized  enzymes  of  this  superfamily  exemplified
+by the murine mGSTA4-4 (Zimniak 
+., 1994). We have also
+identified  GSTs  capable  of  efficient  conjugation  of  4-HNE  in
+et al
+invertebrates (Singh 
+., 2003), including
+Caenorhabditis  elegans
+.,  2001).  The  mammalian
+enzymes with high catalytic efficiency for 4-HNE belong to the
+Drosophila melanogaster
+Alpha class of GSTs, whereas those in 
+are classified as Sigma and Delta, and the nematode GST is of
+the Pi class (Engle 
+., 2001). The emergence of this activity in
+evolutionarily distant GST classes indicates convergent evolution
+(Sawicki 
+.,  2003).  This,  together  with  the  wide  species
+distribution, suggests an important physiological role for 4-HNE
+conjugation, perhaps common to all aerobic organisms.
+
+., 2001; Sawicki 
+  (Engle 
+
+et al
+
+et al
+
+et al
+
+et al
+
+et al
+
+The  chain  reaction  character  of  lipid  peroxidation  and  the
+ensuing  amplification  of  the  initiating  oxidative  stimulus  raise
+the  intriguing  question  of  whether  this  mechanism  could
+contribute to organismal aging, as would be predicted from the
+free radical theory of the aging process (Harman, 1956). If the
+answer is yes, two aspects of the process may be biologically
+relevant. One is the above-mentioned increase in the number of
+potentially damaging molecules, inherent in the chain reaction,
+which could overwhelm the existing defense mechanisms. The
+other aspect is a shift in the chemical characteristics of the insult:
+an oxidative or radical-mediated stress would be converted into
+4-HNE-mediated electrophilic stress. 4-HNE is relatively selective
+for  nucleophilic  centers,  especially  soft  nucleophiles  such  as
+those present in proteins, whereas the most damaging ROS, the
+hydroxyl radical, is very short-lived and is thus non-selective.
+Formation of 4-HNE adducts frequently alters the function of
+proteins, and many known regulatory proteins are targets of 4-
+HNE modification (Dianzani, 2003; Forman 
+., 2003; Petersen
+& Doorn, 2004). It is therefore conceivable that 4-HNE, although
+sharing with ROS the ability to inactivate cellular components
+stochastically, has an additional, perhaps more insidious effect.
+4-HNE could modify key regulatory proteins and alter signaling
+cascades  (Leonarduzzi 
+.,  2004)  or  inappropriately  realign
+metabolism. This could cause cell loss or tissue dysfunction more
+effectively than accumulation of random damage.
+
+et al
+
+et al
+
+C. elegans
+
+Here we provide evidence in support of the hypothesis that
+electrophilic stress is indeed a contributor to aging in the model
+organism 
+. Mitigation of 4-HNE-mediated electrophilic
+damage by overexpression of 4-HNE-metabolizing enzymes led
+to  an  extension  of  both  median  and  maximal  lifespan  of  the
+nematode. This finding contributes to a better understanding
+of the molecular basis of the aging process and its relationship
+to stress resistance.
+
+Results
+
+Isolation and characterization of CeGSTP2-2
+
+C. elegans
+
+A GST with glutathione-conjugating activity for 4-HNE was
+isolated from 
+ by a combination of glutathione (GSH)-
+et al
+affinity  chromatography  and  isoelectric  focusing  (Engle 
+.,
+2001). The major N-terminal sequence of the protein obtained by
+Edman microsequencing matched a single conceptually trans-
+lated protein among the 44 GSTs and seven GST-like sequences
+listed in release WS135 of WormBase (www.wormbase.org).
+The protein, denoted as the 
+ gene product in WormBase,
+was identified as a Pi-class GST on the basis of conserved amino
+acid residues and an analysis of intron–exon boundaries (Engle
+et al
+ gene product) has
+been previously assigned to the Pi class (Weston 
+., 1989),
+we propose the name CeGSTP2-2 for the 
+ gene product,
+according to the convention developed for GST nomenclature
+(Mannervik 
+
+., 2001). Because another GST (the 
+
+., 1992; Chelvanayagam 
+
+., 2001).
+
+gst-10
+
+gst-10
+
+gst-1
+
+et al
+
+et al
+
+et al
+
+et al
+
+The kinetic parameters of CeGSTP2-2 with 4-HNE as substrate
+are listed in Table 1. The catalytic efficiency of CeGSTP2-2 toward
+this  electrophilic  lipid  peroxidation  product  is  approximately
+three-fold  lower  than  that  of  a  mammalian  Alpha-class  GST,
+mGSTA4-4 (an enzyme highly specialized for 4-HNE metabolism;
+see  Zimniak 
+.,  1994).  However,  the  catalytic  efficiency  of
+CeGSTP2-2  for  4-HNE  is  similar  to  that  of  other  invertebrate
+GSTs  that  carry  out  this  reaction  (Singh 
+.,  2001;  Sawicki
+et al
+.,  2003).  CeGSTP2-2  has  low  activity  with  acrolein  but  is
+relatively efficient in catalysing the conjugation of 
+-non-2-
+enal (Table 1). For comparison, we measured the corresponding
+activities of the 
+ gene product, also denoted as
+GST-p24 (Leiers, 2002; Leiers 
+., 2003) (Table 1). The specific
+activity  with 
+-non-2-enal  was  almost  two  orders  of
+magnitude  higher  for  CeGSTP2-2  than  for  the 
+  gene
+product (Table 1). For unknown reasons, however, in our hands
+the  activities  of  the 
+  gene  product  for  several  substrates
+were significantly lower (Table 1) than previously reported (Leiers,
+2002; Leiers 
+
+C. elegans gst-4
+
+., 2003).
+
+trans
+
+gst-4
+
+gst-4
+
+trans
+
+et al
+
+et al
+
+et al
+
+C. elegans
+
+During purification of CeGSTP2-2 from 
+
+ lysate, only
+36%  of  the  total  4-HNE-conjugating  activity  was  retained  on
+the GSH affinity column (data not shown). A similar fraction of
+activity was depleted from 
+ lysate by anti-CeGSTP2-
+2  antibody  (see  below).  By  contrast,  bacterially  expressed
+CeGSTP2-2  was  retained  on  the  GSH  column  essentially
+quantitatively, attesting to a high binding affinity and capacity of
+GSH-agarose for the enzyme. This indicates that CeGSTP2-2
+
+C. elegans
+
+© Blackwell Publishing Ltd/Anatomical Society of Great Britain and Ireland 2005
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+4-Hydroxynonenal metabolism affects lifespan, S. Ayyadevara 
+
+et al.
+
+259
+
+Table 1 Enzymatic activity of bacterially expressed CeGSTP2-2, gst-4 gene product and, for comparison, murine mGSTA4-4
+
+ 
+
+Enzyme/substrate
+
+CeGSTP2-2
+
+CDNB*
+4-HNE
+trans-non-2-enal (100 µM)
+acrolein
+cumene hydroperoxide
+
+gst-4 gene product†
+
+CDNB
+4-HNE
+trans-non-2-enal (100 µM)
+trans-non-2-enal (1 µM)
+cumene hydroperoxide
+
+mGSTA4-4
+
+4-HNE
+
+Specific activity 
+−1 min
+(µmol mg
+
+−1)
+
+Vmax 
+(µmol mg
+
+−1 min
+
+−1)
+
+KM 
+(µM)
+
+kcat/KM 
+−1)
+−1 M
+(s
+
+5.5 ± 0.7
+7.3 ± 0.5
+10.8 ± 1.0
+1.7 ± 0.1
+0.07 ± 0.01
+
+1.1 ± 0.1
+1.6 ± 0.03
+0.12 ± 0.01
+0.03 ± 0.01
+0.87 ± 0.01
+
+260 ± 16
+
+10.3 ± 0.3
+
+50 ± 4
+
+0.17 × 106
+
+427 ± 24
+
+70 ± 10
+
+5.1 × 106
+
+Specific activities are given as means ± SD, and kinetic parameters are given as estimates ± asymptotic SE determined by least-squares fitting of a Michaelis–
+Menten hyperbola to the experimental data.
+*1-Chloro-2,4-dinitrobenzene.
+†Protein purified by Ni2+ chelation chromatography (see Experimental procedures).
+
+lysates  were  treated  with  the  antibody,  and  the  immune
+complexes were recovered using bead-bound secondary antibody
+and  separated  by  SDS-PAGE.  Mass  spectrometric  analysis  of
+tryptic peptides derived from a broad band migrating at approx-
+imately  25 kDa  revealed  the  expected  presence  of  IgY  light
+chain, and of the following peptides: LLFLDNGIK, AVPQLYYFTIR
+and VDGQEIVQTGAIMR. The three peptides give 16% sequence
+coverage and a Mascot score (see Experimental procedures) of
+104. Each of the three peptides yields a perfect match to two
+C. elegans
+ proteins: CeGSTP2-2 and predicted protein F56A4.3.
+The latter is a 105-amino-acid protein with a calculated mole-
+cular weight of 12.2 kDa. Its existence is confirmed by the pres-
+ence of an expressed sequence tag (yk773h08.5 in WormBase).
+CeGSTP2-2 and F56A4.3 share the sequence of 78 N-terminal
+amino acids, which include the three peptides listed above. The
+antibody may thus recognize F56A4.3 in addition to CeGSTP2-
+C. elegans
+2, and the 13-kDa band observed on Western blots of 
+lysates  (Fig. 1)  could  represent  F56A4.3.  Possible  functions  of
+F56A4.3 were not investigated. However, a protein that corre-
+sponds only to the N-terminal domain of a typical GST would
+not  be  expected  to  have  GST  activity  as  it  would  lack  the
+electrophile binding site (Armstrong, 1997). This, together with
+the  lack  of  other  GSTs  detectable  by  mass  spectrometry
+sequencing, indicates that the antibody is specific for a single
+functional 
+
+ GST, CeGSTP2-2.
+
+C. elegans
+
+Immunodepletion of CeGSTP2-2 in 
+
+C. elegans
+
+ lysates
+
+C. elegans
+
+Approximately two-thirds of the total 4-HNE-conjugating activity
+of  wild-type  N2 
+  lysates  were  not  retained  on  GSH
+affinity columns (see above). This suggests that one or more of
+the 
+ GSTs other than CeGSTP2-2 may have 4-HNE-
+conjugating activity. It was recently reported that the 
+ gene
+
+C. elegans
+
+gst-4
+
+Fig. 1 Characterization of anti-CeGSTP2-2 antibody. Antibodies against 
+bacterially expressed CeGSTP2-2 were raised in chicken and tested on 
+Western blots (12% SDS-PAGE, Tris–glycine buffer system). Lanes 1 and 3: 
+25 ng CeGSTP2-2 expressed in E. coli and purified by GSH affinity 
+chromatography. Lanes 2 and 4: 40 µg C. elegans (Bristol-N2) lysate. Lanes 1 
+and 2: pre-immune chicken IgY. Lanes 3 and 4: anti-CeGSTP2-2 IgY.
+
+is responsible for approximately one-third of the total 4-HNE-
+conjugating activity in adult worms.
+
+Generation of antibodies against CeGSTP2-2
+
+Polyclonal antibodies against bacterially expressed CeGSTP2-2
+C. elegans
+were raised in chicken. On Western blots of crude 
+lysates,  the  antibodies,  but  not  the  pre-immune  IgY  fraction,
+recognized  a  band  identical  in  size  to  CeGSTP2-2  protein
+heterologously expressed in 
+, and a second band
+at 13 kDa (Fig. 1). Under the same conditions, the antibodies
+did not recognize hGSTP1-1, hGSTA1-1 and hGSTA4-4 (data not
+shown). The specificity of the antibody was further checked by
+C. elegans
+immunoprecipitation followed by mass spectrometry. 
+
+Escherichia coli
+
+© Blackwell Publishing Ltd/Anatomical Society of Great Britain and Ireland 2005
+
+260
+
+4-Hydroxynonenal metabolism affects lifespan, S. Ayyadevara et al. 
+
+Fig. 2 Immunodepletion of 4-HNE-conjugating activity in C. elegans lysate by 
+anti-CeGSTP2-2 antibody. Bristol-N2 worm lysates were incubated with 
+various amounts of pre-immune (䊊) and anti-CeGSTP2-2 (䊉) chicken IgY, 
+and the immune complexes were pelleted with agarose-bound anti-IgY 
+(see Experimental procedures for details). 4-HNE-conjugating activity was 
+measured in the supernatants.
+
+product  has  activity  toward  trans-non-2-enal  (Leiers  et al.,
+2003), and we found that this enzyme also conjugates 4-HNE,
+albeit with an almost five-fold lower activity than CeGSTP2-2
+(Table 1).  To  estimate  what  fraction  of  the  worm’s  4-HNE-
+conjugating activity is due to CeGSTP2-2, C. elegans lysates were
+immunodepleted with anti-CeGSTP2-2 antibody. As shown in
+Fig. 2, approximately 20–25% of the 4-HNE-conjugating activity
+could  be  depleted  by  immune  IgY  raised  against  bacterially
+expressed, purified CeGSTP2-2, but not by pre-immune IgY. This
+result is in reasonable agreement with the fraction of activity
+that  binds  to  a  GSH  affinity  column,  and  indicates  that  the
+balance  of  4-HNE-conjugating  activity  can  be  attributed  to
+GST(s) which immunologically do not cross-react with CeGSTP2-
+2,  and  which  probably  belong  to  a  class  that  fails  to  bind
+effectively to GSH-agarose.
+
+Expression of CeGSTP2-2 and mGSTA4-4 transgenes
+
+Western  blot  analysis  demonstrated  the  absence  in  pha-1
+control worms of material immunologically cross-reactive with
+mGSTA4-4. By contrast, mGSTA4-4 was expressed at similar
+levels in several independent mGsta4 transgenic lines (Fig. 3A).
+CeGSTP2-2 was detectable by Western blotting in pha-1 worms,
+but  was  present  at  higher  levels  in  gst-10  transgenic  animals
+(Fig. 3B). Quantitation of CeGSTP2-2 levels has shown that, in
+the five transgenic lines represented in Fig. 3(B), the protein was
+overexpressed by a factor of 2.4 ± 0.6 relative to control worms.
+
+4-HNE-conjugating activity in gst-10 and mGsta4 
+transgenic C. elegans
+
+The expression or overexpression of mGSTA4-4 and CeGSTP2-2,
+respectively, in transgenic worms (Fig. 3) was accompanied by
+
+Fig. 3 Expression of mGSTA4-4 and CeGSTP2-2 in mGsta4 and gst-10 
+transgenic worms. (A) Western blot (probed with anti-mGSTA4-4 antibody). 
+Lane 1: 25 ng purified mGSTA4-4; lane 2: pha-1 control; lanes 3–5: three 
+independent lines of mGsta4 transgenic C. elegans. For lanes 3–5, total worm 
+lysates (2 mg protein each) were applied to a GSH affinity column, the column 
+was eluted with GSH (Simons & Vander Jagt, 1977), and half of the eluate 
+(i.e. GSTs isolated from 1 mg lysate protein) was loaded on the gel (SDS−
+12% polyacrylamide gel, Tris–glycine buffer system). (B) Western blot (probed 
+with anti-CeGSTP2-2 antibody). Lane 1: pha-1 control; lanes 2–6: five 
+independent lines of gst-10 transgenic C. elegans. In lanes 1–6, 25 µg each 
+of worm lysate was loaded on the gel (precast SDS/4–12% polyacrylamide 
+gradient gel in Bis–Tris buffer system).
+
+Table 2 Glutathione-dependent conjugation activity for 4-HNE in lysates of 
+control and transgenic C. elegans
+
+ 
+
+C. elegans 
+genotype
+
+pha-1 control
+mGsta4
+gst-10
+
+4-HNE-conjugating activity* 
+(µmol mg
+
+−1 min
+
+−1)
+
+0.217 ± 0.020
+0.263 ± 0.052
+0.295 ± 0.043
+
+*By ANOVA, followed by multiple comparisons with the Tukey–Kramer 
+correction, pha-1 differs from mGsta4 (P = 0.03), pha-1 differs from gst-10 
+(P < 0.0005), and the difference between mGsta4 and gst-10 does not reach 
+statistical significance (P = 0.12).
+
+an increase of 4-HNE-conjugating activity over that measured in
+pha-1 controls (Table 2). The specific activity increased by 21%
+and 36% in mGsta4 and gst-10 transgenic animals, respectively.
+The increase was statistically significant in both cases (Table 2).
+The 36% increase in specific activity in gst-10 transgenic worms
+is consistent with the 2.4-fold increase in CeGSTP2-2 protein,
+given the fact that this enzyme accounts for approximately one-
+quarter to one-third of the total 4-HNE-conjugating activity (see
+Discussion).
+
+© Blackwell Publishing Ltd/Anatomical Society of Great Britain and Ireland 2005
+
+4-Hydroxynonenal metabolism affects lifespan, S. Ayyadevara et al.
+
+261
+
+ments were completed, the tissue distribution of GFP expressed
+under  control  of  the  gst-10  promoter,  reported  in  an  online
+database (R. Johnsen et al., British Columbia C. elegans Gene
+Expression Consortium, funded by Genome Canada and Genome
+British  Columbia  and  accessible  at  www.wormbase.org),
+included head neurons among the expression sites. In the latter
+experiments, GFP was expressed under the control of a 2.9-kb
+promoter fragment, the 3′ end of which abuts the translation
+start codon of gst-10.
+
+An expression pattern similar to that of the reporter protein
+GFP was also obtained by indirect immunostaining of wild-type
+or  gst-10  transgenic  worms  with  anti-CeGSTP2-2  antibody
+(Fig. 5C,D,  respectively),  as  well  as  mGsta4  transgenic  worms
+with anti-mGSTA4-4 antibody (Fig. 5E). Both transgenes were
+driven by a fragment of the gst-10 promoter (see Experimental
+procedures). These results cross-verify the methods used, and
+confirm the selectivity of the gst-10 promoter for a relatively small
+subset of cells, which probably includes head and tail neurons.
+
+Stress resistance of GST-expressing transgenic animals
+
+C. elegans expressing either the gst-10 or the mGsta4 transgene
+had an increased resistance to hydrogen peroxide, paraquat, heat
+shock and ultraviolet (UV) irradiation at 254 nm as compared
+with pha-1 controls (Fig. 6). The increase in stress resistance was
+relatively small, typically 10–30% gain in median survival time,
+but was robust across independent transgenic lines (Fig. 6) and
+between  experiments;  and  was  statistically  significant,  except
+for H2O2 treatment of animals expressing mGSTA4-4 for which
+significance was marginal (Fig. 6A). With the exception of heat
+shock  (Fig. 6E,F),  the  increase  in  stress  resistance  was  more
+pronounced in gst-10 than in mGsta4 transgenic animals. This
+differential effect on stress resistance correlates with a greater
+conjugating activity for 4-HNE and lower level of 4-HNE-protein
+adducts in gst-10 as compared with mGsta4 transgenic animals
+(Table 2 and Fig. 4, respectively).
+
+Longevity of GST-expressing transgenic animals
+
+The  lifespan  of  C. elegans  was  extended  by  expression  of
+mGSTA4-4  as  well  as  by  overexpression  of  the  endogenous
+CeGSTP2-2  (Figs 7 and 8). The median lifespan of pha-1 control
+worms was 10.8 days at 25.5 °C, and was extended by 13% and
+22%  in  C. elegans  expressing  mGSTA4-4  and  overexpressing
+CeGSTP2-2,  respectively  (Table 3).  Survival  curves  conformed
+approximately to the Gompertz function (r 2 = 0.993, 0.984 and
+0.992 for pha-1, mGsta4 and gst-10, respectively). The Gompertz
+parameters are listed in Table 3. Lifespan extension was statis-
+tically highly significant for both types of transgenic animals vs.
+controls,  and  gst-10  worms  were  longer-lived  than  mGsta4
+worms at marginal statistical significance (see legend to Fig. 7
+for further details).
+
+In addition to the experimental data shown in Fig. 7, in which
+all three genotypes (pha-1 control and the gst-10 and mGsta4
+transgenic strains) were compared side by side, survival of the
+
+Fig. 4 4-HNE–protein adducts in control and transgenic C. elegans. Adducts 
+were determined in pha-1 controls and in mGsta4 and gst-10 transgenic 
+worms by ELISA (see Experimental procedures) in six separate experiments. 
+Each individual experiment is denoted by a different plotting symbol, and 
+measurements for the three genotypes obtained within each experiment are 
+connected. The three groups are positioned on the abscissa according to their 
+average 4-HNE-conjugating activity taken from Table 2. After adjusting for 
+variability between experiments by General Linear Model ANOVA or by multiple 
+regression, the amount of 4-HNE adducts was found to be unequal for the 
+three groups of worms (P = 0.0006). Multiple comparisons with Tukey–
+Kramer correction have further shown that pha-1 differs in the level of 4-
+HNE adducts from both mGsta4 (P = 0.013) and gst-10 (P = 0.0006), but that 
+the difference between mGsta4 and gst-10 does not reach statistical 
+significance (P = 0.15).
+
+Level of 4-HNE-protein adducts in gst-10 and mgsta4 
+transgenic worms
+
+The  level  of  4-HNE  adducts  varied  considerably  between
+individual measurements (Fig. 4). However, after adjusting for
+interexperimental variability, the level of 4-HNE-protein adducts
+was significantly higher in pha-1 controls than in either of the
+transgenic  lines.  Moreover,  the  4-HNE-conjugating  activity  in
+pha-1, mGsta4 and gst-10 worms inversely correlated with the
+amount of accumulated 4-HNE-protein adducts in these animals
+(Fig. 4).  This  correlation  demonstrates  that  the  overexpressed
+enzymes  are  functional  in  situ,  and  is  consistent  with  the
+expected biochemical function of both enzymes in limiting 4-
+HNE-mediated  electrophilic  modifications  and  presumably
+damage to cellular proteins.
+
+Localization of CeGSTP2-2
+
+Transgenic worms were generated which express green fluores-
+cent protein (GFP) under the control of the autologous gst-10
+promoter. A punctate distribution of the reporter protein was
+observed that was most prominent in a small set of cells at the
+mouth and in the head (adjacent to the pharyngeal bulbs) of
+the  worm;  intense  fluorescence  was  also  observed  at  the  tail
+(Fig. 5).  Two  promoter  fragments,  3.2  and  2.4 kb  in  length,
+yielded an identical pattern of GFP expression. After these experi-
+
+© Blackwell Publishing Ltd/Anatomical Society of Great Britain and Ireland 2005
+
+262
+
+4-Hydroxynonenal metabolism affects lifespan, S. Ayyadevara et al. 
+
+Fig. 5 Tissue localization of autologous CeGSTP2-
+2 and heterologous GSTs driven by the gst-10 
+promoter. (A) expression of gst-10::GFP fusion 
+(composite from two different fields of view). 
+(B–E) Indirect immunofluorescence. (B) gst-10 
+transgenic animals with pre-immune antibody. 
+(C) pha-1 animals with anti-CeGSTP2-2 antibody. 
+(D) gst-10 transgenic animals with anti-CeGSTP2-
+2 antibody. (E) mGsta4 transgenic animals with 
+anti-mGSTA4-4 antibody. In all cases, the 
+fluorescence image (green) is overlaid on a 
+bright-field image. For all fluorescence images, 
+the exposure time was 1000 ms. Arrows labeled 
+‘H’ denote head localization, and those labeled 
+‘T’ denote tail localization.
+
+Table 3 Lifespan parameters of control and 
+transgenic C. elegans
+
+C. elegans 
+genotype
+
+pha-1 control
+mGsta4
+gst-10
+
+Gompertz parameters
+
+A
+
+G
+
+0.0078 (0.0053, 0.0114)
+0.0091 (0.0053, 0.0156)
+0.0059 (0.0040, 0.0088)
+
+0.292 (0.261, 0.326)
+0.229 (0.193, 0.273)
+0.248 (0.222, 0.276)
+
+Median 
+lifespan (days)
+
+10.8 ± 0.2
+12.2 ± 0.1
+13.2 ± 0.3
+
+Maximum likelihood estimates of Gompertz parameters (listed with their lower and upper 95% confidence 
+limits) and of median lifespans (± SE) were obtained from the data points shown in Fig. 7 using the 
+program WinModest (Pletcher, 1999; Promislow et al., 1999).
+
+five available gst-10 lines was compared with that of the pha-
+1 control in two independent experiments (Fig. 8A,B), and the
+five  available  mGsta4  lines  were  compared  with  the  control
+strain  in  two  separate  independent  experiments  (Fig. 8C,D).
+Because slight shifts in absolute survival times precluded direct
+averaging  of  data  from  the  five  independent  experiments,  all
+results were analysed together using a bivariate Cox regression
+model  containing  Experiment  as  a  covariate  in  addition  to
+Genotype as the treatment of interest. After covariate-adjusting
+for  variability  between  experiments,  the  difference  in  survival
+curves between pha-1 controls and gst-10 transgenic animals
+−30,  between  pha-1  and  mGsta4  at
+was  significant  at  P = 10
+
+−8,  and  gst-10  and  mGsta4  transgenic  worms  differed
+
+P = 10
+from each other in terms of survival curves at P = 10
+
+−5.
+
+Correlation between lifespan and ability to conjugate 
+4-HNE in a series of C. elegans congenic lines
+
+Two  series  of  congenic  lines  were  previously  constructed  in
+C. elegans, in order to pursue quantitative trait loci mapped
+initially for effects on longevity (Ayyadevara et al., 2001, 2003).
+These  congenic  lines  demonstrated  allelic  effects  on  lifespan
+and  resistance  to  specific  stresses.  The  parental  strain  RC301
+was  used  to  derive  lines  SR101  and  SR102,  and  the  parental
+
+© Blackwell Publishing Ltd/Anatomical Society of Great Britain and Ireland 2005
+
+4-Hydroxynonenal metabolism affects lifespan, S. Ayyadevara et al.
+
+263
+
+Fig. 6 Enhanced stress resistance of mGsta4 and 
+gst-10 transgenic C. elegans relative to controls. 
+(A,C,E,G) mGsta4 transgenic animals; (B,D,F,H) 
+gst-10 transgenic animals. Two independent lines 
+of control pha-1 worms (closed symbols: 䊉, 䊏) and 
+five independent lines each of mGsta4 and gst-10 
+transgenic animals (open symbols: 䊊, 䉭, 䉮, 䉫, 䊐) 
+were exposed to H2O2 (A and B), paraquat (C and 
+D), heat shock (E and F) and UV (G and H) as 
+described in the Experimental procedures, and 
+surviving worms were scored as a function of time. 
+Not all C. elegans lines were used in all 
+experiments. Because of the superimposition of the 
+curves, individual symbols are not well resolved in 
+the graph. Therefore, the number of transgenic 
+and control lines used in each experiment is listed 
+in the corresponding panels. The P-value given in 
+each panel is the result of a log rank test to 
+compare the stress resistance of pha-1 controls and 
+transgenic worms shown in that panel.
+
+strain CL2a gave rise to lines SR704 and SR708. Each parental
+line with its derived congenic lines represents a set of naturally
+occurring polymorphic variants of genes within a region ranging
+approximately  from  0.3  to  5 Mb,  in  an  otherwise  identical
+genetic background. Combined data for both sets of congenic
+lines  showed  a  highly  significant  linear  correlation  (r 2 = 0.96,
+−4)  between  the  median  lifespans  and  the  specific
+P = 6 × 10
+activity of glutathione-dependent conjugation of 4-HNE in the
+corresponding worm lysates (Fig. 9).
+
+Discussion
+C. elegans  has  the  ability  to  synthesize  ω-6  polyunsaturated
+acids including arachidonic and linoleic acids (Watts & Browse,
+
+2002), which are the biological precursors of 4-HNE (Esterbauer
+et al., 1991). In the present work, we have shown the existence
+of protein−4-HNE adducts (Fig. 4), thus demonstrating directly
+that 4-HNE is indeed formed in C. elegans. The manifold and
+complex physiological effects of 4-HNE (Dianzani et al., 1999;
+Nakashima et al., 2003; Carini et al., 2004; Petersen & Doorn,
+2004) and the toxicity of the compound at high levels (Esterbauer
+et al., 1991) imply the existence of pathways to metabolize 4-
+HNE, both for signal termination and for detoxification. Indeed, we
+have previously identified a glutathione transferase in C. elegans,
+for which we propose the name CeGSTP2-2 for reasons outlined
+in the Results section, which is able to catalyse glutathione
+conjugation  of  4-HNE  (Engle  et al.,  2001).  We  now  present
+evidence that this GST accounts for one-quarter to one-third of
+
+© Blackwell Publishing Ltd/Anatomical Society of Great Britain and Ireland 2005
+
+264
+
+4-Hydroxynonenal metabolism affects lifespan, S. Ayyadevara et al. 
+
+could play a significant role in the physiology of these cells and
+in their protection from oxidative or electrophilic damage.
+
+To  investigate  the  biological  role  of  4-HNE-conjugating
+activity  in  C. elegans,  and  specifically  in  the  cells  that  express
+CeGSTP2-2,  we  created  transgenic  lines  in  which  either  the
+overexpression of the autologous CeGSTP2-2 or heterologous
+expression of murine mGSTA4-4, an enzyme with particularly
+high catalytic efficiency for 4-HNE, was driven by the autologous
+gst-10 promoter. We have verified, both by the use of the GFP
+reporter protein and by detection of the two transgenic GSTs
+through indirect immunofluorescence, that the length of the 5′
+flanking fragments of the gst-10 gene used in the transgenic
+constructs  was  sufficient  to  ensure  cell-specific  transgene
+expression indistinguishable from that of the native gene. Thus,
+mGSTA4-4 and the additional CeGSTP2-2 in mGsta4 and gst-10
+transgenic lines, respectively, retained the expression pattern
+of autologous CeGSTP2-2. It should be noted that all transgenes
+used herein were extrachromosomal episomes, so that variation
+in  expression  between  worms  could  be  attributed  to  somatic
+segregation of the transgene.
+
+As described in the Results section, the anti-CeGSTP2-2 anti-
+body used in the present work is likely to recognize, in addition
+to  CeGSTP2-2  itself,  the  C. elegans  protein  F56A4.3,  which
+consists  of  the  N-terminal  domain  of  CeGSTP2-2  fused  to  a
+short C-terminal peptide of 27 amino acids. The functions and
+expression pattern of this protein are unknown. However, the
+genomic sequences of gst-10 and f56a4.3 are identical for more
+than 25 kb upstream of their respective translation start codons,
+as  determined  by  alignment  of  sequences  deposited  in
+WormBase, implying that f56a4.3 arose by a partial duplication
+of the gst-10 gene. As we verified that a 5′ flanking region of
+gst-10 much shorter than 25 kb is sufficient to restrict transgene
+
+Fig. 7 Lifespan extension of mGsta4 and gst-10 transgenic C. elegans relative 
+to control. Lifespan of pha-1 control (䊉), mGsta4 (䉭), and gst-10 (䊊) 
+transgenic animals was measured at 25.5 °C as described in the Experimental 
+procedures. For illustrative purposes, non-linear fitting of the Gompertz 
+function to the data points is represented as solid lines; maximum likelihood 
+estimates of Gompertz parameters are listed in Table 3. The survival curves 
+of pha-1 controls and of mGsta4 transgenic animals are different at 
+P = 0.0024 (log rank test) and at P = 0.0027 (randomization log rank test 
+using 106 Monte Carlo samples), and the survival curves of pha-1 controls 
+−5, respectively, in 
+and gst-10 transgenics are different at P < 10
+the two tests. Survival curves of gst-10 and mGsta4 transgenics are different 
+from each other at P = 0.072 and P = 0.075, respectively, in the log rank and 
+randomization log rank tests. All P-values include the Bonferroni correction 
+for multiple comparisons.
+
+−9 and P < 10
+
+the 4-HNE-conjugating capacity of the worm, with the balance
+of activity probably attributable to GST(s) of other classes which
+are not retained on GSH affinity columns. However, measurable
+expression  of  CeGSTP2-2  is  limited  to  a  small  subset  of  cells
+(Fig. 5).  The  resulting  high  local  concentration  of  CeGSTP2-2
+
+Fig. 8 (A,B) Pairwise comparison of lifespans of 
+pha-1 controls (closed symbols) and gst-10 
+transgenic C. elegans (five independent lines; open 
+symbols). A and B represent two independent 
+experiments. (C,D) Pairwise comparison of 
+lifespans of pha-1 controls (closed symbols) and 
+mGsta4 transgenic C. elegans (five independent 
+lines; open symbols). C and D represent two 
+independent experiments.
+
+© Blackwell Publishing Ltd/Anatomical Society of Great Britain and Ireland 2005
+
+4-Hydroxynonenal metabolism affects lifespan, S. Ayyadevara et al.
+
+265
+
+activity: it is lowest in gst-10 worms, intermediate in mGsta4
+transgenics and highest in pha-1 controls (Fig. 4).
+
+It is noteworthy that the amount of 4-HNE–protein adducts
+decreased  almost  two-fold  in  gst-10  transgenic  vs.  control
+C. elegans in each of the individual measurements (Fig. 4), even
+though the absolute levels of the adducts were quite variable,
+perhaps due to uncontrolled day-to-day differences in unavoid-
+able environmental stresses. This stands in sharp contrast to the
+limited number of cells in which CeGSTP2-2 was detected (Fig. 5
+and the British Columbia C. elegans Gene Expression Consortium;
+see Results). Several possibilities could be invoked to reconcile
+the low percentage of cells expressing CeGSTP2-2 with the large
+effect  of  CeGSTP2-2  overexpression  on  whole-body  4-HNE–
+protein adducts. For example, a significant proportion of all 4-
+HNE-modified proteins could be present in the few neurons that
+express CeGSTP2-2, or the enzyme could be expressed below
+the  detection  threshold  by  cells  other  than  the  putatively
+identified neurons. Alternatively, cells expressing CeGSTP2-2, even
+if low in number, could constitute a ‘sink’ for 4-HNE diffusing
+from surrounding cells.
+
+The  biochemical  parameters  discussed  so  far  indicate  that
+the three groups of C. elegans lines used in this work, namely
+pha-1  controls,  mGsta4  transgenics  and  gst-10  transgenics,
+constitute  a  graded  series  with  progressively  greater  4-HNE-
+conjugating activity and gradually decreasing steady-state level
+of 4-HNE-mediated electrophilic damage. Although free 4-HNE
+was  not  measured,  4-HNE–protein  adducts  are  thought  to
+reflect levels of 4-HNE integrated over time (but limited by the
+average half-life of the modified proteins).
+
+Although the extrachromosomal maintenance of transgenes
+in C. elegans eliminates genetic positional effects, the level of
+transgene expression may still vary between individual sublines.
+Therefore, two independent pha-1 controls, five independent
+mGsta4 transgenic lines and five independent gst-10 transgenic
+lines  were  generated.  Within  each  group,  the  lines  behaved
+similarly in all experiments that were conducted. The availability of
+a graded series of three groups of lines differing in 4-HNE levels
+(pha-1 control, and mGsta4 and gst-10 transgenics) permitted
+a more conclusive evaluation of the physiological role of 4-HNE
+than would be possible in the more usual binary situation (i.e.
+control vs. transgenic strain). Indeed, with only one exception
+(heat shock), the stress resistances correlated with the 4-HNE-
+conjugating activity of the animals (Fig. 6). Similarly, the median
+lifespans ranked in the same order as 4-HNE-conjugating activity,
+i.e. pha-1 control < mGsta4 < gst-10 transgenic worms (Fig. 7
+and Table 3). Thus, experimental manipulations which alter the
+ability of the organism to metabolize 4-HNE affect stress resist-
+ance and lifespan in a dose-dependent manner. The autologous
+CeGSTP2-2 and the heterologous murine mGSTA4-4 appeared
+to exert the same effect, differentiated only by their respective
+activities. This indicates that lifespan and stress resistance are
+influenced by 4-HNE rather than by other potential consequences
+of GST overexpression such as direct protein–protein interactions.
+Such regulatory interactions, which are independent of catalytic
+activity, have been described for GSTs (Adler et al., 1999; Dorion
+
+Fig. 9 Correlation between median lifespan and 4-HNE-conjugating activity 
+in two series of C. elegans congenic lines. Two sets of congenic lines differing 
+in stress resistance and longevity were selected as previously described 
+(Ayyadevara et al., 2001, 2003). Specific activity of 4-HNE conjugation was 
+measured in worm lysates as described in the Experimental procedures. Lines 
+SR704 and SR708 were constructed in a CL2a strain background, whereas 
+SR101 and SR102 have an RC301genetic background.
+
+expression to the native localization of CeGSTP2-2, we conclude
+that F56A4.3 and CeGSTP2-2 should be expressed in the same
+cells. Thus, F56A4.3 is unlikely to be a confounding factor in
+the immunolocalization experiments.
+
+−1 min
+
+−1 min
+
+The overexpression of CeGSTP2-2 in gst-10 animals was 2.4 ±
+0.6-fold greater than in controls (see Results). From this factor and
+from the estimate, based on retention on GSH columns and on
+immunodepletion, that CeGSTP2-2 accounts for 25–33% of 4-
+HNE-conjugating activity in wild-type worms, it can be calculated
+that  the  gst-10  transgenic  animals  should  have  a  4-HNE-
+−1,
+conjugating activity in the range of 0.26–0.36 µmol mg
+in  good  agreement  with  the  experimental  value  of  0.295 ±
+−1 (Table 2). This indicates that the over-
+0.043 µmol mg
+expressed CeGSTP2-2 is enzymatically fully active. Interestingly,
+lysates of mGsta4 transgenic worms have a 4-HNE-conjugating
+activity which is similar to, or perhaps slightly lower than, that of
+gst-10 transgenic animals (Table 2), in spite of a catalytic efficiency
+of  mGSTA4-4  that  is  30-fold  higher  than  that  of  CeGSTP2-2
+(Table 1). This suggests that the heterologous mGSTA4-4 protein
+may be poorly expressed or rapidly degraded in C. elegans. In
+fact, CeGSTP2-2 was readily detected in 25 µg of crude lysate
+from wild-type or transgenic animals, whereas 40 times more
+protein  (i.e.  an  enriched  GST  fraction  equivalent  to  1 mg  of
+lysate) was necessary to visualize mGSTA4-4 on Western blots
+of mGsta4 transgenic worms (Fig. 3), even though the sensitivity
+of the two anti-GST antibodies for detection of their respective
+antigens is similar (data not shown). This result is consistent with
+a  lower  steady-state  expression  level  of  the  murine  GST  as
+compared with the autologous CeGSTP2-2. The resulting smaller
+increment in enzyme activity in mGsta4 as compared with gst-
+10  transgenics  is  also  reflected  in  the  level  of  4-HNE–protein
+adducts, which is inversely proportional to the 4-HNE-conjugating
+
+© Blackwell Publishing Ltd/Anatomical Society of Great Britain and Ireland 2005
+
+266
+
+4-Hydroxynonenal metabolism affects lifespan, S. Ayyadevara et al. 
+
+et al.,  2002;  Ryoo  et al.,  2004),  including  C. elegans  GSTs
+(Greetham et al., 2004), but are unlikely for a murine GST in
+the context of a C. elegans cell.
+
+Evidence  obtained  by  perturbing  the  system  (expression  of
+GST transgenes) and measuring the outcome establishes a cause–
+effect  relationship  between  4-HNE  metabolism  and  lifespan,
+although neither the underlying mechanism nor the number of
+steps between cause and effect can be derived from the data.
+The conclusion that there is a cause–effect relationship between
+the overexpression of some but not all (see next paragraph) GSTs
+and lifespan is corroborated by independent correlative evidence.
+We have demonstrated that lifespan positively correlates with 4-
+HNE-conjugating activity in a series of congenic lines of C. elegans
+(Fig. 9).  In  these  lines,  DNA  regions  0.3–5 Mb  in  length  are
+replaced by the corresponding regions from worms of a distinct
+genetic background. Regions of such length cover approximately
+30–500 genes, out of the estimated 17 500 genes in C. elegans.
+The  regions  that  have  been  identified  as  relevant  to  lifespan
+(Ayyadevara  et al.,  2001,  2003)  may  include  the  gst-10  locus
+(located on chromosome V, physical map position 2 561 521–
+2 564 525 bp, genetic map position −13.68 cM). However, at
+least  part  of  the  observed  differences  in  4-HNE-conjugating
+activity between the congenic lines could be due to changes
+in GSTs other than CeGSTP2-2, to indirect effects on 4-HNE
+conjugation by CeGSTP2-2 or to regulation of GST transcription
+by trans-acting factors encoded by genes in the replaced regions.
+Additional work will be needed to identify the gene(s) respon-
+sible for modulation of 4-HNE-conjugating activity, and to test
+directly their effects on lifespan.
+
+In contrast to the effect observed by us for CeGSTP2-2 and
+mGSTA4-4,  not  all  GSTs  extend  lifespan  of  C. elegans  when
+overexpressed.  Strains  either  overexpressing  the  gst-4  gene
+product or carrying a deletion of that gene did not differ in their
+lifespans from the wild-type control (Leiers et al., 2003). The gst-
+4 gene product has low activity for α,β-unsaturated aldehydes,
+including 4-HNE (Table 1). Overall, our findings strongly suggest
+that 4-HNE, or other similar α,β-unsaturated carbonyl compounds,
+affect lifespan. The difference between the gst-4 gene product
+and CeGSTP2-2 in the effect on lifespan could be due to disparate
+substrate specificities or differences in tissue distribution.
+
+Our finding that an increased capacity for 4-HNE metabolism
+in a subset of cells (probably including neurons) extends lifespan
+in C. elegans raises the broader question of a possible mechanism
+underlying this effect, and its relationship to other known genetic
+and metabolic factors which modulate aging. The best-studied
+mechanism that controls lifespan is the insulin/insulin-like growth
+factor-1 (IGF-1) signaling pathway (reviewed in Kenyon, 2001;
+Warner, 2005). Mutations in that pathway can extend lifespan
+several-fold, i.e. to a significantly greater extent than changes
+in 4-HNE conjugation. Caloric restriction (Weindruch & Sohal,
+1997) or mutations that reduce food intake or food utilization
+(Lakowski  &  Hekimi,  1998;  Apfeld  &  Kenyon,  1999;  Rogina
+et al., 2000) extend lifespan in a variety of organisms. Caloric
+restriction  is  thought  to  shift  the  NAD+/NADH  ratio,  which  in
+turn may regulate the histone/protein deacetylase of the Sir-2
+
+family (Blander & Guarente, 2004). The IGF-1 and Sir-2 pathways
+are interdependent, at least in mammalian cells (Nemoto et al.,
+2004).  The  specific  target  proteins  whose  expression  and/or
+activity are modulated by the two pathways are not fully known
+but include stress-resistance gene products. Strikingly, neuronal
+cells, some of which appear to express CeGSTP2-2, are of central
+importance in the aging process, either as originators of IGF-1
+and other signals (Wolkow, 2002; Alcedo & Kenyon, 2004), as
+targets  of  pharmacological  or  genetic  interventions  (Evason
+et al., 2005; this work), or as a ‘weak link’ which could determine
+organismal aging (Parkes et al., 1998; Wolkow et al., 2000).
+
+The aging process is often considered within the conceptual
+framework of the free radical theory of aging (Harman, 1956,
+2003)  or  its  variants.  Our  finding  that  products  of  lipid  per-
+oxidation such as 4-HNE are relevant to aging fits within that
+framework.  In  particular,  our  results  corroborate  the  recently
+proposed ‘green theory of aging’ (McElwee et al., 2004; Gems
+& McElwee, 2005). According to this theory, initiating events,
+including  but  not  limited  to  ROS  and  encompassing  a  variety
+of  stochastic  perturbations,  lead  to  the  formation  of  a  wide
+spectrum of secondary deleterious and toxic metabolites which
+are  the  actual  biochemical  effectors  of  damage.  The  damage
+accumulates and eventually becomes manifest as aging. In this
+view, the aging process would be retarded most effectively by
+detoxification reactions (hence ‘green’, by analogy with environ-
+mental concerns for clean waste disposal). The significance
+of pathways such as IGF-1 signaling would lie in their roles in
+regulating  a  wide  range  of  detoxification  enzymes.  GSTs
+constitute a subset of these enzymes, explaining why the effect
+of CeGSTP2-2 on lifespan, although robust, is smaller than that
+of changes in the IGF-1 pathway. If correct, the above hypothesis
+predicts that CeGSTP2-2 should be overexpressed in long-lived
+C. elegans strains carrying hypomorphic mutations of daf-2 (which
+encodes an insulin/IGF-1 receptor), and that lifespan extension
+in  such  strains  should  be  partially  but  not  fully  reversed  by
+abrogating CeGSTP2-2 expression. Work is in progress in our
+laboratories to test these hypotheses; preliminary data indicate
+that the predictions are indeed correct.
+
+Experimental procedures
+
+C. elegans culture conditions and DNA preparation
+
+−1 Na2HPO4, 4.5 g L
+−1 casein hydrolysate, 24 g L
+
+Worms  were  cultured  in  nematode  growth  medium  [NGM:
+25 mM potassium phosphate, pH 6.0, 50 mM NaCl, 0.25% (w/ v)
+peptone, 0.5% (w/v) cholesterol, 1 mM MgCl2, 1 mM CaCl2] and
+−1)  grown  in  3XD
+fed  with  E. coli  strain  OP50  (2 × 109 mL
+−1 NH4Cl,
+medium (10.5 g L
+−1 1 M
+15 g L
+MgSO4).  Animals  were  grown  at  15 °C  [LGIII,  pha-1  (e2123)
+mutant],  at  25  or  25.5 °C  (transgenic  strains  in  which  the
+pha-1 mutation has been rescued by microinjection of the pBX
+plasmid; see below), or at 20 °C (wild-type Bristol-N2). For high
+yields,  large  liquid  cultures  were  grown  in  bulk,  followed  by
+removal  of  bacteria  by  washing  and  flotation  on  a  sucrose
+
+−1 KH2PO4, 0.6 g L
+−1 glycerol and 3 mL L
+
+© Blackwell Publishing Ltd/Anatomical Society of Great Britain and Ireland 2005
+
+4-Hydroxynonenal metabolism affects lifespan, S. Ayyadevara et al.
+
+267
+
+gradient. Genomic DNA was prepared from worms by proteinase
+K digestion in the presence of 1% SDS, followed by standard
+phenol/chloroform extraction and ethanol precipitation.
+
+Determination of C. elegans lifespan
+
+Worms were grown for two generations without depletion of
+bacteria, and were harvested by rinsing with S buffer (0.1 M NaCl,
+0.05 M potassium phosphate, pH 6.0) (Brenner, 1974) into 15-
+mL plastic Falcon tubes. Adults were allowed to settle, and eggs
+were recovered from hermaphrodites by alkaline hypochlorite
+lysis (5 min at room temperature in 0.5 N NaOH, 1.05% hypo-
+chlorite) (Emmons et al., 1979). The eggs were rinsed with S buffer
+and transferred to fresh agar plates containing E. coli OP50. Survival
+cultures (in 60-mm dishes) were set up 1 day after the L4/adult
+molt and were incubated at 25.5 °C. Worms were counted and
+transferred  daily  to  fresh  60-mm  plates  seeded  with  E. coli
+OP50. Worms were considered dead when they failed to move,
+either spontaneously or in response to touch, and showed no
+pharyngeal pumping. Worms that crawled away from the plate
+were censored (considered to have escaped). The time of death
+or escape was assumed to be at the midpoint of the interval
+between the time the worm was found dead or missing, respect-
+ively, and the time of the preceding observation. Between 100
+and 150 worms per strain were used in each lifespan experiment.
+
+Determination of stress resistance
+
+To  assess  resistance  to  H2O2,  age-synchronized  worms  were
+grown  in  liquid  culture  at  25.5 °C.  Fifty  adult  worms  (day  4
+post-hatch) were added to each 35-mm dish containing 3 mL
+−1), E. coli OP50
+S buffer supplemented with cholesterol (5 µg mL
+−1), and freshly added H2O2 (5 mM). The total
+(2 × 109 cells mL
+number of live worms in each dish was counted at regular time
+intervals. Worms that did not swim and showed no pharyngeal
+pumping were considered dead. Paraquat resistance was deter-
+mined by transferring 4-day-old adult worms to plates containing
+150 mM paraquat, and scoring as described for lifespan deter-
+mination. For assessing heat resistance, young adult worms were
+incubated in 60-mm plates at 36 ± 0.4 °C, and were scored every
+2 h for motility, provoked movement and pharyngeal pumping,
+as described for lifespan determination. Resistance to UV radiation
+(254 nm) was measured by placing 50 adult (4 days post-hatch)
+hermaphrodites on NGM agar plates (without E. coli ) and deliv-
+−2 in a UV Stratalinker 1800
+ering an irradiation dose of 5000 J m
+(Stratagene, La Jolla, CA, USA), followed by transfer to NGM
+plates with E. coli and incubation at 25.5 °C. Worms were scored
+as dead or censored as described for lifespan measurements.
+
+Microinjection
+
+Germline transformation was carried out using C. elegans LGIII,
+pha-1 (e2123) mutants. The pha-1/pBX system (a kind gift from
+R. Schnabel, Braunschweig, Germany) is based on the temperature-
+sensitive embryonic lethal mutation pha-1. Constructs carrying
+
+Gfp, gst-10 or mGsta4 transgenes under the control of the gst-
+−1 and were
+10 promoter (see below) were adjusted to 80 µg mL
+microinjected into the distal arm of the hermaphrodite gonad
+as previously described (Mello et al., 1991). The pBX plasmid that
+contained a wild-type copy of the pha-1 gene was co-injected with
+the fusion constructs (Granato et al., 1994; Mello & Fire, 1995). Fol-
+lowing microinjection, the animals were raised to 25 °C. Embry-
+onal lethality caused by the pha-1 mutation is complemented in
+transgenic animals carrying the pBX plasmid. Thus, transgenic
+animals can be selected by shifting the F1 larvae of injected her-
+maphrodites from 15 to 25 °C. Only transformed progeny survive
+this selection and can be maintained by cultivation at 25 °C. For
+each construct, visible phenotypes of multiple animals from at
+least three independent lines were examined using Nomarski optics.
+
+Isolation of 4-HNE-conjugating GST from C. elegans
+
+The Bristol-N2 strain of C. elegans was grown in liquid culture,
+−1).  Worms  were
+in  NGM  containing  E. coli  OP50  (2 × 109  mL
+collected and stored at −70 °C until use. For purification of 4-HNE-
+metabolizing GSTs, 5 g of frozen C. elegans pellet was ground
+in a mortar on dry ice. The frozen powder was transferred to a
+glass-Teflon homogenizer containing 35 mL of 20 mM potassium
+phosphate,  pH 7.0,  1.4 mM  2-mercaptoethanol  (buffer  A)
+supplemented  with  1 mM  PMSF.  Following  homogenization
+for 5 min, the lysate was sonicated for 2 min (power setting 3)
+using  a  Branson  Sonifier  450  (VWR,  West  Chester,  PA,  USA)
+equipped with a tapered microtip, 3 mm in diameter, and was
+centrifuged  for  15 min  at  25 000 g.  The  supernatant  was
+dialysed for 4 h against buffer A, and was used for isolation of
+a GST fraction by GSH affinity chromatography according to
+the method of Simons & Vander Jagt (1977). The GST pool was
+further  fractionated  by  isoelectric  focusing  as  described  in
+Ahmad  et al.  (1988).  Fractions  from  isoelectric  focusing  were
+assayed  for  GST  activity  with  both  4-HNE  and  1-chloro-2,4-
+dinitrobenzene as substrates (Engle et al., 2001).
+
+Cloning, bacterial expression and enzymatic 
+characterization of CeGSTP2-2
+
+The coding sequence of gst-10 was amplified from total C. elegans
+cDNA using the sense primer 5′-AGAGCTCGTCATATGGCCGT-
+the  antisense  primer  5′-
+GCCACAACTTTACTAC  and 
+TCATTTGCATTTATTCCATGGTCAGTTCATTCCCTTCTCAATC.
+The  primers  were  modified  (underlined)  to  create  an  NdeI
+restriction site that includes the initiation codon, and an NcoI
+site  immediately  downstream  of  the  translation  termination
+codon,  in  the  sense  and  antisense  primers,  respectively.  The
+amplification product was digested with NdeI and NcoI, and was
+subcloned  between  the  same  sites  of  the  pET-30a(+)  vector
+(Novagen,  Madison,  WI,  USA).  E. coli  BL21(DE3)pLysS  was
+transformed  with  the  expression  vector,  and  the  CeGSTP2-2
+protein was expressed upon induction with 1 mM isopropyl-β-
+D-thiogalactopyranoside (IPTC) and purified by GSH affinity
+chromatography (Simons & Vander Jagt, 1977).
+
+© Blackwell Publishing Ltd/Anatomical Society of Great Britain and Ireland 2005
+
+268
+
+4-Hydroxynonenal metabolism affects lifespan, S. Ayyadevara et al. 
+
+Cloning, bacterial expression and enzymatic 
+characterization of the gst-4 gene product
+
+The coding sequence of gst-4 was amplified from total C. elegans
+cDNA  using  the  sense  primer  5′-AGCCATATGCCAAAC-
+TATAAGCTATTG and the antisense primer 5′-AGCGGATCCT-
+TAAACAATACTATCCTTTCTTG (the introduced NdeI and BamHI
+sites, respectively, are underlined). The amplification product was
+digested with NdeI and BamHI, and was subcloned between
+the same sites of the pET-19b vector (Novagen). This added an
+(His)10 tag to the N-terminus of the GST. The entire open reading
+frame  was  sequenced  and  was  found  to  be  identical  to  the
+gst-4 sequence reported previously (Leiers, 2002), and to that
+deposited in WormBase. The protein was expressed in E. coli BL21
+Star (DE3)pLysS (Invitrogen, Carlsbad, CA, USA) after induction
+with  1 mM  IPTG,  and  was  purified  either  by  Ni2+  chelation
+chromatography utilizing the added His tag (Leiers et al., 2003),
+or  by  glutathione  affinity  chromatography  (Simons  &  Vander
+Jagt,  1977).  The  two  preparations  had  very  similar  enzymatic
+properties with 1-chloro-2,4-dinitrobenzene, 4-HNE, trans-non-
+2-enal and cumene hydroperoxide as substrates (Table 1).
+
+Enzyme activity assays
+
+Catalytic activity with 4-HNE as substrate was measured accord-
+ing to Alin et al. (1985). For determination of kinetic parameters
+for 4-HNE, the concentration of the aldehyde was varied at a
+constant GSH concentration (0.5 mM), and the kinetic parameters
+were  obtained  from  non-linear  fitting  of  a  Michaelis–Menten
+hyperbola  to  the  data.  Catalytic  activities  with  trans-non-2-
+enal and acrolein were determined according to Pal et al. (2000)
+and  Nilsson  et al.  (2000),  respectively,  and  activity  with  1-
+chloro-2,4-dinitrobenzene  was  measured  according  to  Habig
+et al.  (1974).  Glutathione  peroxidase  activity  with  cumene
+hydroperoxide  as  substrate  was  determined  as  described  by
+Awasthi et al. (1975).
+
+Generation of polyclonal antibodies against 
+CeGSTP2-2
+
+An  antibody  against  affinity-purified  bacterially  expressed
+CeGSTP2-2 was raised in chicken commercially (Aves Laborat-
+ories, Tigard, OR, USA). The IgY fraction was obtained from
+egg  yolks  by  Aves  Laboratories  using  a  proprietary  protocol
+involving solvent extraction and salt fractionation. Pre-immune
+IgY was isolated from eggs of the same chicken collected prior
+to antigen injection.
+
+Western blot analysis
+
+Samples were separated by SDS-PAGE and electroblotted onto
+nitrocellulose membranes (Schleicher & Schuell, Keene, NH, USA).
+The  membrane  was  blocked  and  incubated  with  the  primary
+antibody against mGSTA4-4 (Zimniak et al., 1994) or CeGSTP2-
+2 at a 1 : 20 000 dilution at 4 °C overnight, then incubated with
+
+the secondary antibody (peroxidase-coupled anti-IgY; Sigma, St
+Louis, MO, USA) at 1 : 10 000 dilution at room temperature for
+1 h,  followed  by  chemiluminescence  detection  using  the  ECL
+Plus kit (Amersham Biosciences, Piscataway, NJ, USA) on a Storm
+860 phosphoimager (Molecular Dynamics, Sunnyvale, CA, USA).
+Signal quantitation was carried out with the ImageQuant soft-
+ware (Molecular Dynamics).
+
+Immunodepletion of CeGSTP2-2 in worm lysates
+Bristol-N2 worms were grown in liquid culture at 20 °C, were
+harvested,  and  a  lysate  was  then  prepared.  Worm  lysate
+(300 µg)  was  incubated  in  a  total  volume  of  0.5 mL  of
+immunoprecipitation  buffer  [0.14 M  NaCl,  0.01 M  KCl,  8 mM
+Na2HPO4,  2 mM  KH2PO4,  pH 7.4,  supplemented  with  Calbio-
+chem protease inhibitor cocktail (La Jolla, CA, USA), set I, at 0.5×
+strength]  with  varying  amounts  (up  to  1000 µg)  of  pre-
+immune or anti-CeGSTP2-2 IgY overnight at 4 °C, followed by
+an addition of agarose-coupled goat anti-chicken IgY (Aves
+Laboratories) for 2 h at room temperature. The beads were pel-
+leted, and the supernatant was analysed for 4-HNE-conjugating
+activity.
+
+Mass spectrometric analysis of proteins recognized by 
+anti-CeGSTP2-2 antibody
+
+C. elegans  lysate  was  obtained  as  described  in  the  previous
+section  on  immunodepletion,  and  was  pre-adsorbed  with
+agarose-coupled goat anti-chicken IgY antibody for 90 min at
+room temperature to remove non-specifically reacting proteins.
+The beads were pelleted by centrifugation and discarded, and
+anti-CeGSTP2-2 antibody was added to the supernatant at a ratio
+of 500 µg of IgY per 300 µg of lysate. The immunoprecipitate
+was  recovered  using  fresh  goat  anti-chicken  IgY  antibody
+coupled to agarose beads. The beads were washed seven times
+with immunoprecipitation buffer, were extracted by heating with
+SDS sample buffer, and the solubilized proteins were separated
+on an SDS−12% polyacrylamide one-dimensional gel (Tris–glycine
+system). The gel was stained overnight in SYPRO Ruby solution
+(Molecular Probes, Eugene, OR, USA). Gel images were acquired
+using the ProPic imaging and spot-picking robot from Genomic
+Solutions (Ann Arbor, MI, USA). A broad band migrating at 25–
+29 kDa was excised into a 96-well plate with the ProPic, and
+trypsin digestion was performed using the ProGest in-gel enzy-
+matic  digestion  robot  from  Genomic  Solutions.  The  resulting
+peptide mixture was separated by nanoflow capillary HPLC-MS/
+MS using a CapLC XE pump (Waters Corp., Beverly, MA, USA)
+−1 and equipped with a C18 (75 µm ×
+operating at 200 nL min
+15 cm) column. The eluate was analysed in-line by ESI-MS/MS
+using a Micromass Q-Tof Micro (Waters) tandem mass spectro-
+meter operating in the positive ion mode. Data acquisition was
+performed  in  a  data-dependent  fashion.  The  resulting  data
+were processed using ProteinLynx 2.1 (Waters), and the resulting
+peak  list  was  submitted  for  database  searching  on  Mascot
+(www.matrixscience.com).
+
+© Blackwell Publishing Ltd/Anatomical Society of Great Britain and Ireland 2005
+
+4-Hydroxynonenal metabolism affects lifespan, S. Ayyadevara et al.
+
+269
+
+Determination of 4-HNE–protein adducts by ELISA
+
+The  level  of  4-HNE  adducts  on  proteins  was  measured  in
+C. elegans lysates by competitive ELISA (Satoh et al., 1999) using
+a  polyclonal  antibody  against  4-HNE-modified  keyhole  limpet
+hemocyanin.  The  antibody  was  a  generous  gift  of  Dr  D.  R.
+Petersen, University of Colorado, Denver.
+
+Tissue specificity of CeGSTP2-2 expression as 
+determined by a reporter gene
+
+In order to investigate the cell-specific expression of CeGSTP2-2,
+transgenic nematodes were created. The basic strategy involved
+the insertion of fragments of the 5′ region of gst-10 into the
+multicloning site of the vector pPD95.77 (provided by A. Fire,
+Carnegie Institute, Baltimore). The inserted promoter sequence
+drives the expression of the GFP reporter gene. The GFP coding
+region is followed in the vector by translation termination and
+poly(A) addition signals. The putative promoter region of gst-
+10 was amplified by PCR using a proof-reading polymerase mix
+(Expand  Long  Template  PCR  System,  Roche  Diagnostics,  Indi-
+anapolis, IN, USA) with C. elegans genomic DNA as template.
+Two  promoter  fragments  were  used.  For  both,  the  antisense
+primer 5′-CGCGGATCCGAACAGAAGACGGATGTATTCTCCGAA
+was used; the primer covers positions 89–115 downstream of the
+translation start site in exon 2 of the gst-10 gene, and contains
+an added BamH I restriction site (underlined). The sense primers
+were 5′-CGCGGATCCTGTCATCATTTGTGTATATTACCTTTGTTC
+and 5′-CGCGGATCCATTTCCTGACGAGAACCTATAGTATAAAAC,
+located 3.1 and 2.3 kb, respectively, upstream of the translation
+start  site  of  gst-10  (added  BamHI  sites  are  underlined).  For
+microinjection (see above), the plasmid DNA was prepared using
+the Endo Free Plasmid Maxi Kit (Qiagen, Hilden, Germany). Both
+promoter fragments yielded the same localization pattern of the
+GFP reporter.
+
+CeGSTP2-2 and mGSTA4-4 transgene expression 
+in C. elegans
+
+A  1.0-kb  putative  gst-10  promoter  fragment  comprising  the
+intergenic sequence between gst-10 and the upstream adjacent
+str-154  gene  was  amplified  using  the  Expand  Long  Template
+PCR System (Roche Diagnostics). The sense primer 5′-AAAAC-
+TGCAGTTTCCAAATGTGAAATTTAACCGGAGA was modified
+(underlined) to insert a PstI restriction site. The antisense primer
+5′-GGCACGGGGATCCTACGAGCTCTTATCGTTTA  was  used
+to ablate the translation initiation codon of gst-10 by inserting
+a BamHI restriction site (underlined). The PCR product (promoter
+insert)  was  digested  with  PstI  and  BamHI  and  subcloned  into
+the  pPD49.26  vector  (provided  by  A.  Fire)  digested  with  the
+same restriction enzymes, yielding plasmid pPD49.26/CeP2pro.
+The coding sequence of gst-10 was amplified from its cDNA
+using  the  sense  primer  5′-TTAAGTTGAGCTAGCATGGCCGT-
+GCCACAACTT  (NheI  restriction  site,  introduced  immediately
+upstream of the translation initiation codon, is underlined) and
+
+© Blackwell Publishing Ltd/Anatomical Society of Great Britain and Ireland 2005
+
+the antisense primer 5′-TCATTTGCATTTATTCCATGGTCAGTTCA-
+TTCCCTTCTCAATC  (NcoI  restriction  site,  added  immediately
+downstream of the translation termination codon, is underlined).
+Similarly, mGsta4 cDNA was amplified using the sense primer
+5′-AGCCGTAACGCTAGCATGGCAGCCAAACCTAAG 
+(NheI
+restriction  site,  introduced  immediately  upstream  of  the
+translation  initiation  codon,  is  underlined)  and  the  antisense
+primer 5′-CTAGCATTGTCCATGGCTAGAACTTCAGGACAA (NcoI
+restriction site, added immediately downstream of the trans-
+lation termination codon, is underlined). For neither gene did
+the introduction of the NheI site compromise the Kozak consensus
+sequence for the translational start site as utilized in C. elegans.
+The  two  amplification  products  were  digested  with  NheI  and
+NcoI, and were subcloned between the same sites in pPD49.26/
+CeP2pro. This yielded expression vectors pPD49.26/CeP2pro/gst-
+10 and pPD49.26/CeP2pro/mGsta4, respectively, in which the
+expression of each GST gene was placed under the control of
+the gst-10 promoter. The two constructs were used for micro-
+injection. Single F1 larvae were transferred to new agar plates and
+the introduction of the expression vectors was confirmed in their
+progeny by single-worm PCR according to Jansen et al. (1997).
+
+Tissue specificity of CeGSTP2-2 expression as 
+determined by indirect immunostaining
+
+Cells  expressing  CeGSTP2-2  were  identified  by  staining  wild-
+type adult C. elegans or worms overexpressing CeGSTP2-2 with
+anti-CeGSTP2-2 antibody according to Finney & Ruvkun (1990).
+Briefly, worms were fixed and permeabilized by freezing in 1%
+buffered formaldehyde, thawing, and exposure to 1% Triton X-
+100 and 1% 2-mercaptoethanol, followed by 10 mM dithiothreitol.
+After  washing,  the  worms  were  incubated  in  0.3%  H2O2  in
+25 mM sodium borate, pH 9.2, washed, blocked consecutively
+with  0.2%  bovine  serum  albumin  and  1%  goat  serum,  and
+exposed to anti-CeGSTP2-2 antibodies (1 : 300 dilution) in the
+presence of 2% bovine serum albumin and 0.5% Triton X-100.
+The worms were washed, stained with an anti-chicken secondary
+antibody labeled with Alexa 488 (1 : 200; Molecular Probes)
+and photographed under a Nikon Eclipse E1000 fluorescence
+microscope.  The  expression  pattern  of  mGSTA4-4  in  mGsta4
+transgenic worms was determined as described above, except
+that the primary antibody was anti-mGSTA4-4 raised in chicken
+as described previously (Singh et al., 2002).
+
+Statistics
+
+Values  of  biochemical  parameters  were  compared  by  ANOVA
+followed  by  pairwise  t-tests  with  a  correction  for  multiple
+comparisons  (Tukey–Kramer).  Maximum  likelihood  estimates
+of Gompertz survival parameters (Arking, 1998) and of median
+lifespans were obtained using the program WinModest (Pletcher,
+1999; Promislow et al., 1999). Survival curves were compared
+by the log rank test and by randomization analysis (using 106
+Monte Carlo samples). Data from multiple lifespan experiments,
+each involving control and transgenic strains, were evaluated
+
+270
+
+4-Hydroxynonenal metabolism affects lifespan, S. Ayyadevara et al. 
+
+in aggregate by Cox regression. The Bonferroni correction was
+applied to multiple comparisons of lifespans. All statistical pro-
+cedures were carried out in NCSS software (Number Cruncher
+Statistical Systems, Kaysville, UT, USA).
+
+Beckman KB, Ames BN (1998) The free radical theory of aging matures.
+
+Physiol. Rev. 78, 547–581.
+
+Blander G, Guarente L (2004) The Sir2 family of protein deacetylases.
+
+Annu. Rev. Bioch. 73, 417–435.
+
+Brenner S (1974) The genetics of Caenorhabditis elegans. Genetics 77,
+
+Acknowledgments
+
+We thank Dr Dennis R. Petersen, University of Colorado, Denver,
+for  the  generous  gift  of  an  antibody  against  4-HNE–protein
+adducts, and Eric R. Siegel, M.S., Division of Biostatistics, Univer-
+sity of Arkansas for Medical Sciences, for statistical advice. This
+work  was  supported  in  part  by  National  Institutes  of  Health
+grants R01 AG18845 and R01 ES07804 (to P.Z.), and Program
+Project  grant  P01  AG20641  (to  R.J.S.R.).  P.Z.  and  R.J.S.R.  are
+recipients of VA Research Career Scientist Awards. M.E. was a
+recipient of an institutional grant awarded by the University of
+Arkansas  for  Medical  Sciences  Committee  for  Allocation  of
+Graduate Student Research Funds (CAGSRF). Some nematode
+strains used in this work were provided by the Caenorhabditis
+Genetics Center, which is funded by the NIH National Center
+for Research Resources (NSRR). The Arkansas Cancer Research
+Center Proteomics Core Facility (C.F.L., co-director) is supported
+in  part  by  NIH  Grant  Number  P20  RR-16460  from  the  BRIN
+Program  of  the  National  Center  for  Research  Resources  and
+by the Arkansas Biosciences Institute (funded by the Tobacco
+Settlement Proceeds Act).
+
+References
+
+Adler V, Yin Z, Fuchs SY, Benezra M, Rosario M, Tew KD, Pincus MR,
+Sardana  RM,  Henderson  CJ,  Wolf  CR,  Davis  RJ,  Ronai  Z  (1999)
+Regulation of JNK signaling by GSTp. EMBO J. 18, 1321–1334.
+
+Ahmad H, Singh SV, Medh RD, Ansari GAS, Kurosky A, Awasthi YC (1988)
+Differential expression of alpha, mu and pi classes of isoenzymes
+of glutathione S-transferase in bovine lens, cornea, and retina. Arch.
+Biochem. Biophys. 266, 416–426.
+
+Alcedo J, Kenyon C (2004) Regulation of C. elegans longevity by specific
+
+gustatory and olfactory neurons. Neuron 41, 45–55.
+
+Alin  P,  Danielson  UH,  Mannervik  B  (1985)  4-Hydroxyalk-2-enals  are
+
+substrates for glutathione transferase. FEBS Lett. 179, 267–270.
+
+Apfeld J, Kenyon C (1999) Regulation of lifespan by sensory perception
+
+in Caenorhabditis elegans. Nature 402, 804–809.
+
+Arking  R  (1998)  Measuring  age-related  changes  in  populations.  In
+Biology of Aging: Observations and Principles (ed. Arking R), pp. 27–
+59. Sunderland, MA: Sinauer Associates.
+
+Armstrong RN (1997) Structure, catalytic mechanism, and evolution of
+
+the glutathione transferases. Chem. Res. Toxicol. 10, 2–18.
+
+Awasthi YC, Beutler E, Srivastava SK (1975) Purification and properties
+of  human  erythrocyte  glutathione  peroxidase.  J.  Biol.  Chem.  250,
+5144–5149.
+
+Ayyadevara S, Ayyadevara R, Hou S, Thaden JJ, Shmookler Reis RJ (2001)
+Genetic  mapping  of  quantitative  trait  loci  governing  longevity  of
+Caenorhabditis elegans in recombinant-inbred progeny of a Bergerac-
+BO x RC301 interstrain cross. Genetics 157, 655–666.
+
+Ayyadevara S, Ayyadevara R, Vertino A, Galecki A, Thaden JJ, Shmookler
+Reis  RJ  (2003)  Genetic  loci  modulating  fitness  and  life  span  in
+Caenorhabditis elegans: categorical trait interval mapping in CL2a
+x  Bergerac-BO  recombinant-inbred  worms.  Genetics  163,  557–
+570.
+
+71–94.
+
+Cadenas E, Davies KJA (2000) Mitochondrial free radical generation,
+
+oxidative stress, and aging. Free Radic. Biol. Med. 29, 222–230.
+
+Carini M, Aldini G, Facino RM (2004) Mass spectrometry for detection
+of  4-hydroxy-trans-2-nonenal  (HNE)  adducts  with  peptides  and
+proteins. Mass Spectr. Rev. 23, 281–305.
+
+Chelvanayagam G, Parker MW, Board PG (2001) Fly fishing for GSTs:
+a  unified  nomenclature  for  mammalian  and  insect  glutathione
+transferases. Chem. Biol. Interact. 133, 256–260.
+
+Crow  JP  (2000)  Peroxynitrite  scavenging  by  metalloporphyrins  and
+
+thiolates. Free Radic. Biol. Med. 28, 1487–1494.
+
+Dianzani MU (2003) 4-Hydroxynonenal from pathology to physiology.
+
+Mol. Aspects Med. 24, 263–272.
+
+Dianzani MU, Barrera G, Parola M (1999) 4-hydroxy-2,3-nonenal as a
+signal for cell function and differentiation. Acta Biochim. Pol. 46, 61–
+75.
+
+Dorion  S,  Lambert  H,  Landry  J  (2002)  Activation  of  the  p38  signaling
+pathway  by  heat  shock  involves  the  dissociation  of  glutathione  S-
+transferase Mu from Ask1. J. Biol. Chem. 277, 30792–30797.
+
+Emmons SW, Klass MR, Hirsh D (1979) Analysis of the constancy of DNA
+sequences  during  development  and  evolution  of  the  nematode
+Caenorhabditis elegans. Proc. Natl Acad. Sci. USA 76, 1333–1337.
+
+Engle  MR,  Singh  SP,  Nanduri  B,  Ji  X,  Zimniak  P  (2001)  Invertebrate
+glutathione  transferases  conjugating  4-hydroxynonenal:  CeGST  5.4
+from Caenorhabditis elegans. Chem. Biol. Interact. 133, 244–248.
+
+Esterbauer H, Schaur RJ, Zollner H (1991) Chemistry and biochemistry
+of  4-hydroxynonenal,  malonaldehyde  and  related  aldehydes.  Free
+Radic. Biol. Med. 11, 81–128.
+
+Evason  K,  Huang  C,  Yamben  I,  Covey  DF,  Kornfeld  K  (2005)  Anti-
+convulsant medications extend worm life-span. Science 307, 258–262.
+Finney M, Ruvkun G (1990) The unc-86 gene product couples cell lineage
+
+and cell identity in C. elegans. Cell 63, 895–905.
+
+Forman  HJ,  Dickinson  DA,  Iles  KE  (2003)  HNE  –  signaling  pathways
+
+leading to its elimination. Mol. Aspects Med. 24, 189–194.
+
+Gems D, McElwee JJ (2005) Broad spectrum detoxification: the major
+longevity  assurance  process  regulated  by  insulin/IGF-1  signaling?
+Mech. Ageing Dev. 126, 381–387.
+
+Granato M, Schnabel H, Schnabel R (1994) pha-1, a selectable marker
+for gene transfer in C. elegans. Nucleic Acids Res. 22, 1762–1763.
+Greetham  D,  Morgan  C,  Campbell  AM,  van  Rossum  AJ,  Barrett  J,
+Brophy  PM  (2004)  Evidence  of  glutathione  transferase  complexing
+and signaling in the model nematode Caenorhabditis elegans using
+a pull-down proteomic assay. Proteomics 4, 1989–1995.
+
+Gutteridge JMC, Halliwell B (1990) The measurement and mechanism
+of lipid peroxidation in biological systems. Trends Biochem. Sci. (TIBS)
+15, 129–135.
+
+Habig WH, Pabst MJ, Jakoby WB (1974) Glutathione S-transferases. The
+first enzymatic step in mercapturic acid formation. J. Biol. Chem. 249,
+7130–7139.
+
+Harman D (1956) Aging: a theory based on free radical and radiation
+
+chemistry. J. Gerontol. 11, 298–300.
+
+Harman D (2003) The free radical theory of aging. Antioxid. Redox
+
+Signal. 5, 557–561.
+
+Jansen G, Hazendonk E, Thijssen KL, Plasterk RH (1997) Reverse genetics
+by chemical mutagenesis in Caenorhabditis elegans. Nat. Genet. 17,
+119–121.
+
+Kenyon  C  (2001)  A  conserved  regulatory  system  for  aging.  Cell  105,
+
+165–168.
+
+© Blackwell Publishing Ltd/Anatomical Society of Great Britain and Ireland 2005
+
+4-Hydroxynonenal metabolism affects lifespan, S. Ayyadevara et al.
+
+271
+
+Lakowski  B,  Hekimi  S  (1998)  The  genetics  of  caloric  restriction  in
+Caenorhabditis elegans. Proc. Natl Acad. Sci. USA 95, 13091–13096.
+Lane N (2002) Oxygen: the Molecule That Made the World. New York:
+
+Oxford University Press. .
+
+Leiers B (2002) Funktionelle Charakterisierung von zwei stressinduzier-
+baren Glutathion S-Transferasen in Caenorhabditis elegans. Doctoral
+Thesis, Heinrich-Heine-Universität, Düsseldorf.
+
+Leiers BR, Kampkotter A, Grevelding CG, Link CD, Johnson TE, Henkle-
+Duhrsen  K  (2003)  A  stress-responsive  glutathione  S-transferase
+confers resistance to oxidative stress in Caenorhabditis elegans. Free
+Radic. Biol. Med. 34, 1405–1415.
+
+Leonarduzzi G, Robbesyn F, Poli G (2004) Signaling kinases modulated
+
+by 4-hydroxynonenal. Free Radic. Biol. Med. 37, 1694–1702.
+
+Mannervik  B,  Awasthi  YC,  Board  PG,  Hayes  JD,  Di  Ilio  C,  Ketterer  B,
+Listowsky I, Morgenstern R, Muramatsu M, Pearson WR, Pickett CB,
+Sato  K,  Widersten  M,  Wolf  CR  (1992)  Nomenclature  for  human
+glutathione transferases. Biochem. J. 282, 305–308.
+
+Mates  JM,  Perez-Gomez  C,  Nunez  de  Castro  I  (1999)  Antioxidant
+
+enzymes and human diseases. Clin. Biochem. 32, 595–603.
+
+McElwee JJ, Schuster E, Blanc E, Thomas JH, Gems D (2004) Shared
+transcriptional signature in Caenorhabditis elegans dauer larvae and
+long-lived daf-2 mutants implicates detoxification system in longevity
+assurance. J. Biol. Chem. 279, 44533–44543.
+
+McEwen JE, Zimniak P, Mehta JL, Shmookler Reis RJ (2005) Molecular
+pathology of aging and its implications for senescent coronary athero-
+sclerosis. Curr. Opin. Cardiol. 20, 399–406.
+
+Mello C, Fire A (1995) DNA transformation. Meth. Cell Biol. 48, 451–
+
+482.
+
+Mello CC, Kramer JM, Stinchcomb D, Ambros V (1991) Efficient gene
+transfer in C.elegans: extrachromosomal maintenance and integration
+of transforming sequences. EMBO J. 20, 3959–3970.
+
+Nakashima  I,  Liu  W,  Akhand  AA,  Takeda  K,  Kawamoto  Y,  Kato  M,
+Suzuki H (2003) 4-hydroxynonenal triggers multistep signal transduc-
+tion cascades for suppression of cellular functions. Mol. Aspects Med.
+24, 231–238.
+
+Nemoto S, Fergusson MM, Finkel T (2004) Nutrient availability regulates
+SIRT1 through a forkhead-dependent pathway. Science 306, 2105–
+2108.
+
+Nilsson LO, Gustafsson A, Mannervik B (2000) Redesign of substrate-
+selectivity  determining  modules  of  glutathione  transferase  A1–1
+installs high catalytic efficiency with toxic alkenal products of lipid
+peroxidation. Proc. Natl Acad. Sci. USA 97, 9408–9412.
+
+Pal A, Hu X, Zimniak P, Singh SV (2000) Catalytic efficiencies of allelic
+variants  of  human  glutathione  S-transferase  Pi  in  the  glutathione
+conjugation of α,β-unsaturated aldehydes. Cancer Lett. 154, 39–43.
+Parkes TL, Elia AJ, Dickinson D, Hilliker AJ, Phillips JP, Boulianne GL (1998)
+Extension of Drosophila lifespan by overexpression of human SOD1
+in motorneurons. Nat. Genetics. 19, 171–174.
+
+Petersen  DR,  Doorn  JA  (2004)  Reactions  of  4-hydroxynonenal  with
+
+proteins and cellular targets. Free Radic. Biol. Med. 37, 937–945.
+
+Pletcher SD (1999) Model fitting and hypothesis testing for age-specific
+
+mortality data. J. Evol. Biol. 12, 430–439.
+
+Promislow DEL, Tatar M, Pletcher SD, Carey JR (1999) Below-threshold
+mortality: implications for studies in evolution, ecology and demography.
+J. Evol. Biol. 12, 314–328.
+
+Rogina B, Reenan RA, Nilsen SP, Helfand SL (2000) Extended life-span
+conferred  by  cotransporter  gene  mutations  in  Drosophila.  Science
+290, 2137–2140.
+
+Ryoo K, Huh SH, Lee YH, Yoon KW, Cho SG, Choi EJ (2004) Negative
+regulation of MEKK1-induced signaling by glutathione S-transferase
+Mu. J. Biol. Chem. 279, 43589–43594.
+
+Satoh K, Yamada S, Koike Y, Igarashi Y, Toyokuni S, Kumano T, Takahata T,
+Hayakari  M,  Tsuchida  S,  Uchida  K  (1999)  A  1-hour  enzyme-linked
+immunosorbent assay for quantitation of acrolein- and hydroxynonenal-
+modified  proteins  by  epitope-bound  casein  matrix  method.  Anal.
+Biochem. 270, 323–328.
+
+Sawicki R, Singh SP, Mondal AK, Benes H, Zimniak P (2003) Cloning,
+expression,  and  biochemical  characterization  of  one  Epsilon-class
+(GST-3) and ten Delta-class (GST-1) glutathione S-transferases from
+Drosophila  melanogaster,  and  identification  of  additional  nine
+members of the Epsilon class. Biochem. J. 370, 661–669.
+
+Scandalios  JG  (1997)  Oxidative  Stress  and  the  Molecular  Biology  of
+Antioxidant Defenses. Plainview, NY: Cold Spring. Harbor Laboratory
+Press.
+
+Schneider C, Porter NA, Brash AR (2004) Autoxidative transformation
+of chiral ω6 hydroxy linoleic and arachidonic acids to chiral 4-hydroxy-
+2E-nonenal. Chem. Res. Toxicol. 17, 937–941.
+
+Schneider  C,  Tallman  KA,  Porter  NA,  Brash  AR  (2001)  Two  distinct
+pathways  of  formation  of  4-hydroxynonenal:  mechanisms  of  non-
+enzymatic transformation of the 9-and 13-hydroperoxides of linoleic
+acid to 4-hydroxyalkenals. J. Biol. Chem. 276, 20831–20838.
+
+Simons  PC,  Vander  Jagt  DL  (1977)  Purification  of  glutathione  S-
+transferases from human liver by glutathione-affinity chromatography.
+Anal. Biochem. 82, 334–341.
+
+Singh SP, Coronella JA, Benes H, Cochrane BJ, Zimniak P (2001) Catalytic
+function  of  Drosophila  melanogaster  glutathione  S-transferase
+DmGSTS1–1  (GST-2)  in  conjugation  of  lipid  peroxidation  end
+products. Eur. J. Biochem. 268, 2912–2923.
+
+Singh  SP,  Janecki  AJ,  Srivastava  SK,  Awasthi  S,  Awasthi  YC,  Xia  SJ,
+Zimniak P (2002) Membrane association of glutathione S-transferase
+mGSTA4–4, an enzyme that metabolizes lipid peroxidation products.
+J. Biol. Chem. 277, 4232–4239.
+
+Sun  M,  Salomon  RG  (2004)  Oxidative  fragmentation  of  hydroxy
+octadecadienoates generates biologically active γ-hydroxyalkenals. J.
+Am. Chem. Soc. 126, 5699–5708.
+
+Warner HR (2005) Longevity genes: from primitive organisms to humans.
+
+Mech. Ageing Dev. 126, 235–242.
+
+Watts JL, Browse J (2002) Genetic dissection of polyunsaturated fatty
+acid  synthesis  in  Caenorhabditis  elegans.  Proc.  Natl  Acad.  Sci.  USA
+99, 5854–5859.
+
+Weindruch R, Sohal RS (1997) Caloric intake and aging. N. Engl. J. Med.
+
+337, 986–994.
+
+Weston  K,  Yochem.  J,  Greenwald  I  (1989)  A  Caenorhabditis  elegans
+cDNA  that  encodes  a  product  resembling  the  rat  glutathione  S-
+transferase P subunit. Nucleic Acids Res. 17, 2138.
+
+Wolkow CA (2002) Life span: getting the signal from the nervous system.
+
+Trends Neurosci. 25, 212–216.
+
+Wolkow CA, Kimura KD, Lee M-S, Ruvkun G (2000) Regulation of
+C. elegans life-span by insulinlike signaling in the nervous system.
+Science 290, 147–150.
+
+Xu GH, Liu YH, Sayre LM (2000) Polyclonal antibodies to a fluorescent
+4-hydroxy-2-nonenal (HNE)-derived lysine–lysine cross-link: character-
+ization and application to HNE-treated protein and in vitro oxidized
+low-density lipoprotein. Chem. Res. Toxicol. 13, 406–413.
+
+Xu  G,  Sayre  LM  (1998)  Structural  characterization  of  a  4-hydroxy-2-
+alkenal-derived  fluorophore  that  contributes  to  lipoperoxidation-
+dependent  protein  cross-linking  in  aging  and  degenerative  disease.
+Chem. Res. Toxicol. 11, 247–251.
+
+Zimniak P, Singhal SS, Srivastava SK, Awasthi S, Sharma R, Hayden JB,
+Awasthi YC (1994) Estimation of genomic complexity, heterologous
+expression, and enzymatic characterization of mouse glutathione S-
+transferase mGSTA4–4 (GST 5.7). J. Biol. Chem. 269, 992–1000.
+
+© Blackwell Publishing Ltd/Anatomical Society of Great Britain and Ireland 2005
+
+

@@ -1,0 +1,1174 @@
+Comparative Biochemistry and Physiology, Part A 142 (2005) 308 – 317
+
+www.elsevier.com/locate/cbpa
+
+Chemotaxis of Caenorhabditis elegans during simultaneous presentation
+
+of two water-soluble attractants, l-lysine and chloride ions
+
+Ryuzo Shingai *, Tokumitsu Wakabayashi, Kazumi Sakata, Tetsuya Matsuura
+
+Laboratory of Bioscience, Faculty of Engineering, Iwate University, 4 Ueda, Morioka 020-8551, Japan
+
+Received 17 March 2005; received in revised form 28 July 2005; accepted 29 July 2005
+
+Available online 13 September 2005
+
+Abstract
+
+Lysine and chloride ions are water-soluble attractants for Caenorhabditis elegans. When chemotaxis behavior to either of these
+attractants was assayed separately, the radial concentration gradients of 3 M lysine and 0.1 M ammonium chloride had similar potencies
+for attracting worms. However, when the concentration gradients of lysine and ammonium chloride at
+these concentrations were
+presented simultaneously, worms preferred lysine to ammonium chloride more than expected from the results obtained in separate
+experiments, suggesting the presence of an interaction between these two sensory information pathways within the nervous system.
+Chemotaxis behavior toward the radial concentration gradient of one of these attractants superimposed on a uniform concentration of the
+other attractant showed that the chemotaxis was augmented or attenuated by the ammonium chloride background depending on the
+background concentration, and attenuated by the lysine background, further supporting the interaction between the two sensory
+information pathways.
+D 2005 Elsevier Inc. All rights reserved.
+
+Keywords: Nematode; Sensory information; Chemical stimuli; Concentration gradient; Neural signaling; Nervous system; Behavior; Choice
+
+1. Introduction
+
+The presentation of two sensory stimuli
+
+to animals
+should induce an informational interaction in the nervous
+system between neuronal responses to the two inputs.
+Studies on the structurally relatively simple nervous system
+of invertebrates have provided insights into this informa-
+tional interaction (Chase et al., 1978; Fredman and Jahan-
+Parwar, 1980; Thomas et al., 1980; Wedemeyer and Schild,
+1995). In the nematode Caenorhabditis elegans, sensory
+informational interactions were suggested through experi-
+ments using chemoattractants and repellents such as diacetyl
+and copper ions (Ishihara et al., 2002) or diacetyl and
+sodium acetate (Matsuura et al., 2004) as two sensory
+stimuli, and determining behavioral outputs. In both cases,
+
+* Corresponding author. Tel./fax: +81 19 621 6479.
+
+E-mail address: shingai@iwate-u.ac.jp (R. Shingai).
+
+1095-6433/$ - see front matter D 2005 Elsevier Inc. All rights reserved.
+doi:10.1016/j.cbpa.2005.07.010
+
+an inhibitory or excitatory sensory interaction was consid-
+ered to exist in their nervous system.
+
+C. elegans can sense a number of chemoattractants and
+repellents through the function of
+their sensory organ
+called the amphid. The amphid consists of 12 classes of
+sensory neurons, and the roles of these sensory neurons in
+chemotaxis behavior have been extensively studied (Ward,
+1973; Dusenbery, 1974; Bargmann and Mori, 1997). For
+example, AWA neurons are responsible for detecting the
+odorant diacetyl
+(Bargmann et al., 1993). ASE, ADF,
+ASG and ASI neurons are responsible for detecting the
+water-soluble sodium and chloride ions, and ASE, ASH
+and ADL neurons are responsible for detecting copper
+ions (Bargmann and Horvits, 1991; Sambongi et al.,
+1999). The chemotaxis behavior of worms
+to the
+simultaneous presentation of two attractants, diacetyl and
+sodium acetate (Matsuura et al., 2004), shows that
+the
+sensory informational
+interactions may occur between
+signal pathways in the nervous system from the two
+distinct subsets of chemosensory neurons. A question
+
+R. Shingai et al. / Comparative Biochemistry and Physiology, Part A 142 (2005) 308 – 317
+
+309
+
+the interaction between signaling
+arises as to whether
+pathways from other subsets of chemosensory neurons
+exists.
+
+l-lysine is detected primarily by ASK and ASE neurons
+and secondarily by ASG and ASI neurons. On the other
+hand, chloride ions are detected primarily by ASE neurons
+and secondarily by ADF, ASG and ASI neurons (Barg-
+mann and Horvits, 1991)
+(Fig. 1). ASE neurons are
+composed of ASER and ASEL, and chloride ions are
+sensed mainly by ASER and slightly by ASEL (Pierce-
+Shimomura et al., 2001). Therefore, ASE, ASG, and ASI
+neurons have overlapping functions for detecting both l-
+lysine and chloride ions, while ASK and ADF neurons have
+selective sensitivity for either of these attractants. The
+outputs from these neurons accumulate in interneurons.
+Here, we describe the quantitative analysis of the chemo-
+taxis behavior of C. elegans in response to the simultaneous
+presentation of radial concentration gradients of two water-
+soluble chemoattractants, l-lysine and ammonium chloride.
+We have also studied the chemotaxis behavior of worms
+toward the radial concentration gradient of the attractant
+formed in the presence of a uniform concentration of the
+other attractant.
+
+Fig. 1. Schematic diagram of neural network of interaction of sensory
+information on lysine and chloride ions. The number of synapses and gap
+junctions were obtained from the database (Oshio et al., 2003) based on
+White et al. (1986). The arrows show chemical synapses: wide arrows
+indicate the number of synapses n R 20, thick arrows 10o n < 20, and thin
+arrows 1o n < 10. Gap junctions, whose number of connections between a
+pair of neurons is more than three, exist only between ASI and AIA, and a
+dashed line shows them. The sensory neurons and the interneurons are
+depicted by triangles and hexagons, respectively. Chemotaxis behavior
+toward lysine is primarily triggered by ASE and ASK neurons, while that
+toward chloride ions by ASE neurons. Whole information is integrated in
+AIA and AIB interneurons, the outputs are sent to other interneurons to
+modulate the movement of the worm. Several interneurons are depicted to
+show the information pathway via synapses, although interneurons were not
+studied in this research.
+
+2. Materials and methods
+
+2.1. Animals
+
+Wild-type (Bristol N2) Caenorhabditis elegans was
+obtained from the Caenorhabditis Genetics Center at the
+University of Minnesota. The nematodes were grown and
+maintained on NGM (nematode growth medium) agar plates
+(3 g/L NaCl, 2.5 g/L polypeptone, 5 mg/L cholesterol, 1
+mM CaCl2, 1 mM MgSO4, 25 mM KH2PO4, pH 6.0, and 17
+g/L agar) seeded with the Escherichia coli OP50 strain at 20
+-
+C (Brenner, 1974). In all chemotaxis assays, we used
+young adult hermaphrodites. To obtain synchronously
+staged young adult hermaphrodites, about ten gravid worms
+were transferred to a fresh seeded medium, allowing the
+worms to lay eggs for 2 h, then removed from the plate
+(Ishihara et al., 2002). The egg-containing plate was
+incubated at 20
+C. We used the worms when the clear
+crescent structure around the vulva disappeared (approx-
+imately 70 – 80 h after removal of gravid worms).
+
+-
+
+2.2. Chemotaxis assays
+
+2.2.1. Assay plate
+
+Nine-centimeter-diameter tissue culture dishes containing
+10 mL of 1.5% agarose (1 mM CaCl2, 1 mM MgSO4, 5 mM
+KH2PO4 (pH 6.0, adjusted with KOH), and 15 g/L agarose)
+were used for the assay. The radial concentration gradient of
+lysine or ammonium chloride was established in assay
+plates by placing the attractant
+twice (Ward, 1973), as
+described below.
+
+2.2.2. Single-spot presentation
+
+For chemotaxis assays for lysine, l-lysine (WAKO; pH
+6.0 adjusted with acetic acid) of various concentrations
+between 0.01 and 3 M were used. Lysine (10 AL) was
+placed twice on the surface of an assay plate (the center of
+region A, Exp. 1 in Fig. 2) 24¨27 h and 5 h before the
+-
+C
+start of the assay, and the assay plate was kept at 20
+until use. The times of lysine spotting were determined to
+obtain the maximal chemotaxis index by scanning the
+spotting time between 20 and 30 h for the first spotting
+and between 3 and 6 h for the second. The chemotaxis
+assay for ammonium chloride was carried out using NH4Cl
+(pH 6.0 adjusted with 28% ammonia solution) of various
+concentrations between 0.03 M and 3 M. Ammonium
+chloride (7 AL) as an attractant was placed twice on the
+surface of an assay plate (the center of region B, Exp. 2 in
+Fig. 2) 15¨18 h and 3 h before the start of the assay to
+obtain a concentration gradient, and the assay plate was
+kept at 20
+C until use. The times of ammonium chloride
+spotting were the same as those for sodium acetate
+chemotaxis (Matsuura et al., 2004). To anaesthetize the
+animals, 1 AL of 0.1 M sodium azide was spotted at the
+centers of regions A and B shortly before the chemotaxis
+assay.
+
+-
+
+310
+
+R. Shingai et al. / Comparative Biochemistry and Physiology, Part A 142 (2005) 308 – 317
+
+the bottom of the tube using a micropipette (3 AL) to the
+center of the two regions of C and D (Fig. 2). Excess
+solution around the worms was removed, and the clumped
+animals were separated from each other by gently
+touching them with a Kimwipe. When the number of
+animals in C or D was greater than 20, some of them
+were gently removed using a platinum wire (0.1 mm in
+diameter). The total number of animals in both regions
+was approximately 30 at the start of the assay. The worms
+were allowed to move freely on the assay plate for 90
+min. The numbers of animals in each of the regions, A,
+B, C and D (circles of 2 cm diameter) and E, which is an
+area outside A, B, C and D, were determined under a
+dissecting microscope (OLYMPUS SZ40) every 10 min.
+At least eight assays were performed for all concentrations
+of each attractant. All experiments were performed during
+daytime at 20
+
+C.
+
+-
+
+2.3. Scoring and analysis
+
+The chemotaxis index was calculated based on the
+the attractant
+number of animals in the region of
+(Bargmann et al., 1993). We calculated the chemotaxis
+index (CI(t)) and the fraction of animals (FR(t)) at time t
+(min) after the start of the assay using the following
+formulas:
+CI tð Þ in singleQspot presentation or singleQspotQonQ
+background presentation
+
+¼ ððnumber of animals in A in Exp:1 or B in Exp:2
+  number of animals in B or Að
+
+ð
+ÞÞ=N
+
+Þ
+
+ð
+
+ÞÞ
+
+CI tð Þ in twoQspot presentation
+
+ð
+
+¼ ð number of animals in A
+  number of animals in B
+
+Þ
+ÞÞ=N
+
+ð
+
+FR tð Þ ¼ number of animals in A; B; C and D; or E
+
+ð
+
+Þ=N :
+
+Here N represents the total number of worms in the assay
+
+plate.
+
+Values are presented as average
+
+S.E.M. The signifi-
+cance of difference in chemotactic response was statistically
+analyzed by a t-test. Statistical significance was determined
+at p < 0.05, if not stated explicitly.
+
+T
+
+Fig. 2. Chemotaxis of wild-type C. elegans toward lysine and chloride. (A)
+Configuration of assay plate and scheme of experiment. Ten microliters of
+lysine acetate was placed twice at the center of A. Seven microliters of
+ammonium chloride drop was placed at the center of B. A and B are areas
+enclosed by circles of 2 cm diameter. Worms were placed at the center of C
+and D equidistant (2.8 cm) from the test and control locations at the start of
+the assay. E is the area outside A, B, C and D. Five types of experiments
+(Exps. 1, 2, 3, 4 and 5) were performed as shown in the lower part.
+Background (BG) included lysine or ammonium chloride, or none of these
+attractants in the whole agarose plate. (B) Traces of animals for chemotaxis
+toward singly applied 3 M lysine. (C) Traces of animals for chemotaxis
+toward singly applied 0.1 M ammonium chloride. The traces in (B) and (C)
+were obtained by superposition of worms’ images for 60 min at 10-s
+intervals.
+
+2.2.3. Two-spot presentation
+
+In the experiment on the radial concentration gradients of
+both attractants presented simultaneously,
+lysine, ammo-
+nium chloride and sodium azide were placed on an assay
+plate using the same process as that
+in the single-spot
+presentation (Exp. 3 in Fig. 2).
+
+2.2.4. Single-spot-on-background presentation
+
+In the experiments on the radial concentration gradients
+of an attractant superimposed on a uniform concentration
+background of another or the same attractant, various
+amounts of 2 M lysine or 3 M ammonium chloride solution
+were added to the melted 1.5% agarose solution described
+above, immediately before pouring the solution onto plastic
+dishes. The radial concentration gradient of the attractant
+was established on an assay plate using the same process as
+that in the single-spot presentation (Exp. 4 and Exp. 5 in
+Fig. 2).
+
+2.2.5. Worms
+
+2.4. Visualization of path of locomotion
+
+Worms were collected from the culture plate using a
+buffer solution (1 mM CaCl2, 1 mM MgSO4, 5 mM
+KH2PO4 and 0.05% Tween20; pH 6.0 adjusted with
+KOH) and transferred into 15-mL conical centrifuge
+tubes. The tubes were centrifuged for 20 s at 60 g,
+and the supernatant was discarded. The collected animals
+were washed with the buffer solution three times prior to
+use. Approximately 15 animals were then transferred from
+
+To analyze tracks made by the animals during a chemo-
+taxis behavior, the images of the assay plate were recorded
+and digitized in a computer through a lens and a CCD
+camera for 60 min at 10-s intervals. The images of the
+worms were extracted using a software program (Image-Pro
+Plus). The path of locomotion was obtained by superposing
+the images of the worms.
+
+R. Shingai et al. / Comparative Biochemistry and Physiology, Part A 142 (2005) 308 – 317
+
+311
+
+2.5. Ion concentration in assay plate
+
+in the same way as that of the case of the single-spot
+presentation of ammonium chloride.
+
+Chloride ion concentration on the surface of the assay
+plate in the single-spot presentation was determined with a
+potentiometer
+(HM-30S, TOA Co.) by measuring the
+potential difference between a chloride-selective electrode
+(7024L, DKK Co., Tokyo, Japan) and a reference electrode
+(HS-505DP, TOA Co., Tokyo, Japan). The electrodes were
+placed in contact with the agarose surface. The measured
+potential was converted to chloride ion concentration with a
+calibration curve. Ammonium chloride at 0.5 M (7 AL) was
+placed twice as described in Section 2.2, and the measure-
+ments were taken at 17 points on the agarose plate at the
+start of assay. The chloride ion concentrations at these points
+depended almost only on the distance from the position
+where the attractant was placed. A theoretical curve of the
+concentration – distance relationship of
+the chloride ion
+C(t,r) was calculated with the following equations (Pierce-
+Shimomura et al., 1999). The second equation was based on
+the theory of diffusion in 2-dimensional media (Crank,
+1975).
+C t; rð
+
+Þ ¼ c t; t1; r
+
+Þ þ c t; t2; r
+
+ð
+
+ð
+
+Þ
+
+ð
+c t; ti; r
+
+Þ ¼ 106
+
+4pdD t þ ti
+
+N0
+ð
+
+Þ e
+
+ð
+  r2=4D tþti
+
+ð
+
+Þ
+
+Þ:
+
+Here t is the time (s) from the start of the assay, ti (i = 1,
+2) are the times (s) between the dropping of the attractant
+and the start of the assay, N0 is the moles of attractant in the
+7 AL drop, d is the depth of the agarose (cm), D is the
+diffusion coefficient of the attractant, r is the distance (cm)
+between the peak of the gradient and the location of the
+measurement. The diffusion coefficient of NH4Cl at 20
+C
+(D = 1.83 10
+C using the
+Einstein – Stokes relation (Robinson and Stokes, 1965):
+D ¼ kBT
+6pga
+
+  5) was derived from that at 25
+
+-
+
+-
+
+;
+
+-
+
+C on the assumption that
+
+where k B is Boltzmann’s constant, T is the absolute
+temperature, g is the viscosity and a is the molecular
+radius. The diffusion coefficient of lysine was calculated by
+interpolation between those of the fluorescein (D = about
+5 10
+  6 (Berg, 1993); molecular weight 332.31) and
+NH4Cl at 20
+the molecular
+radius is proportional to the 1/3 power (cubic root) of the
+molecular weight. By this interpolation,
+the diffusion
+coefficient of
+C was calculated as
+8.77 10
+  6 (cm2/s). The lysine concentration on the surface
+of the assay plate in the single-spot presentation was
+estimated using C(r, t) with the spotting times of the lysine
+on the assay plate as described in Section 2.2, and the
+diffusion coefficient obtained above.
+
+lysine at 20
+
+-
+
+Chloride ion concentration on the surface of the assay
+plate on which 0.5 M ammonium chloride was spotted on
+the uniform background of 0.03 M lysine was also measured
+
+3. Results
+
+3.1. Presentation of radial concentration gradient of a
+single attractant (single-spot presentation)
+
+T
+
+T
+
+0.08 for
+
+lysine and 0.91
+
+In the first series of experiments, lysine or ammonium
+chloride was placed singly at the center of A or B (Fig. 2A).
+Fig. 2B and C show the trajectories of the worms moving
+toward the lysine and ammonium chloride regions, respec-
+tively. These chemicals at their respective concentrations
+obviously attracted the worms. The average CI(t) of lysine
+(Fig. 3A) and ammonium chloride (Fig. 3B) increased with
+time. The initial increase in CI(t) was faster and the CI(90),
+which was the final value of each measurement, increased
+with the concentration of the attractant. Maximum values of
+CI(90)s of 0.55
+0.02 for
+ammonium chloride were obtained at the highest concen-
+tration used (Fig. 3C, D; 3M). There was no significant
+difference among CI(t)s and FR(t)s for the 0.03 M point
+source of lysine, the 0.01 M point source of ammonium
+chloride, and distilled water (Fig. 3C; 0 M), indicating that
+the lowest concentrations at which the worms were attracted
+were between the 0.03 M and 0.1 M point source of lysine
+and between the 0.01 M and 0.03 M point source of
+ammonium chloride in our experimental system. The
+FR(90) in region E of 0.01 M ammonium chloride was
+different from that of distilled water (Fig. 3E). We took
+CI(20) as a characteristic CI(t) in the initial increasing phase
+because CI(t) was in the increasing phase at 20 min at most
+concentrations. The dependences of CI(20) and CI(90) on
+the attractant concentration differed (Fig. 3C and D), and
+thus CI(20) as well as CI(90) were compared under different
+experimental conditions.
+
+We determined the concentrations of the attractants that
+showed similar CI(90)s in order to use this result in the
+following section. The CI(20) and CI(90) for 3 M lysine
+and those for 0.1 M ammonium chloride were not
+significantly different, respectively. Also, the CI(20)s for
+3 M lysine and 0.3 M ammonium chloride did not differ
+significantly (Fig. 3A – D).
+
+3.2. Simultaneous presentation of concentration gradients
+of two attractants (two-spot presentation)
+
+To study the effects of the simultaneous presentation of
+the two attractants at different locations on the behavior of
+C. elegans, a second series of experiments was conducted.
+Because the CI(t)s for 3 M lysine and 0.1 M ammonium
+chloride in the single-spot presentation did not differ
+significantly, it was conceivable that the two-spot presenta-
+tion (Fig. 2A, Section 2.2) of these attractants at
+these
+concentrations gave statistically indifferent FR(t)s for both
+
+312
+
+R. Shingai et al. / Comparative Biochemistry and Physiology, Part A 142 (2005) 308 – 317
+
+Fig. 3. Chemotaxis of wild-type worms toward lysine or ammonium chloride in single-spot presentation. (A) Time course of chemotaxis index for lysine. The
+concentrations of lysine spotted were 0.03, 0.1, 0.3, 1 and 3 M. A control (spotted water) is also shown as indicated by 0 M. (B) Time course of chemotaxis
+index for ammonium chloride. The concentrations of ammonium chloride placed were 0.01, 0.03, 0.1, 0.3, 1 and 3 M. (C) CI(20) and CI(90) at various
+concentrations of lysine. (D) CI(20) and CI(90) at various concentrations of ammonium chloride. (E) FR(90) in each region during presentation of different
+concentrations of lysine (left) and ammonium chloride (right). (A) (E) n = 12 assay plates from 3 or 4 independent assays for each concentration, except n = 8
+for 0 M (water).
+
+attractants. However,
+the worms were preferentially
+attracted to 3 M lysine (Fig. 4A). This result suggests the
+presence of an interaction between the sensory information
+stimulated by lysine and by ammonium chloride. In the
+following, we refer to this as ‘‘balanced’’ chemotaxis when
+the chemotaxis toward both attractants shows statistically
+indifferent FR(t)s, and ‘‘unbalanced’’ chemotaxis when it
+does not. To determine the concentrations at which chemo-
+taxis behavior is balanced for the two attractants, we fixed
+the ammonium chloride concentration at 0.1 M and varied
+the lysine concentration from 0.01 M to 3 M. As the lysine
+concentration was increased, CI(90) increased (Fig. 4B) and
+FR(90) for ammonium chloride decreased (Fig. 4D, left
+
+panel). Similarly, lysine at 3 M (fixed) and ammonium
+chloride at various concentrations were presented in the
+two-spot presentation. As the ammonium chloride concen-
+tration was increased in the range between 0.1 M and 3 M,
+CI(20) and CI(90) decreased (Fig. 4C), and FR(90) in the
+lysine region decreased (Fig. 4D,
+right panel). Taken
+together, chemotaxis behavior
+toward these attractants
+suppressed each of them.
+
+In the two-spot presentation experiments, chemotaxis
+behavior toward the two attractants was balanced when we
+used 0.3 M lysine and 0.1 M ammonium chloride (CI(20)),
+1 M lysine and 0.1 M ammonium chloride (CI(90)), and 3
+M lysine and 0.3 M ammonium chloride (CI(20) and
+
+R. Shingai et al. / Comparative Biochemistry and Physiology, Part A 142 (2005) 308 – 317
+
+313
+
+Fig. 4. Chemotaxis of worms in two-spot presentation. (A) Time courses of CI(t) for 3 M lysine (?) and 0.1 M ammonium chloride (q) in single-spot
+presentation and for both attractants in two-spot presentation (g). CI(90)s for 3 M lysine and 0.1 M ammonium chloride in single-spot presentation did not
+significantly differ. (B) CI(20) (open bars) and CI(90) (filled bars) in two-spot presentation assay. The ammonium chloride concentration was fixed to 0.1 M.
+The lysine concentrations used are indicated below. (C) CI(20) (open bars) and CI(90) (filled bars) in two-spot presentation assay. The lysine concentration was
+fixed to 3 M. The ammonium chloride concentrations used are indicated below. (D) FR(90) in each region in two-spot presentation assay. The concentrations of
+the attractants used are indicated below. (B), (C) NS was not significantly different between FR(t)s of A and B. (B), (C), (D) n = 8 or 12 assay plates from 2 to 4
+independent assays.
+
+CI(90)) (Fig. 4B, C). Table 1 shows a summary of the
+comparisons between the single-spot and two-spot presen-
+tations for lysine and ammonium chloride at concentrations
+that showed similar CI(t)s in the single-spot presentation.
+Balanced chemotaxis behavior cannot be explained by a
+simple subtraction of
+the results from the single-spot
+presentation, except by the results of CI(20) for 3 M lysine
+and 0.3 M ammonium chloride, and CI(90) for 1 M lysine
+and 0.1 M ammonium chloride. There is a consistent
+tendency that
+lysine in
+comparison to that of ammonium chloride became stronger
+
+the potency of attraction of
+
+in the two-spot presentation than in the single-spot
+presentation. FR(20) in the 1 M lysine region was larger
+than that in the 0.1 M ammonium chloride region in the two-
+spot presentation. This relationship was opposite that in the
+single-spot presentation. Similarly, FR(20) and FR(90) in
+the 1 M lysine region and FR(20) and FR(90) in the 0.3 M
+ammonium chloride region were not different, respectively,
+in the two-spot presentation; however, in the single-spot
+presentation, CI(20) and CI(90)
+for 1 M lysine were
+than those for 0.3 M ammonium
+significantly smaller
+chloride, respectively. A possible explanation of
+these
+
+R. Shingai et al. / Comparative Biochemistry and Physiology, Part A 142 (2005) 308 – 317
+
+Single-spot presentationa
+
+Two-spot presentationb
+
+CI(20)
+
+CI(90)
+
+FR(20)
+
+FR(90)
+
+0.12 < 0.23** NS
+0.12 < 0.36** 0.41 < 0.69** NS
+NS
+NS
+
+NS
+0.55 < 0.69* NS
+
+0.17 >  0.03* NS
+NS
+0.34 >  0.05# 0.60 >  0.10#
+
+NS
+
+314
+
+Table 1
+
+Lysine
+(M)
+
+Chloride
+ion (M)
+
+1
+1
+3
+3
+
+0.1
+0.3
+0.1
+0.3
+
+a Values in single-spot presentation are compared in terms of statistical
+the
+significance between CI(t)s for lysine and ammonium chloride at
+concentrations shown on the left side. n = 12 assay plates from 3 or 4
+independent assays at each concentration of the attractant. The symbol <
+indicates that
+the CI(t) for lysine is smaller than that for ammonium
+chloride. Values on the left and right of < are the average CI(t)s for lysine
+and ammonium chloride, respectively. *: p < 0.05, **: p < 0.01. NS: not
+significant.
+
+b Statistical significance between FR(t)s in lysine and ammonium
+chloride regions in two-spot presentation. n = 8 assay plates from 2 or 3
+independent assays at each concentration pair of attractants. The symbol >
+indicates that the FR(t) in the lysine region is larger than that in the
+ammonium chloride region. Values on the left and right of > are the average
+FR(t)s for
+respectively. *: p < 0.05,
+#:p < 0.001.
+
+lysine and ammonium chloride,
+
+results may be that the suppression of ammonium chloride
+chemotaxis by lysine is stronger than the suppression of
+lysine chemotaxis by ammonium chloride.
+
+In the second series of experiments, there were several
+other features observed of worm chemotaxis behavior.
+When the concentration of lysine was high (3 M) and that
+of ammonium chloride was relatively low (0.03 M or 0.1
+M),
+the worms behaved as if there was no ammonium
+chloride at all (i.e., the CI(t)s were almost the same as those
+in the single-spot presentation) (Fig. 4A, C, D), despite the
+fact
+that 0.03 M and 0.1 M ammonium chloride could
+induce substantial chemotaxis (Fig. 3). Although not
+completely the same as above, similar trends were observed
+when we used 3 M lysine and 3 M ammonium chloride, or 3
+M lysine and 1 M ammonium chloride (Fig. 4C). We
+observed a strongly biased chemotaxis toward ammonium
+chloride at these concentrations, which was not expected
+from the single-spot presentation.
+
+3.3. Chemotaxis to concentration gradient of attractant on
+background of another attractant uniformly distributed
+(single-spot-on-background presentation)
+
+There are two possible explanations for the unbalanced
+chemotaxis in the two-spot presentation. The spatial
+concentration gradients of
+the two attractants may be
+requisite for the interaction between signals from the two
+attractants in the two-spot presentation. Alternatively, the
+existence of an attractant on the assay plate itself, but not its
+gradient, may directly inhibit the chemotaxis to the other
+attractant. To determine the latter effect, a third series of
+assays was performed in which a single attractant was
+placed in A or B on a uniform background of the other
+attractant.
+
+We measured the concentration of ammonium chloride
+using a chloride-ion-selective electrode as described by
+Pierce-Shimomura et al. (1999), and estimated the lysine
+concentration on the surface of the assay plate in the single-
+spot presentation. Fig. 5A (>) shows the measured chloride
+ion concentrations at the start of chemotaxis assay on the
+surface of the assay plate on which 0.5 M ammonium
+chloride was spotted, and it also shows the theoretically
+derived curve as described in Section 2.5. The measured
+
+Fig. 5. Measured or estimated concentrations of attractants on assay plate.
+(A) The chloride ion concentration (>) on the assay plate in single-spot
+presentation was measured with an ion-selective electrode. 0.5 M
+ammonium chloride was placed twice at the center of B, as described in
+Section 2.2, and the ion concentration at positions (?) shown in inset was
+measured at the start of assay. Abscissa indicates the distance between the
+electrode and the center of B where ammonium chloride was placed. The
+dotted line indicates 2 mM which is the concentration of chloride ions
+included in the plain assay plate (as 1 mM CaCl2). The chloride ion
+concentration in single-spot-on-background presentation (N) is also shown.
+0.5 M ammonium chloride was spotted twice on 0.03 M lysine background.
+There was no significant difference between the chloride ion concentrations
+in the absence (>) and the presence (N) of 0.03 M lysine background. Both
+sets of data with (2 plates) and without (2 plates) lysine background were
+obtained in the same experiment. The thick curve indicates the theoretically
+estimated concentration of ammonium chloride in single-spot presentation
+without lysine background as described in Section 2.5. (B) Theoretically
+estimated concentrations of attractants, when 3 M lysine is placed at center
+of A, as described in Section 2.2, or when 0.1 M ammonium chloride is
+placed at center of B. Lysine concentration (thick dashed curve) is obtained
+under the assumption described in Section 2.5. Ammonium chloride
+concentration (thick curve) is obtained by a simple reduction in the size of
+the curve (the measured values for 0.5 M ammonium chloride spot were
+divided by 5) shown in (A). The thin dotted line indicates 2 mM.
+
+R. Shingai et al. / Comparative Biochemistry and Physiology, Part A 142 (2005) 308 – 317
+
+315
+
+chloride ion concentration depended solely on the distance
+of the position of the electrode from the center of region B
+where ammonium chloride was spotted. Fig. 5B shows the
+theoretically estimated concentrations of lysine and chloride
+ions where the 3 M lysine or 0.1 M ammonium chloride was
+placed. The estimated concentrations of these attractants 2.8
+cm apart from the center of A or B (corresponding to the
+start position C and D) are about 0.002 M (Fig 5B).
+Therefore, we used the background concentration ranging
+from 0.003 M to 0.1 M in the next series of single-spot-on-
+background experiments. We also measured the chloride ion
+concentration on the surface of the assay plate on which 0.5
+M ammonium chloride was spotted on the 0.03 M lysine
+background (Fig. 5A). There was no significant difference
+between the chloride ion concentration on the 0.03 M lysine
+background (N) and that without lysine background (>) at
+the same position of the assay plate. Since the estimated
+lysine concentration is lower than about 0.03 M at any place
+of the assay plate (Fig. 5B),
+the chloride concentration
+gradient
+in the two-spot presentation was probably not
+affected by the presence of lysine. Similarly, the presence
+of low concentration of chloride ions probably did not
+affect
+in the two-spot
+presentation.
+
+the lysine concentration gradient
+
+the same as that without
+
+To determine whether the presence of lysine or ammo-
+nium chloride, but not its concentration gradient, affected
+the unbalanced chemotaxis in the two-spot presentation, the
+attractant was added uniformly in the assay plate. Ammo-
+nium chloride at 0.1 M was spotted on a uniform
+background of lysine at various concentrations, and chemo-
+taxis was assayed (Fig. 6A, filled bar). The CI(90) for 0.1 M
+ammonium chloride spotted with the 0.003 – 0.03 M lysine
+background was almost
+the
+background and decreased by R 0.05 M lysine background
+in a dose-dependent manner. In contrast, when 3 M lysine
+was spotted on an ammonium chloride background, the
+CI(90) was biphasic depending on the background concen-
+tration. The 0.003 – 0.01 M and 0.05 M background did not
+influence lysine chemotaxis, while the 0.03 M background
+augmented and R 0.07 M background suppressed the
+chemotaxis (Fig. 6A, open bar). At
+the relatively low
+concentrations of background attractant, the worms could
+discriminate the point source of either attractant from the
+other attractant uniformly distributed. However,
+the dis-
+criminatory power was lost
+(i.e., CI(90) significantly
+decreased) by the presence of the R 0.05 M lysine back-
+ground and by the presence of the R 0.07 M of ammonium
+chloride background. As a control experiment, we examined
+the chemotaxis to an attractant on the uniform background
+of the same attractant (Fig. 6B). Both CI(90)s for 3 M lysine
+and 0.1 M ammonium chloride decreased significantly in
+the presence of the R 0.03 M background. Comparing the
+case in which the focally applied and background attractants
+were different with the case in which they were the same
+substance, the suppression of chemotaxis (i.e. attenuation of
+recognition to the attractant concentration gradient) by the
+
+Fig. 6. Chemotaxis index in single-spot-on-background presentation
+normalized (%) by chemotaxis index without background. Chemotaxis
+assay for a background concentration (n = 12 plates) and control assay
+without the background (n = 12) were conducted simultaneously for each
+background concentration, and CI(90)
+for each concentration was
+normalized by the average CI(90) for the control. (A) CI(90) for 3 M
+lysine in the presence of various concentrations of background ammonium
+chloride (open bar), and CI(90) for 0.1 M ammonium chloride in the
+presence of background lysine (filled bar). Average CI(90)
+S.E.M. of
+control (without background) designated by   sign in abscissa were
+0.45
+0.02 (n = 36) for ammonium
+chloride. (B) CI(90) for 3 M lysine in the presence of background lysine
+(filled bar), and CI(90) for 0.1 M ammonium chloride in the presence of
+background ammonium chloride (open bar). Average IC(90)
+S.E.M. of
+control (without background) designated by   sign in abscissa was
+0.51
+0.03 (n = 36) for ammonium
+chloride. (A), (B) *: p < 0.05, **: p < 0.01, and #: p < 0.001 indicate the
+statistical difference from the control.
+
+0.02 (n = 36) for lysine and 0.51
+
+0.02 (n = 36) for lysine and 0.43
+
+T
+
+T
+
+T
+
+T
+
+T
+
+T
+
+different attractant in the background was weaker than the
+suppression by the same attractant in the background. Also,
+the 0.05 – 0.07 M lysine background suppressed both
+chemotaxis for ammonium chloride and that for lysine. In
+contrast, the effect of the 0.03 – 0.07 M ammonium chloride
+background was biphasic to the chemotaxis for lysine as
+stated above, but it strongly suppressed that for ammonium
+chloride. These results support
+these two
+sensory informational pathways interact
+in the worm
+nervous system.
+
+the idea that
+
+According to the theoretical estimation,
+
+the plate
+containing the 0.01 M lysine background corresponds to
+the region 1.5 cm from the center of A (point source of 3 M
+
+316
+
+R. Shingai et al. / Comparative Biochemistry and Physiology, Part A 142 (2005) 308 – 317
+
+lysine,
+
+is not sufficient
+
+lysine) in the single-spot or two-spot presentation (Fig. 5B).
+Since we started the two-spot presentation assay by placing
+worms 2.8 cm from the point source of
+the
+concentration of lysine at the start point (C or D) should
+be lower than 0.01 M. It
+to suppress
+chemotaxis toward 0.1 M ammonium chloride in the two-
+spot presentation assay. For a similar reason,
+the direct
+potentiation or suppression of lysine chemotaxis by a
+uniform background of ammonium chloride is not appro-
+priate to explain the unbalanced chemotaxis in the two-spot
+presentation assay. Therefore, the contribution of the direct
+suppression of ammonium chloride chemotaxis by lysine or
+the direct potentiation of lysine chemotaxis by ammonium
+chloride in the unbalanced chemotaxis may be small. There
+may be other mechanisms, including the effect of attractant
+gradient, for realizing the unbalanced chemotaxis in two-
+spot presentation assay.
+
+Although, these results may not explain the unbalanced
+chemotaxis,
+the results obtained by the single-spot-on-
+background presentation assay clearly indicate a certain
+form of interactions between sensory inputs from lysine and
+ammonium chloride. In this aspect, the difference should be
+noted between the inhibitory effect of lysine background on
+ammonium chloride chemotaxis and the inhibitory or
+augmentatory effect of ammonium chloride background on
+lysine chemotaxis in the single-spot-on-background presen-
+tation. Furthermore, CI(90)s were almost the same with or
+without a low concentration of the background attractant,
+that is, the worms behave as if there is no background
+attractant at all.
+
+4. Discussion
+
+The simultaneous presentation of multiple attractants
+and/or repellents detected by distinct subsets of sensory
+neurons revealed the interaction of sensory information
+within the C. elegans nervous system (Ishihara et al., 2002;
+Matsuura et al., 2004). In this study, we examined the effect
+of the simultaneous presentation of two attractants detected
+by partially overlapping subsets of sensory neurons and
+showed behavioral features indicating a sensory informa-
+tional interaction.
+
+In the two-spot presentation of lysine and ammonium
+chloride, chemotaxis for 0.1 M ammonium chloride
+decreased with an increasing concentration of the point
+source of lysine in a dose-dependent manner. Similar results
+were obtained by the reciprocal combination of these
+attractants. These phenomena can be interpreted to indicate
+that the signaling pathways for these attractants suppress
+each other. Quite different from the interaction between
+diacetyl and copper ions (Ishihara et al., 2002) and from
+diacetyl and sodium acetate signalings (Matsuura et al.,
+2004),
+the interaction between lysine and ammonium
+chloride signaling could occur in single or multiple sensory
+neurons having overlapping functions. ASE, ASG and ASI
+
+neurons contribute to chemotaxis for both lysine and
+ammonium chloride (Bargmann and Horvits, 1991). A
+simple explanation for the unbalanced chemotaxis behavior
+in the two-spot presentation, which could not be explained
+simply by results from the single-spot presentation, may be
+that the lysine-background stimulates ASE, ASG and ASI
+neurons, and this attenuates the sensitivity of these neurons to
+chloride ions. If this were the case, the sensitivity of the ASE
+neuron, the primary sensory neuron for ammonium chloride,
+would be attenuated in the simultaneous presentation, while
+the ASK neuron, the primary sensory neuron for lysine,
+would remain intact under the same conditions. This could
+partially explain the preferential chemotaxis toward lysine
+over that expected from the single-spot presentation. Another
+possibility also remains that the presence of chloride ions
+produces an augmentation to chemotaxis to lysine, which
+shifts slightly the balance of chemotaxis in the two-spot
+presentation, although only a small augmentation is observed
+at a limited background concentration (Fig. 6B). The sensory
+informational
+interaction could also occur in the neural
+network located downstream of these sensory neurons.
+
+AWC neurons in C. elegans sense different volatile
+attractants such as benzaldehyde and butanone (Bargmann
+et al., 1993). In the presence of a high uniform concentration
+of one of these volatile attractants, C. elegans cannot be
+attracted by the chemical (self-saturation) but retains its
+ability to approach other volatile attractants sensed by AWC
+(the absence of cross-saturation) (Bargmann et al., 1993;
+L’Etoile and Bargmann, 2000). The situation is slightly
+different between the water-soluble attractants lysine and
+ammonium chloride, which are sensed by overlapping
+subsets of sensory neurons. In our single-spot-on-back-
+ground presentation, the worms can discriminate either of
+the two water-soluble attractants in the presence of a low
+uniform concentration of the other attractants, but in the
+presence of a high uniform concentration of either of these
+attractants, the worms no longer approached the concen-
+tration gradient of the other attractant. The cross-saturation-
+like suppression of lysine (or ammonium chloride) chemo-
+taxis by ammonium chloride (or lysine) suggested the
+presence of an informational
+interaction between the
+signaling pathways for lysine and ammonium chloride.
+Alternatively, this can be interpreted as the C. elegans not
+being able to discriminate these two chemicals, suggesting
+that these chemicals are sensed in the same neuron(s), in
+high concentrations (Pierce-Shimomura et al., 2001).
+Furthermore, the suppression of chemotaxis to one attractant
+by another attractant could be interpreted by cross-adapta-
+tion (Colbert and Bargmann, 1995; Atkinson-Leadbeater et
+al., 2004) in the same sensory neuron(s).
+
+Since the single-spot-on-background presentation experi-
+ments indicated that the contribution of the attractant itself is
+relatively small, the concentration gradient of these attrac-
+tants may play an important role in the unbalanced chemo-
+taxis in the two-spot presentation. Previous studies of worm
+chemotaxis demonstrated that a temporal decrease in
+
+R. Shingai et al. / Comparative Biochemistry and Physiology, Part A 142 (2005) 308 – 317
+
+317
+
+attractant concentration induces an increase in frequency of
+backward movements (Dusenbery, 1980; Pierce-Shimomura
+et al., 1999). Similarly, the temporal increase and/or decrease
+in ambient temperature regulates the frequency of backward
+movement and Ca2+ influx in thermosensory AFD neurons
+(Ryu and Samuel, 2000; Zariwala et al., 2003; Kimura et al.,
+2004). The sensory neurons of C. elegans might be tuned to
+respond to the gradient of sensory cues. In this context, in the
+two-spot presentation, approaching the chloride location
+means leaving the lysine location, that is, a temporal increase
+in the concentration of either of the attractants means a
+temporal decrease in the concentration of the other attractant.
+Recently, we and others have revealed the contribution of
+amphid sensory neurons and interneurons to the regulation of
+backward locomotion, as well as to chemotaxis behavior
+(Tsalik and Hobert, 2003; Wakabayashi et al., 2004). It is of
+interest to determine how the worms regulate their locomo-
+tion in response to the concentration gradients of these
+attractants to achieve an unbalanced chemotaxis in the two-
+spot presentation experiments.
+
+In unbalanced chemotaxis in the two-spot presentation,
+the worms tend to ignore the low attractant concentration
+despite the fact that the attractant can induce substantial
+chemotaxis at this low concentration range in the single-spot
+presentation. We think that this is important for the worms
+because the biased chemotaxis toward a stronger attractant
+may be more beneficial to the worms by allowing them to
+choose more favorable conditions by disregarding the less
+favorable conditions, similar to those described by L’Etoile
+and Bargmann (2000).
+
+Acknowledgement
+
+We thank the Caenorhabditis Genetics Center
+
+for
+providing the strain. We thank also Takayuki Sato, Atsushi
+Auba and Miyako Sasaki for expert technical assistance.
+This work was supported in part by a Grant-in-Aid for the
+21st Century Center of Excellence Program from the
+Ministry of Education, Culture, Sports, Science and
+Technology of Japan.
+
+References
+
+Atkinson-Leadbeater, K., Nuttley, W.M., van der Kooy, D., 2004. A genetic
+dissociation of learning and recall in Caenorhabditis elegans. Behav.
+Neurosci. 118, 1206 – 1213.
+
+Bargmann, C.I., Horvits, H.R., 1991. Chemosenrory neurons with over-
+lapping functions direct chemotaxis to multiple chemicals in C. elegans.
+Neuron 7, 729 – 742.
+
+Bargmann, C.I., Mori, I., 1997. Chemotaxis and Thermotaxis. C. Elegans
+
+II. Cold Spring Harbor Laboratory Press, pp. 717 – 737.
+
+Bargmann, C.I., Hartwieg, E., Horvits, H.R., 1993. Odorant-selective genes
+and neurons mediate olfaction in C. elegans. Cell 74, 515 – 527.
+Berg, H.C., 1993. Random Walks in Biology. Princeton University Press.
+Brenner, S., 1974. The genetics of Caenorhabditis elegans. Genetics 7,
+
+71 – 94.
+
+Chase, R., Pryer, K., Baker, R., Madison, D., 1978. Responses to
+conspecific chemical stimuli in the terrestrial snail Achatina fulica
+(Pulmonata: Sigmurethra). Behav. Biol. 22, 302 – 315.
+
+Colbert, H.A., Bargmann, C.I., 1995. Odorant-specific adaptation pathways
+generate olfactory plasticity in C. elegans. Neuron 14, 803 – 812.
+Crank, J., 1975. The Mathematics of Diffusion. Clarendon Press, Oxford.
+Dusenbery, D.B., 1974. Analysis of chemotaxis
+in the nematode
+Caenorhabditis elegans by countercurrent separation. J. Exp. Zool.
+188, 41 – 48.
+
+Dusenbery, D.B., 1980. Responses of the nematode Caenorhabditis elegans
+to controlled chemical stimulation. J. Comp. Physiol., A Sens. Neural
+Behav. Physiol. 136, 327 – 331.
+
+Fredman, S.M., Jahan-Parwar, B., 1980. Processing of chemosensory and
+mechanosensory information in identifiable Aplysia neurons. Comp.
+Biochem. Physiol., A 66, 25 – 34.
+
+Ishihara, T., Iino, Y., Mohri, A., Mori, I., Gengyo-Ando, K., Mitani, S.,
+Katsura, I., 2002. HEN-1, secretory protein with an LDL receptor motif,
+regulates sensory integration and learning in Caenorhabditis elegans.
+Cell 109, 639 – 649.
+
+Kimura, K.D., Miyawaki, A., Matsumoto, K., Mori, I., 2004. The C.
+elegans thermosensory neuron AFD respond to warming. Curr. Biol.
+14, 1291 – 1295.
+
+L’Etoile, N.D., Bargmann, C.I., 2000. Olfaction and odor discrimination
+are mediated by the C. elegans guanylyl cyclase ODR-1. Neuron 25,
+575 – 586.
+
+Matsuura, T., Oikawa, T., Wakabayasahi, T., Shingai, R., 2004. Effect of
+simultaneous presentation of multiple attractants on chemotactic
+response of the nematode Caenorhabditis elegans. Neurosci. Res. 48,
+419 – 429.
+
+Oshio K., Iwasaki, Y., Morita S., Osana Y., Gomi, S., Akiyama, E., Oka, K.,
+Kawamura, K., 2003. Database of synaptic connectivity of C. elegans
+for computation. Technical Report, CCEP, Keio Future No 3.
+http://www.bio.keio.ac.jp/ccep.
+
+Pierce-Shimomura,, Morse, T.M., Lockery, S., 1999. The fundamental roles
+of pirouettes in Caenorhabditis elegans chemotaxis. J. Neurosci. 19,
+9557 – 9569.
+
+Pierce-Shimomura, J.T., Faumont, S., Gaston, M.R., Pearson, B.J., Lockery,
+S., 2001. The homeobox gene lim-6 is required for distinct chemo-
+sensory representations in C. elegans. Nature 410, 694 – 698.
+
+Robinson, R.A., Stokes, R.H., 1965. Electrolyte Solutions. Butterworth,
+
+London.
+
+Ryu, W.S., Samuel, A.D.T., 2000. Thermotaxis in Caenorhabditis elegans
+analyzed by measuring responses to defined thermal stimuli. J. Neuro-
+sci. 22, 5727 – 5733.
+
+Sambongi, Y., Nagae, T., Liu, Y., Yoshimizu, T., Takeda, K., Wada, Y.,
+Futai, M., 1999. Sensing of cadmium and copper ions by externally
+exposed ADL, ASE, and ASH neurons elicits avoidance response in
+Caenorhabditis elegans. Neuroreport 10, 753 – 757.
+
+Thomas, J.D., Assefa, B., Cowley, C., Ofoso-Barko, J., 1980. Behavioural
+responses to amino acids and related compounds, including propionic
+acid, by adult Biomphalaria glabrata (Say), a snail host of Schistosoma
+mansoni. Comp. Biochem. Physiol. C 66, 17 – 27.
+
+Tsalik, E.L., Hobert, O., 2003. Functional mapping of neurons that control
+locomotory behavior in Caenorhabditis elegans. J. Neurobiol. 56,
+178 – 197.
+
+Wakabayashi, T., Kitagawa, I., Shingai, R., 2004. Neurons regulating the
+duration of forward locomotion in Caenorhabditis elegans. Neurosci.
+Res. 50, 103 – 111.
+
+Ward, S., 1973. Chemotaxis by the nematode Caenorhabditis elegans:
+identification of attractants and analysis of the response by use of
+mutants. Proc. Natl. Acad. Sci. U. S. A. 70, 817 – 821.
+
+Wedemeyer, H., Schild, D., 1995. Chemosensitivity of the osphradium of
+the pond snail Lymnaea stagnalis. J. Exp. Biol. 198, 1743 – 1754.
+White, J.G., Southgate, E., Thompson, J.N., Brenner, S., 1986. The
+structure of the nervous system of the nematode Caenorhabditis
+elegans. Phil. Trans. - R. Soc. Lond., B Biol. Sci. 314, 1 – 340.
+
+

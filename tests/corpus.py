@@ -24,6 +24,7 @@ class TestCorpusManager(unittest.TestCase):
                                                                                  remove_alpha=True)
         self.assertEqual(len(flat_list), len(idx_paperid_map))
         self.assertTrue(len(idx_paperid_map[0]) == 8)
+        self.assertEqual(len(set(idx_paperid_map.values())), cm.size())
 
 
 if __name__ == '__main__':

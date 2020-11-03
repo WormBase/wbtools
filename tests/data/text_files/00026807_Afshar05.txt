@@ -1,0 +1,1359 @@
+Research article
+
+4449
+
+Cortical localization of the G␣␣ protein GPA-16 requires RIC-8
+function during C. elegansasymmetric cell division
+Katayoun Afshar1, Francis S. Willard2, Kelly Colombo1, David P. Siderovski2 and Pierre Gönczy1,*
+
+1Swiss Institute for Experimental Cancer Research (ISREC), Swiss Federal Institute of Technology (EPFL), CH-1066 Lausanne,
+Switzerland
+2Department of Pharmacology, Lineberger Comprehensive Cancer Center and Neuroscience Center, The University of North
+Carolina, Chapel Hill, NC 27599-7365, USA
+*Author for correspondence (e-mail: pierre.gonczy@isrec.unil.ch)
+
+Accepted 16 August 2005
+
+Development 132, 4449-4459
+Published by The Company of Biologists 2005
+doi:10.1242/dev.02039
+
+during 
+
+division 
+
+asymmetric 
+
+Summary
+Understanding  of  the  mechanisms  governing  spindle
+positioning 
+remains
+incomplete.  During  unequal  division  of  one-cell  stage  C.
+elegans embryos, the G␣␣ proteins GOA-1 and GPA-16 act
+in a partially redundant manner to generate pulling forces
+along astral microtubules. Previous work focused primarily
+on  GOA-1,  whereas  the  mechanisms  by  which  GPA-16
+participates in this process are not well understood. Here,
+we  report  that  GPA-16  is  present  predominantly  at
+the
+cortex  of  one-cell  stage  embryos.  Using  co-
+immunoprecipitation  and  surface  plasmon  resonance
+binding assays, we ﬁnd that GPA-16 associates with RIC-8
+and  GPR-1/2,  two  proteins  known  to  be  required  for
+pulling force generation. Using spindle severing as an assay
+for pulling forces, we demonstrate that inactivation of the
+G␤␤ protein  GPB-1  renders  GPA-16  and  GOA-1  entirely
+redundant.  This  suggests  that  the  two  G␣␣ proteins  can
+
+Introduction
+Asymmetric divisions play a crucial role in the generation of
+cell  diversity.  During  development  in  particular,  asymmetric
+divisions often give rise to daughter cells that differ not only
+in  fates,  but  also  in  sizes  (for  a  review,  see  Horvitz  and
+Herskowitz, 1992). In animal cells, such unequal divisions rely
+on  the  eccentric  position  of  the  mitotic  spindle  because  the
+cleavage furrow is speciﬁed so as to bisect the spindle by the
+end of anaphase (for a review, see Rappaport, 1971).
+
+The  one-cell  stage  C.  elegans embryo  has  emerged  as  an
+attractive  model  to  analyze  the  mechanisms  of  cell-intrinsic
+spindle positioning during unequal cell division (for a review,
+see  Schneider  and  Bowerman,  2003).  In  the  wild  type,  in
+response to anteroposterior (AP) polarity cues, the spindle is
+displaced  towards  the  posterior  by  the  end  of  anaphase,
+resulting  in  unequal  cleavage  into  a  larger  anterior  and
+a
+spindle
+displacement results from unbalanced cortical force generators
+acting  on  astral  microtubules  and  pulling  on  spindle  poles
+(Grill  et  al.,  2001;  Grill  et  al.,  2003).  Because  more  force
+generators are active on the posterior cortex, there is a larger
+net  force  pulling  on  the  posterior  spindle  pole  (Grill  et  al.,
+2003).
+
+smaller  posterior  blastomere.  Asymmetric 
+
+activate the same pathway and that their dual presence is
+normally  needed  to  counter  G␤␤␥␥.  Using  nucleotide
+exchange assays, we establish that whereas GPR-1/2 acts as
+a guanine nucleotide dissociation inhibitor (GDI) for GPA-
+16, as it does for GOA-1, RIC-8 does not exhibit guanine
+nucleotide exchange factor (GEF) activity towards GPA-16,
+in contrast to its effect on GOA-1. We establish in addition
+that RIC-8 is required for cortical localization of GPA-16,
+whereas it is not required for that of GOA-1. Our analysis
+demonstrates  that  this  requirement  toward  GPA-16  is
+distinct  from  the  known  function  of  RIC-8  in  enabling
+interaction  between  G␣␣ proteins  and  GPR-1/2,  thus
+providing novel insight into the mechanisms of asymmetric
+spindle positioning.
+
+Key words: C. elegans embryos, Spindle positioning, G protein
+
+Although the molecular nature of cortical force generators
+is  not  known,  their  activity  relies  on  two  ␣ subunits  of  the
+heterotrimeric G-proteins: GOA-1 and GPA-16 (see Fig. S1 in
+the  supplementary  material).  These  components  act  in  a
+partially redundant manner, as pulling forces are decreased in
+only  a  modest  manner  in  embryos  lacking  either  GOA-1  or
+GPA-16 (Afshar et al., 2004), still allowing asymmetric spindle
+elongation and unequal cleavage (Gotta and Ahringer, 2001).
+By contrast, simultaneous inactivation of GOA-1 and GPA-16
+results in an extreme decrease of pulling forces (Colombo et
+al.,  2003),  yielding  symmetric  spindle  elongation  and  equal
+ﬁrst  cleavage  (Gotta  and  Ahringer,  2001).  Conversely,
+inactivation of G␤␥ results in excess pulling forces (Afshar et
+al., 2004). Furthermore, the triple inactivation of GOA-1, GPA-
+16 and G␤␥ also yields an equal ﬁrst cleavage, as in goa-1/gpa-
+16(RNAi) embryos  (Gotta  and  Ahringer,  2001;  Tsou  et  al.,
+2003),  indicating  that  G␤␥ dampens  G␣-dependent  force
+generation in one-cell stage embryos.
+
+A  phenotype  analogous  to  that  of  goa-1/gpa-16(RNAi) is
+observed after inactivation of GPR-1/2 (Colombo et al., 2003;
+Gotta et al., 2003; Srinivasan et al., 2003), a GoLoco protein
+which acts as a guanine nucleotide dissociation inhibitor (GDI)
+for GOA-1 (Afshar et al., 2004; Gotta et al., 2003) or of LIN-
+
+Development4450
+
+Development 132 (20)
+
+Research article
+
+5, a coiled-coil protein that physically interacts with GPR-1/2
+(Lorson  et  al.,  2000;  Srinivasan  et  al.,  2003).  GPR-1/2  and
+LIN-5  are  present  at  the  cortex  of  one-cell  stage  embryos
+(Colombo  et  al.,  2003;  Gotta  et  al.,  2003;  Srinivasan  et  al.,
+2003).  During  mitosis,  cortical  GPR-1/2  distribution  is
+asymmetric, with a slight enrichment at the posterior (Colombo
+et al., 2003; Gotta et al., 2003; Tsou et al., 2003). This raises
+the  possibility  that  GPR-1/2  is  responsible  for  the  larger  net
+pulling  force  exerted  on  the  posterior  spindle  pole.  RIC-8,
+which acts as a guanine nucleotide exchange factor (GEF) for
+GOA-1 (Afshar et al., 2004; Hess et al., 2004), is also required
+for  pulling  force  generation  (Afshar  et  al.,  2004).  Co-
+immunoprecipitation  experiments  and  biochemical  analyses
+indicate  that  RIC-8  is  required  for  the  interaction  between
+GPR-1/2  and  GOA-1,  raising  the  possibility  that  RIC-8  acts
+before GPR-1/2 in the GOA-1 activation cycle (Afshar et al.,
+2004).  Moreover,  inactivation  of  the  G␤ subunit  GPB-1
+alleviates 
+for  RIC-8  during  spindle
+positioning,  suggesting  that  RIC-8  promotes  generation  of
+GOA-1 free from G␤␥, thus making it available for binding to
+GPR-1/2 (Afshar et al., 2004) (for a review, see McCudden et
+al., 2005).
+
+requirement 
+
+the 
+
+Whereas GOA-1 is known to be present at the cortex of early
+embryos (Afshar et al., 2004; Gotta and Ahringer, 2001; Miller
+and  Rand,  2000),  the  subcellular  distribution  of  GPA-16  has
+not  been  investigated.  Moreover,  although  yeast  two-hybrid
+assays indicate that GPA-16 can physically interact with RIC-
+8 (Afshar et al., 2004) and GPR-1/2 (Li et al., 2004), the latter
+interaction was not detected in two other studies (Colombo et
+al.,  2003;  Gotta  et  al.,  2003),  and  whether  such  interactions
+occur  in  C.  elegans embryos  is  not  known.  Furthermore,  the
+consequence  of  putative  interactions  of  GPA-16  with  RIC-8
+and GPR-1/2 has not been investigated. In addition, the nature
+of the partial redundancy between GPA-16 and GOA-1 has not
+been addressed. For example, GPA-16 and GOA-1 could each
+be  essential  for  activation  of  separate  pathways  that  trigger
+distinct  effectors,  which  together  ensure  force  generation.
+Alternatively,  GPA-16  and  GOA-1  could  each  contribute  to
+partial activation of the same pathway. 
+
+We  investigated  these  issues  in  this  study.  We  report  that
+GPA-16 is present predominantly at the cell cortex and that it
+interacts with RIC-8 and GPR-1/2, both in vitro and in vivo.
+We show that GPA-16 and GOA-1 become entirely redundant
+after GPB-1 inactivation, suggesting that the two G␣ proteins
+can activate the same pathway. Furthermore, we establish that
+GPR-1/2 acts as a GDI for GPA-16, whereas RIC-8 does not
+act as a GEF for GPA-16. Importantly, we ﬁnd that RIC-8 is
+required  for  GPA-16  cortical  localization  and  that  this  novel
+requirement  is  distinct  from  its  known  role  in  enabling
+interaction between G␣ proteins and GPR-1/2. 
+
+Materials and methods
+Nematode strains and RNAi
+Wild-type (N2), ric-8(md303) and ric-8(md1909) (Miller et al., 2000),
+goa-1(sa734) (Robatzek  and  Thomas,  2000),  and  gpa-16(it143)
+(Bergmann et al., 2003) mutant strains of C. elegans were cultured at
+16°C  according  to  standard  procedures  (Brenner,  1974).  ric-8 and
+gpa-16 mutant animals were typically shifted to 20°C >36 hours prior
+to analysis. We found that the spindle positioning phenotype of gpa-
+16(it143) mutant  embryos 
+is  not  markedly  different  when
+
+homozygous mutant animals are raised at 20°C or at 25°C (data not
+shown). Nevertheless, we performed spindle severing experiments on
+gpa-16(it143) mutant  embryos  at  25°C 
+to  ensure  maximal
+inactivation.
+
+Bacterial  RNAi  feeding  strains  were  as  described  (Afshar  et  al.,
+2004;  Colombo  et  al.,  2003).  The  conditions  for  RNAi  by  feeding
+were  as  follows,  starting  with  L3/L4  larvae:  gpa-16, goa-1,  gpb-1
+and gpr-1/2: 48-60 hours at 20°C; ric-8: 40-44 hours at 20°C. RNAi-
+mediated inactivation of ric-8 in ric-8(md1909) mutant animals was
+performed as described (Afshar et al., 2004). For experiments where
+two  genes  were  inactivated  with  RNAi,  appropriate  controls  were
+performed  in  parallel  to  ensure  the  efficiency  of  each  RNAi
+condition.
+
+Microscopy and spindle severing
+Time-lapse DIC microscopy was performed capturing 1 image every
+5  seconds  (Gönczy  et  al.,  1999).  Spindle  severing  experiments  and
+measurement of peak velocities were performed essentially as before
+(Grill et al., 2001), using a Leica LMD microscope equipped with a
+pulsed N2 laser (␭=337 nM).
+
+Antibody production and use
+For  generating  GPA-16  antibodies,  the  full-length  gpa-16 cDNA
+(Colombo  et  al.,  2003)  was  cloned  into  pGEX-6P-2.  GST-GPA-16
+was expressed, puriﬁed from inclusion bodies, run on an SDS-PAGE
+gel  and  injected  into  a  rabbit  (Eurogentec).  Antibodies  were  strip-
+puriﬁed against GST-GPA-16, eluting with 0.1 M glycine (pH 2.5).
+Affinity-puriﬁed  antibodies  were  dialyzed  against  PBS  and  kept  at
+–20°C in 50% glycerol.
+
+For revealing RIC-8 following immunoprecipitation with GPA-16
+antibodies (Fig. 2A, Fig. 5E), we generated RIC-8 antibodies by ﬁrst
+cloning the full length ric-8 cDNA into a pGEX derivative. Bacterially
+expressed GST-RIC-8 was puriﬁed from inclusion bodies, puriﬁed on
+an SDS-PAGE gel and injected into a rabbit (Eurogentec). Antibodies
+were column affinity puriﬁed against His6-RIC-8 bound to a HiTrap
+NHS  Hp  column  (Pharmacia),  dialyzed  and  stored  as  above.  These
+antibodies  (see  Fig.  S4  in  the  supplementary  material)  were  used
+following  immunoprecipitation  with  GPA-16  antibodies  in  place  of
+previously described antibodies (Miller et al., 2000) (which were used
+in the case of Fig. 2B) because they are more sensitive.
+
+Fixation and staining of embryos for indirect immunoﬂuorescence
+was  as  described  (Afshar  et  al.,  2004).  The  following  primary
+antibodies  were  used:  1:200  mouse  anti-␣ tubulin  (DM1A,  Sigma),
+1:300  rabbit  anti-GPA-16  (this  study),  1:300  rabbit  anti-GOA-1
+(Afshar et al., 2004) and 1:150 rabbit anti-GPR-1/2 (Colombo et al.,
+2003). Secondary antibodies were 1:500 goat anti-mouse conjugated
+to  Alexa-488  (Molecular  Probes)  and  1:1000  goat  anti-rabbit
+conjugated to Cy3. Slides were counterstained with ~1 ␮g/ml Hoechst
+33258  (Sigma)  to  detect  DNA.  Approximately  1 ␮m  optical  slices
+were  collected  on  an  LSM510  Zeiss  confocal  microscope  and
+processed in Adobe Photoshop. Quantiﬁcation of GPR-1/2 signal was
+performed on images collected on a Zeiss Axioplan 2 with at 12-bit
+Diagnostic  Instrument  Spot  RT  Camera  controlled  by  Metamorph
+software  (Universal  Imaging).  Average  cortical  intensities  were
+determined  in  a  ~5 ␮m-long  region  between  the  EMS  and  ABp
+blastomeres, after subtraction of the average cytoplasmic signal from
+a neighboring region.
+
+Generation of embryonic extracts, immunoprecipitation (using ~3
+␮g  of  GPA-16  antibodies  without  addition  of  guanine  nucleotides,
+unless speciﬁed otherwise) and western blot analysis were performed
+as described (Afshar et al., 2004). All primary antibodies for western
+blot analysis were used at 1:1000, except the new RIC-8 antibodies,
+which  were  used  at  1:2000.  For  secondary  antibodies,  we  used
+1:10,000 HRP-conjugated goat anti-rabbit (Amersham), except when
+revealing  GPR-1/2,  where  HRP-conjugated  Protein  A  (Amersham)
+was used at 1:2000 in place of secondary antibodies because the heavy
+chain of immunoglobulins is similar in size to GPR-1/2.
+
+DevelopmentProtein puriﬁcation
+Puriﬁcation of GOA-1 (amino acids 28-351) and His6-RIC-8 was as
+described (Afshar et al., 2004). The RIC-8 open reading frame (ORF)
+was cloned into pGEX4TEV2 (Kimple et al., 2004) and GST-RIC-8
+puriﬁed  by  chromatographic  methods  as  previously  described
+(Willard  and  Siderovski,  2004).  We  have  previously  observed
+aggregation  of  RIC-8  during  puriﬁcation  (Afshar  et  al.,  2004);
+accordingly  chromatography  buffers  were  supplemented  with  400
+mM NaCl and 5-10% (v/v) glycerol. GST-GPR-1/2 (amino acids 374-
+476)  was  cloned  into  pGEX4TEV2  and  puriﬁed  using  the  methods
+described above.
+
+All baculoviral and insect cell culture reagents were obtained from
+Invitrogen. DNA encoding GPA-16 (amino acids 5-357) was cloned
+into pFastBacHTb and recombinant bacmid DNA was generated using
+the Bac-to-Bac method. Insect cell transfection and viral ampliﬁcation
+were performed by the Tissue Culture Core Laboratory (University of
+Colorado  Cancer  Center).  Protein  was  expressed  by  infecting  Hi5
+cells (1.0⫻106 cells/ml) grown in Express Five SFM (containing 16.5
+mM  L-glutamine)  with  baculovirus  at  a  multiplicity  of  infection  of
+1.0.  After  incubation  at  27°C  for  2  days,  cells  were  pelleted  by
+centrifugation  at  3000  g,  and  resuspended  in  buffer  N  [50  mM
+Tris/HCl  (pH  7.5),  100  mM  NaCl,  5%  (v/v)  glycerol,  10  mM
+imidazole, 50 ␮M GDP, 20 mM NaF, 30 ␮M AlCl3, 5 mM MgCl2,
+0.5% (w/v) sodium cholate and 1 mM 2-mercaptoethanol]. His6-GPA-
+16 was then puriﬁed using Ni2+-affinity chromatographic methods as
+described 
+(Willard  and  Siderovski,  2004).  Protein-containing
+fractions were pooled and subjected to HiTrapQ (Amersham) anion
+exchange chromatography. The eluent was 20 mM Tris/HCl (pH 8.0),
+10 mM NaCl, 5% (v/v) glycerol, 10 ␮M GDP and 1 mM DTT; protein
+was eluted with a linear gradient of 0-300 mM NaCl over 20 column
+volumes. Protein fractions were analyzed for the presence GPA-16 by
+SDS-PAGE/Coomassie  Blue  staining,  immunoblot  with  ␣-His6
+antibodies  (Covance)  and  GTP␥S  binding.  His6-GPA-16  containing
+fractions  were  pooled  and  concentrated  using  a  Vivaspin  30  kDa
+cutoff centrifugal ﬁlter (Sartorius).
+
+Biochemical assays
+[35S]-GTP␥S binding assays were performed as described (Afshar et
+al., 2004). Rates of GTP␥S binding were calculated using a one-site
+exponential model (Prism v4.0; GraphPad Software). Protein-protein
+interactions  were  measured  by  surface  plasmon  resonance  (SPR)
+spectroscopy as described (Kimple et al., 2004). Eluent buffer [20 mM
+HEPES (pH 7.4), 150 mM NaCl, 5 mM MgCl2, 0.005% (v/v) NP-40]
+was  supplemented  with  GDP  (50 ␮M),  GTP␥S  (50 ␮M),  or
+– (50 ␮M GDP, 20 mM NaF, 30 ␮M AlCl3). GOA-1 and
+GDP·AlF4
+–
+GPA-16 were diluted to 2 ␮M in the GDP, GTP␥S, and GDP·AlF4
+buffers, and incubated for 30 minutes at 25°C to ensure full nucleotide
+loading.  Nucleotide-locked  G␣ proteins  (2 ␮M)  were  injected
+(KINJECT, 30 ␮l, 300 s dissociation time, 5 ␮l/minute) over an anti-
+GST antibody-conjugated CM5 sensor chip, loaded with GST (1500
+RU), GST-RIC-8 (800 RU) and GST-GPR-1 (amino acids 374-476)
+(1400 RU). Background binding to the GST surface was subtracted
+from all sensorgrams (BIAevaluation v3.0; Biacore).
+
+Results
+GPA-16 is present at the cortex of early embryonic
+blastomeres
+We sought to determine the subcellular distribution of GPA-16
+in  early  C.  elegans embryos.  We  raised  and  affinity-puriﬁed
+antibodies  which  recognize  a  major  species  of  the  expected
+size in wild-type embryonic extracts that is vastly diminished
+in  gpa-16(RNAi) embryonic  extracts  (Fig.  1A).  These
+antibodies detect a strong and uniform signal at the cell cortex
+of early embryos (Fig. 1B,C). This distribution corresponds to
+
+GPA-16 in asymmetric division
+
+4451
+
+bona ﬁde GPA-16 because it is signiﬁcantly diminished in gpa-
+16(RNAi) embryos (Fig. 1D). These antibodies also label the
+cytoplasm,  with  a  slight  enrichment  in  the  vicinity  of
+microtubule  asters,  but  this  aspect  of  the  signal  is  barely
+diminished  in  gpa-16(RNAi)  embryos  (Fig.  1D),  suggesting
+that it is not speciﬁc or corresponds to a particularly stable pool
+of GPA-16. In summary, GPA-16 is present predominantly at
+the cortex of one-cell stage embryos.
+
+GPA-16 interacts with RIC-8 and GPR-1/2 in vivo
+We investigated whether GPA-16 is present in a complex with
+RIC-8  and  GPR-1/2  in  C.  elegans embryos.  As  shown  in
+Fig. 2A  (lane  7),  we  found  that  GPA-16  antibodies  co-
+immunoprecipitate  both  RIC-8  and  GPR-1/2  from  wild-type
+embryonic extracts. Furthermore, we found that the interaction
+between  GPA-16  and  RIC-8  is  severely  compromised  in
+embryonic  extracts  derived  from  ric-8(md1909) or  ric-
+8(md303) mutant animals (Fig. 2A, lane 8 and data not shown).
+These observations establish that GPA-16 normally associates
+with both RIC-8 and GPR-1/2 in vivo.
+
+We next addressed the order in which GPA-16 interacts with
+RIC-8  and  GPR-1/2  by  conducting  co-immunoprecipitation
+experiments  in  embryonic  extracts  depleted  of  RIC-8  or
+GPR-1/2.  These  experiments  established  that  the  interaction
+between  GPA-16  and  RIC-8  is  not  altered  in  gpr-1/2(RNAi)
+embryonic extracts (Fig. 2A, lane 11, compare with lane 7).
+By contrast, the interaction between GPA-16 and GPR-1/2 is
+essentially  abolished  in  ric-8(md1909) or  ric-8(md303)
+embryonic extracts (Fig. 2A, lane 8, compare with lane 7 and
+data  not  shown).  We  conclude  that  RIC-8  is  required  for
+efficient assembly of a complex containing GPA-16 and GPR-
+1/2.
+
+These  ﬁndings  prompted  us  to  test  whether  RIC-8  may
+activate GPA-16 by supporting stable levels of G␤␥-free GPA-
+16. If this were the case, then inactivation of G␤␥ might enable
+GPA-16  to  interact  with  GPR-1/2  in  the  absence  of  RIC-8.
+Accordingly,  we  found  that  the  interaction  between  GPA-16
+and  GPR-1/2  is  partially  restored  in  ric-8(md1909)  gpb-
+1(RNAi) embryos  (Fig.  2A,  lane  10,  compare  with  lane  8).
+Therefore, as for GOA-1 (Afshar et al., 2004), inactivation of
+G␤␥ alleviates  the  need  for  RIC-8  to  permit  association  of
+GPR-1/2 with GPA-16.
+
+GOA-1 and GPA-16 become completely redundant
+during asymmetric cell division when GPB-1 is
+inactivated
+As  our  ﬁndings  suggest  that  generation  of  both  GOA-1  and
+GPA-16  free  from  G␤␥ is  important  for  asymmetric  spindle
+positioning,  we 
+the  partial
+redundancy between the two G␣ proteins. We reasoned that if
+GPA-16  and  GOA-1  are  essential  for  distinct  pathways,  an
+excess of GPA-16 liberated from G␤␥ should not compensate
+for  loss  of  GOA-1.  Similarly,  an  excess  of  GOA-1  liberated
+from G␤␥ should not compensate for loss of GPA-16.
+
+the  nature  of 
+
+investigated 
+
+To test whether this is the case, we investigated the extent
+of  pulling  forces  using  laser  microbeam-mediated  spindle
+severing  experiments,  analyzing  the  resulting  spindle  pole
+movements  with  time-lapse  differential  interference  contrast
+(DIC) microscopy (Grill et al., 2001). In these experiments, we
+used  goa-1(sa734),  a  deletion  allele  (Robatzek  and  Thomas,
+2000), gpa-16(it143), a strong reduction of function allele that
+
+Development4452
+
+Development 132 (20)
+
+Research article
+
+Fig. 1. GPA-16 distribution in early embryos. (A) Western blot analysis using GPA-16 antibodies on wild-type or gpa-16(RNAi) embryonic
+extracts. The blot was reprobed with ␣-tubulin antibodies as a loading control (bottom). (B-H) Wild-type embryos (B, one-cell stage late
+telophase; C, four-cell stage), as well as four-cell stage embryos of the indicated genotypes stained with antibodies against GPA-16 (red) and ␣-
+tubulin (green); DNA is shown in blue. Left panels show GPA-16 staining alone, right panels the merge of the three signals. Rectangles
+highlight a region of the cortex at the ABp/EMS boundary to ease comparison of GPA-16 levels; this region does not exhibit the variability in
+staining intensity sometimes observed on the cortex facing the outside. Insets represent ~2.5⫻ magniﬁed view of the approximate region
+indicated by the rectangles. Analogous distributions are observed in one-cell stage embryos (data not shown). Arrows in C,D indicate signal
+around microtubule asters, which persists in gpa-16(RNAi) embryos. In this and other ﬁgures, anterior is leftwards, posterior is rightwards.
+Scale bar: 10 ␮m. 
+
+results in a G202D substitution in the switch II region of the
+GTPase domain (Bergmann et al., 2003), and RNAi-mediated
+inactivation  of  goa-1 or  gpa-16.  We  inactivated  gpb-1 using
+RNAi,  because  gpb-1 homozygous  mutant  animals  die  as
+larvae (Zwaal et al., 1996).
+
+The  outcome  of  the  spindle  severing  experiments  is
+summarized  in  Fig.  3  and  Table  S1  in  the  supplementary
+material.  After  spindle  severing  in  wild-type  one-cell  stage
+embryos, the peak velocity of the anterior spindle pole is ~0.64
+␮m/second, whereas that of the posterior spindle pole is ~1.1
+␮m/second,  reﬂecting  the  imbalance  of  net  pulling  forces
+acting on the two spindle poles (see also Afshar et al., 2004;
+Grill et al., 2001). Inactivation of either goa-1 or gpa-16 results
+in  diminished  peak  velocities  of  both  spindle  poles  (see  also
+Afshar et al., 2004). In contrast,  gpb-1(RNAi) results in high
+peak  velocities  of  both  spindle  poles  (~1.0 ␮m/second)  (see
+also  Afshar  et  al.,  2004).  Importantly,  we  found  that  goa-
+
+1(sa734) gpb-1(RNAi) or goa-1(RNAi) gpb-1(RNAi), and gpa-
+16(it143) gpb-1(RNAi) or gpa-16(RNAi) gpb-1(RNAi) embryos
+exhibit a phenotype indistinguishable from that of gpb-1(RNAi)
+embryos, in that peak velocities of both spindle poles are high.
+This is not due to upregulation of GOA-1 or GPA-16 protein
+in the absence of the other G␣ subunit (Fig. 2B, lanes 2 and
+4).  As  expected  from  previous  reports  (Gotta  and  Ahringer,
+2001; Tsou et al., 2003), we found, in addition, that following
+triple inactivation of goa-1 gpa-16 and gpb-1, peak velocities
+are  analogous  to  those  observed  in  goa-1/gpa-16(RNAi)
+embryos (Colombo et al., 2003), indicating that G␤␥ normally
+dampens G␣-dependent force generation.
+
+An  examination  of  GPR-1/2  cortical  distribution  in  early
+two-cell stage embryo corroborated the outcome of the spindle
+severing experiments (Fig. 4; see also Figs S2 and S3 in the
+supplementary material for a quantitative assessment in four-
+cell stage embryos). Cortical GPR-1/2 is essentially absent in
+
+DevelopmentGPA-16 in asymmetric division
+
+4453
+
+Fig. 2. RIC-8 is required for interaction between GPA-16 and GPR-
+1/2, and for normal GPA-16 protein levels. (A) Embryonic extracts
+of the indicated genotypes were immunoprecipitated with GPA-16
+antibodies and analyzed by western blot using RIC-8, GPR-1/2 or
+GPA-16 antibodies, as indicated on the left by arrowheads. The top
+panel shows inputs (1/50 of starting materials). Whereas GPA-16
+antibodies co-immunoprecipitate both RIC-8 and GPR-1/2, RIC-8 or
+GPR-1/2 antibodies do not co-immunoprecipitate GPA-16 (data not
+shown). Lanes 1-5 and 7-11 are from the same experiment; lanes 6
+and 12 from a different experiment performed with appropriate
+controls. GPA-16 levels are diminished in inputs from the gpb-
+1(RNAi) embryonic extract. Quantiﬁcations of the intensity of the
+GPA-16 band from four experiments, using the ␣-tubulin or the
+GPR-1/2 band as loading control, indicate that the amount of GPA-
+16 in ric-8(md1909) and in gpb-1(RNAi) embryos is essentially
+identical [ratio of gpb-1(RNAi) versus ric-8(md1909):1.15; s.d.=0.4].
+RIC-8 is truncated in ric-8(md1909) mutant embryos (Afshar et al.,
+2004) and is present at a lesser abundance than in the wild type.
+(B) Western blot analysis of embryonic extracts of the indicated
+genotypes using sequentially antibodies against GPA-16, GOA-1 and
+RIC-8, as well as ␣-tubulin as a loading control, as indicated on the
+left with arrowheads. RIC-8 antibodies also detect a minor non-
+speciﬁc species, which co-migrate with the truncated protein in ric-
+8(md1909) mutant embryos (Afshar et al., 2004).
+
+embryos (compare Fig. 4F with 4C and 4A, as well as  Fig. 4G
+with 4D and 4A).
+
+We conclude that GPA-16 and GOA-1 become completely
+redundant for GPR-1/2 cortical localization and asymmetric
+spindle  positioning  when  G␤␥ is  inactivated.  This  suggests
+that  excess  GPA-16  liberated  from  G␤␥ can  compensate
+for a loss  of  GOA-1,  and  vice  versa.  Therefore,  instead  of
+being  essential  for  distinct  pathways,  GPA-16  and  GOA-1
+appear  to  each  contribute  to  partial  activation  of  the  same
+pathway.
+
+GPR-1/2 is a GDI for GPA-16, but RIC-8 is not a GEF
+for GPA-16
+Next,  we  set  out  to  determine  whether  RIC-8  and  GPR-1/2
+exhibit the same biochemical activity towards GPA-16 as they
+do  toward  GOA-1.  To  this  end,  we  ﬁrst  conducted  surface
+plasmon  resonance  (SPR)  binding  assays  to  investigate  the
+nucleotide dependency of the interaction between GPA-16 and
+GPR-1/2,  as  well  as  that  between  GPA-16  and  RIC-8.
+
+goa-1/gpa-16(RNAi) embryos  (Fig.  4B,  compare  with  4A)
+(Colombo et al., 2003; Gotta et al., 2003; Tsou et al., 2003),
+as  well  as  following  triple  inactivation  of  goa-1 gpa-16 and
+gpb-1 (data  not  shown).  By  contrast,  we  found  that  cortical
+GPR-1/2 appears merely diminished compared with wild type
+in goa-1(RNAi) or gpa-16(RNAi) embryos (Fig. 4C,D). Similar
+results  were  obtained  with  goa-1(sa734) and  gpa-16(it143)
+(data  not  shown).  Therefore,  GPA-16  and  GOA-1  each
+contribute to GPR-1/2 cortical targeting. As anticipated from
+the  fact  that gpb-1(RNAi) embryos  in  which  either  goa-1 or
+indistinguishable
+gpa-16 
+phenotype from gpb-1(RNAi) embryos, we found that cortical
+GPR-1/2  is  similar  to  wild  type  in  such  doubly  inactivated
+
+inactivated  exhibit  an 
+
+is  also 
+
+Fig. 3. GPA-16 and GOA-1 become entirely
+dispensable for generation of pulling forces
+following GPB-1 depletion. Average peak
+velocities±s.e.m. of anterior (A) and posterior (P)
+spindle poles after spindle severing in one-cell
+stage embryos of the indicated genotypes. Actual
+values are given in Table S1 in the supplementary
+material. We found an analogous outcome when
+examining the movements of centrosomes during
+centration/rotation prior to mitosis: whereas
+centration/rotation is gradual, as in wild type, in
+embryos compromised for either goa-1 or gpa-16
+function, it is abrupt and accompanied by back and
+forth movements in all genotypes in which gbp-1
+function is compromised (see Movies 1-7 in the
+supplementary material). Values for wild type, goa-
+1(sa734) and gpb-1(RNAi) are from Afshar et al.
+(Afshar et al., 2004).
+
+)
+s
+/
+
+ 
+
+m
+μ
+(
+y
+t
+i
+c
+o
+l
+e
+v
+k
+a
+e
+p
+ 
+e
+g
+a
+r
+e
+v
+A
+
+1.2
+
+1
+
+0.8
+
+0.6
+
+0.4
+
+0.2
+
+0
+
+A P
+
+A P
+
+A
+
+P
+
+A
+
+P
+
+A
+
+P
+
+A
+
+P
+
+A
+
+P
+
+wild-type
+
+goa-1(sa734)
+
+gpa-16(it143)
+
+goa-1(sa734) gpb-1(RN Ai)
+gpb-1(RNAi)
+
+gpa-16(it143)gpb-1(RNAi)
+
+goa-1(sa734) gpa-16(RNAi) 
+
+gpb-1(RNAi)
+
+Development4454
+
+Development 132 (20)
+
+Research article
+
+Recombinant  GPA-16  was  injected  over  SPR  surfaces  after
+pre-incubation  with  either  GDP,  the  non-hydrolyzable  GTP
+– to mimic the transition state
+analogue GTP␥S, or GDP·AlF4
+of  GTP  hydrolysis.  We  found  that  a  GST  fusion  protein
+encompassing the GoLoco motif of GPR-1/2 binds exclusively
+to  GPA-16·GDP  (Fig.  5A).  We  found  also  that  a  surface  of
+immobilized  GST-RIC-8  binds  robustly  to  GPA-16·GDP,  but
+–-activated
+to  a  much  lesser  extent  to  GTP␥S-bound  or  AlF4
+GPA-16 (Fig. 5B).
+
+We  conducted  [35S]GTP␥S  radioligand  binding  assays  to
+determine the effect of GPR-1/2 and of RIC-8 on the kinetics
+of GTP␥S binding to GPA-16. As shown in Fig. 5C, we found
+that  a  peptide  encompassing  an  extended  GPR-1/2  GoLoco
+motif  exhibits  GDI  activity  towards  GPA-16,  in  a  manner
+analogous  to  its  effect  on  GOA-1  (Afshar  et  al.,  2004).
+Unexpectedly, we found that the presence of RIC-8, even in a
+20-fold  molar  excess,  does  not  alter  the  kinetics  of  GTP␥S
+binding to GPA-16 (Fig. 5D). SPR-binding assays established
+that this preparation of RIC-8 binds robustly to GOA-1·GDP
+(Fig. 5E), as shown previously (Afshar et al., 2004). Moreover,
+a  twofold  molar  excess  of  the  same  preparation  of  RIC-8
+signiﬁcantly accelerates [35S]GTP␥S binding to GOA-1 (Fig.
+5F), consistent with previous results (Afshar et al., 2004; Hess
+et al., 2004). Taken together, these ﬁndings lead us to conclude
+that  in  vitro,  RIC-8  acts  as  a  GEF  towards  GOA-1  but  not
+towards GPA-16.
+
+We  reasoned  that  if  RIC-8  also  does  not  act  as  a  GEF
+towards GPA-16 in vivo, it could remain associated with GPA-
+16 even after spontaneous nucleotide exchange has occurred,
+
+especially  in  light  of  the  slight  binding  of  RIC-8  to  GPA-
+– observed in vitro (see Fig.
+16·GTP␥S and GPA-16·GDP·AlF4
+5B).  Compatible  with  this  view,  we  found  that  GPA-16
+antibodies  co-immunoprecipitate  RIC-8  equally  well  in  the
+presence  of  excess  GDP  or  GTP␥S  (Fig.  5G).  By  contrast,
+GOA-1 antibodies co-immunoprecipitate RIC-8 preferentially
+in  the  presence  of  excess  GDP  (Fig.  5H)  (see  also  Afshar  et
+al., 2004). As expected, we found also that GPA-16 antibodies
+co-immunoprecipitate GPR-1/2 only in the presence of excess
+GDP (Fig. 5E), as is the case with GOA-1 antibodies (Afshar
+et al., 2004).
+
+Overall, our ﬁndings indicate that whereas GPR-1/2 acts as
+a GDI towards both GOA-1 and GPA-16, RIC-8 exhibits GEF
+activity towards GOA-1, but not GPA-16.
+
+RIC-8 ensures normal cortical localization and
+protein levels of GPA-16
+Despite RIC-8 not acting as a GEF towards GPA-16, RIC-8 is
+required for GPA-16 function during asymmetric cell division,
+as  RIC-8  inactivation  results  in  a  phenotype  analogous  to
+inactivating both GOA-1 and GPA-16 (Afshar et al., 2004). To
+begin investigating how RIC-8 exerts its requirement towards
+GPA-16,  we  examined  the  distribution  of  GPA-16  in  ric-8
+mutant embryos. Strikingly, we found that GPA-16 distribution
+at the cortex is extremely diminished when RIC-8 function is
+compromised  (Fig.  1E,F,  compare  with  1C).  Moreover,
+western  blot  analysis  revealed  a  severe  reduction  in  GPA-16
+protein  levels  in  ric-8 mutant  embryonic  extracts  (Fig.  2B,
+lanes 5-7, compare with lane 1).
+
+Fig. 4. Cortical GPR-1/2
+distribution. Early two-cell
+stage embryos of the
+indicated genotypes stained
+with antibodies against GPR-
+1/2 (red) and ␣-tubulin
+(green); DNA is shown in
+blue. Left panels show GPR-
+1/2 staining alone, right
+panels the merge of the three
+signals. See also Figs S2 and
+S3 in the supplementary
+material for four-cell stage
+embryos and corresponding
+quantiﬁcations of GPR-1/2
+cortical distribution. Scale
+bar: 10 ␮m.
+
+Developmentrequirement 
+
+By  contrast,  RIC-8  is  not  required  for  normal  GOA-1
+distribution  (Afshar  et  al.,  2004)  or  protein  levels  (Fig.  2B,
+lanes  5-7,  compare  with  lane  1),  indicating  speciﬁcity  in
+its
+for  GPA-16.  Furthermore,  RIC-8
+distribution and  levels  are  not  affected  in  gpa-16(RNAi)
+embryos (Fig. 2B, lane 2; data not shown), indicating that this
+requirement is not reciprocal. Overall, we conclude that RIC-
+8  is  required  for  normal  cortical  localization  and  protein
+levels of GPA-16.
+
+Compromising the function of GOA-1 and RIC-8 is
+more detrimental than compromising that of GPA-16
+and RIC-8
+The  above  observations  suggest  that  compromising  RIC-8
+function  may  be  more  detrimental  to  embryos  depleted  of
+GOA-1 than to embryos depleted of GPA-16, because GPA-16
+levels are already severely compromised in the absence of RIC-
+8.  To  test  this  prediction,  we  performed  time-lapse  DIC
+microscopy of one-cell stage embryos. We compromised goa-
+
+GPA-16 in asymmetric division
+
+4455
+
+1 and gpa-16 by RNAi, rather than through the use of mutants
+for  the  following  reasons.  First,  using  time-lapse  DIC
+microscopy  and  spindle  severing,  we  found  that  the  spindle
+positioning phenotypes in goa-1(RNAi) and the deletion allele
+goa-1(sa734) are  indistinguishable  (see  Table  S1  in  the
+supplementary  material).  Moreover,  ric-8(md1909) goa-
+1(RNAi) embryos already have a penetrant spindle positioning
+phenotype.  Second,  null  allele  of  gpa-16 are  not  available
+(Bergmann et al., 2003), and we found using spindle severing
+that  the  impairment  of  force  generation  in  gpa-16(RNAi)
+embryos  is  as  severe  as  that  in  gpa-16(it143) embryos  (see
+Table S1 in the supplementary material).
+
+type,  asymmetric  spindle  positioning 
+
+is
+accompanied by transverse oscillations of the posterior spindle
+pole  that  reﬂect  the  extent  of  pulling  forces  and  results  in
+unequal cleavage (Fig. 6A; see Movie 8 in the supplementary
+material). In goa-1(RNAi) or gpa-16(RNAi) embryos, transverse
+oscillations are dampened, but asymmetric spindle positioning
+is  nevertheless  achieved,  resulting  in  unequal  cleavage  (Fig.
+
+In 
+
+the  wild 
+
+Fig. 5. GPR-1/2 is a GDI for GPA-16; RIC-8 is
+not a GEF for GPA-16. (A,B,E) Surface
+plasmon resonance was used to analyze the
+binding of GPA-16 to GST-GPR-1/2 (amino
+acids 374-476) (A) and to GST-RIC-8 (B), as
+well as of GOA-1 to GST-RIC-8 (E). GST
+fusion proteins were immobilized on a GST
+antibody biosensor surface. ‘Analyte’ (30 ␮l of
+2 ␮M GPA-16 or GOA-1), in each of the
+indicated nucleotide bound states, was injected
+over the biosensor surface. Non-speciﬁc
+binding to GST was subtracted from each
+curve. (C) Time-course of [35S]GTP␥S binding
+to 100 nM GPA-16 in the presence or absence
+of 10 ␮M GPR-1/2 peptide (amino acids 423-
+461). Results are the mean±s.e.m. of duplicate
+samples. Observed association rate constants
+(with 95% conﬁdence intervals in parentheses)
+were: GPA-16, 0.73 (0.44-1.0) minutes–1; GPA-
+16+GPR-1/2, 0.069 (0.050-0.087) minutes–1.
+(D,F) Time-course of [35S]GTP␥S binding to
+100 nM GPA-16 (D) or 100 nM GOA-1 (F) in
+the presence or absence of 2 ␮M RIC-8 (D) or
+200 nM RIC-8 (F). Results are the mean±s.e.m.
+of duplicate samples. Observed association rate
+constants (with 95% conﬁdence intervals in
+parentheses) were: GPA-16, 0.32 (0.24-0.40)
+minutes–1; GPA-16+RIC-8, 0.35 (0.26-0.43)
+minutes–1; GOA-1, 0.052 (0.044-0.061)
+minutes–1; GOA-1+RIC-8, 0.12 (0.093-0.14)
+minutes–1. (G,H) Co-immunoprecipitation of
+the same wild-type embryonic extracts with
+GPA-16 (G) or GOA-1 (H) antibodies either
+alone (lanes 1) or in the presence of 100 ␮M
+GDP (lanes 2) or 100 ␮M GTP-␥S (lanes 3).
+The co-immunoprecipitated material was
+detected using RIC-8, GPR-1/2, GPA-16 or
+GOA-1 antibodies, as indicated on the left with
+arrowheads. A previous study reported that
+spindle positioning in ric-8(md1909) goa-
+1(RNAi) embryos is similar to that of ric-
+8(md1909) embryos (Couwembergs et al.,
+2004); the difference with our results may
+reﬂect the use of distinct RNAi conditions.
+
+Development4456
+
+Development 132 (20)
+
+Research article
+
+6B,C;  see  Movies  9  and  10  in  the  supplementary
+material) (Miller and Rand, 2000). The same is true
+in  ric-8(md1909) mutant  embryos  and  ric-
+8(md1909) gpa-16(RNAi)  embryos  (Fig.  6D,E;  see
+Movies  11  and  12  in  the  supplementary  material).
+By  contrast, 
+goa-1(RNAi)
+embryos, the spindle remains centrally located and
+sometimes even drifts towards the anterior, resulting
+in  equal  cleavage  (Fig.  6F;  see  Movie  13  in  the
+supplementary material). An analogous behavior is
+observed  in  goa-1/gpa-16(RNAi) embryos  (Fig.
+6G,H; see Movie 14 in the supplementary material)
+(Gotta and Ahringer, 2001).
+
+ric-8(md1909)
+
+in 
+
+We found in addition that inactivation of gpa-16
+in ric-8(md1909) mutant embryos does not further
+decrease  cortical  GPR-1/2  compared  with  ric-
+8(md1909) embryos (Fig. 4H, compare with 4I). By
+contrast,  inactivation  of  goa-1 in  ric-8(md1909)
+mutant  embryos  results  in  extremely  diminished
+levels of cortical GPR-1/2, comparable with those
+of goa-1/gpa-16(RNAi) embryos (Fig. 4J, compare
+with 4B). Corroborating these results, we found that
+inactivation  of  goa-1
+severe
+consequence on embryonic lethality of ric-8 mutant
+embryos than that of gpa-16 (data not shown).
+
+has  a  more 
+
+Although we cannot formally exclude that these
+results  reﬂect  partial  inactivation  of  gpa-16,  we
+view this as unlikely because GPA-16 protein levels
+are  signiﬁcantly  diminished 
+in  gpa-16(RNAi)
+embryonic extracts (Fig. 2B, lane 2) and because the
+gpa-16(RNAi) phenotype is as severe as that of the
+strong  reduction  of  function  allele  gpa-16(it143)
+(see  Table  S1  in  the  supplementary  material).
+Therefore,  compromising  simultaneously  GOA-1
+and RIC-8 appears more detrimental to asymmetric
+spindle 
+compromising
+simultaneously  GPA-16  and  RIC-8,  as  expected
+from the fact that GPA-16 cortical localization and
+protein levels are already severely diminished in the
+absence of RIC-8.
+
+positioning 
+
+than 
+
+Fig. 6. Compromising the function of GOA-1 and RIC-8 is more detrimental
+than compromising that of GPA-16 and RIC-8. (A-G) Early two-cell stage
+embryos of the indicated genotypes (see also Movies 8-14 in the supplementary
+material). Arrowheads indicate cleavage furrow position. (H) Average cleavage
+furrow positions along the AP axis (0% egg-length, anterior-most; 100% egg-
+length, posterior-most), along with standard deviations, for embryos of the
+genotypes illustrated in A-G. Number of embryos examined for each genotype:
+A, 10; B, 7; C, 8; D, 7; E, 6; F, 8; G, 8. Scale bar: 10 ␮m.
+
+The requirement of RIC-8 for normal GPA-16 cortical
+localization and protein levels is distinct from that
+enabling interaction between GPA-16 and GPR-1/2
+Reduced  GPA-16  cortical  localization  and  protein  levels  in
+ric-8 mutant embryos could be due to the lack of interaction
+between  GPA-16  and  GPR-1/2  or  instead  uncover  a  novel
+requirement  for  RIC-8.  If  the  former  was  the  case,  then
+mutations  that  impair  the  interaction  between  GPA-16  and
+GPR-1/2  should  necessarily  result  in  reduced  GPA-16
+cortical  localization  and  protein  levels.  Contrary  to  this
+prediction, we found that GPA-16 distribution and levels are
+normal  in  gpa-16(it143) mutant  embryos  (Fig.  1G  and  Fig.
+2B,  lane  3,  compare  with  lane  1)  (Bergmann  et  al.,  2003),
+despite the interaction between GPA-16 and both RIC-8 and
+GPR-1/2  being  severely  diminished  (Fig.  2A,  lane  12,
+compare  with  lane  7).  In  addition,  we  found  that  GPA-16
+cortical  localization  and  protein  levels  are  compromised  in
+(Fig.  1H;  data  not  shown),
+gpa-16(it143)
+indicating that the mutation in gpa-16(it143) does not render
+GPA-16 insensitive to RIC-8. Overall, these ﬁndings suggest
+
+ric-8(RNAi)
+
+that  the  requirement  of  RIC-8  for  ensuring  normal  GPA-16
+cortical  localization  and  protein  levels  is  novel  and  distinct
+from  its  known  role  in  enabling  interaction  between  G␣
+proteins and GPR-1/2.
+
+RIC-8 is required for cortical localization of GPA-16
+and thereby for maintaining normal protein levels
+At  least  two  scenarios  can  be  envisaged  to  explain  the  dual
+requirement  of  RIC-8  in  ensuring  normal  GPA-16  cortical
+localization  and  protein  levels.  First,  RIC-8  may  be  required
+primarily for normal GPA-16 protein levels, with the lack of
+cortical localization being a consequence of having insufficient
+GPA-16 protein in the absence of RIC-8. Alternatively, RIC-8
+may be required primarily for cortical localization of GPA-16,
+with the diminution in protein levels being a consequence of
+failed GPA-16 localization in the absence of RIC-8.
+
+An  examination  of  GPA-16  distribution  in  gpb-1(RNAi)
+embryos  leads  us  to  favor  the  latter  scenario.  We  found  that
+GPA-16 protein levels are severely diminished in such embryos
+(Fig. 2A, lane 3, compare with lane 1), to an extent comparable
+
+Developmentwith that observed in ric-8(md1909) mutant embryos (Fig. 2A,
+compare lanes 2 and 3). Importantly, in addition, we found that
+GPA-16 is present at the cortex of gpb-1(RNAi) embryos (Fig.
+1I). Although we cannot exclude that GPA-16 in gpb-1(RNAi)
+embryos  is  targeted  to  the  cortex  in  a  manner  that  does  not
+occur in the wild type, these observations render it unlikely that
+lack of GPA-16 cortical localization in ric-8(md1909) mutant
+embryos is due merely to diminished protein levels. Therefore,
+we propose that RIC-8 is required for cortical localization of
+GPA-16 during asymmetric division of C. elegans embryos.
+
+Discussion
+Heterotrimeric G␣ proteins are crucial for spindle positioning
+in  C.  elegans,  Drosophila  melanogaster and  vertebrate  cells
+(for a review, see Hampoelz and Knoblich, 2004). In the one-
+cell  stage  C.  elegans embryo,  the  G␣ proteins  GPA-16  and
+GOA-1  act  in  a  partially  redundant  manner  to  ensure
+generation  of  pulling  forces  during  asymmetric  spindle
+positioning. Previous work has focused on the mechanism by
+which RIC-8 and GPR-1/2 regulate GOA-1 function. Whether
+similar mechanisms hold for GPA-16 has not been previously
+addressed.
+
+Distinct regulation of GPA-16 and GOA-1 during
+asymmetric cell division
+In this study, we establish that the interaction of GPA-16 with
+GPR-1/2 requires RIC-8, and that this requirement is alleviated
+when G␤␥ is inactivated. Moreover, we ﬁnd that GPR-1/2 acts
+as a GDI towards GPA-16. Whereas these ﬁndings mirror those
+made  with  GOA-1  (Afshar  et  al.,  2004),  we  show  also  that
+GPA-16  differs  in  two  important  ways  from  GOA-1  with
+respect to its relationships with RIC-8. First, RIC-8 does not
+exhibit GEF activity towards GPA-16, in contrast to its effect
+on  GOA-1.  Consistent  with  our  ﬁndings,  yeast  two  hybrid
+experiments indicate that rat Ric8 isoforms interact with both
+wild type and mutant GTP-ase deﬁcient, G␣q and G␣o (Tall et
+al.,  2003).  Interestingly,  rat  Ric8A  also  exhibits  differential
+GEF activity towards distinct G␣ proteins in vitro (Tall et al.,
+2003),  and  our  work  with  GOA-1  and  GPA-16  provides  the
+ﬁrst  evidence  that  such  differential  activity  occurs  in  a
+physiological setting.
+
+A second important difference is that RIC-8 is required for
+normal  cortical  localization  of  GPA-16,  but  not  GOA-1.  We
+found  also  that  RIC-8  is  needed  for  efficient  cortical
+localization  of  GPB-1,  but  this  most  likely  reﬂects  the
+requirement  of  RIC-8  for  GPA-16  cortical  localization,
+because a diminution of GPB-1 is observed in gpa-16(RNAi)
+embryos (data not shown). Importantly, we found in addition
+that GPA-16 cortical localization is not altered in gpa-16(it143)
+mutant embryos, despite the interaction of GPA-16 with RIC-
+8 and GPR-1/2 being essentially abolished. This indicates that
+the  requirement  of  RIC-8  for  GPA-16  cortical  localization  is
+distinct  from  its  known  role  in  ensuring  interaction  between
+G␣ proteins and GPR-1/2.
+
+It will be interesting to investigate the mechanism by which
+the  novel  requirement  of  RIC-8  for  GPA-16  cortical
+localization is exerted. One possibility is suggested by the fact
+that  myristoylation  and  palmitoylation  of  G␣ subunits  is
+important 
+(reviewed  by
+Wedegaertner, 1998). In view of this, RIC-8 may be needed for
+
+their  cortical 
+
+localization 
+
+for 
+
+GPA-16 in asymmetric division
+
+4457
+
+lipid modiﬁcation of GPA-16. Alternatively, RIC-8 could help
+fold GPA-16 to make it competent for cortical localization. Yet
+an  alternative  possibility  is  suggested  by  the  fact  that  G␣
+subunits in vertebrate cells can redistribute from the cortex to
+the  cytosol  in  response  to  agonist  stimulation  (Allen  et  al.,
+2005; Wedegaertner and Bourne, 1994). In this scenario, RIC-
+8  may  be  a  negative  regulator  of  GPA-16  removal  from  the
+cortex. Regardless of the underlying mechanism, our ﬁndings
+uncover a novel function for RIC-8, that of ensuring cortical
+localization of a G␣ protein. By extension, our results raise the
+possibility  that  RIC-8  family  members  modulate  G-protein
+signaling in other organisms in an analogous manner.
+
+Activation mechanism of GPA-16 during asymmetric
+cell division
+Our  previous  work  suggested  a  model  for  the  activation
+mechanism  of  GOA-1  in  which  RIC-8  GEF  activity  ﬁrst
+generates  GOA-1·GTP,  after  which  the  intrinsic  GTPase
+activity  of  GOA-1  converts  GOA-1  to  the  GDP-bound  form
+capable of binding GPR-1/2 (Afshar et al., 2004). Our present
+ﬁndings  suggest  a  simpler  model  for  GPA-16,  in  which
+nucleotide  exchange  does  not  occur  prior  to  interaction  of
+GPA-16  with  GPR-1/2  (Fig.  7).  As  Ric-8A  is  inactive  on
+heterotrimer-complexed G␣·GDP (Tall et al., 2003), it is likely
+that  RIC-8  acts  on  G␤␥-independent  GPA-16·GDP.  Because
+RIC-8  does  not  exhibit  GEF  activity  towards  GPA-16,  we
+propose that nucleotide exchange does not occur on GPA-16
+prior  to  interaction  with  GPR-1/2  and  the  associated  protein
+LIN-5. The GPA-16·GDP-GPR-1/2-LIN-5 complex may then
+promote generation of pulling forces along astral microtubules.
+Such a complex may still be associated with RIC-8, because
+some  GPR-1/2  is  present  following  co-immunoprecipitation
+with  RIC-8  antibodies  from  wild-type  embryonic  extracts
+(Afshar et al., 2004). Spontaneous nucleotide exchange ensues,
+after  which  the  intrinsic  GTPase  activity  of  GPA-16,  most
+
+Fig. 7. Working model of GPA-16 activation during asymmetric cell
+division. RIC-8 binds to GPA-16·GDP, counteracting the formation
+of the GPA-16/G␤␥ heterotrimer; this allows association of GPR-1/2
+and LIN-5 with GPA-16. A complex of GPA-16·GDP-GPR1/2-LIN-
+5 promotes generation of pulling forces on spindle poles. As some
+GPR-1/2 co-immunoprecipitates with RIC-8 (Afshar et al., 2004),
+RIC-8 may still be present in this complex, as illustrated. As RIC-8
+does not exhibit GEF activity towards GPA-16, RIC-8-independent
+nucleotide exchange may promote formation of GPA-16·GTP. Co-
+immunoprecipitation experiments (see Fig. 5G) suggest that RIC-8
+can associate with GPA-16·GTP, although this is not illustrated.
+RGS-7 GAP activity promotes GTP hydrolysis and formation of
+GPA-16·GDP and is thus is required for the activation cycle (Hess et
+al., 2004).
+
+Development4458
+
+Development 132 (20)
+
+probably accelerated by RGS-7 (Hess et al., 2004), terminates
+the activation cycle.
+
+Could the activation mechanism of GOA-1 in the embryo be
+simpler  than  initially  envisaged  and  resemble  that  proposed
+here  for  GPA-16?  Whereas  GPA-16  does  not  have  a  known
+requirement outside of the germ line and the embryo, GOA-1
+is also needed for synaptic transmission in the adult nervous
+system  (Miller  and  Rand,  2000).  Therefore,  although
+inactivation of ric-8 and of goa-1 yield opposite phenotypes in
+the nervous system (Miller et al., 2000), possibly because RIC-
+8 is also required for activation of the G␣q EGL-30, RIC-8 may
+act as a GEF towards GOA-1 solely in the context of receptor-
+dependent signaling. During receptor-independent activation in
+the  one-cell  stage  embryo,  perhaps  mechanisms  that  do  not
+invoke RIC-8 GEF activity are to be considered for both GPA-
+16 and GOA-1.
+
+Mechanism of partial redundancy: GOA-1 and GPA-
+16 counter the effect of G␤␤␥␥ to ensure accurate
+asymmetric spindle positioning
+Our study contributes to understanding the partial redundancy
+between  GOA-1  and  GPA-16.  We  ﬁnd  that  simultaneous
+inactivation of the G␤ subunit GPB-1 and of either GOA-1 or
+GPA-16 results in the same phenotype as that observed after
+GPB-1  inactivation  alone.  Therefore,  GOA-1  and  GPA-16
+become entirely redundant for asymmetric spindle positioning
+following  G␤␥ inactivation.  These  ﬁndings  illustrate  the
+importance  of  the  balance  between  G␣ proteins  and  G␤␥
+during  receptor-independent  activation  of  heterotrimeric  G
+proteins. This is reminiscent of the interplay between G␣ and
+G␤␥ proteins in modulating receptor-dependent heterotrimeric
+G protein signaling (for a review, see Gilman, 1987).
+
+Our ﬁndings suggest that in wild-type C. elegans embryos,
+the  presence  of  both  G␣ subunits  provides  substantial  G␣
+molecules free from G␤␥, which can then associate in a RIC-
+8-dependent  manner  with  GPR-1/2-LIN-5 
+to  generate
+appropriate pulling forces. When either GPA-16 or GOA-1 is
+inactivated, less G␣ is available for interaction with GPR-1/2-
+LIN-5,  resulting  in  lower  pulling  forces.  When  GPB-1  is
+inactivated in addition, no G␤␥-dependent dampening occurs
+and either GOA-1 or GPA-16 can alone sustain full generation
+of  pulling  forces.  Interestingly,  this  is  the  case  in  embryos
+simultaneously compromised for GPB-1 and GOA-1 (see Fig.
+3; Table S1), despite GPA-16 protein levels being diminished
+in the absence of GPB-1. However, we found that the bulk of
+residual GPA-16 protein in gpb-1(RNAi) embryos is present at
+the  cortex  (see  Fig.  1I),  which  appears  sufficient  to  recruit
+GPR-1/2-LIN-5 and generate pulling forces in the absence of
+GOA-1.
+
+G␣␣ requirement during spindle positioning: beyond
+C. elegans
+Whereas  two  G␣ proteins  act  in  concert  in  one-cell  stage  C.
+elegans embryos, a single G␣ that belongs to the G␣i class is
+known  to  be  required  for  proper  spindle  orientation  in
+Drosophila neuroblasts  and  sensory  organ  precursor  cells
+(Schaefer et al., 2001). Although a second G␣ that belongs to
+the G␣o class is expressed in these cells, it is not essential for
+spindle orientation (Yu et al., 2003). However, overexpression
+of  either  G␣o or  G␣i yields  identical  spindle  positioning
+defects,  possibly  owing  to  depletion  of  free  G␤␥ (Yu  et  al.,
+
+Research article
+
+2003). Therefore, reminiscent of the situation in C. elegans, the
+balance  between  G␣ proteins  and  G␤␥ is  also  crucial  in
+Drosophila. However, the mechanisms of activation may differ
+between the two species, as overexpression of G␣o or G␣i in
+Drosophila results in a phenotype independent of the GoLoco
+protein PINS (Yu et al., 2003). By contrast, G␤␥ inactivation
+in  C.  elegans,  which  presumably  results  in  excess  free  G␣
+proteins, results in a GPR-1/2-dependent phenotype (Tsou et
+al., 2003).
+
+The  requirement  for  G␣ proteins  and  their  regulators  in
+spindle  positioning  extends  to  vertebrate  cells.  The  GoLoco
+motif  and  RGS  domain-containing  protein  RGS14,  which
+exerts both GDI and GAP activities towards G␣i/o subunits, is
+crucial  for  spindle  assembly  in  the  mouse  zygote  (Martin-
+McCaffrey et al., 2005). LGN, a mammalian GoLoco protein
+more closely related to GPR-1/2 and PINS, is recruited to the
+cell  cortex  through  association  with  a  G␣i  (Du  and  Macara,
+2004). LGN also associates with the coiled-coil protein NuMA,
+thus targeting it to the cell cortex, where it may function as a
+spindle positioning effector. It has been suggested that GPR-
+1/2  and  PINS  may  serve  an  analogous  function,  perhaps
+targeting LIN-5 and Inscuteable, respectively (Du and Macara,
+2004; Willard et al., 2004). If this view were correct, our work
+would  indicate  that  both  GPA-16  and  GOA-1  are  needed  to
+provide sufficient binding sites for GPR-1/2 to ensure efficient
+LIN-5 cortical recruitment and generation of pulling forces.
+
+We  are  grateful  to  Lorenzo  Cerutti  for  advice  with  sequence
+analysis, Kenneth Miller for RIC-8 antibodies, Lesilee Rose for gpa-
+16(it143) mutant  animals,  Christopher  McCudden  for  providing  the
+anti-GST sensor chip, and Jason Snyder for valuable advice on insect
+cell culture and protein puriﬁcation. We thank Marie Delattre, Barry
+Ganetzky, Michael Glotzer and Tu Nguyen-Ngoc for critical reading
+of 
+the
+Caenorhabditis Genetics Center, which is funded by the NIH National
+Center  for  Research  Resources  (NCRR).  F.S.W.  is  a  post-doctoral
+fellow of the American Heart Association. Supported by grants R01
+GM062338 from the NIH (to D.P.S.) and 3100A0-102087 from the
+Swiss National Science Foundation (to P.G.).
+
+the  manuscript.  Some  strains  were  obtained 
+
+from 
+
+Supplementary material
+Supplementary material for this article is available at
+http://dev.biologists.org/cgi/content/full/132/20/4449/DC1
+
+References
+Afshar, K., Willard, F. S., Colombo, K., Johnston, C. A., McCudden, C.
+R., Siderovski, D. P. and Gönczy, P. (2004). RIC-8 is required for GPR-
+1/2-dependent  G␣ function  during  asymmetric  division  of  C.  elegans
+embryos. Cell 119, 219-230.
+
+Aiyar,  A. (2000).  The  use  of  CLUSTAL  W  and  CLUSTAL  X  for  multiple
+
+sequence alignment. Methods Mol. Biol. 132, 221-241.
+
+Allen,  J.  A.,  Yu,  J.  Z.,  Donati,  R.  J.  and  Rasenick,  M.  M. (2005).  ␤-
+adrenergic receptor stimulation promotes G alpha s internalization through
+lipid rafts: a study in living cells. Mol. Pharmacol. 67, 1493-1504.
+
+Bergmann,  D.  C.,  Lee,  M.,  Robertson,  B.,  Tsou,  M.  F.,  Rose,  L.  S.  and
+Wood, W. B. (2003). Embryonic handedness choice in C. elegans involves
+the G␣ protein GPA-16. Development 130, 5731-5740.
+
+Brenner, S. (1974). The genetics of Caenorhabditis elegans. Genetics 77, 71-
+
+94.
+
+Colombo, K., Grill, S. W., Kimple, R. J., Willard, F. S., Siderovski, D. P.
+and Gönczy, P. (2003). Translation of polarity cues into asymmetric spindle
+positioning in Caenorhabditis elegans embryos. Science 300, 1957-1961.
+
+Couwembergs,  C.,  Spilker,  A.  C.  and  Gotta,  M. (2004).  Control  of
+embryonic spindle positioning and G␣ activity by C. elegans RIC-8. Curr.
+Biol. 14, 1871-1876.
+
+DevelopmentGPA-16 in asymmetric division
+
+4459
+
+(1994).  Activation  and
+
+Willard,  F.  S.  and  Siderovski,  D.  P. (2004).  Puriﬁcation  and  in  vitro
+functional  analysis  of  the  Arabidopsis  thaliana regulator  of  G-protein
+signaling-1. Methods Enzymol. 389, 320-338.
+
+Willard, F. S., Kimple, R. J. and Siderovski, D. P. (2004). Return of the GDI:
+
+the GoLoco motif in cell division. Annu. Rev. Biochem. 73, 925-951.
+
+Yu, F., Cai, Y., Kaushik, R., Yang, X. and Chia, W. (2003). Distinct roles
+of G␣i and G␤13F subunits of the heterotrimeric G protein complex in the
+mediation of Drosophila neuroblast asymmetric divisions. J. Cell Biol. 162,
+623-633.
+
+Zwaal, R. R., Ahringer, J., van Luenen, H. G., Rushforth, A., Anderson,
+P. and Plasterk, R. H. (1996). G proteins are required for spatial orientation
+of early cell cleavages in C. elegans embryos. Cell 86, 619-629.
+
+Du, Q. and Macara, I. G. (2004). Mammalian Pins is a conformational switch
+
+Wedegaertner, P. B. (1998). Lipid modiﬁcations and membrane targeting of
+
+that links NuMA to heterotrimeric G proteins. Cell 119, 503-516.
+
+Gilman, A. G. (1987). G proteins: transducers of receptor-generated signals.
+
+Annu. Rev. Biochem. 56, 615-649.
+
+G␣. Biol. Signal. Recept. 7, 125-135.
+
+Wedegaertner,  P.  B.  and  Bourne,  H.  R.
+
+depalmitoylation of Gs␣. Cell 77, 1063-1070.
+
+Gönczy,  P.,  Schnabel,  H.,  Kaletta,  T.,  Amores,  A.  D.,  Hyman,  T.  and
+Schnabel, R. (1999). Dissection of cell division processes in the one cell
+stage Caenorhabditis elegans embryo by mutational analysis. J. Cell Biol.
+144, 927-946.
+
+Gotta,  M.  and  Ahringer,  J. (2001).  Distinct  roles  for  G␣ and  G␤␥ in
+regulating  spindle  position  and  orientation  in  Caenorhabditis  elegans
+embryos. Nat. Cell Biol. 3, 297-300.
+
+Gotta, M., Dong, Y., Peterson, Y. K., Lanier, S. M. and Ahringer, J. (2003).
+Asymmetrically  distributed  C.  elegans homologs  of  AGS3/PINS  control
+spindle position in the early embryo. Curr. Biol. 13, 1029-1037.
+
+Grill, S. W., Gönczy, P., Stelzer, E. H. and Hyman, A. A. (2001). Polarity
+the
+
+forces  governing  asymmetric  spindle  positioning 
+
+controls 
+Caenorhabditis elegans embryo. Nature 409, 630-633.
+
+in 
+
+Grill,  S.  W.,  Howard,  J.,  Schaffer,  E.,  Stelzer,  E.  H.  and  Hyman,  A.  A.
+(2003). The distribution of active force generators controls mitotic spindle
+position. Science 301, 518-521.
+
+Hampoelz, B. and Knoblich, J. A. (2004).  Heterotrimeric  G  proteins:  new
+
+tricks for an old dog. Cell 119, 453-456.
+
+Hess,  H.  A.,  Röper,  J.-C.,  Grill,  S.  W.  and  Koelle,  M.  R. (2004).  RGS-7
+completes  a  receptor-independent  heterotrimeric  G  protein  cycle  to
+asymmetrically regulate mitotic spindle positioning in C. elegans. Cell 119,
+209-218.
+
+Horvitz, H. R. and Herskowitz, I. (1992). Mechanisms of asymmetric cell
+
+division: two Bs or not two Bs, that is the question. Cell 68, 237-255.
+
+Kimple, R. J., Willard, F. S., Hains, M. D., Jones, M. B., Nweke, G. K. and
+Siderovski, D. P. (2004). Guanine nucleotide dissociation inhibitor activity of
+the triple GoLoco motif protein G18: alanine-to-aspartate mutation restores
+function to an inactive second GoLoco motif. Biochem. J. 378, 801-808.
+
+Li,  S.,  Armstrong,  C.  M.,  Bertin,  N.,  Ge,  H.,  Milstein,  S.,  Boxem,  M.,
+Vidalain, P. O., Han, J. D., Chesneau, A., Hao, T. et al. (2004). A map
+of the interactome network of the metazoan C. elegans. Science 303, 540-
+543.
+
+Lorson, M. A., Horvitz, H. R. and van den Heuvel, S. (2000). LIN-5 is a
+novel  component  of  the  spindle  apparatus  required  for  chromosome
+segregation and cleavage plane speciﬁcation in Caenorhabditis elegans. J.
+Cell Biol. 148, 73-86.
+
+McCudden,  C.  R.,  Hains,  M.  D.,  Kimple,  R.  J.,  Siderovski,  D.  P.  and
+Willard, F. S. (2005). G-protein signaling: back to the future. Cell Mol. Life
+Sci. 62, 551-577.
+
+Martin-McCaffrey, L., Willard, F. S., Pajak, A., Dagnino, L., Siderovski,
+D. P. and D’Souza, S. J. (2005). RGS14 is a microtubule-associated protein.
+Cell Cycle 4, 953-960.
+
+Miller,  K.  G.  and  Rand,  J.  B. (2000).  A  role  for  RIC-8  (Synembryn)  and
+GOA-1 (Go␣) in regulating a subset of centrosome movements during early
+embryogenesis in Caenorhabditis elegans. Genetics 156, 1649-1660.
+
+Miller, K. G., Emerson, M. D., McManus, J. R. and Rand, J. B. (2000).
+RIC-8 (Synembryn): a novel conserved protein that is required for G(q)␣
+signaling in the C. elegans nervous system. Neuron 27, 289-299.
+
+Page, R. D. (1996). TreeView: an application to display phylogenetic trees on
+
+personal computers. Comput. Appl. Biosci. 12, 357-358.
+
+Rappaport, R. (1971). Cytokinesis in animal cells. Int. Rev. Cytol. 31, 169-
+
+213.
+
+Robatzek,  M.  and  Thomas,  J.  H. (2000).  Calcium/calmodulin-dependent
+protein  kinase  II  regulates  Caenorhabditis  elegans locomotion  in  concert
+with a G(o)/G(q) signaling network. Genetics 156, 1069-1082.
+
+Schaefer, M., Petronczki, M., Dorner, D., Forte, M. and Knoblich, J. A.
+(2001).  Heterotrimeric  G  proteins  direct  two  modes  of  asymmetric  cell
+division in the Drosophila nervous system. Cell 107, 183-194.
+
+Schneider, S. Q. and Bowerman, B. (2003). Cell polarity and the cytoskeleton
+
+in the Caenorhabditis elegans zygote. Annu. Rev. Genet. 37, 221-249.
+
+Srinivasan, D. G., Fisk, R. M., Xu, H. and van den Heuvel, S. (2003). A
+complex  of  LIN-5  and  GPR  proteins  regulates  G  protein  signaling  and
+spindle function in C. elegans. Genes Dev. 17, 1225-1239.
+
+Tall, G. G., Krumins, A. M. and Gilman, A. G. (2003). Mammalian Ric-8A
+(synembrin)  is  a  heterotrimeric  G␣ protein  guanine  nucleotide  exchange
+factor. J. Biol. Chem. 278, 8356-8362.
+
+Tsou, M. F., Hayashi, A. and Rose, L. S. (2003). LET-99 opposes G␣/GPR
+signaling to generate asymmetry for spindle positioning in response to PAR
+and MES-1/SRC-1 signaling. Development 130, 5717-5730.
+
+Development

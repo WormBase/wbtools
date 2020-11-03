@@ -96,13 +96,14 @@ class WBPaper(object):
         self.paper_file_reader = PaperFileReader(tazendra_ssh_user=tazendra_ssh_user,
                                                  tazendra_ssh_passwd=tazendra_ssh_passwd)
 
-    def get_text_docs(self, remove_ref_section: bool = False, split_sentences: bool = False,
-                      lowercase: bool = False, tokenize: bool = False, remove_stopwords: bool = False,
-                      remove_alpha: bool = False):
-        merged_text_arr = [self.main_text if self.main_text else self.html_text if self.html_text else self.ocr_text if
-                           self.ocr_text else self.aut_text if self.aut_text else self.temp_text,
-                           *self.supplemental_docs]
-        docs = [d for doc in merged_text_arr for d in get_documents_from_text(doc, split_sentences, remove_ref_section)]
+    def get_text_docs(self, include_supplemental: bool = True, remove_ref_section: bool = False,
+                      split_sentences: bool = False, lowercase: bool = False, tokenize: bool = False,
+                      remove_stopwords: bool = False, remove_alpha: bool = False):
+        merged_text = self.main_text if self.main_text else self.html_text if self.html_text else self.ocr_text if \
+                      self.ocr_text else self.aut_text if self.aut_text else self.temp_text
+        if include_supplemental:
+            merged_text += " " + " ".join(self.supplemental_docs)
+        docs = [d for d in get_documents_from_text(merged_text, split_sentences, remove_ref_section)]
         return [preprocess(doc, lower=lowercase, tokenize=tokenize, remove_stopwords=remove_stopwords,
                            remove_alpha=remove_alpha) for doc in docs]
 

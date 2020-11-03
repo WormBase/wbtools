@@ -1,0 +1,1302 @@
+THE JOURNAL OF BIOLOGICAL CHEMISTRY VOL. 280, NO. 51, pp. 42227–42236, December 23, 2005
+© 2005 by The American Society for Biochemistry and Molecular Biology, Inc. Printed in the U.S.A.
+
+Proteomic Analysis of SRm160-containing Complexes
+Reveals a Conserved Association with Cohesin*□S
+
+Received for publication, July 8, 2005, and in revised form, September 8, 2005 Published, JBC Papers in Press, September 13, 2005, DOI 10.1074/jbc.M507410200
+Susan McCracken‡, Dasa Longman§, Edyta Marcon¶, Peter Moens¶, Michael Downey储, Jeffrey A. Nickerson**,
+Rolf Jessberger‡‡, Andrew Wilde储, Javier F. Caceres§, Andrew Emili‡储, and Benjamin J. Blencowe‡储1
+From the ‡Banting and Best Department of Medical Research, C. H. Best Institute, and the 储Department of Molecular and Medical
+Genetics, University of Toronto, Toronto, Ontario M5G 1L6, Canada, the §Medical Research Council Human Genetics Unit,
+Edinburgh EH4 2XU, Scotland, United Kingdom, the ¶Department of Biology, York University, Toronto, Ontario M3J 1P3, Canada,
+the **Department of Cell Biology, University of Massachusetts Medical School, Worcester, Massachusetts 01655, and the
+‡‡Institute of Physiological Chemistry, Medical School, Medizinisch-Theoretisches Zentrum Technical University,
+Fiedlerstrasse 42, D-01307 Dresden, Germany
+
+In this study, we describe a rapid immunoaffinity purification
+procedure for gel-free tandem mass spectrometry-based analysis of
+endogenous protein complexes and apply it to the characterization
+of complexes containing the SRm160 (serine/arginine repeat-re-
+lated nuclear matrix protein of 160 kDa) splicing coactivator. In
+addition to promoting splicing, SRm160 stimulates 3ⴕ-end process-
+ing via its N-terminal PWI nucleic acid-binding domain and is
+found in a post-splicing exon junction complex that has been impli-
+cated in coupling splicing with mRNA turnover, export, and trans-
+lation. Consistent with these known functional associations, we
+found that the majority of proteins identified in SRm160-contain-
+ing complexes are associated with pre-mRNA processing. Interest-
+ingly, SRm160 is also associated with factors involved in chromatin
+regulation and sister chromatid cohesion, specifically the cohesin
+subunits SMC1␣, SMC3, RAD21, and SA2. Gradient fractionation
+suggested that there are two predominant SRm160-containing
+complexes, one enriched in splicing components and the other
+enriched in cohesin subunits. Co-immunoprecipitation and co-lo-
+calization experiments, as well as combinatorial RNA interference
+in Caenorhabditis elegans, support the existence of conserved and
+functional interactions between SRm160 and cohesin.
+
+The development of high throughput procedures for gel-free tandem
+mass spectrometry-based identification of factors in multisubunit com-
+plexes has provided a wealth of information on the functional associa-
+tions of proteins (1–3). Often, proteins targeted for purification are
+expressed with affinity tags, allowing coupling to affinity resins with
+antibodies or ligands specific for the tag moieties. Unlike the situation in
+yeast, mammalian systems are not amenable to efficient genetic recom-
+bination procedures allowing the expression of epitope-tagged proteins
+under the control of endogenous promoters. Consequently, many affin-
+ity purification procedures have been performed using tagged factors
+overexpressed by transient transfection or from stably integrated con-
+structs. Overexpression often has the major drawback of resulting in
+
+* This work was supported by operating grants from the Canadian Institutes of Health
+Research and the National Cancer Institute of Canada (to B. J. B.). The costs of publi-
+cation of this article were defrayed in part by the payment of page charges. This article
+must therefore be hereby marked “advertisement” in accordance with 18 U.S.C. Sec-
+tion 1734 solely to indicate this fact.
+
+□S The on-line version of this article (available at http://www.jbc.org) contains supple-
+
+mental Tables 1 and 2.
+
+1 To whom correspondence should be addressed: Banting and Best Dept. of Medical
+Research, C. H. Best Inst., Rm. 410, University of Toronto, 112 College St., Toronto,
+Ontario M5G 1L6, Canada. Tel.: 416-978-3016; Fax: 416-978-8528; E-mail:
+b.blencowe@utoronto.ca.
+
+nonspecific associations with the tagged factor, and developing tagged
+cell lines is time-consuming and laborious.
+
+An alternative to the purification of tagged, exogenously expressed
+proteins is to target endogenous proteins with specific antibodies. This
+affords the main advantage of allowing the recovery of proteins associ-
+ated with endogenous levels of the targeted proteins, thereby avoiding
+overexpression artifacts. In this study, we utilized this approach to
+investigate the composition of complexes associated with SRm160, a
+splicing coactivator that is also implicated in the coupling of different
+steps in gene expression at the post-transcriptional level (4–8).
+
+SRm160 was originally identified as a nuclear matrix antigen that is
+highly concentrated in interphase nuclear “speckle” domains (inter-
+chromatin granule clusters) enriched in splicing components (9, 10).
+Interestingly, unlike other splicing components concentrated in speck-
+les, SRm160 undergoes a dramatic redistribution during mitosis,
+becoming concentrated at the spindle poles and at the spindle (4, 10).
+Subsequent cloning of an SRm160 cDNA revealed that it contains an
+arginine/serine repeat domain, a feature of many defined splicing fac-
+tors (4). Biochemical experiments showed that SRm160 (i) associates
+with splicing complexes, (ii) functions as a coactivator of constitutive
+and exon enhancer-dependent splicing, and (iii) stimulates 3⬘-end
+formation (4, 5, 7, 8, 11). SRm160 remains bound to processed
+mRNA in an exon junction complex located ⬃20–24 nucleotides
+upstream of exon-exon junctions (6, 12, 13). Although the precise
+role of SRm160 in the exon junction complex is not known, other
+factors in this complex have been implicated as adaptors that link to
+mRNA export, turnover by nonsense-mediated mRNA decay, and
+translation (14).
+
+To gain further insight into the cellular functions of SRm160, com-
+plexes affinity-purified with different SRm160-specific antibodies were
+analyzed for novel and conserved interactions. In addition to generating
+an extensive data base of associated pre-mRNA processing compo-
+nents, factors associated with transcription, chromatin regulation, and
+sister chromatid cohesion were identified in the purified complexes.
+Interestingly, a complete set of subunits associated with the mitotic
+cohesin complex co-purified with SRm160, including SMC1␣ (struc-
+tural maintenance of chromosome 1␣), SMC3, human (h)2 RAD21
+(double-strand break repair protein rad21 homolog), and SA2 (stromal
+antigen 2).
+
+Cohesin is essential for sister chromatid cohesion, ensuring correct
+
+2 The abbreviations used are: h, human; RNAi, RNA interference; Ce, C. elegans; mAb,
+monoclonal antibody; pAb, polyclonal antibody; pol II, RNA polymerase II; snRNP,
+small nuclear ribonucleoprotein; SCs, synaptonemal complexes.
+
+DECEMBER 23, 2005 • VOLUME 280 • NUMBER 51
+
+JOURNAL OF BIOLOGICAL CHEMISTRY 42227
+
+SRm160 Interacts with Cohesin
+
+chromosome segregation (15, 16). In higher eukaryotes, it is composed
+of four subunits, a subset of which corresponds to mitosis- and meiosis-
+specific isotypes. The subunits hRAD21 and SA1/2 function in mitosis,
+whereas SMC1␤, REC8, and STAG3 function during meiosis, and both
+SMC1␣and SMC3 function in mitosis and meiosis (reviewed in Refs. 17
+and 18). Subunits of the mitotic cohesin complex are also important for
+DNA repair and the ATM-dependent S phase checkpoint (reviewed in
+Ref. 18).
+
+The interaction between SRm160 and cohesin subunits identified in
+this study is conserved in Xenopus laevis. We also found that simulta-
+neous knockdown by RNA interference (RNAi) of Caenorhabditis
+elegans (Ce) SRm160 and coh-1 (an ortholog of rad21) results in an early
+embryonic lethal phenotype, whereas single RNAi of coh-1 results in an
+uncoordinated phenotype, and single RNAi of SRm160 results in no
+apparent phenotype. This suggests that SRm160 and coh-1 interact
+genetically in the same pathway. Moreover, consistent with a possible
+cellular function of SRm160 in sister chromatid cohesion or a cohesin-
+related activity, SRm160 localizes to the cohesin-containing core of syn-
+aptonemal complexes in spermatocytes, at the pachytene stage of mei-
+otic prophase I. Together, our results provide evidence for a conserved
+functional association between SRm160 and cohesins.
+
+EXPERIMENTAL PROCEDURES
+
+Immunopurification of Endogenous Complexes—Prior to immuno-
+precipitation, nuclear extract was preincubated for 15 min at 30 °C
+under splicing conditions (2 mM MgCl2, 1.5 mM ATP, and 5 mM phos-
+phocreatine) with the addition of an RNase mixture (16 ng/␮l; Roche
+Applied Science) and DNase I (0.3 units/␮l) and in the presence of
+phosphatase inhibitors (1 mM potassium fluoride, 0.1 mM sodium pyro-
+phosphate, and 1 mM sodium ␤-glycerophosphate). A similar treatment
+was used prior to loading the sample onto a gel filtration column. Pro-
+tein A-Sepharose (30 ␮l of packed beads) was loaded with rabbit anti-
+mouse IgG and IgM antibody (72 ␮g), monoclonal antibody (mAb)
+8WG16 (50 ␮g), antigen affinity-purified rabbit anti-SRm160 poly-
+clonal antibody (pAb) (50 ␮g), or rabbit anti-SRm300 serum (25 ␮l),
+followed by cross-linking with 20 mM dimethylpimelimidate (19) and
+loading of the control IgM protein (Sigma) or mAb B1C8 (1.5 ml of
+culture supernatant, ⬃150 ␮g) onto rabbit anti-mouse antibody-coated
+beads. Control immunoprecipitations were performed with rabbit anti-
+mouse antibody-coated beads with or without the control IgM protein.
+HeLa nuclear extract (1.5 mg) (20) or cytostatic factor-arrested egg
+extract from X. laevis (1.5 mg) (21) was preincubated with ATP, Mg2⫹,
+and phosphocreatine as well as DNase and RNase (7) at 30 °C for 15 min.
+The extract was incubated with the beads for 3 h at 4 °C with gentle
+rotation in 60 mM NaCl, 13 mM HEPES (pH 7.9), 1.4 mM MgCl2, 14%
+glycerol, 0.5 mM dithiothreitol, 0.7 mM ␤-glycerophosphate, 0.7 mM
+NaF, and 0.07 mM sodium pyrophosphate in a final volume of 750 ␮l.
+The beads were washed three times (1.5 ml) with 100 mM NaCl, 50 mM
+Tris-HCl (pH 7.5), 2 mM MgCl2, 0.1% Nonidet P-40, and 1 mM dithio-
+threitol and eluted with 2 M NaCl, 10 mM HEPES (pH 7.5), and 1 mM
+EDTA (200 ␮l), followed by a brief wash with 10 mM HEPES (pH 7.5)
+and 1 mM EDTA (200 ␮l). These pooled eluates were back-bound with
+protein A-Sepharose and with rabbit anti-mouse IgG/IgM-coated pro-
+tein A-Sepharose for 30 min at 4 °C with rotation. After removal of the
+beads, the samples were bound to 10 ␮l of phenyl-Sepharose for 1 h at
+4 °C and then collected by centrifugation. The beads were eluted with 50
+␮l of 8 M urea and 10 mM Tris (pH 8.8), followed by a wash with 50 ␮l of
+10 mM Tris (pH 8.8). The pooled eluates were then digested with trypsin
+prior to mass spectrometry, which was performed as described (22). If
+the immunoprecipitates were to be analyzed by Western blotting, the
+
+phenyl-Sepharose step was omitted, and the samples were precipitated
+with 20% trichloroacetic acid and 1.5 mg/ml sodium deoxycholate,
+washed with 10% trichloroacetic acid and with acetone, resuspended in
+SDS sample buffer, and analyzed by SDS-PAGE.
+
+Antisera—Analysis of SRm160-containing fractions was performed
+using mAb B1C8 (mouse) (10), rabbit anti-SRm160 pAb (4), and goat
+anti-SRm160 K15 pAb (a commercial affinity-purified peptide-specific
+antibody raised against the SRm160 C terminus; Santa Cruz Biotech-
+nology, Inc.). Rabbit anti-SRm300, anti-SMC1␣, and anti-SMC3 pAbs
+have been described previously (4, 23). Rabbit anti-hRAD21 and anti-
+transcription factor IIF pAbs, mAb 104, and mAb Y12 were generous
+gifts from Jan Michael Peters, Jack Greenblatt, Mark Roth, and Joan
+Steitz, respectively.
+
+Synchronization of Cells—Cells were synchronized by double thymi-
+dine block using two cycles of block with 2 mM thymidine for 16 h,
+followed by release. G1/S phase cells were harvested directly from the
+blocked cells; mitotic cells were released from the block and incubated
+in fresh medium until entry into mitosis.
+
+Immunoblotting—Proteins were transferred from SDS-polyacryl-
+amide gels by wet electrotransfer overnight, and immunoblot analysis
+was performed as described previously (7).
+
+Gel Filtration—HeLa nuclear extract (10 mg) was incubated with
+ATP, Mg2⫹, and phosphocreatine as well as RNase and DNase and
+loaded onto a 1.5 ⫻ 28-cm Sephacryl S400 column equilibrated with
+20 mM HEPES (pH 7.5), 100 mM NaCl, 2 mM MgCl2, 1 mM dithio-
+threitol, 10% glycerol, 1 mM ␤-glycerophosphate, 1 mM KF, and 0.1
+mM sodium pyrophosphate. Fractions were collected and analyzed
+by immunoblotting.
+
+RNAi in C. elegans—RNAi in C. elegans was performed as described
+
+previously (24).
+
+Immunofluorescence—Mouse spermatocytes for immunoblot analy-
+sis were prepared as described (25). Nuclear spreads for immunofluo-
+rescence studies were performed as described (26).
+
+RESULTS AND DISCUSSION
+
+Proteomic Analysis of SRm160-containing Complexes—A rapid
+immunoaffinity purification procedure was developed for the gel-free
+mass spectrometric analysis of SRm160-containing complexes in HeLa
+nuclear extract. This procedure, which is potentially applicable to any
+endogenous protein complex for which a specific and immunoprecipi-
+tation-competent antibody exists, is outlined in Fig. 1A and summarized
+in the legend. A more detailed description is also given under “Experi-
+mental Procedures.”
+
+Two different antibodies that are highly specific for SRm160 were
+employed in multiple independent immunoaffinity purifications. One
+of these antibodies, mAb B1C8 (10), is a murine monoclonal antibody
+that was originally used to purify SRm160 (4). The other antibody (rab-
+bit anti-SRm160 pAb) is an antigen affinity-purified rabbit polyclonal
+antibody raised against the conserved N-terminal domain of SRm160
+expressed as a glutathione S-transferase fusion protein. The specificity
+of these antibodies for SRm160 has been demonstrated in several ways.
+In immunoblots of total nuclear extract, both antibodies selectively rec-
+ognize an ⬃160-kDa antigen that has been identified as SRm160 by
+fractionation and peptide microsequencing (4, 27). In addition, both
+antisera specifically recognized baculovirus-expressed recombinant
+SRm160,3 and both have very similar properties in different bioassays.
+For example, both antibodies preferentially immunoprecipitate exon-
+
+3 S. McCracken and B. J. Blencowe, unpublished observations.
+
+42228 JOURNAL OF BIOLOGICAL CHEMISTRY
+
+VOLUME 280 • NUMBER 51 • DECEMBER 23, 2005
+
+SRm160 Interacts with Cohesin
+
+FIGURE 1. Co-immunoprecipitation of SRm160
+and subunits of the cohesin complex. A: the pro-
+cedure for immunopurification of SRm160-con-
+taining complexes is outlined. HeLa nuclear
+extract was first pretreated extensively with RNase
+and DNase to remove any endogenous nucleic
+acids (7). The pretreated extract was incubated
+with protein A-Sepharose beads covalently cou-
+pled to anti-SRm160 antibody. After wash steps,
+bound proteins were eluted in high salt. The high
+salt eluate was then back-cleared to remove
+immunoglobulin chains released from the protein
+A beads. The remaining proteins were concen-
+trated by hydrophobic binding to phenyl-Sepha-
+rose, eluted in 8 M urea, and subjected to trypsin
+digestion in solution, and the peptide mixtures
+were analyzed by capillary-scale shotgun liquid
+chromatography-tandem mass spectrometry (1).
+IP, immunoprecipitation. B: the factors in immuno-
+precipitated SRm160/300-containing complexes
+were detected. Samples were immunoprecipi-
+tated with control beads (lane 2), mAb B1C8 (lane
+3), rabbit anti-SRm300 pAb (rAb ␣SRm300; lane 4),
+or mAb 8WG16 (lane 5); analyzed by SDS-PAGE;
+and immunoblotted with the antibodies indicated
+to the right. The load sample (lane 1) contained 4%
+of the amount of input used in the immunopre-
+cipitations. TFIIF, transcription factor IIF. C: SRm160
+was immunoprecipitated with 25 ␮l of rabbit anti-
+SRm160 pAb (lane 4) or with 25, 50, 100, or 200 ␮l
+of mAb B1C8 culture supernatant (lanes 5– 8) and
+immunoblotted with the antibodies indicated to
+the right. Loads 1 and 2 correspond to 1.6 and 3.3%
+of the input to the immunoprecipitation (lanes 1
+and 2, respectively). D: lower panel, G1/S phase
+(lanes 2 and 4) and mitotic (lanes 3 and 5) extracts
+of HeLa cells were prepared from synchronized
+cells. Synchronization was monitored by analysis
+for Tyr15 phosphorylation of Cdc2. Upper panel,
+control antibody and mAb B1C8 immunoprecipi-
+tates from these and asynchronous extracts (lanes
+4 –9) were analyzed for SMC1 and hRAD21 by
+immunoblotting. The loads (lanes 1–3) represent
+7% of the input used for each immunoprecipita-
+tion. HeLa NE, HeLa nuclear extract.
+
+containing splicing complexes from HeLa nuclear extract, and both
+specifically stain speckles in interphase nuclei and the spindle apparatus
+at mitosis (4). In addition, depletion of SRm160 from HeLa nuclear
+extract using rabbit anti-SRm160 pAb prevents pre-mRNA splicing,
+and activity can be restored to the depleted extract by addition of puri-
+fied recombinant protein (28).
+
+Also analyzed by mass spectrometry using our rapid immunopurifi-
+cation procedure were complexes affinity-purified with a rabbit poly-
+clonal antibody specific for SRm300 (serine/arginine repeat-related
+nuclear matrix protein of 300 kDa) (rabbit anti-SRm300 pAb) (28), and
+complexes were immunopurified with a murine monoclonal antibody
+specific for the hypophosphorylated form of the largest subunit of RNA
+polymerase II (pol II) (mAb 8WG16) (29). Rabbit anti-SRm300 pAb was
+raised against a glutathione S-transferase fusion protein containing a
+conserved N-terminal domain of SRm300 and has been shown to spe-
+
+cifically recognize SRm300 in HeLa nuclear extract, to immunolabel
+speckles, and to immunoprecipitate exon-containing splicing com-
+plexes (28). Based on previous results demonstrating that the majority
+of SRm300 in HeLa nuclear extracts is tightly associated with SRm160,
+whereas a subpopulation of SRm160 exists that is not bound to SRm300
+(4, 27, 28), we expected to detect a subset of SRm160-associated pro-
+teins in the SRm300-containing complexes. In contrast, previous co-
+immunoprecipitation analyses and fractionation studies did not reveal
+any evidence for an association between SRm160-containing and pol
+II-containing complexes (30, 31); and therefore, we did not expect to
+observe a significant number of proteins that are shared between these
+complexes.
+
+Consistent with our previous results (4, 27, 28), 36% of the proteins
+detected with high confidence (see below) in complexes immunopuri-
+fied with rabbit anti-SRm300 pAb overlapped with proteins in the
+
+DECEMBER 23, 2005 • VOLUME 280 • NUMBER 51
+
+JOURNAL OF BIOLOGICAL CHEMISTRY 42229
+
+SRm160 Interacts with Cohesin
+
+TABLE ONE
+Mass spectrometric identification of polypeptides recovered from complexes immunopurified with anti-SRm160 antibodies (mAb B1C8 and
+rabbit anti-SRm160pAb) and anti-SRm300 pAb
+The number of independently detected peptides is indicated for each immunopurification. Only proteins identified by three or more independent and unam-
+biguous spectra for separate hits with any one antibody are listed. Proteins that co-immunoprecipitated with control beads or with mAb 8WG16 (anti-pol II) were
+excluded from the list, regardless of their detection of the SRm160/300-containing complexes. hnRNP, heterogeneous nuclear ribonucleoprotein; eIF, eukaryotic
+initiation factor.
+
+Swiss-Prot
+accession no.
+
+Ensembl
+gene ID
+
+Gene name
+
+Description
+
+BIC8 SRm160 SRm300
+
+hnRNP proteins
+
+snRNP-specific proteins
+
+P38159
+P52272
+
+Q16083
+Q13435
+Q15427
+O14547
+Q15029
+
+Splicing-related
+
+Q99974
+Q9UMS4
+Q99738
+Q9Y5S9
+P49756/Q9CT27
+Q15233
+O60585
+Q9UQ39
+Q13573
+O75400
+
+Transcription
+
+Q96AE4/Q12828
+Q9UHX1
+Q9HCD5
+O75175
+Q14498
+Chromatin
+Q14683
+Q9UQE7
+O60216
+Q92549
+
+Translation-related
+
+Miscellaneous
+
+P12956
+Q15424
+
+O15372
+
+P52815
+
+P10809
+P48643
+QaNY27
+Q96GS8
+Q9BT58
+Q9Y3C6
+Q9Y4D4
+P42655
+
+147274 HNRPG
+99783 HNRPM
+
+Heterogeneous nuclear ribonucleoprotein G
+Heterogeneous nuclear ribonucleoprotein M
+
+87365 SF3B2/SAP145
+143368 SF3B4/SAP49
+174231 U5–220/PRP8
+108883 SNRP116/KIAA0031
+
+U1 small nuclear ribonucleoprotein ISNRP homolog
+SAP145 (spliceosome-associated protein of 145 kDa)
+SAP49 (spliceosome-associated protein of 49 kDa)
+U5–220K
+U5–116K
+
+96401 PCDC5RP
+110107 NMP200
+100941 PNN
+131795 RBM8A/RBM8
+119707 YS64_HUMAN
+147140 NONO
+
+SRM160/SRRM1
+SRM300
+
+100603 SNW1/SKIP
+123596 FNBP3/HYPA/FLAF1
+
+Cdc5-like protein
+NMP200 (PRP19-related)
+Pinin
+Y14 (RNA-binding protein 8A)
+RBM25/S164/RED120
+p54 NonO
+SRm160
+SRm300
+Ski-interacting protein
+Formin-binding protein 3
+
+162613 FUBP1
+179950 SSA2
+124160 NCOA5/KIAA1637
+88038 CNOT3/NOT3
+131051 RNPC2/HCC1
+
+FPB (far upstream element-binding protein)
+Ro ribonucleoprotein-binding protein 1
+Nuclear receptor coactivator 5
+CCR4-NOT transcription complex subunit 3
+CAPER
+
+72501 SMC1L1
+108055 CSPG6/SMC3/SMC3L1
+164754 RAD21/HR21/NXP1
+62650 KIAA0261
+
+100419 G22P1
+160633 SAFB/SAFB1
+
+147677 EIF3S3
+
+183093 MRPL12/RPML12
+
+SMC1␣(SMC1-like1/Sb1.8/DXS423E)
+SMC3 (human chromosome-associated polypeptide)
+hRAD21 (KIAA0078/Sp_rad21-related)
+KIAA0261 (similar to Drosophila melanogaster parallel sister
+
+chromatids)
+
+Ku70
+Scaffold attachment factor B
+
+eIF3 p40 subunit (eukaryotic translation initiation factor 3
+
+subunit 3)
+
+39 S ribosomal protein L12, mitochondrial
+
+60-kDa heat shock protein, mitochondrial
+
+144381 HSPD1/HSP60
+150753 CCT5/CCTE/KIAA0098 T-complex protein 1, ␧ subunit
+163605 PPP4R2
+161204 ABCF3
+119471 HSDL2
+137168 PPIL1/CYPL1
+
+Protein phosphatase 4 regulatory subunit 2
+ATP-binding cassette, subfamily F, member 3
+HSDL2 protein
+Peptidyl-prolyl cis,trans-isomerase-like 1
+KIAA0648 (hypothetical protein)
+14-3-3␧ protein
+
+108953 YWHAE
+
+KIAA0648
+
+5
+3
+
+6
+4
+8
+3
+4
+
+3
+5
+3
+3
+3
+2
+7
+8
+3
+
+33
+3
+3
+3
+1
+
+5
+5
+3
+5
+
+6
+
+4
+
+3
+
+3
+3
+
+1
+
+2
+2
+
+1
+
+2
+
+3
+
+1
+2
+2
+
+3
+
+1
+
+2
+6
+
+4
+1
+
+3
+
+3
+2
+2
+
+4
+4
+
+3
+
+4
+
+7
+
+4
+
+3
+
+3
+2
+3
+3
+3
+
+3
+
+immunopurified SRm160-containing complexes (TABLE ONE). In
+contrast, the profile of proteins detected in the immunoaffinity purifi-
+cation using mAb 8WG16 was quite distinct from the profiles observed
+for the SRm160/300 purifications (supplemental Table 1). Finally, no
+proteins other than the trypsinogen precursor were detected by mass
+
+spectrometry in samples recovered from beads alone or from beads
+coupled to a control antibody (rabbit anti-Ig; data not shown). These
+results indicate that our immunoaffinity purification procedure results
+in the efficient and specific recovery of proteins associated with immu-
+noaffinity-purified complexes.
+
+42230 JOURNAL OF BIOLOGICAL CHEMISTRY
+
+VOLUME 280 • NUMBER 51 • DECEMBER 23, 2005
+
+Supplemental Table 1 includes a complete list of proteins identified
+by mass spectrometry in multiple independent purifications with each
+antibody, along with information on the number of peptide spectra
+detected for each protein. The large number of peptides identified in
+these analyses reflects the sensitivity of the gel-free tandem mass spec-
+trometric method. Proteins considered to associate with SRm160 with
+relatively high specificity and affinity are shown in TABLE ONE; these
+were detected by three or more independent peptide spectra in one or
+more purifications with either of the two anti-SRm160 antibodies and
+were not detected by mass spectrometry in pol II-containing complexes
+co-immunoprecipitated with mAb 8WG16. Proteins detected in the
+complexes affinity-purified with rabbit anti-SRm300 pAb are also listed
+in TABLE ONE if they (i) were detected by one or more spectra that
+overlapped with the proteins listed in TABLE ONE for the SRm160
+purifications or (ii) were detected by three or more spectra irrespective
+of their detection in the SRm160 purifications. Although these criteria
+for specificity probably enrich for factors that form bona fide interac-
+tions with SRm160/300, they potentially also exclude specific but less
+strong interactions or factors that form specific and dual interactions
+with SRm160/300- and pol II-containing complexes.
+
+Pre-mRNA Processing Factors Associated with SRm160-containing
+Complexes—Consistent with the known functional activities of SRm160
+(see the Introduction), the majority of the proteins that interacted with
+SRm160/300-containing complexes by the above criteria are function-
+ally linked to pre-mRNA processing. These included many spliceosomal
+proteins such as SF3b and U5 small nuclear ribonucleoprotein (snRNP)-
+associated proteins as well as proteins that remained associated with
+spliced mRNA in the exon junction complex (SRm160, Y14, and eukary-
+otic initiation factor 4AIII) (TABLE ONE and supplemental Table 1).
+Moreover, in agreement with recent evidence from our laboratory indi-
+cating that SRm160 participates in 3⬘-end processing (7, 8), we also
+detected four 3⬘-end cleavage factors in the immunopurified complexes,
+although with fewer peptide spectra per protein (supplemental Table 1).
+Of particular interest among the spliceosomal proteins detected are
+the multiple interactions with subunits of the U2 snRNP-associated
+SF3b complex, including SAP145, SAP130, and SAP49 (TABLE ONE
+and supplemental Table 1). These factors are known to form a
+sequence-independent interaction upstream of the pre-mRNA branch
+region (the “anchor site”) and to participate in formation of a pre-spli-
+ceosomal complex containing U1 and U2 snRNPs (32, 33). Taken
+together with our previous evidence that (i) SRm160 associates specifi-
+cally with a subpopulation of U2 snRNPs in the absence of pre-mRNA
+(4), (ii) U2 snRNP promotes the stable association of SRm160 with
+pre-mRNA (4), and (iii) SRm160 promotes enhancer-dependent splic-
+ing via interactions that appear to be independent of the binding of
+U2AF to the polypyrimidine tract (19), the interactions detected with
+SF3b subunits suggest that SRm160 could associate with pre-mRNA via
+one or more interactions involving these proteins. This finding there-
+fore provides new insight into the possible network of protein-protein
+interactions by which SRm160 functions as a splicing coactivator.
+
+Transcription and Chromatin Regulatory Factors Associated with
+SRm160-containing Complexes—In addition to pre-mRNA processing
+components, many of the factors found to associate with SRm160/300-
+containing complexes are involved in pol II transcription and chromatin
+regulation. Moreover, some of these factors, including the far upstream
+element-binding protein FBP and its associated repressor protein
+RoBP1, have already been associated functionally with splicing as well as
+transcription (34, 35). The SR-related protein CAPER, which has
+recently been implicated in the regulation of alternative splicing via
+interactions with nuclear hormone receptor transcriptional activators
+
+SRm160 Interacts with Cohesin
+
+(36), was also detected in SRm160/300-containing complexes, as were
+the nuclear hormone receptor (co)activator protein CIA (37) and the
+transcriptional regulator CCR4-NOT (38) (TABLE ONE). These results
+raise the possibility that SRm160/300 may function in the coupling of
+transcription and splicing via one or more interactions involving pro-
+moter-bound (co)activators and that this activity could be largely inde-
+pendent of direct interactions with pol II. In addition, several subunits of
+the NuRD chromatin remodeling complex (39–42), including SWI/
+SNF-170, SWI/SNF-155, Mi-2␤, MCDB3, and Mta2, co-immunopre-
+cipitated with SRm160/300, although they were detected with fewer
+than three peptide spectra per protein (supplemental Table 1).
+
+SRm160 Associates with Subunits of Cohesin—The immunoaffinity-
+purified SRm160-containing complexes also include four subunits of
+the human cohesin complex: SMC1␣/SMC1L1, SMC3, hRAD21, and
+SA2 (TABLE ONE and supplemental Table 1). These four subunits of
+cohesin, which function in both sister chromatid cohesion and DNA
+recombination and repair activities, are known to form a complex in the
+absence of chromatin. However, proteins that associate with SMC1 and
+SMC3 in a DNA recombination/repair complex (RC1), including DNA
+ligase III, DNA polymerase ⑀, and DNA endonuclease (43–45), the SA1
+subunit of cohesin (46, 47), or subunits of the DNA damage-induced
+BRCA1/SMC1/SMC3-containing complex (48, 49), were not identified
+by mass spectrometry in the immunoaffinity-purified SRm160-contain-
+ing complexes. This suggests that SRm160 could form a specific associ-
+ation with the cohesin complex containing SMC1␣, SMC3, hRAD21,
+and SA2.
+
+We confirmed the co-immunoprecipitation of SMC1␣, SMC3, and
+hRAD21 with SRm160 by immunoblot analysis with specific antisera
+(Fig. 1B; see “Experimental Procedures”). Approximately 10–15% of
+SMC1␣, SMC3, and hRAD21 in the extract immunoprecipitated with
+mAb B1C8 (Fig. 1B, lane 3). The interaction of the cohesin subunits with
+SRm160 appears to be quite specific based on the various controls
+described above as well the observation that abundant proteins in the
+nuclear extract (e.g. the U1–70K protein) (Fig. 1B) were not detected in
+the mAb B1C8 immunoprecipitates by immunoblotting and were not
+detected by immunoblotting of the immunoprecipitates collected with
+rabbit anti-SRm300 pAb or mAb 8WG16 (Fig. 1B), whereas these latter
+antibodies did immunoprecipitate the expected proteins (e.g. mAb
+8WG16 immunoprecipitated transcription factor TFIIF p74) (Fig. 1B,
+lanes 4 and 5, and TABLE ONE and supplemental Table 1). The absence
+of detectable co-immunoprecipitation of the cohesin subunits with rab-
+bit anti-SRm300 pAb suggests that these proteins were bound to the
+subpopulation of SRm160 in the nuclear extract that was not associated
+with SRm300. Immunoprecipitates collected with rabbit anti-SRm160
+pAb, which binds to a separate region in SRm160, were immunoblotted
+with the anti-SMC1␣antibody. Similar to the results with mAb B1C8, a
+comparable level of SMC1␣in the extract was co-immunoprecipitated
+with rabbit anti-SRm160 pAb (Fig. 1C, compare lane 4 with lanes 5–8),
+thus providing strong evidence that the co-immunoprecipitation of
+cohesin subunits with anti-SRm160 antibodies is due to an association
+between cohesin and SRm160 and not a cross-reaction between mAb
+B1C8 and one or more of the cohesin subunits. Finally, the association
+between SRm160 and cohesin subunits is unlikely a consequence of
+bridging interactions mediated by nucleic acid because the HeLa
+nuclear extract used for immunopurifications was pretreated exten-
+sively with both RNase and DNase using a protocol that efficiently
+degrades the most stable nucleic acids (e.g. U5 small nuclear RNA) (7)
+(data not shown).
+
+Because cohesin is essential for sister chromatid cohesion and chro-
+mosome segregation, we considered that the association with SRm160
+
+DECEMBER 23, 2005 • VOLUME 280 • NUMBER 51
+
+JOURNAL OF BIOLOGICAL CHEMISTRY 42231
+
+SRm160 Interacts with Cohesin
+
+FIGURE 2. A subfraction of SRm160 co-fraction-
+ates with cohesin subunits. A, immunoprecipita-
+tions were performed using control beads (lanes 3,
+5, 7, 9, and 11) or mAb B1C8 (lanes 4, 6, 8, 10, and 12)
+in buffer containing NaCl at the concentrations
+indicated. Loads 1 and 2 represent 3 and 0.7% of
+the input to the immunoprecipitation (lanes 1 and
+2, respectively). B, HeLa nuclear extract was frac-
+tionated over a Sephacryl S400 column as
+described under “Experimental Procedures,” and
+the elution fractions were analyzed by immuno-
+blotting with the antibodies indicated. gAb-
+SRm160, goat anti-SRm160 pAb; TFIIF, transcrip-
+tion factor IIF; Sm, common snRNP Sm proteins.
+
+might be dependent on the stage of the cell cycle. We prepared extracts
+from HeLa cells synchronized in S or M phase by double thymidine
+block and release and analyzed the interaction of SRm160 with SMC1
+and hRAD21 at different stages of the cell cycle (Fig. 1D). The stage of
+the cell cycle was confirmed by immunoblot analysis of the extracts with
+an antibody directed against phosphorylated Tyr15 in Cdc2, which is
+dephosphorylated upon entry into M phase (Fig. 1D, lower panel, lanes
+2 and 3). Consistent with an earlier report (44), the level of SMC1 did not
+change throughout the cell cycle (Fig. 1D, lower panel, lanes 4 and 5).
+The relative levels of co-immunoprecipitation of SMC1␣and hRAD21
+with SRm160 were similar in G1/S phase, M phase, and asynchronous
+extracts, with ⬃15% of the input material being recovered in each case
+(Fig. 1D, upper panel, compare lanes 1–3 with lanes 4–9).
+
+Characterization of SRm160-Cohesin Interactions—Cohesins have
+been highly purified by immunopurification and chromatographic sep-
+aration, and their associations with other factors have been character-
+ized (46, 50–55); SRm160 was not identified as an interacting compo-
+nent in these previous studies. One possible reason for this is that the
+association of SRm160 with cohesin subunits is salt-sensitive. This is
+supported by the observation that cohesin subunits co-immunoprecipi-
+
+tated with SRm160 at physiological salt concentrations (Fig. 2A, lanes
+3–8), but that these associations were markedly reduced at salt concen-
+trations above 200 mM (lanes 9–12). Based on this observation, chro-
+matographic purifications of cohesin involving high salt elution or
+ammonium sulfate precipitation, as used in previous studies (51, 53),
+would not be expected to contain SRm160.
+
+To investigate whether the cohesin subunits exist in association with
+one or more distinct SRm160-containing complexes, we fractionated
+HeLa nuclear extract at 100 mM salt by gel filtration after extensive
+treatment with RNase and DNase and analyzed the fractions by immu-
+noblotting with the different antisera to SRm160 as well as with antisera
+to several of the SRm160-associated factors (Fig. 2B). Interestingly,
+SRm160 was detected primarily in two different elution peaks, one cen-
+tering on fraction 22 and the other centering on fraction 28. A form of
+SRm160 with slightly slower electrophoretic mobility, peaking in frac-
+tion 28, was detected more readily by mAb B1C8 and the murine
+anti-SR protein mAb 104, which was previously shown to also detect
+SRm160 (4). This can be explained by the observation that both mAb
+B1C8 and mAb 104 recognize epitopes that are phosphatase-sensitive
+(54).3 Both rabbit anti-SRm160 pAb (described above) and a peptide-
+
+42232 JOURNAL OF BIOLOGICAL CHEMISTRY
+
+VOLUME 280 • NUMBER 51 • DECEMBER 23, 2005
+
+specific goat anti-SRm160 antibody (see “Experimental Procedures”)
+detected a protein of identical mobility in this region of the gradient as
+well as the more prominent, faster migrating form concentrated in frac-
+tion 22 (Fig. 2B) (data not shown). The faster migrating form most likely
+corresponds to SRm160 with a reduced phosphorylation status because
+previous experiments have also demonstrated that phosphatase treat-
+ment of nuclear extract or purified endogenous SRm160 significantly
+reduces the mobility of the protein as detected with rabbit anti-SRm160
+pAb (28).3
+
+Interestingly, the SMC1␣, SMC3, and hRAD21 cohesin subunits
+were predominantly concentrated in fractions 28–30, whereas SR pro-
+tein splicing factors were predominantly concentrated in fraction 22
+(Fig. 2B). Although the mAb B1C8-detected form of SRm160 did not
+co-fractionate precisely with the cohesin subunits, this is consistent
+with its having a less stable association with these factors compared with
+their association with each other (Fig. 2A) and with the fact that only
+10–15% of the total cohesin in nuclear extract associated with SRm160
+during co-immunoprecipitation. This conclusion was further sup-
+ported by the observation that SRm160 and cohesin displayed more
+extensively separated elution profiles when gel filtration chromatogra-
+phy of HeLa nuclear extract was repeated at a higher salt concentration
+(500 mM). Together, the results therefore suggest that a more highly
+phosphorylated form of SRm160 (detected preferentially by mAb B1C8
+and mAb 104) preferentially co-fractionates with cohesin subunits,
+whereas a less phosphorylated form (more strongly detected with the
+anti-SRm160 pAbs) predominantly coelutes with SR protein splicing
+factors and not with cohesin subunits (data not shown). Thus, it is
+possible that differential phosphorylation modulates interactions
+between SRm160 and different complexes and, consequently, its poten-
+tial to function in different cellular processes.
+
+Interactions between SRm160 and Cohesin Subunits Are Evolutionar-
+ily Conserved—If the association between SRm160 and cohesin sub-
+units is functionally important, we would expect to detect it in other
+species as well. To test this, we assayed whether mAb B1C8 co-immu-
+noprecipitates SMC1␣in X. laevis egg extract. SRm160 is highly con-
+served in metazoans, especially within the N-terminal region of the
+protein that includes the PWI motif (8). The Xenopus tropicalis open
+reading frame (GenBankTM accession number BC074646) shares 85%
+similarity and 78% identity (data not shown). mAb B1C8 was shown
+previously to immunoprecipitate exon junction complexes containing
+SRm160 that form on spliced mRNA in Xenopus egg extracts (6, 55).
+Detection of a 220-kDa antigen in these studies is consistent with
+SRm160 having a longer predicted open reading frame in Xenopus than
+in human (954 versus 820 amino acids). Moreover, we detected a prom-
+inent 220-kDa antigen in X. laevis egg extract with both mAb B1C8 and
+rabbit anti-SRm160 pAb (Fig. 3A, lanes 2, 3, 5, and 6) (data not shown).
+Rabbit anti-SRm160 pAb also recognized bands of ⬃160 and ⬃140 kDa
+in Xenopus extract, which presumably correspond to different phos-
+phoisoforms of SRm160. The detection of the 220-kDa antigen by rabbit
+anti-SRm160 pAb in immunoprecipitates collected from Xenopus egg
+extract with mAb B1C8 confirmed that these antibodies bound to the
+same 220-kDa antigen (Fig. 3A, lanes 5 and 6). Together, these results
+provide strong evidence that our antisera to hSRm160 specifically detect
+the Xenopus ortholog of SRm160. Like SRm160, SMC1␣is highly con-
+served in Xenopus (GenBankTM accession number O93308), sharing
+85% identity over 1233 amino acids, and the anti-hSMC1 antibody
+detected an antigen in Xenopus egg extract of identical mobility to the
+human protein (Fig. 3B, compare lanes 1 and 3), which has been con-
+firmed as Xenopus SMC1 (55). Similar to the results in HeLa nuclear
+extract, mAb B1C8 co-immunoprecipitated 10–20% of total SMC1 in
+
+SRm160 Interacts with Cohesin
+
+FIGURE 3. Interaction between SRm160 and cohesin is conserved in Xenopus. A,
+immunoblot analysis of 30 ␮g of HeLa nuclear extract (NE; lanes 1 and 4) and 1 ␮l (100 ␮g;
+lanes 2 and 5) and 2 ␮l (200 ␮g; lanes 3 and 6) of Xenopus egg extract (Ex) probed with
+mAb B1C8 (lanes 1–3) and rabbit anti-SRm160 pAb (rAb ␣SRm160; lanes 4 – 6). x, Xenopus.
+B, immunoblot analysis of HeLa nuclear extract and Xenopus egg extract as described for
+A using the anti-SMC1 antibody. C, co-immunoprecipitation of SMC1 with SRm160 from
+HeLa nuclear extract (lanes 1, 3, and 4) and Xenopus egg extract (lanes 2, 5, and 6) using
+mAb B1C8. Immunoprecipitates were analyzed by immunoblotting and probed with the
+anti-SMC1 antibody and rabbit anti-SRm160 pAb. The load represents 5% of the input
+amount used in the immunoprecipitations. The asterisk denotes a probable SRm160-
+containing aggregate, which we detected occasionally in HeLa extracts.
+Xenopus egg extract (Fig. 3C, compare lanes 3 and 4 with lanes 5 and 6).
+This indicates that the interaction between SRm160 and SMC1 is con-
+served between distantly related vertebrate species.
+
+A Genetic Interaction between SRm160 and Cohesin in C. ele-
+gans—RNAi was used next to investigate a possible functional relation-
+ship between SRm160 and the cohesin complex in the context of animal
+development. C. elegans provides a convenient model organism to
+address this question because the CeSRm160 ortholog (rsr-1) is highly
+conserved, sharing 39% identity and 48% similarity with mammalian
+SRm160 (56). Furthermore, because CeSRm160 is a nonessential pro-
+tein (24), it is possible to investigate which other nonessential factors
+interact with it genetically using combinatorial RNAi. Cohesin subunits
+are represented by several orthologs in C. elegans that share consider-
+able sequence identity, and previous experiments using RNAi have
+established that these proteins function in the same pathways as they do
+in mammals (supplemental Table 2).
+
+Previous combinatorial RNAi experiments have also established that
+simultaneous RNAi of CeSRm160 and different CeSR proteins or
+3⬘-end cleavage factors results in specific developmental defects,
+whereas single RNAi of these factors in most cases does not result in
+apparent phenotypes (11, 24, 56). The specificity of the combinatorial
+RNAi phenotypes observed in these previous studies most likely reflects
+the specificity of conserved interactions and functional associations
+observed between human SRm160, SR, and cleavage proteins. Thus,
+
+DECEMBER 23, 2005 • VOLUME 280 • NUMBER 51
+
+JOURNAL OF BIOLOGICAL CHEMISTRY 42233
+
+SRm160 Interacts with Cohesin
+
+TABLE TWO
+Phenotypes associated with combinatorial RNAi of coh-1 and
+splicing-related genes
+
+Gene
+CeSRm160
+coh-1
+coh-1 ⫹ CeSRm160
+coh-1 ⫹ CeSRp75
+coh-1 ⫹ CrRNPS1
+
+RNAi phenotype
+
+Wild-type
+Weak uncoordinated
+Embryonic lethal (18 ⫾ 8%), strong uncoordinated
+Weak uncoordinated
+Weak uncoordinated
+
+combinatorial RNAi of CeSRm160 and conserved partner proteins,
+identified by biochemical assays in the mammalian system, can provide
+useful information on the potential role of conserved interactions
+involving SRm160 in the context of whole animal development.
+
+RNAi of the orthologs of most C. elegans cohesin subunits results in
+early embryonic lethal phenotypes (57–59); these genes therefore can-
+not be tested for genetic interactions with SRm160. However, RNAi of
+coh-1 (the hRAD21 homolog) has been reported to produce a weak
+uncoordinated phenotype (supplemental Table 2). We therefore deter-
+mined whether simultaneous RNAi of CeSRm160 and coh-1 results in
+an exacerbated phenotype. Interestingly, an embryonic lethal pheno-
+type (18% of animals) and a strong uncoordinated phenotype were
+observed (TABLE TWO). Simultaneous RNAi of coh-1 and either of the
+splicing factors CeSRp75 and CeRNPS1, which are known to associate
+with a subpopulation of SRm160 in human extracts (11, 56), did not
+result in an altered phenotype because the majority of the animals were
+weak uncoordinated (TABLE TWO). These results suggest that
+SRm160 is functionally linked to the cohesin complex and that an inter-
+action between these factors may be important for animal development.
+SRm160 Is Present in Meiotic Synaptonemal Complexes—The con-
+served interaction between SMC1␣, SMC3, and hRAD21 with a sub-
+population of SRm160 in nuclear extract and the observation of a com-
+binatorial RNAi phenotype between SRm160 and coh-1 in C. elegans
+strongly suggest that SRm160 exists in one or more functional com-
+plexes with cohesins in vivo. To further investigate this, we determined
+whether SRm160 localizes at cohesin-containing meiotic synaptonemal
+complexes (SCs) that form between paired homologous chromosomes
+because these can be readily visualized by microscopy in mouse sper-
+matocytes at the pachytene stage of meiotic prophase I. Using this sys-
+tem, it has been shown that meiosis-specific cohesin subunits (which
+include the SRm160-interacting subunit SMC3) are localized to fiber-
+like structures along the SCs, which correspond to cohesin cores co-
+localizing with axial elements (60). Moreover, it has been shown that
+SMC1␤is required for normal progression of prophase I in mouse sper-
+matocytes (60). The cohesin cores co-localize precisely with SCP3/
+COR1 (61), a core SC component located primarily in the axial ele-
+ments; and antibodies
+in
+immunolocalization studies, were therefore used as a marker for the
+cohesin cores.
+
+factor, which perform well
+
+Immunoblot analysis of total (asynchronous) spermatocytes and
+spermatocytes synchronized at the diplotene and pachytene stages with
+both rabbit anti-SRm160 pAb and mAb B1C8 resulted in the detection
+of an ⬃180-kDa antigen (Fig. 4A, lanes 2–5) (data not shown). Although
+a minor 180-kDa form of SRm160 has been detected by mAb B1C8 in
+human cell extracts (e.g. Fig. 2B) (9), the more prominent detection of an
+antigen of this size in mouse extracts could reflect differences in the
+phosphorylation status of SRm160 and/or the increased size of the
+mouse protein compared with the human protein (897 versus 820 amino
+acids) as predicted from a full-length mouse cDNA sequence (Gen-
+BankTM accession number NM_016799). Immunostaining of the
+
+to this
+
+FIGURE 4. SRm160 is localized in synaptonemal complexes. A, samples (2–5 ⫻ 106 cell
+eq) derived from HeLa nuclear extract (lane 1), mouse spermatocytes (lane 2), diplotene
+stage spermatocytes (lane 3), pachytene spermatocytes (lane 4), and diplotene sper-
+matocytes (lane 5) were analyzed by SDS-PAGE (7.5% gel), followed by immunoblotting
+with rabbit anti-SRm160 pAb (rAb ␣SRm160). mSRm160, mouse SRm160. B, shown is the
+immunofluorescence of mouse spermatocyte nuclei probed with mAb B1C8 (upper pan-
+els) or rabbit anti-SRm160 pAb (lower panels) and rabbit or mouse anti-SCP3/COR1 anti-
+body. SCs, pseudo-autosomal regions (PAR) of the X (X) and Y (Y) chromosomes, and
+centromeres (CEN) are indicated. Note that the immunostainings with rabbit anti-
+SRm160 and anti-SCP3/COR1 pAbs were slightly displaced in the overlays to more
+readily afford direct comparison of the individual staining patterns.
+
+mouse spermatocytes with mAb B1C8 (Fig. 4B, upper panels) and anti-
+gen affinity-purified rabbit anti-SRm160 pAb (lower panels) revealed
+that both antibodies strongly labeled SCs that formed between paired
+autosomes, as revealed by co-immunostaining with murine monoclonal
+and rabbit polyclonal antisera specific for SCP3/COR1 (Fig. 4B, upper
+and lower panels, respectively). (Note that the immunostainings with
+rabbit anti-SRm160 and anti-SCP3/COR1 pAbs were slightly displaced
+in the overlays to more readily afford direct comparison of the individ-
+ual staining patterns.) An antiserum specific for the centromeres was
+also included in the immunostainings, and these sites are indicated. The
+control rabbit anti-glutathione S-transferase pAb did not label these or
+any other structures in the spreads (data not shown). The localization of
+SRm160 to SCs associated with unpaired X and Y cores (Fig. 4B) sug-
+gests that SRm160 is closely associated with the cohesin core structures
+that form part of the SC axial elements. The localization of SRm160 to
+
+42234 JOURNAL OF BIOLOGICAL CHEMISTRY
+
+VOLUME 280 • NUMBER 51 • DECEMBER 23, 2005
+
+SCs is consistent with its having a possible functional association with
+cohesin during homologous chromosome pairing and recombination
+during meiosis.
+
+Conclusion—The characterization by tandem mass spectrometry of
+immunopurified SRm160/300-containing complexes in this study
+resulted in the discovery of new factors that interact with these proteins.
+Several of these interactions suggest previously unanticipated functions
+for SRm160. The detection of associations with many new factors
+involved in pre-mRNA processing, as well as the identification of asso-
+ciated factors that function in chromatin remodeling, suggests that
+SRm160, possibly in association with SRm300, could function in the
+coupling of pre-mRNA processing with transcription via interactions
+that impact on chromatin.
+
+Our observation that core subunits of a cohesin complex form con-
+served associations with a subpopulation of SRm160 indicates that these
+factors participate in one or more common cellular functions. Interest-
+ingly, previous mass spectrometric analyses of purified splicing com-
+plexes revealed SMC1 and SMC2 in pre-spliceosomes (62, 63), although
+the functional significance of these interactions was not investigated.
+Moreover, extensive mutagenesis screens for splicing factors in budding
+yeast have not yielded any pre-mRNA processing gene mutants that
+correspond to cohesin subunit genes, which nevertheless are highly
+conserved in this organism (64). Our identification of interactions
+between SRm160 and SMC1␣, SMC3, hRAD21, and SA2 and the local-
+ization of SRm160 to core regions of SCs argue that it is more likely that
+SRm160 functions with cohesin in the context of one or more activities
+associated with chromatin structure and/or sister chromatid cohesion.
+The presence of a highly conserved PWI motif in SRm160, which can
+bind both single- and double-stranded DNA and RNA (8), further sug-
+gests a possible separate role for SRm160 in DNA metabolism, in addi-
+tion to its functions in pre-mRNA processing. Finally, the developmen-
+tal defect observed in C. elegans upon simultaneous RNAi of coh-1 and
+CeSRm160, but not upon simultaneous RNAi of coh-1 and other C. el-
+egans splicing factor orthologs (CeSRp75 and CeRNPS1), also supports
+a separate functional role for SRm160 in association with cohesins.
+
+Acknowledgments—We gratefully acknowledge Jan Michael Peters, Bill Earn-
+shaw, Claudio Sunkel, Angus Lamond, Joan Steitz, Mark Roth, and Jack
+Greenblatt for the generous gifts of antibodies. We thank Iain Johnstone (Uni-
+versity of Glasgow) for the use of the microinjection facility. We also thank Ana
+Losada and Peter Roy for help with some of the experiments and May Khanna,
+Arneet Saltzman, John Calarco, Joanna Ip, and Emanuel Rosonina for helpful
+suggestions and proofreading the manuscript.
+
+REFERENCES
+1. Aebersold, R., and Mann, M. (2003) Nature 422, 198–207
+2. Tian, Q., Stepaniants, S. B., Mao, M., Weng, L., Feetham, M. C., Doyle, M. J., Yi, E. C.,
+Dai, H., Thorsson, V., Eng, J., Goodlett, D., Berger, J. P., Gunter, B., Linseley, P. S.,
+Stoughton, R. B., Aebersold, R., Collins, S. J., Hanlon, W. A., and Hood, L. E. (2004)
+Mol. Cell. Proteomics 3, 960–969
+
+3. Yates, J. R., III (2004) Annu. Rev. Biophys. Biomol. Struct. 33, 297–316
+4. Blencowe, B. J., Issner, R., Nickerson, J. A., and Sharp, P. A. (1998) Genes Dev. 12,
+
+5. Eldridge, A. G., Li, Y., Sharp, P. A., and Blencowe, B. J. (1999) Proc. Natl. Acad. Sci.
+
+996–1009
+
+U. S. A. 96, 6125–6130
+
+6860–6869
+
+148–160
+
+6. Le Hir, H., Izaurralde, E., Maquat, L. E., and Moore, M. J. (2000) EMBO J. 19,
+
+571–582
+
+7. McCracken, S., Lambermon, M., and Blencowe, B. J. (2002) Mol. Cell. Biol. 22,
+
+8. Szymczyna, B. R., Bowman, J., McCracken, S., Pineda-Lucena, A., Lu, Y., Cox, B.,
+Lambermon, M., Graveley, B. R., Arrowsmith, C. H., and Blencowe, B. J. (2003) Genes
+Dev. 17, 461–475
+
+9. Blencowe, B. J., Nickerson, J. A., Issner, R., Penman, S., and Sharp, P. A. (1994) J. Cell
+
+25–39
+
+Biol. 127, 593–607
+
+SRm160 Interacts with Cohesin
+
+10. Wan, K. M., Nickerson, J. A., Krockmalnic, G., and Penman, S. (1994) Proc. Natl.
+
+Acad. Sci. U. S. A. 91, 594–598
+
+J. Biol. Chem. 278, 44153–44160
+
+11. McCracken, S., Longman, D., Johnstone, I. L., Caceres, J. F., and Blencowe, B. J. (2003)
+
+12. Le Hir, H., Moore, M. J., and Maquat, L. E. (2000) Genes Dev. 14, 1098–1108
+13. Le Hir, H., Gatfield, D., Braun, I. C., Forler, D., and Izaurralde, E. (2001) EMBO Rep. 2,
+
+1119–1124
+
+14. Tange, T. O., Nott, A., and Moore, M. (2004) Curr. Opin. Cell Biol. 16, 279–284
+15. Nasmyth, K. (2002) Science 297, 559–565
+16. Gruber, S., Haering, C. H., and Nasmyth, K. (2003) Cell 112, 765–777
+17. Hagstrom, K. A., and Meyer, B. J. (2003) Nat. Rev. Genet. 4, 520–534
+18. Jessberger, R. (2002) Nat. Rev. Mol. Cell. Biol. 3, 767–778
+19. Li, Y., and Blencowe, B. J. (1999) J. Biol. Chem. 274, 35074–35079
+20. Dignam, J. D., Lebovitz, R. M., and Roeder, R. G. (1983) Nucleic Acids Res. 11,
+
+1475–1489
+
+21. Murray, A. W. (1991) Methods Cell Biol. 36, 581–605
+22. Krogan, N. J., Peng, W. T., Cagney, G., Robinson, M. D., Haw, R., Zhong, G., Guo, X.,
+Zhang, X., Canadien, V., Richards, D. P., Beattie, B. K., Lalev, A., Zhang, W., Davier-
+wala, A. P., Mnaimneh, S., Starostine, A., Tikuisis, A. P., Grigull, J., Datta, N., Bray, J. E.,
+Hughes, T. R., Emili, A., and Greenblatt, J. F. (2004) Mol. Cell 13, 225–239
+
+23. Eijpe, M., Heyting, C., Gross, B., and Jessberger, R. (2000) J. Cell Sci. 113, 673–682
+24. Longman, D., Johnstone, I. L., and Caceres, J. F. (2000) EMBO J. 19, 1625–1637
+25. Tarsounas, M., Morita, T., Pearlman, R. E., and Moens, P. B. (1999) J. Cell Biol. 147,
+
+207–220
+
+852–865
+
+26. Dobson, M. J., Pearlman, R. E., Karaiskakis, A., Spyropoulos, B., and Moens, P. B.
+
+(1994) J. Cell Sci. 107, 2749–2760
+
+27. Blencowe, B. J., Issner, R., Kim, J., McCaw, P., and Sharp, P. A. (1995) RNA (N. Y.) 1,
+
+28. Blencowe, B. J., Bauren, G., Eldridge, A. G., Issner, R., Nickerson, J. A., Rosonina, E.,
+
+and Sharp, P. A. (2000) RNA (N. Y.) 6, 111–120
+
+29. Thompson, N. E., Steinberg, T. H., Aronson, D. B., and Burgess, R. R. (1989) J. Biol.
+
+Chem. 264, 11511–11520
+
+30. Mortillaro, M. J., Blencowe, B. J., Wei, X., Nakayasu, H., Du, L., Warren, S. L., Sharp,
+
+P. A., and Berezney, R. (1996) Proc. Natl. Acad. Sci. U. S. A. 93, 8253–8257
+
+31. Emili, A., Shales, M., McCracken, S., Xie, W., Tucker, P. W., Kobayashi, R., Blencowe,
+
+B. J., and Ingles, C. J. (2002) RNA (N. Y.) 8, 1102–1111
+
+32. Champion-Arnaud, P., and Reed, R. (1994) Genes Dev. 8, 1974–1983
+33. Gozani, O., Feld, R., and Reed, R. (1996) Genes Dev. 10, 233–243
+34. He, L., Weber, A., and Levens, D. (2000) Nucleic Acids Res. 28, 4558–4565
+35. Rappsilber, J., Ryder, U., Lamond, A. I., and Mann, M. (2002) Genome Res. 12,
+
+1231–1245
+
+36. Dowhan, D. H., Hong, E. P., Auboeuf, D., Dennis, A. P., Wilson, M. M., Berget, S. M.,
+
+and O’Malley, B. W. (2005) Mol. Cell 17, 429–439
+
+37. Sauve, F., McBroom, L. D., Gallant, J., Moraitis, A. N., Labrie, F., and Giguere, V.
+
+(2001) Mol. Cell. Biol. 21, 343–353
+
+38. Albert, T. K., Lemaire, M., van Berkum, N. L., Gentz, R., Collart, M. A., and Timmers,
+
+H. T. (2000) Nucleic Acids Res. 28, 809–817
+
+39. Tong, J. K., Hassig, C. A., Schnitzler, G. R., Kingston, R. E., and Schreiber, S. L. (1998)
+
+Nature 395, 917–921
+
+40. Wade, P. A., Jones, P. L., Vermaak, D., and Wolffe, A. P. (1998) Curr. Biol. 8, 843–846
+41. Xue, Y., Wong, J., Moreno, G. T., Young, M. K., Cote, J., and Wang, W. (1998) Mol.
+
+42. Zhang, Y., LeRoy, G., Seelig, H. P., Lane, W. S., and Reinberg, D. (1998) Cell 95,
+
+43. Jessberger, R., Podust, V., Hubscher, U., and Berg, P. (1993) J. Biol. Chem. 268,
+
+44. Jessberger, R., Riwar, B., Baechtold, H., and Akhmedov, A. T. (1996) EMBO J. 15,
+
+45. Stursberg, S., Riwar, B., and Jessberger, R. (1999) Gene (Amst.) 228, 1–12
+46. Losada, A., Yokochi, T., Kobayashi, R., and Hirano, T. (2000) J. Cell Biol. 150,
+
+Cell 2, 851–861
+
+279–289
+
+15070–15079
+
+4061–4068
+
+405–416
+
+151, 749–762
+
+47. Sumara, I., Vorlaufer, E., Gieffers, C., Peters, B. H., and Peters, J. M. (2000) J. Cell Biol.
+
+48. Kim, S. T., Xu, B., and Kastan, M. B. (2002) Genes Dev. 16, 560–570
+49. Yazdi, P. T., Wang, Y., Zhao, S., Patel, N., Lee, E. Y., and Qin, J. (2002) Genes Dev. 16,
+
+50. Losada, A., Hirano, M., and Hirano, T. (1998) Genes Dev. 12, 1986–1997
+51. Hakimi, M. A., Bochar, D. A., Schmiesing, J. A., Dong, Y., Barak, O. G., Speicher,
+
+D. W., Yokomori, K., and Shiekhattar, R. (2002) Nature 418, 994–998
+
+52. MacCallum, D. E., Losada, A., Kobayashi, R., and Hirano, T. (2002) Mol. Biol. Cell 13,
+
+53. Sonoda, E., Matsusaka, T., Morrison, C., Vagnarelli, P., Hoshi, O., Ushiki, T., Nojima,
+K., Fukagawa, T., Waizenegger, I. C., Peters, J. M., Earnshaw, W. C., and Takeda, S.
+(2001) Dev. Cell 1, 759–770
+
+DECEMBER 23, 2005 • VOLUME 280 • NUMBER 51
+
+JOURNAL OF BIOLOGICAL CHEMISTRY 42235
+
+SRm160 Interacts with Cohesin
+
+54. Roth, M. B., Zahler, A. M., and Stolk, J. A. (1991) J. Cell Biol. 115, 587–596
+55. Schmiesing, J. A., Ball, A. R., Jr., Gregson, H. C., Alderton, J. M., Zhou, S., and
+
+Yokomori, K. (1998) Proc. Natl. Acad. Sci. U. S. A. 95, 12906–12911
+
+56. Longman, D., McGarvey, T., McCracken, S., Johnstone, I. L., Blencowe, B. J., and
+
+Caceres, J. F. (2001) Curr. Biol. 11, 1923–1933
+
+(2003) Exp. Cell Res. 289, 245–255
+
+60. Revenkova, E., Eijpe, M., Heyting, C., Hodges, C. A., Hunt, P. A., Liebe, B., Scherthan,
+
+H., and Jessberger, R. (2004) Nat. Cell Biol. 6, 555–562
+
+61. Eijpe, M., Offenberg, H., Jessberger, R., Revenkova, E., and Heyting, C. (2003) J. Cell
+
+Biol. 160, 657–670
+
+57. Simmer, F., Moorman, C., Van Der Linden, A. M., Kuijk, E., Van Den Berghe, P. V.,
+Kamath, R., Fraser, A. G., Ahringer, J., and Plasterk, R. H. (2003) PLoS Biol. 1, 77–84
+58. Pasierbek, P., Jantsch, M., Melcher, M., Schleiffer, A., Schweizer, D., and Loidl, J.
+
+62. Hartmuth, K., Urlaub, H., Vornlocher, H. P., Will, C. L., Gentzel, M., Wilm, M., and
+
+Luhrmann, R. (2002) Proc. Natl. Acad. Sci. U. S. A. 99, 16719–16724
+
+63. Makarova, O. V., Makarov, E. M., Urlaub, H., Will, C. L., Gentzel, M., Wilm, M., and
+
+(2001) Genes Dev. 15, 1349–1360
+
+Luhrmann, R. (2004) EMBO J. 23, 2381–2391
+
+59. Pasierbek, P., Fodermayr, M., Jantsch, V., Jantsch, M., Schweizer, D., and Loidl, J.
+
+64. Vijayraghavan, U., Company, M., and Abelson, J. (1989) Genes Dev. 3, 1206–1216
+
+42236 JOURNAL OF BIOLOGICAL CHEMISTRY
+
+VOLUME 280 • NUMBER 51 • DECEMBER 23, 2005
+
+

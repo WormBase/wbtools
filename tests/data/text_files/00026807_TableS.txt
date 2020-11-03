@@ -1,0 +1,110 @@
+1
+
+Table S1. Spindle severing experiments
+
+Genotype
+Wild type
+goa-1/gpa16(RNAi)
+goa-1(sa734)
+goa-1(RNAi)
+gpa-16(it143)
+gpa-16(RNAi)
+gpb-1(RNAi)
+goa-1(sa734) gpb-1(RNAi)
+goa-1(RNAi) gpb-1(RNAi)
+gpa-16(it143) gpb-1(RNAi)
+gpa-16(RNAi) gpb-1(RNAi)
+goa-1(sa732) gpa-16(RNAi) gpb(RNAi)
+
+n
+13
+15
+12
+8
+10
+15
+11
+11
+10
+10
+11
+9
+
+Anterior (␮m/second)
+
+Posterior (␮m/second)
+
+0.64±0.07*,†
+0.21±0.04‡
+0.60±0.08*
+0.50±0.09
+0.58±0.07
+0.6±0.07*
+0.96±0.08*
+0.95±0.087
+0.94±0.07
+1.01±0.18
+0.95±0.13
+0.18±0.04
+
+1.03±0.08*,†
+0.22±0.03‡
+0.73±0.09*
+0.80±0.12
+0.65±0.09
+0.65±0.07*
+0.97±0.23*,§
+0.94±0.11§
+0.90±0.1§
+1.1±0.12§
+0.9±0.13§
+0.22±0.07
+
+(Posterior)
+
+Student’s t-test versus gpb-1(RNAi)
+(Anterior)
+P<0.02
+P<0.001‡
+P<0.001
+P<0.001
+P<0.001
+P<0.001
+
+P<0.02
+P<0.05
+P<0.02
+P<0.001
+
+P<0.2
+
+P<0.0011‡
+
+–
+
+P>0.2
+P>0.2
+P>0.2
+P>0.2
+P<0.001
+
+–
+
+P>0.2
+P>0.2
+P>0.2
+P>0.2
+P<0.001
+
+Average peak velocities±s.d. were estimated as described in the Materials and methods for the anterior  and posterior spindle poles.
+*Afshar et al., 2004.
+†The spindle of wild-type embryos (n=9) were severed in this series of experiments, and the values obtained were statistically indistinguishable from
+
+those reported in Afshar et al. (P>0.2).
+
+‡Colombo et al., 2003.
+§The extent of the net pulling forces on the posterior spindle pole are probably underestimated as the mitotic spindle sets up more toward the posterior
+
+(see Movies 1-7); as a result, peak velocities on the posterior spindle pole probably cannot be fully developed.
+
+

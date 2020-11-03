@@ -1,0 +1,1051 @@
+Cell Death and Differentiation (2005), 1–9
+& 2005 Nature Publishing Group All rights reserved 1350-9047/05 $30.00
+
+www.nature.com/cdd
+
+CED-4 forms a 2 : 2 heterotetrameric complex with
+CED-9 until speciﬁcally displaced by EGL-1 or CED-13
+
+WD Fairlie*,1, MA Perugini2,3, M Kvansakul1, L Chen1,
+DCS Huang1 and PM Colman1
+
+1 The Walter and Eliza Hall Institute of Medical Research, Parkville, Victoria,
+
+Australia
+
+2 Russell Grimwade School of Biochemistry and Molecular Biology, University of
+
+Melbourne, Parkville, Victoria, Australia
+
+3 Bio21 Molecular Science and Biotechnology Institute, University of Melbourne,
+
+Parkville, Victoria, Australia
+
+* Corresponding author: WD Fairlie, Structural Biology Division, The Walter and
+Eliza Hall Institute of Medical Research, 1G Royal Parade, Parkville, Victoria
+3050, Australia. Tel: þ 61 3 9345 2309; Fax: þ 61 3 9345 2686;
+E-mail: fairlie@wehi.edu.au
+
+Received 22.3.05; revised 29.7.05; accepted 03.8.05
+Edited by M Hengartner
+
+In cells undergoing apoptosis,
+
+Abstract
+The pathway to cell death in Caenorhabditis elegans is well
+established.
+the Bcl-2
+homology domain 3 (BH3)-only protein EGL-1 binds to CED-9
+at the mitochondrial membrane to cause the release of CED-4,
+which oligomerises and facilitates the activation of
+the
+caspase CED-3. However, despite many studies, the biophy-
+sical features of the CED-4/CED-9 complex have not been fully
+characterised. Here, we report the puriﬁcation of a soluble
+and stable 2 : 2 heterotetrameric complex formed by recom-
+binant CED-4 and CED-9 coexpressed in bacteria. Consistent
+with previous studies, synthetic peptides corresponding to
+the BH3 domains of worm BH3-only proteins (EGL-1, CED-13)
+dissociate CED-4 from CED-9, but not
+from the gain-of-
+function CED-9 (G169E) mutant. Surprisingly, the ability of
+worm BH3 domains to dissociate CED-4 was speciﬁc since
+mammalian BH3-only proteins could not do so.
+Cell Death and Differentiation advance online publication, 16
+September 2005; doi:10.1038/sj.cdd.4401762
+
+Keywords: apoptosis; Caenorhabditis elegans; CED-4; CED-9;
+EGL-1; Bcl-2; APAF-1
+
+Abbreviations: Bcl-2, B-cell lymphoma-2; BH3, Bcl-2 homology
+domain 3; CARD, caspase recruitment domain; NB-ARC,
+nucleotide-binding domain shared by APAF-1, certain R gene
+products and CED-4;
+titration calorimetry;
+APAF-1, apoptotic protease-activating factor 1
+
+isothermal
+
+ITC,
+
+Introduction
+
+Much of our current understanding of
+the pathways to
+programmed cell death has been learned from genetic
+analysis of the nematode Caenorhabitditis elegans.1 In this
+organism, three genes essential for the execution of apoptosis
+have been identiﬁed, namely ced-3, ced-4,2 and egl-1,3
+
+whereas another, ced-9, antagonizes cell death.4 In healthy
+cells, the adapter CED-4 associates with CED-9, the worm
+lymphoma-2 (Bcl-2) orthologue, on mitochondrial
+B-cell
+membranes.5 When the cell
+receives a death signal,
+transcriptionally upregulated Bcl-2 homology domain 3
+(BH3)-only protein EGL-1 binds CED-9. This, in turn, releases
+CED-4 allowing its oligomerisation and leads to the activation
+of the caspase CED-3 which is synthesised as an inactive
+zymogen.6 CED-4 facilitates proteolytic autoactivation of
+CED-3 by bringing CED-3 zymogens into close proximity
+through interactions between their caspase-recruitment
+is not known
+domains (CARDs) (Figure 1). However,
+whether the CED-4/CED-9 complex at
+the mitochondrial
+membrane contains CED-3 constitutively, although during cell
+death, CED-4 dissociates from CED-9 and translocates from
+the mitochondrial to the nuclear membrane.5
+
+it
+
+This pathway of protein interactions has been extensively
+studied using a myriad of techniques. For example, interaction
+of CED-4 with CED-9 (and simultaneously with CED-3) has
+been demonstrated by co-immunoprecipitation of proteins
+expressed in various cell
+two-hybrid
+system,9–11 or by colocalization studies.5,12,13 These have
+been complemented by mutational analysis of both CED-4
+and CED-9.9,10,14 Similarly, numerous studies have demon-
+strated the interaction between CED-9 and EGL-1, and
+release and/or redistribution of CED-4 from the mitochon-
+dria.3,12,14–16
+
+types,6–8 the yeast
+
+Recently, three-dimensional structures were determined for
+the Bcl-2 homology region of CED-9 alone,16 and in complex
+with an EGL-1 fragment encompassing its BH3 domain,14
+conﬁrming the structural similarity with the mammalian Bcl-2
+prosurvival family members17,18 and their mode of engage-
+ment with BH3 domains.19–21 These structures of CED-9
+suggest a mechanism by which CED-4 is released from
+CED-9. Binding of EGL-1 through its BH3 domain to a
+hydrophobic cleft in CED-9 results in a substantial structural
+rearrangement in CED-9, which is proposed to disrupt binding
+to CED-4 at a second site on CED-9.14 The CED-9/EGL-1
+complex structure also explained a ced-9 gain-of-function
+mutation that prevents most somatic cell deaths in C.
+elegans.22 This mutation substitutes the highly conserved
+glycine residue at position 169 with glutamic acid and
+prevents EGL-1-induced release of CED-4, but preserves
+CED-4 binding to CED-9.5,8,15 The CED-9/EGL-1 complex
+structure shows that the replacement of glycine with glutamic
+acid would introduce a steric clash with EGL-1,
+thereby
+negatively affecting its binding.14
+
+The three-dimensional structure of the mammalian homo-
+logue of CED-4, apoptotic protease-activating factor 1 (APAF-1),
+with WD40 domains deleted, has also recently been solved.23
+This structure showed a relatively compact protein of ﬁve
+distinct domains with the amino terminal CARD at one end
+and the C-terminus at the other (Figure 1). An ADP molecule
+was found deeply buried within the protein at the junction of
+four domains and appears to serve as an organising centre to
+
+2
+
+Characterization of the CED-4/CED-9 complex
+WD Fairlie et al
+
+Figure 1 Domain architecture of CED-4 and CED-9. CED-4 consists of an N-
+terminal caspase recruitment domain (CARD) required for binding CED-3 and a
+C-terminal nucleotide-binding domain shared by APAF-1, certain plant R gene
+products and CED-4 (NB-ARC). The subdomain structure shown is taken from
+the APAF-1 structure.23 CED-9 has an N-terminal domain, a central domain
+homologous to mammalian Bcl-2 prosurvival proteins, and a C-terminal
+hydrophobic transmembrane segment that was deleted in all constructs used
+
+lock the molecule into an inactive state. Owing to the packing
+of
+the CED-4 CARD in this structure, a conformational
+change, presumably as a consequence of ATP hydrolysis, is
+required for interaction with the caspase-9 prodomain.
+
+Most of the above functional studies on the CED-3/CED-4/
+CED-9 interaction and its modulation by EGL-1 have been
+done in cell-based assays, and have thus not addressed
+relevant biophysical questions regarding these macromole-
+cular complexes, although some attempts at characterising
+recombinant proteins have been reported. For example, it has
+been shown that recombinant CED-4 produced in insect cells
+spontaneously oligomerises,24 a result consistent with studies
+indicating that CED-9 prevents CED-4 oligomerisation.6 Gel-
+ﬁltration chromatography estimates of the mass of the CED-4
+oligomers produced from the various constructs used in this
+study ranged from 500 to 1500 kDa. However, no studies to
+date have addressed the question of the size and stoichio-
+metry of the CED-9/CED-4 complex. In this paper we report,
+for the ﬁrst time, high-level expression of recombinant CED-4/
+CED-9 complex in bacteria. This puriﬁed protein complex is a
+2 : 2 heterotetramer and responds predictably to treatment
+with EGL-1. Furthermore, we demonstrate that the trigger
+required for release of CED-9 from CED-4 is highly speciﬁc
+since it can only be initiated by worm, but not mammalian,
+BH3-only proteins.
+
+Results
+
+Expression and puriﬁcation of CED-4/CED-9
+complex
+
+To study the biochemical properties of the adapter molecule
+CED-4, we initially attempted to express either the full-length
+protein or its predicted domains in Escherichia coli. These
+fragments included the N-terminal CARD, the nucleotide-
+binding domain shared by APAF-1, certain R gene products
+and CED-4 (NB-ARC) or a shorter form of the NB-ARC that
+just encompassed the P-loop ATP-binding domain (Figure 1).
+In all cases, relatively high levels of protein were expressed
+(mg/l of culture) but their poor solubility precluded us from
+purifying and characterising them in detail.
+
+To circumvent this problem, we attempted coexpressing
+CED-4 with its physiological binding partner, CED-9,9 using
+a dual expression vector. Although most of
+the CED-4
+
+Cell Death and Differentiation
+
+Figure 2 Puriﬁcation of CED-4/CED-9 complex. (a) Gel-ﬁltration proﬁle of
+CED-4/CED-9 complex following Nickel-afﬁnity chromatography. The inset
+shows a standard curve based on the retention time of molecular weight
+standards. The circled point indicates the apparent molecular weight/retention
+time of the protein complex in Peak II. (b) Coomassie Blue-stained gel of the
+eluate from Nickel-afﬁnity chromatography (N), or fractions from Peak I and II of
+CED-4/CED-9 complex puriﬁed as indicated in (a). (c) Western blot analysis of
+the central fractions from Peaks I or II isolated in (a). Hexahistidine-tagged CED-4
+and FLAG-tagged CED-9 are present in both peaks. (d) Coomasie Blue-stained
+gel of the main fraction of puriﬁed CED-4 NB-ARC/CED-9 complex
+
+expressed using this system remained insoluble, there was
+sufﬁcient soluble material to allow puriﬁcation of a complex of
+CED-4 with CED-9. Encouragingly, 1–10 mg (per litre of
+bacterial culture) of the protein complex was isolated from
+the soluble fraction of bacterial
+lysates using a two-step
+puriﬁcation protocol involving an initial Nickel-afﬁnity puriﬁca-
+tion step (employing the hexahistidine tag on the N-terminus
+of CED-4) followed by a gel-ﬁltration chromatography step
+(Figure 2a–c). Typically,
+the gel-ﬁltration chromatogram
+
+Characterization of the CED-4/CED-9 complex
+WD Fairlie et al
+
+3
+
+of protein complexes recovered from the Nickel-afﬁnity
+puriﬁcation indicated that, in some preparations, up to one-
+third of the puriﬁed material was a soluble high molecular
+weight aggregate, which eluted near the column void volume
+(Figure 2a, Peak I). Western blot analysis of this peak showed
+that it, like the major peak (Figure 2a, Peak II), contained both
+CED-4 and CED-9, although unlike the major peak it includes
+a putative CED-9 degradation product (Figure 2c). The Peak I
+complex also displayed a relatively high absorbance at
+340 nm, suggesting that it may be a soluble protein aggregate.
+Therefore, subsequent studies used only the major fraction
+eluted in Peak II (Figure 2a).
+
+We tested two different CED-9 constructs in the coexpres-
+sion studies: one lacking its C-terminal hydrophobic tail (CED-
+9DC) and another in which both the hydrophobic tail and the
+amino-terminal 67 residues were removed (CED-9DNDC)
+(Figure 1). The gel-ﬁltration proﬁles of the complex containing
+either of these CED-9 constructs were very similar (data not
+shown). As the CED-9DNDC protein expressed alone was
+generally more soluble, and thus more readily amenable for
+further characterisation, we focused our efforts on complexes
+formed between this protein and CED-4. In fact, puriﬁed CED-
+4/CED-9DNDC complex could be concentrated to reasonably
+high levels (430 mg/ml) without further aggregation apparent,
+as judged by re-chromatography on a size-exclusion column.
+This complex was also stable after up to 2 weeks storage at
+41C with the appearance of only a minor peak (less than 20%
+of total protein) corresponding to the CED-9DNDC protein in
+the size-exclusion proﬁle upon rechromatography (data not
+shown).
+
+We were similarly able to express and purify a complex of
+the NB-ARC/CED-9DNDC, indicating that the CARD of CED-
+4 is dispensable for binding to CED-9 (Figure 2d) This is
+consistent with previous reports.10 Interestingly, deletion of
+just ﬁve residues from the C-terminus of CED-4, however,
+prevented production of soluble complex.
+
+Stoichiometry of the CED-4/CED-9DNDC complex
+Coomassie Blue staining of the CED-4/CED-9DNDC complex
+(Peak II in Figure 2a) on SDS-PAGE gels suggested that the
+ratio of CED-4 to CED-9DNDC may be greater than 1 : 1, as
+the CED-4 band appeared signiﬁcantly more intense
+(Figure 2b). This was the case whether the complex was
+isolated using the Nickel-afﬁnity column alone, or in conjunc-
+tion with gel-ﬁltration chromatography.
+
+To perform a more quantitative analysis of the stoichiometry
+of the protein complex, it was subjected to six cycles of amino-
+terminal sequencing. Accurate values for amino-acid abun-
+
+Table 1 Amino terminal sequencing of the CED-4/CED-9 complex
+
+dance on each cycle could be readily obtained for all amino
+acids except aspartates due to technical limitations. The ratio
+of abundance of CED-9 residues to CED-4 residues was very
+close to a stoichiometric 1 : 1 ratio (Table 1). This suggests
+that the staining pattern observed on the SDS-PAGE gel may
+be due to preferential staining of CED-4 or poor staining of
+CED-9. Such anomalous staining has been reported for other
+proteins, such as certain surface proteins of Candida
+albicans.25
+
+Size and solution properties of the CED-4/CED-
+9DNDC complex
+
+The majority of the puriﬁed protein complex in more than 10
+different preparations eluted at a retention time (Peak II,
+Figure 2a) on gel-ﬁltration consistent with a complex of
+approximately 180–200 kDa. This mass estimate, determined
+from calibration curves on several different columns (e.g. see
+inset, Figure 2a),
+together with the stoichiometry data
+(Table 1), suggested that the complex might be a hetero-
+tetramer consisting of two molecules each of CED-4 and
+CED-9DNDC, for which the calculated mass is 175 kDa. The
+apparent size on gel ﬁltration was the same regardless of
+whether the FLAG tag was present at the amino terminus of
+the CED-9DNDC, indicating that artiﬁcial dimerisation through
+the FLAG tag was not responsible for the formation of the
+complex (data not shown).
+
+To get a more accurate assessment of the size of the
+complex, analytical ultracentrifugation was performed. Sedi-
+mentation velocity studies of
+the complex were initially
+conducted in Tris-buffered solution at a total protein concen-
+tration of 1.0 mg/ml. The absorbance versus radial position
+proﬁles are plotted at 6 min intervals in Supplementary Figure
+1b. Continuous size-distribution analysis of this data yields an
+excellent ﬁt
+to a predominantly single species with a
+sedimentation coefﬁcient (s20,w) of 7.5 S (Supplementary
+Figure 1c), an apparent molar mass of 159 kDa and frictional
+ratio of 1.40. This suggests that the CED-4/CED-9DNDC
+complex may exist as either a 2 : 1 or 2 : 2 CED-4/CED-
+9DNDC complex. Therefore,
+to conﬁrm the quaternary
+structure of the CED-4/CED-9DNDC complex, sedimentation
+equilibrium experiments, which are independent of molecular
+shape estimates and therefore give a more robust measure of
+molecular mass,26 were also conducted at an initial protein
+concentration of 1.0 mg/ml (Supplementary Figure 1d–f). The
+nonlinear least-squares best-ﬁt yielded a molar mass of
+18073.8 kDa, in excellent agreement with the theoretical
+heterotetrameric mass of a 2 : 2 CED-4/CED-9DNDC complex
+(175 kDa).
+
+Cycle
+
+CED-4 residue (yield) (pmol)
+CED-9 residue (yield) (pmol)
+
+1
+
+Gly (10.4)
+Ala (10.2)
+
+3
+
+His (5.7)
+Leu (4.5)
+
+5
+
+His (9.4)
+Tyr (9.3)
+
+6
+
+His (8.3)
+Lys (5.7)
+
+Amino acid yields on each sequencing cycle are presented except for cycles 2 and 4 where aberrantly high yields of aspartic acid present in CED-9 was obtained. The
+sequences are those of the tagged recombinant proteins rather than their native counterparts in which the amino terminal six residues of hexahistidine-tagged CED-4
+is GSHHHH and of FLAG-tagged CED-9 is ADLDYK
+
+Cell Death and Differentiation
+
+4
+
+Characterization of the CED-4/CED-9 complex
+WD Fairlie et al
+
+Figure 3 EGL-1 BH3 domain-induced dissociation of CED-4/CED-9 complex. CED-4 in complex with wild-type CED-9 (a, b) or a gain-of-function mutant CED-9
+(G169E) (d, e) was incubated alone (a, d) or in the presence of a synthetic peptide spanning the EGL-1 BH3 (b, e) before gel-ﬁltration chromatography. Note the shift of
+the retention position of Peak 1 in (a) to a smaller sized protein in Peak 2 in (b). The inset in (b) shows a Commasie-stained gel of the insoluble protein removed prior to
+chromatography. Only protein of the size of CED-4 was present. (c) The identity of the proteins in the two major peaks was conﬁrmed by Western blot analysis. Peak 1
+contains both the hexahistidine-tagged CED-4 and FLAG-tagged CED-9 proteins, while Peak 2 contains only CED-9. (d, e) Addition of the EGL-1 BH3 peptide did not
+affect the complex formed between a gain-of-function mutant of CED9 (G169E) and CED-4
+
+EGL-1 BH3 domain displaces CED-4 from CED-9
+
+for the apoptosis pathway in worms
+The current model
+proposes that binding of
+the BH3-only protein EGL-1 to
+CED-9 results in displacement of bound CED-4.3,12,15 If this is
+correct, we predict that the CED-4/CED-9 complex formed in
+vitro (Figure 2a, Peak II) would be disrupted by EGL-1. When
+the puriﬁed CED-4/CED-9DNDC complex was incubated with
+a synthetic 26-mer peptide encompassing the BH3 domain of
+EGL-1, a visible precipitate formed, which was removed by
+centrifugation. Gel-ﬁltration chromatography of the soluble
+material demonstrated dissociation of CED-4 from CED-
+9DNDC, with essentially no protein detected where the
+untreated complex normally elutes (Figure 3a,b). Only a peak
+corresponding to an B25 kDa protein was detected, which on
+Western blotting was shown to contain FLAG-tagged CED-
+9DNDC (Figure 3c), but not CED-4. Instead, all of the CED-4
+appeared to be contained in the insoluble pellet removed by
+centrifugation prior to chromatography (see inset, Figure 3b).
+Importantly, the release of the CED-4 from the complex
+appeared to be dependent upon a speciﬁc interaction of the
+EGL-1 BH3 peptide with wild-type CED-9. A single point
+mutation in CED-9, substituting the highly conserved glycine
+at position 169 with glutamate, which has been reported to
+effect EGL-1 binding,8,15 completely prevented the EGL-1
+BH3 domain peptide from displacing CED-4 (Figure 3d,e).
+However, the ability of this mutant CED-9 to bind CED-4 was
+unaffected (Figure 3d), which may explain why this mutant is
+
+a more potent inhibitor of cell death4 since it can no longer be
+restrained by EGL-1.
+
+Similar results were obtained using isothermal
+
+titration
+microcalorimetry (Figure 4). In these studies, EGL-1 peptide
+was titrated into the CED-4/CED-9DNDC complex. In the
+initial EGL-1 peptide injections into the CED-4/CED-9DNDC-
+containing solution, heat was released (Figure 4a), indicating
+a binding event between the peptide and the complex.
+However, a pronounced baseline shift was then observed
+upon subsequent additions of peptide. This shift may be due
+to aggregation/precipitation of CED-4 released from the
+complex as the solution removed from the isothermal titration
+calorimetry (ITC) cell at the completion of the titration was
+noticeably turbid. SDS-PAGE analysis of the pellet postcen-
+trifugation conﬁrmed that it contained predominantly CED-4
+(data not shown). The system is thermodynamically complex
+involving several potential reactions all of which release or
+absorb heat (i.e. EGL-1 peptide binds CED-9, CED-4 release
+from CED-9, CED-4 oligomerisation/precipitation), and hence
+quantitative analysis of the data is difﬁcult.
+
+However,
+
+the results provide qualitative evidence that
+aggregation of CED-4 occurs very soon after dissociation
+from CED-9 (Figure 4a). When a complex containing the
+CED-9DNDC (G169E) was similarly analysed, no initial heat
+release or signiﬁcant baseline shift was observed (Figure 4b)
+This conﬁrms our gel-ﬁltration results that EGL-1 BH3 could
+not bind mutant CED-9DNDC (G169E) (Figure 3d,e).
+
+Cell Death and Differentiation
+
+Characterization of the CED-4/CED-9 complex
+WD Fairlie et al
+
+5
+
+Figure 4 CED-4/CED-9 complex dissociation demonstrated by isothermal titration calorimetry (ITC). Raw data from isothermal calorimetry experiments with CED-4/
+CED-9 or CED-4/CED-9 (G169E) complexes. EGL-1 BH-3 peptide was titrated into solution (a) containing CED-4/CED-9, (b) CED-4/CED-9 (G169E), or (c) buffer only.
+In (d), buffer only was titrated into solution containing CED-4/CED-9 complex
+
+Unlike worm BH3-only proteins, mammalian
+BH3-only proteins cannot disrupt the CED-4/CED-9
+complex
+
+Using isothermal titration calorimetry, we were able to directly
+determine the afﬁnity of EGL-1 BH3 peptide for
+free
+(uncomplexed) CED-9DNDC. The KD for this interaction was
+approximately 25 nM, consistent with a previously reported
+value (6 nM) measured by ITC using a comparable EGL-1
+peptide.16 Recently, a second BH3-only protein, CED-13, was
+discovered in the worm.27 Its BH3 domain sequence shows
+signiﬁcant homology with that of EGL-1 (Figure 7), and over-
+expression of CED-13 in C. elegans promotes apoptosis.27
+We therefore compared the ability of CED-13 to bind CED-9
+and found that the afﬁnity of a peptide spanning this BH3
+domain was approximately four-fold lower (B100 nM) than
+that of the EGL-1. Consistent with this, we observed that the
+CED-13 BH3 peptide can also disrupt
+the CED-4/CED-
+9DNDC complex, but with lower efﬁciency as demonstrated
+by a signiﬁcant proportion of the complex remaining after
+treatment (Figure 5b).
+
+Since both worm BH3-only proteins can displace CED-4
+from CED-9, the evolutionary conservation of the cell death
+
+pathways prompted us to test if mammalian BH3-only proteins
+can also trigger this dissociation. As mammalian Bcl-2 can
+function in worms,4,28 we wondered if mammalian BH3-only
+proteins such as Bim, which can bind to all known mammalian
+prosurvival proteins, could substitute for worm EGL-1. We
+found instead that Bim BH3 peptide could not bind CED-
+9DNDC in direct binding studies, using isothermal titration
+calorimetry (data not shown), and consistent with this, Bim BH3
+peptide did not disrupt the complex formed between CED-4
+and CED-9DNDC (Figure 5c). Furthermore, synthetic peptides
+corresponding to the BH3 domain sequence from several other
+mammalian BH3-only proteins, Bid, Bad, Noxa or Puma, did
+not cause any complex dissociation (data not shown).
+
+To determine whether complex dissociation could involve
+more than just the BH3 domain sequence, we examined the
+ability of the promiscuous-binding full-length BimS protein to
+interact with the CED-4/CED-9 complex. In an initial experi-
+ment, bacterially expressed recombinant
+full-length BimS
+protein was used in place of the BH3 domain peptide. This
+protein, as with the peptide, was unable to dissociate or
+interact with the puriﬁed CED-4/CED-9 complex as
+determined by both gel-ﬁltration and ITC experiments (data
+
+Cell Death and Differentiation
+
+6
+
+Characterization of the CED-4/CED-9 complex
+WD Fairlie et al
+
+Figure 6 C. elegans EGL-1, but not human BimS, dissociate CED-4 from CED-9.
+Equivalent
+lysates prepared from 293T cells cotransfected with constructs
+encoding HA-tagged CED-4 and FLAG-tagged CED-9 and either EE-tagged CED-
+9 or EE-tagged BimS were immunoprecipitated with anti-FLAG antibodies and
+immunoblotted with both anti-HA (upper panel) or anti-FLAG (lower panel)
+antibodies. EGL-1 expression disrupts the CED-4/CED-9 complex, but Bims was
+unable to do so
+
+Discussion
+
+In C. elegans, the life-or-death fate of a cell is dependent upon
+whether the adapter protein CED-4 is sequestered by CED-9.
+In this manuscript we have shown for the ﬁrst time that the
+CED-4/CED-9 complex can exist as a heterotetramer in
+aqueous solution, with the size and stoichiometry of the
+complex determined from gel-ﬁltration chromatography (Fig-
+ure 2), N-terminal sequencing (Table 1) and analytical
+ultracentrifugation (Supplementary Figure 1). This complex
+is (coexpressed) at milligram per litre quantities in E. coli and
+is highly soluble. In contrast, attempts to purify similar levels of
+CED-4 alone were hindered by the protein’s insolubility and
+tendency to aggregate into inclusion bodies. Previously, the
+expression of soluble GST-fusions of CED-4 has been
+reported,8,14,24 although the amounts of protein produced in
+these studies is unclear, while other attempts to coexpress
+CED-4 and CED-3 resulted only in the production of insoluble
+proteins.29 While we cannot eliminate the possibility that the
+CED-4/CED-9 complex known to be associated with the
+mitochondrial membrane in the worm exists in a different
+oligomeric form to that described here for the E. coli-derived
+complex, our biochemical data for different complexes,
+including mutants, are consistent with the features of the
+protein complex characterised previously.5,6,8–10,12,15
+
+For example, we have shown that the formation of the
+complex is not dependent on the presence of the CARD of
+CED-4, consistent with the requirement that it be free to recruit
+CED-3 to a trimolecular complex of CED-3/CED-4/CED-9.7
+This result agrees with other studies using yeast two-hybrid
+assays showing a strong interaction between CED-9 and
+CED-4 with its CARD deleted.10 Importantly, we also
+demonstrated that the heterotetrameric CED-4/CED-9DNDC
+complex dissociated upon incubation with a synthetic peptide
+corresponding to the BH3 domain of EGL-1 providing
+evidence that the complex produced here in E. coli behaves
+functionally in a manner similar to that reported in transfected
+cells (Figure 6)12,15 and in worms.5 Furthermore, we demon-
+strated that introduction of the G169E gain-of-function muta-
+tion into CED-9DNDC prevented EGL-1 BH3 peptide-induced
+
+Figure 5 C. elegans CED-13 BH3, but not Bim BH3 dissociate CED-4 from
+CED-9. The puriﬁed CED-4/CED-9 complex was incubated (a) alone, or with
+synthetic peptides corresponding to (b) CED-13 BH3 or (c) Bim BH3 prior to gel-
+ﬁltration chromatography. Note the partial complex dissociation with CED-13 BH3
+peptide, whereas addition of Bim BH3 had no impact
+
+not shown). This was conﬁrmed in co-immunoprecipitation
+experiments (Figure 6). In these experiments, expression of
+EGL-1 prevented association of CED-4 with CED-9. However,
+consistent with studies using bacterially- expressed recombi-
+nant material, expression of Bims had no effect on complex
+formation/dissociation (Figure 6). Taken together,
+these
+binding studies conﬁrm the selectivity of worm BH3-proteins
+(EGL-1 and CED-13) for CED-9.
+
+Cell Death and Differentiation
+
+Characterization of the CED-4/CED-9 complex
+WD Fairlie et al
+
+7
+
+Figure 7 Sequences of BH3 peptides used. The BH3 domains of the indicated BH3-only proteins were synthesised as 26-mers. Shaded residues indicate identity with
+the EGL-1 sequence
+
+release of CED-4 from the complex as shown previously.5 In
+addition, no binding was detected between the EGL-1 BH3
+peptide and the complex involving this CED-9DNDC(G169E)
+mutant
+in our ITC studies. These results agree with the
+previously observed failure of CED-4 to be released from
+the mitochondria in cells expressing this CED-9 mutant,5 and
+structural studies that show that
+the G169E substitution
+occludes the BH3-binding groove.14
+
+Our experiments also support observations by others that,
+in the absence of CED-9, CED-4 self-associates.5,24 Using
+puriﬁed recombinant proteins, we have shown that following
+EGL-1 BH3 peptide-induced release of CED-4 from CED-9,
+CED-4 forms an insoluble aggregate. The ITC studies also
+suggest that this aggregation occurs very soon after EGL-1
+BH3 peptide-induced release from CED-9. This tendency for
+CED-4 to aggregate/self-associate may explain why expres-
+sion of high levels of soluble CED-4 in E. coli was not possible.
+However, it may be the case that this aggregation process
+would be less pronounced or, at least, more controlled if
+CED-4 were bound to CED-3, as may be the case in cells.
+
+rationale for
+
+this observation.
+
+We also examined the ability of BH3 domains from proteins
+other than EGL-1 (Figure 5) to dissociate the CED-4/CED-
+9DNDC complex. The BH3 domain sequence from another
+nematode protein, CED-13, was able to displace CED-4 from
+CED-9, although it was less effective than the EGL-1 peptide.
+This weaker dissociating activity was reﬂected in the
+approximately four-fold lower afﬁnity of the peptide for CED-9.
+CED-13 binding to CED-9 in C. elegans has been reported,
+although the proapoptotic phenotype of CED-13 is apparently
+weaker than that of EGL-1.27 The weaker afﬁnity of CED-13
+for CED-9DNDC compared to that of EGL-1 may provide a
+partial
+Interestingly, BH3
+domain sequences from the mammalian BH3-only proteins
+Bim, Puma, Noxa, Bad, and Bid were completely ineffective at
+dissociating the complex, consistent with the absence of
+binding of Bim to free CED-9DNDC in our ITC studies. We
+have previously shown that both Bim and Puma can bind with
+high afﬁnity (dissociation equilibrium constants in the low
+nanomolar range) to all known mammalian Bcl-2 family
+proteins, while Noxa, Bad and Bid have more restricted
+speciﬁcities.30 Among the central 16 residues at the core of
+the BH3 domains illustrated in Figure 7, the EGL-1 sequence
+is preserved at 10 of these positions in one or more of the
+mammalian proteins. If the BH3 domains of all known human
+BH3-only proteins30 are included in the comparison (although
+not all have been assayed here), the number increases to 13
+(or 14 if the Cys for Ser substitution is discounted). Thus, a
+signiﬁcant residual of the worm EGL-1 sequence persists in
+the BH3-only proteins in mammals, but none of those tested
+
+here can displace CED-4 from CED-9. Hence, this inability of
+BH3 domain sequences from mammalian BH3-only proteins
+to displace CED-4 further illustrates aspects of the speciﬁcity
+between BH3 domains and prosurvival molecules.
+
+this binding surface involves neither
+
+The observation that the CED-4/CED-9DNDC complex is
+heterotetrameric has a number of implications. Site-directed
+mutagenesis studies of CED-9 indicate that residues in a
+surface patch adjacent to the BH3 domain-binding groove on
+CED-9 are involved in the interaction with CED-4;14 however,
+our data suggest
+that a yet-to-be characterised binding
+surface on either or both of the components is involved in
+dimerisation of the CED-4/CED-9 complex. Further, our data
+indicate that
+the
+membrane anchor nor the N-terminal 67 residues of CED-9.
+The absence of evidence for a dimer of CED-9 in solution
+suggests that CED-4 may mediate dimerisation of the CED-4/
+CED-9DNDC complex. In that case, the NB-ARC would be
+implicated in the homodimerisation of CED-4 as the complex
+can be formed in the absence of
+the CED-4 CARD.
+Furthermore, our ﬁnding that deletion of just ﬁve residues
+from the C-terminus of CED-4 prevented production of soluble
+complex suggests that the interface for complex formation
+includes the C-terminus of CED-4. In the APAF-1 structure,
+the C-terminal residues are located on a short helix at the
+opposite end of
+the molecule to the N-terminus and,
+importantly, are quite distinct from the other four protein
+domains.23 Hence, the inability to produce soluble protein with
+the short C-terminal deletion is unlikely due to failure of the
+CED-4 proteins to fold, but is more likely due to a failure in the
+assembly of the complex.
+
+It
+
+is known that CED-3 can bind to the CED-4/CED-9
+complex7,31 and that activation of CED-3 occurs following
+displacement of CED-9 and oligomerisation of CED-4. We have
+shown that
+the heterotetramer does not depend on the
+presence of the N-terminal CARD of CED-4, which suggests
+that in this complex it is ‘available’ to bind its cognate CARD on
+CED-3. If this model holds for a ternary CED-3/CED-4/CED-9
+complex anchored via CED-9 to the mitochondrial membrane,
+then that complex would contain two molecules of CED-3,
+apparently held in such a way that autoactivation is inhibited.
+We have preliminary electron microscopy data showing that
+the negatively stained CED-4/CED-9 complex is compact
+(100–120 A˚ in diameter). Based on the molecular dimensions
+of APAF-1, this suggests a side-by-side arrangement of the
+CED-4 protomers in the heterotetramer, although no informa-
+tion is available on the details. In a recent paper by Chao et al.,32
+it was elegantly demonstrated that dimerisation of caspase-9
+alone is not sufﬁcient for full activity (compared to APAF-1-
+activated caspase-9).
+Instead, an induced conformational
+
+Cell Death and Differentiation
+
+8
+
+Characterization of the CED-4/CED-9 complex
+WD Fairlie et al
+
+change may be more important. Thus, even a head-to-head or
+parallel alignment (i.e. with the CED-4 CARD’s aligned) may
+not sufﬁce to activate CED-3 without the stimulus of EGL-1,
+and the resulting reorganisation of CED-4/CED-3.
+
+We postulate an active role for CED-3 in controlling the
+oligomerisation of CED-4, because in its absence, CED-4
+forms insoluble aggregates on release from CED-9. Future
+structural studies based on the results we have described
+should provide further insight into the molecular mechanism of
+this activation process.
+
+Materials and Methods
+
+Plasmid construction
+
+The CED-4/CED-9 complex was coexpressed using the pET DUET-1 dual
+expression vector (Novagen). The wild-type or mutant ced-4S cDNA’s
+were subcloned into the ﬁrst multiple cloning site such that an N-terminal
+hexahistidine tag was added to the protein, while the wild-type or mutant
+FLAG-tagged ced-9 cDNA’s were subcloned into the second multiple
+cloning site. Hexahistidine-tagged CED-9 (amino acids 68–251) was
+produced using the pET 15b vector (Novagen). Mutagenesis of both
+CED-4 and CED-9 was performed using the method of Kunkel et al.33 All
+constructs were conﬁrmed by bidirectional automated DNA sequencing.
+
+Protein expression and puriﬁcation
+
+Proteins were expressed in BL-21(DE3) pLysS cells. For the CED-4/CED-9
+coexpression, cells were grown from an overnight culture to an OD600 of
+0.6–0.8 at 371C. Expression of proteins was then induced with 500 mM
+isopropyl-b-D-thiogalactopyranoside for 5 h at 251C after which cells were
+pelleted and stored at  801C until required. Uncomplexed CED-9 was
+expressed by induction at 371C for 3 h.
+
+To purify the proteins, cell pellets were thawed and homogenised using
+an Avestin EmulsiFlex homogeniser in lysis buffer (20 mM Tris-HCl, pH
+8.0, 150 mM NaCl, 10 mM 2-mercaptoethanol: TBS/2ME). Following
+centrifugation to remove cell debris, the supernatant was ﬁltered and then
+pumped onto a 1 ml Hi-Trap (Amersham Biosciences) chelating column
+charged with nickel. After washing the column with lysis buffer containing
+20 mM imidazole,
+the protein was eluted with lysis buffer containing
+250 mM imidazole. The eluate was then further puriﬁed by gel-ﬁltration
+chromatography on a Superdex 200 16/60 column (Amersham)
+equilibrated and run in lysis buffer at 1 ml/min.
+
+SDS-PAGE and Western blot analysis
+
+for 3 min prior
+
+Proteins were boiled in Laemmli sample buffer
+to
+electrophoresis on precast 4–20% polyacrylamide gradient gels (Invitro-
+gen). Gels were either stained directly in a Coomasie Brilliant Blue solution
+or proteins transferred to PVDF membranes for Western blot analysis.
+Membranes were probed using either anti-hexahistidine (Santa Cruz
+Biotechnology) or anti-FLAG M2 antibodies (Sigma) followed by anti-rabbit
+or anti-mouse horseradish peroxidase-conjugated secondary antibodies.
+Proteins were then visualised by enhanced chemiluminescence (Amer-
+sham Biosciences).
+
+CED-4/CED-9 complex dissociation assays
+
+Studies on the dissociation of the CED-4/CED-9 complex were performed
+by incubation of 50 mg of protein (0.5 mg/ml) with a two-fold molar excess
+
+of synthetic BH3 domain peptide (supplied by Mimotopes) in a total volume
+of 200 ml for 1 h at room temperature. The reaction mixture was then
+centrifuged for 5 min at 13 000 rpm in a bench-top microfuge prior to
+chromatography on a Superose 6 10/30 column equilibrated and run in
+TBS/2ME at 0.5 ml/min.
+
+Isothermal titration microcalorimetry
+
+Isothermal titration microcalorimetry (ITC) studies were performed using a
+MicroCal VP-ITC instrument. Proteins were diluted to 15 mM in TBS/2ME
+and peptides (prepared in the same buffer from 2 mM stocks) were titrated
+from a 120 mM solution. All experiments were performed at 251C. Data
+analysis was performed using the MicroCal Origin software.
+
+Analytical ultracentrifugation
+
+Sedimentation experiments were conducted in a Beckman model XL-A
+analytical ultracentrifuge at a temperature of 201C. Samples dissolved in
+20 mM Tris, 150 mM NaCl, 1 mM DTT, pH 8.0 were loaded into a
+conventional double sector quartz cell and mounted in a Beckman 4-hole
+An-60 Ti rotor. For sedimentation velocity experiments, 380 ml of sample
+(1.0 mg/ml) and 400 ml of reference solution were centrifuged at a rotor
+speed of 40 000 rpm, and the data were collected at a single wavelength
+(280 nm) in continuous mode, using a time interval of 300 s and a step-size
+of 0.003 cm without averaging. For sedimentation equilibrium experi-
+ments, 100 ml of sample (1.0 mg/ml) and 120 ml of
+reference were
+employed and the data were collected at a wavelength of 290 nm, rotor
+velocity of 10 000 or 16 000 rpm, using a stepsize of 0.001 cm with 10
+averages until sedimentation equilibrium was attained (B24 h). To
+estimate the signal due to nonsedimenting contaminants, high-speed
+depletion was performed at 40 000 rpm for 5 h following sedimentation
+equilibrium, and the resulting baseline offset (E) was calculated by
+averaging the absorbance over a radial range of 0.1 cm in the plateau
+region adjacent to the sample meniscus. For all samples, the values for E
+represented o 5% of the initial absorbance. Solvent density (1.005 g/ml at
+201C) and viscosity (1.021 cp), as well as estimates of the partial speciﬁc
+volume (0.734 ml/g) and hydration (0.402 g/g) of the CED-4/CED-9DNDC
+complex were computed using the program SEDNTERP.34 Sedimentation
+velocity data at multiple time points were ﬁtted to either a noninteracting
+discrete species model of up to three components or a continuous size-
+distribution model35 using the program SEDFIT, which is available at
+www.analyticalultracentrifugation.com. Sedimentation equilibrium data at
+multiple speeds were globally ﬁtted to single discrete species model by
+employing the program SEDPHAT,36 which is similarly available.
+
+N-terminal amino-acid sequencing
+
+N-terminal amino-acid sequencing was performed using a Hewlett
+Packard G1000A protein sequencer.
+
+Co-immunoprecipitations
+
+293T cells were transiently cotransfected with pcDNA3 vectors encoding
+HA-tagged CED-4 and FLAG-tagged CED-9 and either EE-tagged-EGL-1
+or EE-tagged BimS, both in pEF vectors. At 24 h post-transfection, CED-4/
+CED-9 complexes were immunoprecipitated using a mouse M2 anti-FLAG
+antibody (Sigma). Following SDS-PAGE, proteins were transferred onto
+nitrocellulose membranes and immunoblotted with either rat anti-HA 3F10
+(Roche) or FLAG 9H1 antibodies.37
+
+Cell Death and Differentiation
+
+Acknowledgements
+
+We thank Mr Marco Evangelista and Mr Jai Yu for excellent technical
+assistance and Mr Phil Strike at CSIRO Health Science and Nutrition for
+the protein sequencing. Our work is supported by the Australian NHMRC
+(Program Grant 257502 and an RD Wright Fellowship to WDF), Leukemia
+and Lymphoma Society (Specialized Center of Research 7015-02),
+Cancer Council Victoria (Fraser Fellowship to PMC), Sylvia and Charles
+Viertel Charitable Foundation, and Australian Cancer Research Founda-
+tion.
+
+References
+
+1. Horvitz HR (1999) Genetic control of programmed cell death in the nematode
+
+Caenorhabditis elegans. Cancer Res. 59 (7 Suppl): 1701s–1706s
+
+2. Yuan JY and Horvitz HR (1990) The Caenorhabditis elegans genes ced-3
+and ced-4 act autonomously to cause programmed cell death. Dev. Biol. 138:
+33–41
+
+3. Conradt B and Horvitz HR (1998) The C. elegans protein EGL-1 is required for
+programmed cell death and interacts with the Bcl-2-like protein CED-9. Cell 93:
+519–529
+
+4. Hengartner MO and Horvitz HR (1994) C. elegans cell survival gene ced-9
+encodes a functional homolog of the mammalian proto-oncogene bcl-2. Cell
+76: 665–676
+
+5. Chen F, Hersh BM, Conradt B, Zhou Z, Riemer D, Gruenbaum Y and Horvitz
+HR (2000) Translocation of C. elegans CED-4 to nuclear membranes during
+programmed cell death. Science 287: 1485–1489
+
+6. Yang X, Chang HY and Baltimore D (1998) Essential
+
+role of CED-4
+oligomerization in CED-3 activation and apoptosis. Science 281: 1355–1357
+7. Chinnaiyan AM, Chaudhary D, O’Rourke K, Koonin EV and Dixit VM (1997)
+
+Role of CED-4 in the activation of CED-3. Nature 388: 728–729
+
+8. Parrish J, Metters H, Chen L and Xue D (2000) Demonstration of the in vivo
+interaction of key cell death regulators by structure-based design of second-site
+suppressors. Proc. Nat. Acad. Sci. USA 97: 11916–11921
+
+9. Spector MS, Desnoyers S, Hoeppner DJ and Hengartner MO (1997)
+Interaction between the C. elegans cell-death regulators CED-9 and CED-4.
+Nature 385: 653–656
+
+10. Ottilie S, Wang Y, Banks S, Chang J, Vigna NJ, Weeks S, Armstrong RC, Fritz
+LC and Oltersdorf T (1997) Mutational analysis of the interacting cell death
+regulators CED-9 and CED-4. Cell Death Differ. 4: 526–533
+
+11. Tao W, Walke DW and Morgan JI (1999) Oligomerized Ced-4 kills budding
+yeast through a caspase-independent mechanism. Biochem. Biophys. Res.
+Commun. 260: 799–805
+
+12. del Peso L, Gonza´lez VM and Nu´n˜ez G (1998) Caenorhabditis elegans EGL-1
+disrupts the interaction of CED-9 with CED- 4 and promotes CED-3 activation.
+J. Biol. Chem. 273: 33495–33500
+
+13. Wu D, Wallen HD, Inohara N and Nun˜ez G (1997) Interaction and regulation of
+the Caenorhabditis elegans death protease CED-3 by CED-4 and CED-9.
+J. Biol. Chem. 272: 21449–21454
+
+14. Yan N, Gu L, Kokel D, Chai J, Li W, Han A, Chen L, Xue D and Shi Y (2004)
+Structural, biochemical, and functional analyses of CED-9 recognition by the
+proapoptotic proteins EGL-1 and CED-4. Mol. Cell 15: 999–1006
+
+15. del Peso L, Gonza´lez VM, Inohara N, Ellis RE and Nu´n˜ez G (2000) Disruption
+of the CED-9/CED-4 complex by EGL-1 is a critical step for programmed cell
+death in C. elegans. J. Biol. Chem. 275: 27205–27211
+
+16. Woo JS, Jung JS, Ha NC, Shin J, Kim KH, Lee W and Oh BH (2003)
+Unique structural
+features of a BCL-2 family protein CED-9 and bio
+physical characterization of CED-9/EGL-1 interactions. Cell Death Differ. 10:
+1310–1319
+
+17. Muchmore SW, Sattler M, Liang H, Meadows RP, Harlan JE, Yoon HS,
+Nettesheim D, Chang BS, Thompson CB, Wong S-L, Ng S-C and Fesik SW
+
+Characterization of the CED-4/CED-9 complex
+WD Fairlie et al
+
+9
+
+(1996) X-ray and NMR structure of human Bcl-xL, an inhibitor of programmed
+cell death. Nature 381: 335–341
+
+18. Petros AM, Medek A, Nettesheim DG, Kim DH, Yoon HS, Swift K, Matayoshi
+ED, Oltersdorf T and Fesik SW (2001) Solution structure of the antiapoptotic
+protein bcl-2. Proc. Nat. Acad. Sci. USA 98: 3012–3017
+
+19. Liu X, Dai S, Zhu Y, Marrack P and Kappler JW (2003) The structure of a Bcl-xL/
+Bim fragment complex: Implications for Bim function. Immunity 19: 341–352
+20. Petros AM, Nettseheim DG, Wang Y, Olejniczak ET, Meadows RP, Mack J,
+Swift K, Matayoshi ED, Zhang H, Thompson CB and Fesik SW (2000)
+Rationale for Bcl-xL/Bad peptide complex
+formation from structure,
+mutagenesis, and biophysical studies. Protein Sci. 9: 2528–2534
+
+21. Sattler M, Liang H, Nettesheim D, Meadows RP, Harlan JE, Eberstadt M, Yoon
+HS, Shuker SB, Chang BS, Minn AJ, Thompson CB and Fesik SW (1997)
+Structure of Bcl-xL-Bak peptide complex: recognition between regulators of
+apoptosis. Science 275: 983–986
+
+22. Hengartner MO and Horvitz HR (1994) Activation of C. elegans cell death
+protein CED-9 by an amino-acid substitution in a domain conserved in Bcl-2.
+Nature 369: 318–320
+
+23. Riedl SJ, Li W, Chao Y, Schwarzenbacher R and Shi Y (2005) Structure of the
+
+apoptotic protease-activating factor 1 bound to ADP. Nature 434: 926–933
+
+24. Seiffert BM, Vier J and Hacker G (2002) Subcellular
+
+localization,
+oligomerization, and ATP-binding of Caenorhabditis elegans CED-4.
+Biochem. Biophys. Res. Commun. 290: 359–365
+
+25. Vediyappan G, Bikandi J, Braley R and Chafﬁn WL (2000) Cell surface proteins
+of Candida albicans: preparation of extracts and improved detection of proteins.
+Electrophoresis 21: 956–961
+
+26. Perugini MA, Schuck P and Howlett GJ (2000) Self-association of human
+apolipoprotein E3 and E4 in the presence and absence of phospholipid. J. Biol.
+Chem. 275: 36758–36765
+
+27. Schumacher B, Schertel C, Wittenburg N, Tuck S, Mitani S, Gartner A, Conradt
+B and Shaham S (2005) C. elegans ced-13 can promote apoptosis and is
+induced in response to DNA damage. Cell Death Differ. 12: 153–161
+
+28. Vaux DL, Weissman IL and Kim SK (1992) Prevention of programmed cell
+
+death in Caenorhabditis elegans by human bcl-2. Science 258: 1955–1957
+
+29. Kim KJ, Kim HE, Lee KH, Han W, Yi MJ, Jeong J and Oh BH (2004) Two-
+promoter vector is highly efﬁcient for overproduction of protein complexes.
+Protein Sci. 13: 1698–1703
+
+30. Chen L, Willis SN, Wei A, Smith BJ, Fletcher JI, Hinds MG, Colman PM, Day
+CL, Adams JM and Huang DC (2005) Differential targeting of prosurvival Bcl-2
+proteins by their BH3-only ligands allows complementary apoptotic function.
+Mol. Cell 17: 393–403
+
+31. Chaudhary D, O’Rourke K, Chinnaiyan AM and Dixit VM (1998) The death
+inhibitory molecules CED-9 and CED-4L use a common mechanism to inhibit
+the CED-3 death protease. J. Biol. Chem. 273: 17708–17712
+
+32. Chao Y, Shiozaki EN, Srinivasula SM, Rigotti DJ, Fairman R and Shi Y (2005)
+Engineering a dimeric caspase-9: a re-evaluation of the induced proximity
+model for caspase activation. PloS. Biol. 3: e183
+
+33. Kunkel TA, Bebenek K and McClary J (1991) Efﬁcient site-directed
+
+mutagenesis using uracil-containing DNA. Methods Enzymol. 204: 125–139
+
+34. Laue TM, Shah BD, Ridgeway TM and Pelletier SL (1992) Computer aided
+interpretation of analytical sedimentation data for proteins.
+In Analytical
+Ultracentrifugation in Biochemistry and Polymer Science Harding SE, Rowe AJ
+and Horton JC (eds) (Cambridge: The Royal Society of Chemistry) pp. 90–125
+by
+sedimentation velocity ultracentrifugation and lamm equation modeling.
+Biophys. J. 78: 1606–1619
+
+35. Schuck P (2000) Size-distribution
+
+analysis
+
+of macromolecules
+
+36. Vistica J, Dam J, Balbo A, Yikilmaz E, Mariuzza RA, Rouault TA and Schuck P
+(2004) Sedimentation equilibrium analysis of protein interactions with global
+implicit mass conservation constraints and systematic noise decomposition.
+Anal. Biochem. 326: 234–256
+
+37. Wilson-Annan J, O’Reilly LA, Crawford SA, Hausmann G, Beaumont JG,
+Parma LP, Chen L, Lackmann M, Lithgow T, Hinds MG, Day CL, Adams JM
+and Huang DC (2003) Proapoptotic BH3-only proteins trigger membrane
+integration of prosurvival Bcl-w and neutralize its activity. J. Cell Biol. 162:
+877–887
+
+Supplementary Information accompanies the paper on Cell Death and Diffrentiation website (http://www.nature.com/cdd).
+
+Cell Death and Differentiation
+
+

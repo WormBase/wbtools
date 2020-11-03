@@ -1,0 +1,1502 @@
+Review articles
+
+Regulated nucleocytoplasmic
+transport in spermatogenesis:
+a driver of cellular differentiation?
+Cathryn Hogarth,1,3 Catherine Itman,1,3 David A. Jans,2,3
+and Kate L. Loveland1,3*
+
+Summary
+This review explores the hypothesis that regulation of
+nucleocytoplasmic shuttling is a means of driving dif-
+ferentiation, using spermatogenesis as a model. The
+transition from undifferentiated spermatogonial stem cell
+to terminally differentiated spermatozoon is, at its most
+basic, a change in the repertoire of expressed genes. To
+effect this, the complement of nuclear proteins, such as
+transcription factors and chromatin remodelling compo-
+nents must change. Current knowledge of the nuclear
+proteins and nucleocytoplasmic transport machinery re-
+levant to spermatogenesis is consolidated in this review,
+and their functional linkages are highlighted not only as a
+means of regulating nuclear protein composition, but
+also as a key mechanism regulating gene transcrip-
+tion and hence cell fate. Through this, we hypothesize
+that male germ cell differentiation is mediated through
+regulation of nuclear transport machinery components,
+
+1Monash Institute of Medical Research, Monash University, Mel-
+bourne, Australia.
+2Department of Biochemistry & Molecular Biology, Monash University,
+Melbourne, Australia.
+3Australian Research Council Centre for Excellence in Biotechnology
+and Development, Australia
+Funding agencies: The Australian Research Council and supported by
+Fellowships from the National Health and Medical Research Council
+(KL # 143792; DJ # 334013) and Monash University Postgraduate
+Scholarships (CH, CI).
+*Correspondence to: Dr. Kate L. Loveland, Monash Institute for
+Medical Research; 27-31 Wright Street; Clayton, Victoria 3168
+Australia.
+E-mail: Kate.loveland@med.monash.edu.au
+DOI 10.1002/bies.20289
+
+Abbreviations: E, embryonic day; NLS, nuclear localization signal,
+RanBP, Ran binding-protein; CaM, calmodulin; PKA, protein kinase A;
+cdk, cyclin-dependent kinase; AMH, anti-Mu¨llerian hormone; SF-1,
+steroidogenic factor-1; HMG, high mobility group; MPF, M-phase
+promoting factor; GSK3-b, glycogen synthase kinase 3b; CRE, cAMP-
+responsive element; CREB, CRE binding-protein; CREM, CRE
+modulator protein; CBP, CREB binding-protein; ACT, Activator of
+CREM in the Testis; TB-RBP, testis-brain RNA-binding protein; TRAX,
+translin-associated factor X; Dhh, desert hedgehog; Gli, glioma-
+associated oncogene; Ci, cubitus interruptus; Smad, mothers against
+decapentaplegic homolog.
+
+and thereby of the access of critical factors to the
+nucleus. The importance of nucleocytoplasmic traffick-
+ing to male germ cell differentiation is discussed, using
+the sex-determining factors Sry and SOX9, cell cycle
+regulators, CREM and cofactors and the Smads as spe-
+cific examples, together with the roles in gametogenesis
+for particular nuclear transport factors in Caenorhabditis
+elegans and Drosophila.
+BioEssays 27:1011–1025,
+2005. ß 2005 Wiley Periodicals, Inc.
+
+Spermatogenesis: a sequence of
+developmental steps
+The production of fertile sperm relies on a precisely controlled
+and orderly sequence of developmental steps. These steps
+are initiated in the early embryo and are completed for the first
+time only during puberty, setting the stage for the continuous
+production of sperm, which occurs throughout adult life. A
+small number of cells first observed in the mouse around
+embryonic day 7 (E7) are allocated to the mammalian germline
+prior to gastrulation. These primordial germ cells (Fig. 1)
+proliferate and migrate to the developing gonad.
+In the
+presence of Y chromosome gene products produced by pre-
+Sertoli cells of the male gonad,(1) they differentiate between
+E11.5 and E12.5 into cells with the potential to form sperm,
+termed gonocytes. Enveloped by Sertoli cells within semini-
+ferous cords, gonocytes proliferate until approximately
+E14.5(2) and then enter mitotic arrest.
+
+Within two days after birth in the mouse, gonocytes re-enter
+the cell cycle and migrate to the perimeter of the seminiferous
+cord, becoming spermatogonia. Following a precise number of
+cell divisions, these cells enter meiosis as spermatocytes.
+Over the ensuing week, two successive nuclear divisions yield
+haploid spermatids. These undergo the process of spermio-
+genesis, which is characterized by repackaging of genomic
+DNA, development of the acrosome, growth of the sperm tail,
+and disassembly of
+the transcriptional and translational
+machinery.(3) The resulting sperm is essentially devoid of
+cytoplasm and designed to carry its genetic cargo through the
+male and female reproductive tracts to the egg. A renewing
+population of spermatogonial stem cells maintains a con-
+tinuum of developing and maturing germ cells. As the testis
+develops, its germ cell population increases in complexity until,
+in the adult testis, germ cells at all stages of differentiation,
+
+BioEssays 27:1011 –1025, ß 2005 Wiley Periodicals, Inc.
+
+BioEssays 27.10 1011
+
+Review articles
+
+Figure 1. Nuclear acting factors expressed during development of the fetal testis and during spermatogenesis in the maturing and adult
+testis. The main cell types are shown above in schematic form in relationship to the processes of mitosis, meiosis and spermiogenesis, with
+days referring to the first appearance of each specific cell type. Although Sry is expressed exclusively in fetal Sertoli cells for a 2-day period
+(E10.5–12.5) in the mouse, expression in humans extends into adult life in the testis.(89) SC, stem cells; N, nuclear; C, cytoplasmic.
+
+from stem cell through to mature sperm, are present in tightly
+controlled numbers and a highly organized arrangement. This
+concurrent presence of germ cells at all stages of differentia-
+tion within the seminiferous epithelium enables the simulta-
+neous study of spermatogenic ontogeny,(3) thus making the
+testis an ideal system for studying development.
+
+Modulating gene expression through regulated
+nucleocytoplasmic trafficking
+like other developmental pro-
+Because spermatogenesis,
+cesses, embraces a sequential set of specific changes in cell
+morphology and function, its progression requires the activa-
+tion of appropriate transcription factors and delivery of nuclear
+proteins to drive the required gene expression changes. We
+hypothesize that, in addition to transcription factor regulation,
+changes in the nuclear transport machinery also occur in
+response to growth and differentiation stimuli. The following
+section reviews selected current knowledge concerning these
+factors and focuses on the most well-studied nuclear transport
+mechanism, which relies on the importin family of proteins.
+
+Key factors that
+
+regulate specific stages of normal
+spermatogenesis include hormones such as follicle stimulat-
+ing hormone and testosterone, stem cell factor and members
+of the transforming growth factor (TGF) b superfamily.(4) These
+extracellular signals elicit changes in gene transcription that
+alter access of specific transcription factors to DNA through
+regulation of transcription factor transport into and out of the
+nucleus.
+
+The double-membrane structure of the nuclear envelope
+restricts nuclear access, with the only portal for macromole-
+cules being the nuclear pore complexes. The nuclear pore
+complex comprises 40–50 distinct nucleoporin proteins.(5)
+To pass through the nuclear pore, molecules greater than
+50 kDa in size require active trafficking by nuclear transport
+components, which typically recognise specific nuclear import
+or export signals on these cargo proteins. In classical nuclear
+import, nuclear localization signals (NLSs) on cargo proteins
+are recognized by members of the importin protein super-
+family, within which there are multiple a and b forms.(6) Nuclear
+transport may be mediated by an importin b molecule alone,
+
+1012 BioEssays 27.10
+
+Review articles
+
+Figure 2.
+
+BioEssays 27.10 1013
+
+Review articles
+
+(Fig. 2B), or by a heterodimer of importin a/b1 (Fig. 2A); in
+the latter case, the importin a confers NLS recognition. The
+complex of cargo and import proteins progresses through the
+nuclear pore by transient interactions between the importin b
+and nucleoporins. Once inside the nucleus, dissociation of the
+complex requires binding of GTP-bound Ran to importin b
+(see Fig. 2). Classical nuclear protein export (Fig. 2C) is
+mechanistically similar to import, except that a separate set of
+importin b family members serve as ‘‘exportins’’, recognizing
+nuclear export signals. RanGTP is an integral component of
+the export complex that moves through the nuclear pore
+complex and is dissociated in the cytoplasm by Ran-GAP
+(RanGTPase activating protein).(5)
+
+There are multiple homologues of both importin a (6 in
+humans)(7) and importin b (more than 20 in humans) in higher
+eukaryotes. Table 1 illustrates the extent of similarity both
+within the respective importin families, and across evolution,
+of the 5 murine importin as (Table 1A) and selected repre-
+the murine importin b family (Table 1B),
+sentatives of
+demonstrating the relatively greater amino acid conservation
+between the importin as. Observations thus far(8–11) indicate
+that different importin as have distinct properties in terms of
+NLS recognition and nuclear transport efficiency for speci-
+fic cargo proteins, as well as differential
+tissue/cell-type
+expression.(6,8–11) Importin as appear to differ in NLS-binding
+specificity consistent with specialized transport roles; the
+inducible transcription factor STAT1, for example, is recog-
+nized by human Importin a1 and not by Importin a5,(8) whilst
+NLSs that are recognized by Importin a3, such as that of the
+DNA helicase Q1, appear
+to require distinct N-terminal
+flanking sequences.(10)
+
+Very few members of the the importin b family have been
+functionally characterized. These include importin b1, 2
+(transportin), 3 (Ran binding-Protein 5),
+importin 7 (Ran
+binding-Protein 7), and the exportin CRM1, the latter being
+responsible for nuclear export of leucine-rich nuclear export
+signal-containing proteins. Functional redundancy within the
+importin b family is exemplified by the NLS from ribosomal
+
+protein rpL23a, which can be recognised by importin b1, 2, 3
+and importin 7.(12)
+
+While classical nuclear import and export accounts for
+much of the transport across the nuclear envelope, other
+importin- and Ran-independent nuclear import pathways have
+been described. One example is the signaling molecule b-
+catenin,(13) which has the ability to pass through the nuclear
+pore complex in importin-independent
+fashion by binding
+directly to nucleoporins. Ran-independent nuclear import has
+been reported under in vitro conditions of elevated Ca2þ
+, and it
+is dependent on the Ca2þ
+-binding protein calmodulin.(14)
+Intriguingly, a Ca2þ
+-binding protein, calreticulin, appears to
+mediate export of the cAMP-dependent protein kinase (PKA)
+inhibitor and glucocorticoid receptor.(15,16) Exactly how these
+potentially Ca2þ
+signaling-responsive importin-/Ran-indepen-
+dent nuclear import/export pathways interface with conven-
+tional importin-/Ran-dependent pathways is unclear, but they
+could conceivably be particularly important
+in governing
+nuclear access of transcription factors/chromatin remodeling
+factors in developmental systems such as the testis, as
+described below.
+
+This review summarises current knowledge regarding
+nuclear transport in the testis, with emphasis on selected
+factors that mediate the key steps of the spermatogenic
+process. We hypothesize that differentiation of
+the male
+gamete involves regulated changes in the nuclear transport
+machinery in response to growth and differentiation stimuli,
+and that these changes occur in parallel with critical, stage-
+specific alterations in the transcription factors/chromatin
+remodeling factors that are required within the nucleus.
+
+Tissue-specific regulation of nuclear
+transport machinery
+importins is
+Tissue- or cell-type-specific expression of
+potentially central to cellular function, since the repertoire of
+importins/nucleoporins can be a critical determinant of nuclear
+import efficiency.(6) Available evidence suggests that
+the
+
+Figure 2. Schematic representation of nuclear transport pathways. A: Nuclear import mediated by the importin a/b1 heterodimer. The
+importin a/b1 heterodimer binds to an NLS-containing cargo protein via importin a. The importin–NLS-containing protein complex is
+transported into the nucleus by importin b binding to hydrophobic repeat motifs within the nucleoporins of the nuclear pore complex. Cargo
+release into the nucleoplasm is effected by binding of RanGTP to importin b which dissociates the importin–cargo complex. B: Nuclear
+import mediated by cargo binding directly to importin b1/importin b homologues, such as importin b1. Transport occurs in analogous fashion
+to A except that NLS recognition is not through importin a or a comparable adaptor. Experiments in somatic cell systems have shown that
+importin b1 mediates nuclear import of Sry/SOX9,(25,26) CREB(55) and possibly Smad3; see Figure 1 for expression patterns of cargo in the
+testis. C: Nuclear export mediated by importin b homologues. The nuclear export signal-containing cargo protein is recognized by an
+importin b homologue (exportin), such as CRM1 and RanGTP, prior to transport through the nuclear pore complex, through importin
+b/nucleoporin interactions (see A). Hydrolysis of GTP by Ran facilitated by RanGTPase-activating protein (RanGAP) dissociates the
+exportin–RanGTP–nuclear export signal-containing cargo complex in the cytoplasm. Experiments in somatic cell systems have shown
+that CRM1 mediates nuclear export of SOX9, Smad1 and cyclins D, A1, A2 and B1; see Fig. 1 for expression patterns in the testis. NPC,
+nuclear pore complex; NE, nuclear envelope.
+
+1014 BioEssays 27.10
+
+Review articles
+
+Table 1. Sequence conservation within the IMPa (Importina) and IMPb (Importinb) families
+
+Species
+
+A. IMPas
+
+Mus musculus
+
+Drosophila melanogaster
+
+Caenorhabditis elegans
+
+Saccharomyces cerevisiae
+
+B. IMPb s
+
+Mus musculus
+
+Drosophila melanogaster
+
+Caenorhabditis elegans
+
+Saccharomyces cerevisiae
+
+Importin{
+
+Identity (%)*
+
+IMPa2 (AAH03274): Kpna2/Pendulin/Srp1-a/Rch1/PTAC58/Impa-P1
+IMPa4 (NP_032493): Kpna4/Qip1
+IMPa3 (NP_032492): Kpna3/SRP1g
+IMPa6 (NP_032494): Kpna6
+IMPa1 (AAH06771): Kpna1/Srp1-b/Rch2/NPI-1/ Impa-S1
+IMPa2 (P52295): Kpna2/Pendulin/Rch1
+IMPa3 (Q9V455): Kpna3
+IMPa1 (O76521): Kpna1
+IMPa3 (Q19969): IMA-3
+IMA-2 (P91276)
+IMA-1 (Q22560)
+IMPa1 (NP_014210): Kap60p/Srp1
+
+IMPb1 (P70168): Kpnb1/PTAC97
+IMPb2 (Q8BFY9): Kpnb2/Transportin
+IMPb3 (Q8BKC5): Kpnb3/RanBP5/Imp5
+IMPb4 (Q8VI75): RanBP4
+IMPb1 (O18388): Ketel (Kpnb1)
+IMPb2 (Q9VRV8): Transportin
+IMPb1 (Q9BIB8): IMB-1
+IMPb2 (O62332): IMB-2
+IMPb1 (Q06142): Kap95p/RSL1
+
+1
+
+94
+49
+48
+44
+44
+48
+48
+45
+43
+34
+14
+45
+
+99
+13
+14
+12
+61
+14
+48
+13
+32
+
+*The values represent percentage sequence identity at the protein level, as determined using ClustalW (www.ebi.ac.uk), when compared to Homo sapiens
+IMPa2 (AAH05978) (A) and IMPb1 (AAH24045) (B), respectively.
+1The percentage identity across all members of the Mus musculus IMPa family is c. 45%.
+{Accession number used for comparison is in brackets, alternative names are listed.
+
+Importin as indeed exhibit restricted tissue distributions.
+Human importin a4, for example, makes up more than 1% of
+protein in skeletal muscle, but is essentially absent from heart,
+spleen and kidney.(17) In contrast, importin a2 is abundant
+in heart, testis, skeletal muscle and ovary, and importin a3 is
+the most highly expressed importin a in ovary.(18) Specific
+mechanisms that regulate the nuclear transport process itself
+include the modulation of
+the importin–NLS interaction
+through various NLS masking/enhancing mechanisms.(6)
+Phosphorylation is a key modulator, with a number of
+examples in developmental contexts. These include PKA site
+enhancement of importin a/b-NLS interaction in the case of
+nuclear import of the Drosophila transcription factor Dorsal,(19)
+and cyclin-dependent kinase (cdk) phosphorylation-depen-
+dent prevention of Xenopus nuclear factor 7(20) nuclear import
+by cytoplasmic retention.
+
+While many details of the nucleocytoplasmic trafficking
+machinery have been deciphered from in vitro analyses, we
+have a limited understanding of how these function and
+change in physiological systems during dynamic processes
+such as growth and differentiation. In terms of testis develop-
+ment, and of spermatogenesis in particular, key changes in
+nuclear proteins required for normal development have been
+defined. The remainder of this review summarises current
+
+knowledge regarding nuclear transport in the testis, relating
+this to factors that mediate the key steps of spermatogenesis.
+
+Central role of Sry and SOX9 nuclear
+transport in the fetal testis
+Correct gender assignment in males is dependent on nuclear
+transport of two key transcription factors. Expression of the Y-
+chromosome-encoded Sry during E10.5–12.5 (in the mouse)
+establishes the male fetal gonad as a testis.(21) Sry drives
+differentiation of a subset of somatic cells into the Sertoli
+lineage, the underpinning of male gonadal sexual differentia-
+tion that transforms the bipotential primordial germ cells into
+gonocytes. In the female gonad, the lack of Sry results in
+default differentiation of somatic cells into granulosa cells
+and germ cells into oogonia. Mutations in Sry account for
+approximately 15% of human XY female sex reversal, empha-
+sizing Sry’s critical role in ‘‘driving’’ male sex determination.(21)
+Expression of the Sry-related transcription factor SOX9 is
+upregulated in the male gonad and downregulated in the
+female gonad at E11.5, with exclusive expression in Sertoli
+cells by E12.5.(22) Mutations in SOX9 account for some cases
+of human XY female sex reversal,(23) with SOX9 expression
+sufficient to initiate the male phenotype even in the absence of
+Sry. SOX9 instigates at least part of the cascade of trans-
+
+BioEssays 27.10 1015
+
+Review articles
+
+cription events that mediate sex determination,(21) including
+expression of anti-Mu¨ llerian hormone (AMH), which instigates
+the regression of the female reproductive tract, and steroido-
+genic factor-1 (SF-1), which is required for Leydig cell
+development.
+
+importance of nuclear export in sex determination. Collec-
+tively, these experiments highlight the importance of regulated
+nuclear localization of SRY, SOX9, and presumably a number
+of other key chromatin remodeling and transcription factors, to
+normal development of the fetal gonad.
+
+Sry and SOX9 each possess a conserved high mobility
+group (HMG) box domain that confers binding to and bending
+of specific DNA target sequences to effect changes in gene
+expression. Nuclear access of Sry and SOX9, critical to their
+function, appears to be mediated by two distinct, evolutionarily
+conserved, independently acting NLSs(24,25) that flank the
+HMG box at either end. Of these, the C-terminal NLS mediates
+nuclear import through a pathway of the type illustrated in
+Figure 2B, requiring importin b1 and Ran,(24 –26) whereas no
+importin has been identified as binding the N-terminal NLS; in
+this has been shown to bind calmodulin.(27,28)
+contrast,
+Intriguingly, antagonists of calmodulin action inhibit SOX9
+nuclear
+is facilitated by
+calmodulin.(28)
+
+implying that
+
+import,
+
+the latter
+
+The importance of Sry nuclear localisation in sex determi-
+nation has been demonstrated by examining the molecular
+basis of four mutations found in human XY female, sex-
+reversed patients, mapping to the Sry NLSs.(24) All
+four
+mutations resulted in reduced Sry nuclear accumulation, with
+a C-terminal NLS mutation shown to cause impaired importin
+b1 binding. Since certain sex-reversing mutations in either Sry
+NLS result in reduced nuclear accumulation without affecting
+other Sry functions, including in vitro DNA binding/bending
+activity, both NLSs appear to be essential for complete nuclear
+localisation of Sry. This is in turn required for normal initiation
+of male gonadal development, presumably because a sharp
+elevation in nuclear Sry activity is required to drive testis
+differentiation.(29)
+
+That SOX9 nuclear import is critical to sex determination is
+implied by examination of a campomelic dysplasia-causing
+mutation that also results in XY gonadal dysgenesis.(28)
+Although the HMG domain mutation does not affect importin
+b1 binding, it results in 50% impaired nuclear accumulation,
+presumably attributable to altered calmodulin binding. To-
+gether with the finding that calmodulin antagonists reduce
+wild-type SOX9 nuclear import and transcriptional activation,
+these results suggest that calmodulin is required for normal
+nuclear accumulation and function of SOX9 and perhaps also
+of Sry.
+
+A role for SOX9 nuclear export
+
+in mammalian sex
+determination is suggested by the results of treating E10.5
+female gonads with the CRM1-specific inhibitor leptomycin B.
+This treatment resulted in increased SOX9 nuclear localiza-
+tion(30) and the generation of Sertoli-like cells and partial cord-
+like structures after 4 days.(30) Whether these results are
+attributable to impaired nuclear export of SOX9, or to that of
+other proteins critical to gonadal development could not be
+concluded from these experiments, but the study highlights the
+
+1016 BioEssays 27.10
+
+Cell cycle regulators in the testis
+The eukaryotic cell cycle is controlled by cyclin–cdk com-
+plexes. The G1 cyclins D, E and A, and their associated cdks
+accumulate in the nucleus during G1 and initiate the expres-
+sion of genes required for DNA synthesis.(31) A- and B-type
+cyclins are expressed during G2, where cyclin B1, associated
+with the cdk cdc2, forms the well-described M-phase promot-
+ing factor (known as MPF) necessary for the G2–M transition.
+Figure 3 depicts current knowledge of cyclin/cdk expression/
+localisation in male germ cells, while descriptions of nuclear
+import and export pathways have been identified by studies on
+cell lines.
+
+Cyclin–cdk activity is mediated by transcriptional, transla-
+tional and post-translational regulation through phosphoryla-
+tion and dephosphorylation, through interactions with specific
+inhibitors, and by coexistence and dimerization.(31) Cyclin–
+cdk complexes are required in the nucleus in sequential,
+ordered fashion to drive mitotic progression (see Fig. 3). Timed
+nuclear import, export and cyclin degradation are required for
+cell cycle progression, and their perturbation can disrupt the
+cell cycle.(32)
+
+There are unique aspects of cell cycle regulation in germ
+cells that are vital for fertility. The self-renewing germ cell
+population relies on proliferation of primordial germ cells,
+gonocytes and spermatogonia. The production of haploid
+gametes through two meiotic divisions is restricted to
+gametogenesis. As expected, many cell cycle proteins are
+found in the testis, and their subcellular distribution is
+consistent with their known roles in mitosis (Fig. 3). However,
+certain cyclins show extended nuclear or cytoplasmic localiza-
+tion in particular germ cells (see below), indicating that these
+molecules may play roles independent of the cell cycle in
+spermatogenesis and their functions may be regulated by
+factors that govern their subcellular localization.
+
+For example, the D-type cyclins play essential roles in
+spermatogenesis, as demonstrated by the significantly re-
+duced sperm counts in cyclin D2 knockout mice,(33) and by the
+abnormal testicular development and severely reduced fertility
+in mice lacking cdk4, a cyclin D partner.(34) In normally cycling
+mitotic cells, the D-type cyclins generally accumulate in the
+nucleus during G1 and are rapidly exported for degradation at
+the onset of S-phase.(35,36) This nuclear export is enabled
+through phosphorylation of cyclin D at threonine 286 by
+nuclear glycogen synthase kinase 3b (GSK3b) and is medi-
+ated by CRM1.(37) The nuclear and then cytoplasmic localiza-
+tion of cyclins D1 and D3 in mitotic germ cells is consistent with
+a role for these in cell cycle progression (Fig. 3).(38)
+
+Review articles
+
+Figure 3. Schematic representation of subcellular localization of cyclins–cdks during spermatogenesis in the mouse together with
+mechanisms, where known, of cyclin–cdk transport derived from somatic studies that may apply to male germ cells (see also Fig. 2).
+Nuclear localization of cyclin D2 and B3 proteins independent of the cell cycle indicates these proteins have additional roles, perhaps relating
+to differentiation, potentially through the action of as yet unidentified cofactors.(38,40,43–45,90–100) Potential but untested transport
+mechanisms are indicated in shaded boxes and light/bold text indicates relative nuclear/cytoplasmic concentration of proteins.
+
+Some observations of cyclin D expression in postmitotic
+germ cells contrast what is seen in mitotic cells. Cyclin D2 has
+been observed in the nuclei of pachytene spermatocytes, and
+cyclin D3 has been reported in the cytoplasm of elongating
+spermatids (Fig. 3).(38,39) Several factors are known to regu-
+late D type cyclin protein localization, and these may also be
+implicated in germ cell maturation. HSP-90, which enhances
+nuclear accumulation of cyclin D, is co-localized with cdk4 in
+spermatogonia,(38) and the cell cycle inhibitor p21Cip1, which
+facilitates nuclear retention of cyclin D,(37) is co-localized with
+cyclin D in pachytene spermatocytes.(40) The unusual cyclin D
+localization in meiotic and postmeiotic germ cells could reflect
+differences in the nuclear import or export machinery or traf-
+ficking efficiency of p21Cip1 or HSP-90 in respective cell types.
+Alternatively, the restricted expression pattern of GSK3b,(41)
+required for phosphorylation, export and subsequent degra-
+dation of cyclin D may dictate this unusual localization. In the
+
+mouse, expression of GSK3b is detected by immunostaining
+only in spermatogonia; the absence of GSK3b in later germ
+cell stages may indicate that, in pachytene spermatocytes,
+there is impaired cyclin D2 nuclear export, and delayed or no
+cytoplasmic degradation of cyclin D3 in spermatids.(41)
+
+Cell cycle progression offers further examples of potentially
+unique subcellular localization mechanisms driving germ cell
+maturation. In mitotic cells, cyclin A2 shuttles between the
+cytoplasm and nucleus, with the prerequisite for nuclear
+import being association with cdk1 or cdk2.(42) None of these
+have an identifiable NLS, and the means of nuclear transport
+remains unknown. In the testis, cyclin A and cdk1 are in
+spermatogonia and show expected subcellular localization in
+proliferating germ cells.(43)
+
+Cyclin A1 is unique to the male germ line and essential
+in mice for meiosis(44,45) and male fertility.(45) It is detected in
+the nucleus in late pachytene to diplotene spermatocytes.
+
+BioEssays 27.10 1017
+
+Review articles
+
+Expression profiles indicate that cdk2 is the likely partner for
+cyclin A1. This is further supported by the cdk2 knockout
+mouse phenotype,
+in which spermatogonial proliferation
+appears normal, but spermatogenesis is disturbed in meiosis,
+with apoptosis resulting in germ cell
+loss by the diplotene
+stage.(46) This cdk2 knockout mouse offers a valuable
+opportunity to investigate whether cyclin A1 nuclear import is
+dependent on pre-complexation with cdk2 in meiotic cells,
+similar to that reported for cyclin A2 and cdk1 in somatic cells. If
+cyclin A1 is nuclear in early spermatocytes prior to germ cell
+death in the cdk2 knockout mouse, this would indicate that the
+nuclear import of this cyclin is regulated differently from that
+reported for cyclin A2 in somatic cells.
+
+Our understanding of how the subcellular localization of cell
+cycle regulators in the testis affects their function is in part by
+analogy from cell culture and other experimental systems.
+However, the existing data indicate that alteration of the in-
+tracellular transport of cyclins and other cell cycle proteins,
+through modulation of the interacting molecules that influence
+their localization to the nucleus or cytoplasm, may be critical to
+driving the cell cycle changes that are central to the process of
+spermatogenesis itself.
+
+Oct4 in pluripotency and cancer
+Regulation of gene expression during spermatogenesis
+requires numerous transcription factors, many of which are
+specific to male germ cells.(47) Their capacity to influence gene
+expression during male germ cell differentiation will be
+determined by their nuclear access.
+
+The transcription factor Oct4, believed to be involved in
+maintaining embryonic stem cells in an undifferentiated state,
+is expressed in primordial germ cells, gonocytes and
+spermatogonia, with predominantly nuclear localization (see
+Fig. 1).(48) Upon commitment of spermatogonial stem cells to
+differentiate, Oct4 protein becomes cytoplasmic and expres-
+sion levels fall, with complete absence of expression by the
+onset of meiosis.(49) Hence, preventing Oct4 nuclear export
+may maintain spermatogonial stem cells in an undifferentiated
+state. Determining the mechanisms regulating Oct4 nucleo-
+cytoplasmic trafficking in spermatogonia, and developing
+methods to manipulate this, may reveal
+its key function in
+spermatogenesis. For example, if prolonging Oct4 nuclear
+expression can maintain spermatogonia in an undifferentiated
+state,
+this strategy could be applied to biotechnological
+applications such as engineering of spermatogonial stem
+cells as an avenue for animal transgenesis,(50) while undiffer-
+entiated stem cells could provide therapeutic opportunities for
+infertile couples where arrest of germ cell maturation leads to
+an absence of spermatozoa. Expression of Oct4 in testicular
+cancer cells suggests maintenance of Oct4 expression may be
+central to tumorigenic status, so that driving Oct4 nuclear
+export may conceivably eliminate or reduce the invasive
+capacity of these cells.(51)
+
+1018 BioEssays 27.10
+
+Unique modifiers for the cyclic AMP
+response in spermatids
+A group of transcription factors central to spermatogenesis
+is responsive to the second messenger, cyclic AMP (cAMP),
+with gene expression at several stages regulated by the
+basic domain leucine zipper DNA-binding proteins cAMP-
+responsive element (CRE) binding-protein (CREB) and CRE
+modulator protein (CREM).(52) Alternative splicing and tran-
+scription from distinct promoters produces various CREM and
+CREB isoforms with different
+transcriptional activator or
+repressor properties. The CREB isoforms are ubiquitously
+expressed, and their absence in knockout mouse models does
+not produce specific testicular phenotypes,(53) implying they
+are functionally redundant in this tissue. In contrast, CREM
+isoform expression in male germ cells is much more dynamic
+(see Fig. 1), with the male-germ-cell-specific isoforms,
+CREMt and CREMy, transcribed from pachytene spermato-
+cytes through to elongated spermatids. Their essential roles
+as transcriptional activators of haploid genes is illustrated by
+the phenotype of sterility in CREM knockout mice, arising from
+apoptosis of early spermatids.(54)
+
+Nuclear entry of CREB is mediated through a C-terminal
+NLS that is recognized by importin b1,(55) but no NLS or
+nuclear import mechanism has been defined for the related
+CREM. CREB biological activity is not regulated by restricted
+nuclear import,(56) but instead CREM and CREB activation is
+controlled by the regulated nuclear import of interacting or
+modifying factors. The latter include the PKA catalytic subunit,
+phosphorylation by which activates transcriptional activity
+of CREM and CREB in somatic cells(57) by enabling their
+association with the co-activator CREB binding-protein
+(CBP).(58)
+
+In stark contrast to somatic cells, Activator of CREM in the
+Testis (ACT) is a spermatid-specific protein that stimulates
+transcriptional activity of unphosphorylated CREM,(59) and its
+intracellular localization is modulated through a mechanism
+unique to germ cells (Fig. 4A). The spermatid-expressed
+kinesin, Kif17b, appears to function as a shuttling protein that
+regulates subcellular localization of ACT. Kif17b overexpres-
+sion in cell lines can maintain cytoplasmic localization of ACT
+and prevent transcription of a reporter gene from CREM-ACT-
+dependent promoters.(60) The involvement of these factors in
+dynamic regulation of CREM activity specifically in haploid
+male germ cells is indicated by the increasing levels of both
+ACT and Kif17b in the nucleus of round spermatids between
+stages I and VI, followed by their reduced nuclear expression
+and increased cytoplasmic localization in the more mature
+elongated spermatids. While Kif17b nuclear export is medi-
+ated by CRM1, its import pathway is unknown. These studies
+have revealed intracellular co-localization of ACTand Kif17b is
+a likely mechanism by which CREM transcriptional activity is
+governed uniquely in spermatids, instead of the phosphoryla-
+tion-mediated regulation seen in somatic cells.
+
+Review articles
+
+Figure 4. Dynamic subcellular localization of ACT and Kif17b during mouse spermatid development. The transition of the haploid germ
+cell from round to elongate spermatid (see Fig. 1) is divided into a series of stages with defined characteristics of differentiation.(101)
+Postulated regulatory mechanisms are based on co-transfection studies in COS and NIH3T3 cells, where Kif17b has been shown to be a
+shuttling protein, in part through a CRM1-dependent nuclear export mechanism, which effects cytoplasmic localization of the normally
+nuclear ACT by mediating its co-export.(60) During round spermatid stages I–VI, Kif17b is both cytoplasmic and nuclear whereas ACT
+accumulates in the nuclear compartment. As the spermatid elongates from stage VIII, there is some cytoplasmic expression of ACT. During
+this time, Kif17b is also seen in both the nucleus and cytoplasm. From stage IX–XI, there is increasing cytoplasmic expression of both ACT
+and Kib17b and diminishing nuclear concentration. From stage XI, ACT is absent with Kif17b at the nuclear periphery. Co-localization of
+ACT and Kif17b in spermatids presumably reflects a dependence of ACT nuclear-cytoplasmic localization on Kif17b. Kif17b is a versatile
+protein, also having a role earlier in spermatogenesis. In pachytene spermatocytes, Kif17b associates with TB-RBP and TRAX to transport
+mRNA from the nucleus to the cytoplasm. Trafficking of this ribonucleoprotein entity is particularly complex, as the subcellular concentration
+of TRAX, which contains an NLS, can modulate the subcellular localization of TB-RBP, which contains a CRM1 responsive nuclear export
+signal.(61,62)
+
+A further level of complexity in the regulation of CREM
+activity arises from the translational inhibition of Kif17b and
+CREM-regulated mRNAs in round spermatids (as in hippo-
+campal neurons) when they are bound to the mouse testis–
+brain RNA-binding protein, TB-RBP. In this context, mice
+lacking TB-RBP show impaired growth, reduced fertility and
+behavioural abnormalities, indicating the importance of this
+gene product for many aspects of physiology.(61) TB-RBP itself
+bears a nuclear export signal, but its localization appears to be
+determined by the relative intracellular concentration of the
+NLS-containing translin-associated factor X (TRAX).(62) In
+male and female germ cells, both TB-RBP and TRAX are
+nuclear at the pachytene stage of meiosis and cytoplasmic at
+later stages. Thus TB-RBP and TRAX represent two additional
+examples of proteins whose respective concentration in sub-
+
+cellular compartments determines the expression of specific
+germ cell mRNAs.
+
+Smad shuttling: essential throughout
+spermatogenesis
+the TGFb superfamily signaling
+Diverse components of
+pathway, such as bone morphogenetic proteins (BMPs),
+TGF-b isoforms and activins, are required throughout sper-
+matogenesis,
+from the initial commitment of cells to the
+germline through to production of mature spermatozoa.(4,63)
+Their signals are mediated by the Smad transcription factor
+proteins (Fig. 1). Upon TGF-b superfamily ligand binding to
+membrane-bound receptor complexes, two C-terminal serine
+residues of a Receptor-activated Smad (R-Smads; Smads 1,
+2, 3, 5 and 8) are phosphorylated, inducing R-Smad complex
+
+BioEssays 27.10 1019
+
+Review articles
+
+formation with Smad4 and their subsequent nuclear accumu-
+lation. In association with other transcriptional activators or
+repressors, this key step translates ligand stimulation at the
+cell surface to changes in gene transcription.(63,64)
+
+The dependency of germ cell lineage commitment in the
+developing embryo on BMP signaling provides an intriguing
+example of signaling input integration at the level of transcrip-
+tional regulator nuclear accumulation. Knockout studies have
+demonstrated the requirement for BMP4 and BMP8b and their
+downstream signaling Smads, Smad1 and Smad5, for esta-
+blishment of the primordial germ cell population.(65,66) In
+addition to this, a gradient of BMP antagonists (follistatin and
+cerebus) adjacent to the BMP-secreting cells is understood to
+limit the population of cells that are able to transduce these
+inductive BMP signals, thus restricting the number of cells that
+commit to the germline to approximately 40. This ‘tussle’ of
+signaling factors in the vicinity of cells that have the potential to
+enter the germ cell lineage may translate into whether a cell
+reaches a threshold level of Smad nuclear accumulation, and
+hence determines whether the cell becomes a germ cell.
+Smad-mediated gene transcription has also been directly
+implicated at the onset of spermatogenesis in a recent in vitro
+study.(67) BMP4 treatment of isolated spermatogonia resulted
+in Smad4 and Smad5 nuclear translocation, and the subse-
+quent
+induction of c-kit expression indicates that Smad
+transcriptional activity is required for this essential step in
+spermatogonial differentiation.(67)
+
+There exists the potential for adoption of different nuclear
+import pathways depending on cell-specific nuclear trafficking
+machinery and/or the phosphorylation state of the Smad
+protein. Experiments in cell lines indicate that individual Smad
+proteins employ nucleoporin-dependent mechanisms for
+import and export that may be importin dependent or inde-
+pendent. Further complexity was demonstrated when Smad2
+and Smad3 were found to use different import machinery in
+different cell types.(68 –71) In addition, while unphosphorylated
+Smad proteins constantly shuttle between the nucleus and
+cytoplasm, phosphorylation by activated receptors is likely to
+modulate the import/export rate or the nuclear accumulation/
+retention of Smads.(72) The co-factors that form transcriptional
+complexes with Smad proteins are also likely to regulate Smad
+nuclear import and export. Activated Smads oligomerize and
+generally associate with Smad4 and/or other transcriptional
+regulators, prior to import,(64,73) which may mask particular
+NLS or nucleoporin-interacting sequences.
+
+Cell-type- or developmental-stage-specific regulation of
+Smad nuclear entry thus would appear to be modulated by
+several pathways,
+including complex formation and NLS
+masking by phosphorylation or other mechanisms, as well
+as regulated expression of nuclear import machinery compo-
+nents. The vital influence of many TGFb superfamily members
+on spermatogenesis underscores the potential of
+these
+mechanisms to drive spermatogenesis.
+
+1020 BioEssays 27.10
+
+Proteolysis and nuclear transport:
+Hedgehog signalling
+Amongst the many transcription factors of interest during
+spermatogenesis are the four members of
+the glioma-
+associated oncogene (Gli) family, downstream effectors of
+the Hedgehog family signaling. The absence of desert
+hedgehog (Dhh) in mice leads to sterility due to spermatogenic
+failure at meiosis, while overexpression of human Gli1 in
+mouse germ cells results in male sterility due to apoptosis of
+spermatocytes.(74)
+In Drosophila, proteolytic cleavage of
+cubitus interruptus (Ci; the Drosophila Gli homolog) generates
+a transcriptional repressor form, and this processing is central
+to its nuclear import,(75) however the mechanism that under-
+pins Ci transport, or that of the mammalian Gli proteins, is
+unknown. Gli1 and Gli3 mRNAs have been detected specifi-
+cally in mouse spermatogonia,(76) while GliS has been
+observed in E14.5 cords of the developing testis.(77) Gli1
+protein is distinctly cytoplasmic or nuclear, depending on the
+stage of germ cell maturation(74)
+(see Fig. 1), which
+presumably reflects the differential regulation of its nuclear
+transport by phosphorylation or interaction with cofactors.
+Intriguingly, Liu et al.(78) reported that C-terminally truncated
+Gli3 proteins can associate with non-activated Smads, a
+relationship proposed by the authors to sequester Gli3 in the
+cytoplasm and regulate Gli3 subcellular localization.(78) Given
+the vital role that both the Smads and Gli proteins, and
+regulated nuclear entry thereof, are known to play in sper-
+matogenesis, the interaction of Gli3 and Smads, and its impact
+on their respective nuclear import, warrants further study.
+
+Role of specific nucleoporins in the testis?
+In parallel with the developmental regulation of transcription
+factors and chromatin remodeling factors during spermato-
+genesis, regulated expression of nucleoporins and importin
+family members may also influence gamete maturation. For
+example, the Drosophila Nup154, homologous to rat Nup155,
+is critical to fly gamete development in both sexes, being
+required for cyst formation, meiotic progression in testes and
+ovaries, egg chamber development and oocyte growth.(79)
+The mammalian testis-specific nucleoporin BS-63 has been
+detected at the nuclear envelope of human sperm and at
+nuclear pore complexes in spermatids.(80) A portion of the BS-
+63 coding sequence used in a yeast 2-hybrid screen identified
+Ran and importin b2 as binding partners, in addition to the AT-
+hook domain chromatin remodeling factor, aF10, which is
+known to be expressed in postmeiotic germ cells.(81) Although
+no specific function has been established for BS-63 in the
+testis, these data suggest that factors such as aF10 may
+access the nucleus through direct interaction with nucleopor-
+ins, in analogous fashion to b-catenin and the Smads (see
+above), with BS-63 serving as a critical docking site in the
+nuclear pore complex in haploid germ cells.
+
+The nuclear pore-associated protein Npap60 is over
+10 times more abundant in the rat testis than in other tissues
+and has been reported to undergo changes in its association
+with the nuclear envelope and nucleoplasm during meiotic and
+postmeiotic germ cell development.(82) In analogous fashion to
+nucleoporins, Npap60 may alter nuclear pore function to
+modulate nuclear entry of particular nuclear factors or trans-
+port of complexes passing through the pore, thus contributing
+integrally to germ cell differentiation.
+
+Critical role of specific importin alphas
+in the testis
+The great number of importins in mammals and their con-
+served structures suggests that there are opportunities for
+both functional redundancy and tissue specificity of function
+(see Table 1). It has been through studies of non-mammalian
+species that steps vital to gamete formation dependent on
+nuclear transport proteins have been identified.
+
+All three C. elegans importin as (referred to as IMA-1, IMA-
+2 and IMA-3) have been implicated in germline maturation and
+other developmental events, but only IMA-3 appears to be
+related to the importin as of other species (see Table 1). IMA-1
+and IMA-2 are germline-specific, whereas IMA-3 is expressed
+in both somatic and germ cells in adult nematodes. All three
+IMAs exhibit gender-specific expression patterns.(83,84) Abro-
+gation of
+IMA-3 expression using RNAi blocks germline
+passage through meiosis, indicating that IMA-3 is required
+for meiosis in C. elegans; IMA-1 and IMA-2 cannot compen-
+sate for its absence. The 92% embryonic and larval lethality of
+ima-3(RNAi) F1 progeny indicates that IMA-3 is required for
+many other aspects of nematode development.(83) Reduction
+of IMA-2 transcripts dramatically affected germ cells in 25% of
+injected hermaphrodite animals,(84) with their F1 progeny
+exhibiting 97% embryonic lethality due to severe aneuploidy,
+disorganized chromatin masses between spindle poles and
+incomplete nuclear envelope formation. These results under-
+score the crucial role of IMA-2 in meiosis, but whether the
+defects reported stem from the lack of transport of a particular
+nuclear protein, or are related to a role in chromosome
+segregation or nuclear envelope formation, is not clear.
+
+The three importin as in Drosophila also show discrete
+spatiotemporal expression patterns during spermatogenesis
+(Fig. 5).(85) The Drosophila importin-a2D14 mutant displays
+fertility defects in both males and females.(86) Occlusion of the
+ring canals that connect the nurse cells and oocytes results in
+deficient transfer from the nurse cells to the oocytes and
+female sterility. Male flies homozygous for importin-a2D14
+exhibit reduced fertility, associated with production of defective
+sperm.(86) The generation of offspring from some of these
+mutants probably reflects functional redundancy amongst
+importin a homologues during spermatogenesis. Consistent
+with this idea, transgenic expression of either importin a1 or a3
+can partially restore fertility in male importin-a2D14 mutants.(87)
+
+Review articles
+
+There appears to be no such redundancy with respect to
+importin a2 in the female, where importin-a2D14 mutants are
+completely sterile, and importin a1 or a3 cannot complement
+the sterile phenotype,(87) indicating that importin a2 serves a
+unique and vital role in oogenesis.
+
+While these studies indicate vital roles for certain importin
+as in lower eukaryotes in development and germline proges-
+sion, no essential role for importin bs has been identified
+specific to the germline, as opposed to that observed in
+embryogenesis. Drosophila importin b1 (Ketel), for example,
+is a maternally derived protein essential for embryogenesis,
+as shown by the KetelD dominant-negative mutation where
+the presence of the mutant protein in the egg cytoplasm
+causes microtubule disorganization and failure of chromo-
+some segregation.(88) These and other abnormalities lead to
+the absence of cleavage nuclei, thus terminating embryogen-
+esis well before tissue differentiation. These data indicate that
+a variety of nuclear transport pathways and components
+underpin events at different developmental stages.
+
+Regulated nucleocytoplasmic transport
+as a driver of development?
+Regulated and rapid entry into the nucleus is accomplished, at
+least partially, through the actions of importins, and this review
+has illustrated how normal and aberrant nuclear transport can
+govern developmental events, including gametogenesis. The
+importance of correct nuclear import of SRY and SOX9 in
+mammalian sex determination and testicular development has
+been reviewed, and this provides a powerful example of the
+clinical relevance of this concept. We have also highlighted
+evidence indicating that regulated expression of nuclear
+transport machinery components can influence, if not deter-
+mine, the pathway of cellular differentiation. The unique model
+of spermatogenesis provides an elegant platform for further
+investigation of this concept, as critical nuclear factors are
+required for well-defined stages of differentiation. The ex-
+amples of TRAX/TB-RBP and CREM/Act/Kif7 reveal that
+multiple levels of regulation exist to mediate the timely delivery
+of transcription factors and proteins into the nucleus.
+
+The potential to exploit this knowledge is enhanced as our
+awareness of key regulatory switches and the corresponding
+transport machinery expands. Already it is clear that develop-
+mental switches govern progression through spermatogen-
+esis, with nuclear transport offering new avenues for exploring
+the basis for abnormal spermatogenesis and causes of infer-
+tility; ultimately this knowledge can be applied to generating
+new contraceptive strategies and enable the manipulation of
+cell differentiation in vitro for biotechnological applications.
+The ability to halt male germ cell maturation may arise from
+manipulations of the nuclear transport machinery, and both
+spermatogonia and postmitotic germ cell targets would pre-
+sent attractive targets. The capacity to drive cellular differ-
+entiation into a particular lineage remains an important focus
+
+BioEssays 27.10 1021
+
+Figure 5. Regulated expression and subcellular localization of importins in Drosophila gametogenesis. A: Drosophila spermatogenesis
+commences when a germ cell stem cell (S) divides to create a new stem cell as well as a committed gonialblast (G). The hub cells (H) are the
+somatic cells of the Drosophila testis that norish the developing germ cells. The gonialblast and and its spermatogonial daughters (yellow)
+undergo several rounds of mitiotic division without completing cytokinesis.(102) B: The spermatogonia then enter a growth phase as a
+primary spermatocyte, also termed G2. There are 16 of these mature primary spermatocytes in total.(102) C: Primary spermatocytes next
+undergo two meiotic divisions to produce the haploid spermatids with a nucleus (white circle) and a mitochondrial derivative (black circle).
+The haploid spermatids undergo dramatic morphological changes throughout spermatid differentiation. Expression of the three importin a
+proteins is shown: imp-a1, purple; imp-a2, blue; imp-a3, green. Protein localization changes between the nucleus and cytoplasm during
+development as indicated. Expression data adapted from. Giarre M, Torok I, Schmitt R, Gorjanacz M, Kiss I, Mechler BM (2002) J Struct Biol
+140:279–290.
+
+1022 BioEssays 27.10
+
+of stem cell biology, and we envision that selected nuclear
+transport may be employed to achieve this outcome.
+
+Acknowledgments
+CH and CI contributed equally to this work. We apologize to
+those researchers whose work has not been cited due to space
+constraints. The critical review of the manuscript by Professor
+Mitch Eddy and Dr. Julia Young is greatly appreciated.
+
+References
+
+1. Adams IR, McLaren A. 2002. Sexually dimorphic development of
+mouse primordial germ cells: switching from oogenesis to spermato-
+genesis. Development 129:1155–1164.
+
+2. McCarrey JR. 1993. Development of the germ cell. In: Desjardins C,
+Ewing L, editors. Cell and Molecular Biology of the Testis. New York:
+Oxford University Press. pp 53–89.
+
+3. de Kretser DM, Kerr JB. 1994. The Cytology of the Testis. In: Knobil E,
+Niell JD, editors. Physiology of Reproduction. 2nd ed. New York: Raven
+Press Ltd; pp 1177–1290.
+
+4. Loveland KL, Robertson DM. 2005. The transforming growth factor-ß
+superfamily in Sertoli cell biology. In: Skinner MK, Griswold MD, editors.
+Sertoli Cell Biology. Elsevier Science (USA). pp 227–247.
+
+5. Macara IG. 2001. Transport into and out of the nucleus. Microbiol Mol
+
+Biol Rev 65:570–594.
+
+6. Jans DA, Xiao CY, Lam MH. 2000. Nuclear targeting signal recognition:
+
+a key control point in nuclear transport? BioEssays 22:532–544.
+
+7. Goldfarb DS, Corbett AH, Mason DA, Harreman MT, Adam SA. 2004.
+Importin alpha: a multipurpose nuclear-transport receptor. Trends Cell
+Biol 14:505–514.
+
+8. Sekimoto T,
+
+Imamoto N, Nakajima K, Hirano T, Yoneda Y. 1997.
+Extracellular signal-dependent nuclear import of Stat1 is mediated by
+nuclear pore-targeting complex formation with NPI-1, but not Rch1.
+Embo J 16:7067–7077.
+
+9. Kohler M, Speck C, Christiansen M, Bischoff FR, Prehn S, et al. 1999.
+Evidence for distinct substrate specificities of importin alpha family
+members in nuclear protein import. Mol Cell Biol 19:7782–7791.
+
+10. Miyamoto Y, Imamoto N, Sekimoto T, Tachibana T, Seki T, et al. 1997.
+Differential modes of nuclear localization signal (NLS) recognition by
+three distinct classes of NLS receptors. J Biol Chem 272:26375–26381.
+11. Nadler SG, Tritschler D, Haffar OK, Blake J, Bruce AG, et al. 1997.
+Differential expression and sequence-specific interaction of karyopher-
+in alpha with nuclear localization sequences. J Biol Chem 272:4310–
+4315.
+
+12. Jakel S, Gorlich D. 1998.
+
+transportin, RanBP5 and
+RanBP7 mediate nuclear import of ribosomal proteins in mammalian
+cells. Embo J 17:4491–4502.
+
+Importin beta,
+
+13. Yokoya F, Imamoto N, Tachibana T, Yoneda Y. 1999. beta-catenin can
+be transported into the nucleus in a Ran-unassisted manner. Mol Biol
+Cell 10:1119–1131.
+
+14. Sweitzer TD, Hanover JA. 1996. Calmodulin activates nuclear protein
+import: a link between signal transduction and nuclear transport. Proc
+Natl Acad Sci USA 93:14574–14579.
+
+15. Holaska JM, Black BE, Love DC, Hanover JA, Leszyk J, et al. 2001.
+Calreticulin Is a receptor for nuclear export. J Cell Biol 152:127–140.
+16. Holaska JM, Black BE, Rastinejad F, Paschal BM. 2002. Ca2þ-
+dependent nuclear export mediated by calreticulin. Mol Cell Biol
+22:6286–6297.
+
+17. Nachury MV, Ryder UW, Lamond AI, Weis K. 1998. Cloning and
+characterization of hSRP1 gamma, a tissue-specific nuclear transport
+factor. Proc Natl Acad Sci USA 95:582–587.
+
+18. Kohler M, Ansieau S, Prehn S, Leutz A, Haller H, et al. 1997. Cloning of
+two novel human importin-alpha subunits and analysis of the expres-
+sion pattern of the importin-alpha protein family. FEBS Lett 417:104–
+108.
+
+19. Briggs LJ, Stein D, Goltz J, Corrigan VC, Efthymiadis A, et al. 1998. The
+cAMP-dependent protein kinase site (Ser312) enhances dorsal nuclear
+
+Review articles
+
+through facilitating nuclear
+
+import
+interaction. J Biol Chem 273:22745–22752.
+
+localization sequence/importin
+
+20. El-Hodiri HM, Che S, Nelman-Gonzalez M, Kuang J, Etkin LD. 1997.
+Mitogen-activated protein kinase and cyclin B/Cdc2 phosphorylate
+Xenopus nuclear factor 7 (xnf7) in extracts from mature oocytes.
+Implications for regulation of xnf7 subcellular localization. J Biol Chem
+272:20463–20470.
+
+21. Morrish BC, Sinclair AH. 2002. Vertebrate sex determination: many
+
+means to an end. Reproduction 124:447–457.
+
+22. Kent J, Wheatley SC, Andrews JE, Sinclair AH, Koopman P. 1996.
+A male-specific role for SOX9 in vertebrate sex determination.
+Development 122:2813–2822.
+
+23. Wagner T, Wirth J, Meyer J, Zabel B, Held M, et al. 1994. Autosomal
+sex reversal and campomelic dysplasia are caused by mutations in
+and around the SRY-related gene SOX9. Cell 79:1111–1120.
+
+24. Harley VR, Layfield S, Mitchell CL, Forwood JK, John AP, et al. 2003.
+Defective importin beta recognition and nuclear import of the sex-
+determining factor SRY are associated with XY sex-reversing muta-
+tions. Proc Natl Acad Sci USA 100:7045–7050.
+
+25. Preiss S, Argentaro A, Clayton A, John A, Jans DA, et al. 2001.
+Compound effects of point mutations causing campomelic dysplasia/
+autosomal sex reversal upon SOX9 structure, nuclear transport, DNA
+binding, and transcriptional activation. J Biol Chem 276:27864–27872.
+26. Forwood JK, Harley V, Jans DA. 2001. The C-terminal nuclear loca-
+lization signal of the sex-determining region Y (SRY) high mobility
+group domain mediates nuclear import through importin beta 1. J Biol
+Chem 276:46575–46582.
+
+27. Harley VR, Lovell-Badge R, Goodfellow PN, Hextall PJ. 1996. The
+HMG box of SRY is a calmodulin binding domain. FEBS Lett 391:
+24–28.
+
+28. Argentaro A, Sim H, Kelly S, Preiss S, Clayton A, et al. 2003. A SOX9
+defect of calmodulin-dependent nuclear import in campomelic dyspla-
+sia/autosomal sex reversal. J Biol Chem 278:33839–33847.
+
+29. Kusz K, Kotecki M, Wojda A, Szarras-Czapnik M, Latos-Bielenska A,
+et al. 1999. Incomplete masculinisation of XX subjects carrying the SRY
+gene on an inactive X chromosome. J Med Genet 36:452–456.
+
+30. Gasca S, Canizares J, De Santa Barbara P, Mejean C, Poulat F, et al.
+2002. A nuclear export signal within the high mobility group domain
+regulates the nucleocytoplasmic translocation of SOX9 during sexual
+determination. Proc Natl Acad Sci USA 99:11199–11204.
+
+31. Ekholm SV, Reed SI. 2000. Regulation of G(1) cyclin-dependent
+kinases in the mammalian cell cycle. Curr Opin Cell Biol 12:676–
+684.
+
+32. Toyoshima F, Moriguchi T, Wada A, Fukuda M, Nishida E. 1998.
+Nuclear export of cyclin B1 and its possible role in the DNA damage-
+induced G2 checkpoint. Embo J 17:2728–2735.
+
+33. Sicinski P, Donaher JL, Geng Y, Parker SB, Gardner H, et al. 1996.
+Cyclin D2 is an FSH-responsive gene involved in gonadal cell
+proliferation and oncogenesis. Nature 384:470–474.
+
+34. Tsutsui T, Hesabi B, Moons DS, Pandolfi PP, Hansel KS, et al. 1999.
+Targeted disruption of CDK4 delays cell cycle entry with enhanced
+p27(Kip1) activity. Mol Cell Biol 19:7011–7019.
+
+35. Alt JR, Gladden AB, Diehl JA. 2002. p21(Cip1) Promotes cyclin D1
+nuclear accumulation via direct inhibition of nuclear export. J Biol Chem
+277:8517–8523.
+
+36. Baldin V, Lukas J, Marcote MJ, Pagano M, Draetta G. 1993. Cyclin D1
+is a nuclear protein required for cell cycle progression in G1. Genes
+Dev 7:812–821.
+
+37. Alt JR, Cleveland JL, Hannink M, Diehl JA. 2000. Phosphorylation-
+dependent regulation of cyclin D1 nuclear export and cyclin D1-
+dependent cellular transformation. Genes Dev 14:3102–3114.
+
+38. Zhang Q, Wang X, Wolgemuth DJ. 1999. Developmentally regulated
+in vivo interacting proteins
+
+expression of cyclin D3 and its potential
+during murine gametogenesis. Endocrinology 140:2790–2800.
+
+39. Wolgemuth DJ, Laurion E, Lele KM. 2002. Regulation of the mitotic and
+meiotic cell cycles in the male germ line. Recent Prog Horm Res 57:75–
+101.
+
+40. Beumer TL, Roepers-Gajadien HL, Gademan IS, Kal HB, de Rooij DG.
+2000. Involvement of the D-type cyclins in germ cell proliferation and
+differentiation in the mouse. Biol Reprod 63:1893–1898.
+
+BioEssays 27.10 1023
+
+Review articles
+
+41. Guo TB, Chan KC, Hakovirta H, Xiao Y, Toppari J, et al. 2003. Evidence
+for a role of glycogen synthase kinase-3 beta in rodent spermatogen-
+esis. J Androl 24:332–342.
+
+42. Maridor G, Gallant P, Golsteyn R, Nigg EA. 1993. Nuclear localization
+of vertebrate cyclin A correlates with its ability to form complexes with
+cdk catalytic subunits. J Cell Sci 106:535–544.
+
+43. Ravnik SE, Wolgemuth DJ. 1996. The developmentally restricted
+pattern of expression in the male germ line of a murine cyclin A, cyclin
+A2, suggests roles in both mitotic and meiotic cell cycles. Dev Biol
+173:69–78.
+
+44. Ravnik SE, Wolgemuth DJ. 1999. Regulation of meiosis during
+mammalian spermatogenesis: the A-type cyclins and their associated
+cyclin-dependent kinases are differentially expressed in the germ-cell
+lineage. Dev Biol 207:408–418.
+
+45. Liu D, Liao C, Wolgemuth DJ. 2000. A role for cyclin A1 in the activation
+of MPF and G2-M transition during meiosis of male germ cells in mice.
+Dev Biol 224:388–400.
+
+46. Ortega S, Prieto I, Odajima J, Martin A, Dubus P, et al. 2003. Cyclin-
+dependent kinase 2 is essential for meiosis but not for mitotic cell
+division in mice. Nat Genet 35:25–31.
+
+47. Eddy EM. 2002. Male germ cell gene expression. Recent Prog Horm
+
+Res 57:103–128.
+
+48. Ohbo K, Yoshida S, Ohmura M, Ohneda O, Ogawa T, et al. 2003.
+Identification and characterization of stem cells in prepubertal
+spermatogenesis in mice small star, filled. Dev Biol 258:209–225.
+
+49. Pesce M, Wang X, Wolgemuth DJ, Scholer H. 1998. Differential
+expression of the Oct-4 transcription factor during mouse germ cell
+differentiation. Mech Dev 71:89–98.
+
+50. Nagano M, Brinster CJ, Orwig KE, Ryu BY, Avarbock MR, et al. 2001.
+Transgenic mice produced by retroviral transduction of male germ-line
+stem cells. Proc Natl Acad Sci USA 98:13090–13095.
+
+51. Looijenga LH, Stoop H, de Leeuw HP, de Gouveia Brazao CA, Gillis AJ,
+et al. 2003. POU5F1 (OCT3/4) identifies cells with pluripotent potential
+in human germ cell tumors. Cancer Res 63:2244–2250.
+
+52. Don J, Stelzer G. 2002. The expanding family of CREB/CREM transcrip-
+tion factors that are involved with spermatogenesis. Mol Cell Endocrinol
+187:115–124.
+
+53. Blendy JA, Kaestner KH, Schmid W, Gass P, Schutz G. 1996. Targeting
+of the CREB gene leads to up-regulation of a novel CREB mRNA
+isoform. Embo J 15:1098–1106.
+
+54. Nantel F, Monaco L, Foulkes NS, Masquilier D, LeMeur M, et al. 1996.
+Spermiogenesis deficiency and germ-cell apoptosis in CREM-mutant
+mice. Nature 380:159–162.
+
+55. Forwood JK, Lam MH, Jans DA. 2001. Nuclear import of Creb and AP-1
+transcription factors requires importin-beta 1 and Ran but is indepen-
+dent of importin-alpha. Biochemistry 40:5208–5217.
+
+56. Jans DA, Forwood JK. 2002. Nuclear protein import: Distinct
+intracellular receptors for different
+In:
+Citovsky V, Tzvi T, editors. Nuclear import and export. Austin, Texas:
+Bioscience Publishers.
+
+import substrates.
+
+types of
+
+57. Griffioen G, Thevelein JM. 2002. Molecular mechanisms controlling the
+
+localisation of protein kinase A. Curr Genet 41:199–207.
+
+58. Sassone-Corsi P. 1998. CREM: a master-switch governing male germ
+
+cells differentiation and apoptosis. Semin Cell Dev Biol 9:475–482.
+
+59. Fimia GM, Morlon A, Macho B, De Cesare D, Sassone-Corsi P. 2001.
+role of
+
+Transcriptional cascades during spermatogenesis: pivotal
+CREM and ACT. Mol Cell Endocrinol 179:17–23.
+
+60. Macho B, Brancorsini S, Fimia GM, Setou M, Hirokawa N, et al. 2002.
+transcription in male germ cells controlled by a
+
+CREM-dependent
+kinesin. Science 298:2388–2390.
+
+61. Chennathukuzhi V, Stein JM, Abel T, Donlon S, Yang S, et al. 2003.
+Mice deficient for testis-brain RNA-binding protein exhibit a coordinate
+loss of TRAX, reduced fertility, altered gene expression in the brain,
+and behavioral changes. Mol Cell Biol 23:6419–6434.
+
+62. Cho YS, Chennathukuzhi VM, Handel MA, Eppig J, Hecht NB. 2004.
+The relative levels of translin-associated factor X (TRAX) and testis
+brain RNA-binding protein determine their nucleocytoplasmic distribu-
+tion in male germ cells. J Biol Chem 279:31514–31523.
+ten Dijke P, Goumans MJ, Itoh F, Itoh S. 2002. Regulation of cell
+proliferation by Smad proteins. J Cell Physiol 191:1–16.
+
+63.
+
+1024 BioEssays 27.10
+
+64. Shi Y, Massague J. 2003. Mechanisms of TGF-beta signaling from cell
+
+membrane to the nucleus. Cell 113:685–700.
+
+65. Chang H, Matzuk MM. 2001. Smad5 is required for mouse primordial
+
+germ cell development. Mech Dev 104:61–67.
+
+66. Hayashi K, Kobayashi T, Umino T, Goitsuka R, Matsui Y, et al. 2002.
+SMAD1 signaling is critical for initial commitment of germ cell lineage
+from mouse epiblast. Mech Dev 118:99–109.
+
+67. Pellegrini M, Grimaldi P, Rossi P, Geremia R, Dolci S. 2003.
+Developmental expression of BMP4/ALK3/SMAD5 signaling pathway
+in the mouse testis: a potential
+role of BMP4 in spermatogonia
+differentiation. J Cell Sci 116:3363–3372.
+
+68. Xiao Z, Liu X, Henis YI, Lodish HF. 2000. A distinct nuclear localization
+in the N terminus of Smad 3 determines its ligand-induced
+
+signal
+nuclear translocation. Proc Natl Acad Sci USA 97:7853–7858.
+
+69. Xiao Z, Liu X, Lodish HF. 2000.
+
+Importin beta mediates nuclear
+
+translocation of Smad 3. J Biol Chem 275:23425–23428.
+
+70. Xiao Z, Watson N, Rodriguez C, Lodish HF. 2001. Nucleocytoplasmic
+shuttling of Smad1 conferred by its nuclear localization and nuclear
+export signals. J Biol Chem 276:39404–39410.
+
+71. Xu L, Kang Y, Col S, Massague J. 2002. Smad2 nucleocytoplasmic
+shuttling by nucleoporins CAN/Nup214 and Nup153 feeds TGFbeta
+signaling complexes in the cytoplasm and nucleus. Mol Cell 10:271–
+282.
+
+72. Nicolas FJ, De Bosscher K, Schmierer B, Hill CS. 2004. Analysis of
+Smad nucleocytoplasmic shuttling in living cells. J Cell Sci 117:4113–
+4125.
+
+73. Liu F, Pouponnot C, Massague J. 1997. Dual role of the Smad4/DPC4
+in TGFbeta-inducible transcriptional complexes.
+
+tumor suppressor
+Genes Dev 11:3157–3167.
+
+74. Kroft TL, Patterson J, Won Yoon J, Doglio L, Walterhouse DO, et al.
+2001. GLI1 localization in the germinal epithelial cells alternates
+between cytoplasm and nucleus: upregulation in transgenic mice
+blocks spermatogenesis in pachytene. Biol Reprod 65:1663–1671.
+
+75. Cohen MM Jr. 2003. The hedgehog signaling network. Am J Med
+
+Genet 123A:5–28.
+
+76. Persengiev SP, Kondova II, Millette CF, Kilpatrick DL. 1997. Gli family
+members are differentially expressed during the mitotic phase of
+spermatogenesis. Oncogene 14:2259–2264.
+
+77. Kim YS, Nakanishi G, Lewandoski M, Jetten AM. 2003. GLIS3, a novel
+member of the GLIS subfamily of Kruppel-like zinc finger proteins
+with repressor and activation functions. Nucleic Acids Res 31:5513–
+5525.
+
+78. Liu F, Massague J, Ruiz i Altaba A. 1998. Carboxy-terminally truncated
+
+Gli3 proteins associate with Smads. Nat Genet 20:325–326.
+
+79. Gigliotti S, Callaini G, Andone S, Riparbelli MG, Pernas-Alonso R, et al.
+1998. Nup154, a new Drosophila gene essential for male and female
+gametogenesis is related to the nup155 vertebrate nucleoporin gene.
+J Cell Biol 142:1195–1207.
+
+80. Cai Y, Gao Y, Sheng Q, Miao S, Cui X, et al. 2002. Characterization and
+potential function of a novel testis-specific nucleoporin BS-63. Mol
+Reprod Dev 61:126–134.
+
+81. Linder B, Jones LK, Chaplin T, Mohd-Sarip A, Heinlein UA, et al. 1998.
+Expression pattern and cellular distribution of the murine homologue of
+AF10. Biochim Biophys Acta 1443:285–296.
+
+82. Fan F, Liu CP, Korobova O, Heyting C, Offenberg HH, et al. 1997.
+cDNA cloning and characterization of Npap60: a novel rat nuclear
+pore-associated protein with an unusual subcellular localization during
+male germ cell differentiation. Genomics 40:444–453.
+
+83. Geles KG, Adam SA. 2001. Germline and developmental roles of the
+nuclear transport factor importin alpha3 in C. elegans. Development
+128:1817–1830.
+
+84. Geles KG, Johnson JJ, Jong S, Adam SA. 2002. A role for
+Caenorhabditis elegans importin IMA-2 in germ line and embryonic
+mitosis. Mol Biol Cell 13:3138–3147.
+
+85. Giarre M, Torok I, Schmitt R, Gorjanacz M, Kiss I, et al. 2002. Patterns
+importin-alpha expression during Drosophila spermatogenesis.
+
+of
+J Struct Biol 140:279–290.
+
+86. Gorjanacz M, Adam G, Torok I, Mechler BM, Szlanka T, et al. 2002.
+Importin-alpha 2 is critically required for the assembly of ring canals
+during Drosophila oogenesis. Dev Biol 251:271–282.
+
+Review articles
+
+87. Mason DA, Fleming RJ, Goldfarb DS. 2002. Drosophila melanogaster
+importin alpha1 and alpha3 can replace importin alpha2 during
+spermatogenesis but not oogenesis. Genetics 161:157–170.
+
+88. Tirian L, Puro J, Erdelyi M, Boros I, Papp B, et al. 2000. The Ketel(D)
+dominant-negative mutations identify maternal function of the Droso-
+phila importin-beta gene required for cleavage nuclei
+formation.
+Genetics 156:1901–1912.
+
+89. Salas-Cortes L, Jaubert F, Barbaux S, Nessmann C, Bono MR, et al.
+1999. The human SRY protein is present in fetal and adult Sertoli cells
+and germ cells. Int J Dev Biol 43:135–140.
+
+90. Yang J, Bardes ES, Moore JD, Brennan J, Powers MA, et al. 1998.
+the
+
+Control of cyclin B1 localization through regulated binding of
+nuclear export factor CRM1. Genes Dev 12:2131–2143.
+
+91. Takizawa CG, Weis K, Morgan DO. 1999. Ran-independent nuclear
+import of cyclin B1-Cdc2 by importin beta. Proc Natl Acad Sci USA
+96:7938–7943.
+
+92. Kong M, Barnes EA, Ollendorff V, Donoghue DJ. 2000. Cyclin F
+regulates the nuclear localization of cyclin B1 through a cyclin-cyclin
+interaction. Embo J 19:1378–1388.
+
+93. Gromoll J, Wessels J, Rosiepen G, Brinkworth MH, Weinbauer GF.
+1997. Expression of mitotic cyclin B1 is not confined to proliferating
+cells in the rat testis. Biol Reprod 57:1312–1319.
+
+94. Yang J, Kornbluth S. 1999. All aboard the cyclin train: subcellular traf-
+ficking of cyclins and their CDK partners. Trends Cell Biol 9:207–210.
+
+95. Hagting A, Karlsson C, Clute P, Jackman M, Pines J. 1998. MPF
+
+localization is controlled by nuclear export. Embo J 17:4127– 4138.
+
+96. Jackman M, Kubota Y, den Elzen N, Hagting A, Pines J. 2002. Cyclin
+A- and cyclin E-Cdk complexes shuttle between the nucleus and the
+cytoplasm. Mol Biol Cell 13:1030–1045.
+
+97. Beumer TL, Kiyokawa H, Roepers-Gajadien HL, van den Bos LA, Lock
+TM, et al. 1999. Regulatory role of p27kip1 in the mouse and human
+testis. Endocrinology 140:1834–1840.
+
+98. Chapman DL, Wolgemuth DJ. 1994. Regulation of M-phase promoting
+factor activity during development of mouse male germ cells. Dev Biol
+165:500–506.
+
+99. Dolci S, Pellegrini M, Di Agostino S, Geremia R, Rossi P. 2001.
+Signaling through extracellular signal-regulated kinase is required for
+spermatogonial proliferative response to stem cell factor. J Biol Chem
+276:40225–40233.
+
+100. Kang MJ, Kim MK, Terhune A, Park JK, Kim YH, et al. 1997.
+Cytoplasmic localization of cyclin D3 in seminiferous tubules during
+testicular development. Exp Cell Res 234:27–36.
+
+101. Russell LD, Ettlin RA, Sinha Hikim AD, Clegg EP. 1990. Histological
+and Histopathological Evaluation of the Testis. Clearwater, FL: Cache
+River Press.
+
+102. Fuller MT. 1998. Genetic control of cell proliferation and differen-
+tiation in Drosophila spermatogenesis. Semin Cell Dev Biol 9:433–
+444.
+
+BioEssays 27.10 1025
+
+

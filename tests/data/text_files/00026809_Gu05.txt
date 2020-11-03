@@ -1,0 +1,585 @@
+Identification of Nematicidal Fatty Acids and Triglycerides from Seeds of
+Jubaea chilensis by GC-EI-MS and Chemical Transformation Methods
+Jian-Qiao Gua,b, C. Mark Epplerc, Gloria Montenegrod, Scott D. Timminsc, and
+Barbara N. Timmermanna,*
+a Department of Pharmacology and Toxicology, Division of Medicinal and Natural Products
+
+Chemistry, College of Pharmacy, University of Arizona, 1703 East Mabel St., Tucson,
+AZ 85721, USA. Fax: +1-5 20-6 26-25 15. E-mail: btimmer@pharmacy.arizona.edu
+
+b Present address: Natural Products Chemistry, Drug Discovery and Evaluation,
+
+Cubist Pharmaceuticals, Inc., Lexington, MA 02421, USA
+
+c Fort Dodge Animal Health (Division of Wyeth), Monmouth Junction, NJ 08852, USA
+d Departamento de Ciencias Vegetales, Facultad de Agronomı´a e Ingenierı´a Forestal,
+
+Pontificia Universidad Cato´ lica de Chile, Avenida Vicun˜ a Mackenna 4860, Santiago, Chile
+
+* Author for correspondence and reprint requests
+Z. Naturforsch. 60 c, 527Ð533 (2005); received February 1, 2005
+
+Nematicidal bioassay-guided fractionation of the n-hexane extract of the seeds of Jubaea
+chilensis led to the identification of eight known fatty acids and a mixture of triglycerides,
+reported for the first time for this species. In addition, their corresponding methyl esters
+were identified to be artifacts generated during the extraction and isolation procedures by
+using GC-EI-MS and chemical transformation methods. The fatty acid composition of the
+triglycerides was analyzed by GC-EI-MS and chemical transformation techniques. Among
+the 17 compounds, only lauric acid and myristic acid exhibited significant inhibitory effects
+on the movement of Caenorhabditis elegans with minimum inhibitory concentrations (MIC)
+of 75 µg/ml.
+Key words: Jubaea chilensis, Caenorhabditis elegans, Fatty Acids GC-EI-MS
+
+Introduction
+
+Jubaea chilensis (Molina) Baill. (Arecaceae)
+commonly known as “Chilean wine palm”, “co-
+quito palm”, or “honey palm” is an evergreen
+palm tree with mighty straight trunk up to ~ 25 m
+in height (Mabberley, 1997). This species indige-
+nous to the coastal areas of central Chile also
+grows in areas with Mediterranean climates, such
+as California, the southern European coast and
+South Africa. Its sweet fruits, seeds, and sap have
+been used in sweetmeats, candies and wine. An
+edible oil can also be obtained from its seeds. Up
+to the present, no phytochemical and biological
+studies have been reported for this plant. As part
+of a collaborative search for novel bioactive prin-
+ciples of plant and microbial organisms from dry-
+land biodiversity of Latin America (Timmermann
+et al., 1999), the MeOH extract of the seeds of J.
+chilensis exhibited significant inhibitory effects on
+the growth of Caenorhabditis elegans with a mini-
+mum inhibitory concentration (MIC) of 600 µg/ml.
+Nematicidal bioassay-guided fractionation of this
+extract led to the identification of eight known
+fatty acids (1Ð8) and their corresponding methyl
+
+esters (1aÐ8a) (Fig. 1), along with a mixture of tri-
+glycerides. We report herein the identification of
+these compounds by GC-EI-MS and chemical
+transformation techniques, their inhibitory effects
+on the movement of C. elegans, and an investiga-
+tion into the possible artifactual nature of 1aÐ8a.
+
+Materials and Methods
+General experimental procedures
+
+Linoleic, oleic, palmitic,
+
+stearic acids were
+purchased from Fisher Scientific (Houston, Texas,
+USA) while capric, lauric, myristic, and octanoic
+acids were obtained from Sigma-Aldrich (Milwau-
+kee, Wisconsin, USA). GC-EI-MS data were ob-
+tained with a Varian Saturn 2100T GC-MS Work-
+station (Varian, Lake Forest, California, USA)
+including a data system software (Version 5.2)
+interfaced to a 3900-GC, a 2000-MS detector, and
+a 1079-injector. The gas chromatograph was fitted
+with a WCOT Fused Silica Chrompack capillary
+column packed with CP Sil 8 CB (30 m ¥
+0.25 mm). Ultra pure helium at 1.2 ml/min was
+used as the carrier gas, and the injector, transfer
+line, and trap temperatures were 250 ∞C, 250 ∞C,
+
+0939Ð5075/2005/0700Ð0527 $ 06.00 ” 2005 Verlag der Zeitschrift für Naturforschung, Tübingen · http://www.znaturforsch.com · D
+
+528
+
+J.-Q. Gu et al. · Nematicidal Fatty Acids and Triglycerides
+
+and 200 ∞C, respectively. The temperature of the
+column oven was programmed at 80 ∞C for 5 min,
+and then to 280 ∞C at 10 ∞C/min, followed by
+280 ∞C for 20 min. NMR spectra were recorded in
+CDCl3 at room temperature on a Bruker Avance
+300 NMR spectrometer in 5-mm NMR tubes with
+TMS as the internal standard. Column chromato-
+graphy (CC) was conducted on silica gel (63Ð
+200 µm, Scientific Adsorbents Incorporated, At-
+lanta, Georgia, USA). A middle pressure LC
+(MPLC) system was set up with a Büchi 688 chro-
+matography pump (Büchi Labortechnik AG,
+Flawil, Switzerland), a Büchi Borosilikat 3.3 glass
+column (2 ¥ 45 cm) packed with C18 Packing silica
+gel (15 g, 5 µm, Aldrich, Milwaukee, Wisconsin,
+USA), and a Spectra/Chrom“ CF-1 fraction col-
+lector (Spectrum Chromatography Inc., Houston,
+Texas, USA). Analytical TLC was performed on
+Whatman Diamond K6F silica gel 60A (250 µm)
+and Merck RP-18 WF254S (200 µm) plates. Com-
+pounds were visualized on TLC plates by dipping
+in anisaldehyde or vanillin-sulfuric acid reagents
+followed by charring at 110 ∞C for 5Ð10 min.
+
+Plant material
+
+Seeds of J. chilensis were identified and col-
+lected in May 2000 in Palmar de Ocoa, V Regio´ n,
+Chile (32∞ 55⬘ S; 71∞ 2⬘ W) by Gloria Montenegro.
+A voucher specimen (No. 1009) has been depos-
+ited in the herbarium at the Pontificia Universidad
+Cato´ lica de Chile, Santiago, Chile. Intellectual
+Property Rights Agreements for plant collections
+and collaborative research have been fully exe-
+cuted between the University of Arizona and Pon-
+tificia Universidad Cato´ lica de Chile.
+
+Extraction and isolation
+
+The milled and dried seeds (650 g) were ex-
+tracted by maceration with MeOH (4 ¥ 2.0 l).
+After filtration and evaporation of the solvent
+in vacuo, the resultant extract was diluted with
+H2O to afford a 90% aqueous MeOH solution
+(0.55 l) and then partitioned with n-hexane (3 ¥
+0.55 l) and CH2Cl2/H2O (1:1 v/v, 2 ¥ 1.2 l), sequen-
+tially, to afford dried n-hexane-soluble (75 g) and
+CH2Cl2-soluble (6.7 g) residues. Among them, the
+n-hexane extract showed the strongest inhibition
+of the movement of C. elegans at a MIC value of
+300 µg/ml when compared with MICs of 1200 µg/
+ml and > 1200 µg/ml for the CH2Cl2 and H2O ex-
+tracts, respectively. Therefore, the n-hexane ex-
+
+tract (75 g) was subjected to silica gel CC (750 g,
+63Ð200 µm) by elution with a step gradient of n-
+hexane/acetone (100:1, 75:1, 75:1, 50:1, 10:1, 0:100
+v/v, each 16 l) to give six pooled fractions (1Ð6),
+respectively. Among the six fractions, fraction 1
+exhibited the strongest inhibition at a MIC of
+38 µg/ml while the other five fractions all showed
+inhibition with MICs of > 150 µg/ml. Next, a por-
+tion of fraction 1 (2 g) was further fractionated by
+silica gel CC (130 g, 63Ð200 µm) to afford four fur-
+fraction 1Ð1 (50 mg, n-hexane/
+ther fractions,
+CH2Cl2 2.6:1 v/v, 2 l), fraction 1Ð2 (500 mg, n-he-
+xane/CH2Cl2 2.2:1 v/v, 3 l), fraction 1Ð3 (1.0 g, n-
+hexane/CH2Cl2 1:1 v/v, 3 l), and fraction 1Ð4
+(235 mg, n-hexane/EtOAc 95:5 v/v, 2 l).
+
+1H and 13C NMR analyses of fraction 1Ð2 indi-
+cated that it was a mixture of triglycerides. A por-
+tion of fraction 1Ð2 (100 mg) was sequentially
+treated with 6 ml of 5% KOH in MeOH for 15 h
+and 10 ml of 1 n HCl for neutralization, and then
+partitioned with CHCl3/H2O 1:1 v/v (3 ¥ 25 ml) to
+give a hydrolysate (60 mg). A portion of the dried
+hydrolysate (3 mg) was further treated with an ex-
+cess of diazomethane in a diethyl ether solution
+prepared using the Diazald“ Kit diazomethane
+generator (Sigma-Aldrich) for 5 min to obtain a
+product, which was analyzed by GC-EI-MS to
+evaluate the fatty acid composition in the triglyc-
+eride mixture (Fig. 3D).
+
+In turn, fractionation of fraction 1Ð4 (230 mg)
+by MPLC (acetonitrile/H2O 60:40 v/v, 2.5 ml/min,
+15 ml/vial, 4 l) sequentially resulted in the isola-
+tion of capric acid (2, 60 mg, vials 5Ð12), lauric
+acid (3, 116 mg, vials 20Ð30), myristic acid (4,
+10 mg, vials 49Ð64), and linoleic acid (6, 15 mg,
+vials 70Ð100).
+
+Capric acid (2): Wax, m.p. 29Ð31 ∞C. Ð 1H
+NMR, 13C NMR, and GC-EI-MS data (Table I)
+were identical to those of the commercial standard
+and the reported values (Pouchert and Behnke,
+1993).
+
+Lauric acid (3): Wax, m.p. 45Ð47 ∞C. Ð 1H
+NMR, 13C NMR, and GC-EI-MS data (Table I)
+were identical to those of the commercial standard
+and the reported values (Pouchert and Behnke,
+1993).
+
+Myristic acid (4): Wax, m.p. 53Ð55 ∞C. Ð 1H
+NMR, 13C NMR, and GC-EI-MS data (Table I)
+were identical to those of the commercial standard
+and the reported values (Pouchert and Behnke,
+1993).
+
+J.-Q. Gu et al. · Nematicidal Fatty Acids and Triglycerides
+
+529
+
+Linoleic acid (6): Colorless oil. Ð 1H NMR, 13C
+NMR, and GC-EI-MS data (Table I) were iden-
+tical to those of the commercial standard and the
+reported values (Pouchert and Behnke, 1993).
+
+Identification of components of fraction 1 by
+GC-MS and chemical transformation methods
+A 2 µl aliquot of fraction 1 at 10 mg/ml
+
+in
+CH2Cl2 was injected into the capillary column and
+a representative gas chromatogram is shown in
+Fig. 2A. Compounds 1Ð5 in fraction 1 were iden-
+tified by comparison of their GC-MS data (Ta-
+ble I) with their individual commercial standards
+(1 µg for each standard, Fig. 2B). Furthermore, the
+identification of 1Ð5 in fraction 1 was confirmed
+by the observed homogenous GC when fraction 1
+was mixed with their
+standards
+(Fig. 2C).
+
+individual
+
+In order to identify the overlapping GC peaks
+of fraction 1 around 21 min (Fig. 2A) and confirm
+the identification of 1Ð5, fraction 1 (10 mg) was
+treated with an excess of diazomethane in an ethyl
+ether solution for 5 min to afford a product, which
+was analyzed by GC-EI-MS (Fig. 3A). Individual
+commercial standards 1Ð8 were also treated with
+CH2N2 to afford 1aÐ8a, which were analyzed by
+GC-EI-MS (Fig. 3B). In addition, the identifica-
+tion of 1aÐ8a in the methyl esters of fraction 1
+was also confirmed by the observed homogeneous
+GC when the methyl esters of fraction 1 were
+mixed with 1aÐ8a prepared from their individual
+commercial standards 1Ð8 (Fig. 3C).
+
+Nematicidal assay against Caenorhabditis elegans
+A mixed population of larval and adult C. eleg-
+ans (L1ÐL4 larvae and adults; size range from
+~ 0.1Ð1.0 mm), grown on agar plates with feeder
+layers of Escherichia coli, was prepared as de-
+scribed by Wood (1988). For assays, the worms
+were transferred into liquid medium with E. coli
+to provide nutrients and stimulate worm motility.
+Test materials were assayed at concentrations
+ranging from 600 µg/ml (crude extracts) down to
+9.4 µg/ml (pure compounds), with 2 ¥ dilutions be-
+tween steps (600, 300, 150, etc.). Test materials
+were solubilized in DMSO/methanol (1:1) and
+added to individual wells of a 96-well polystyrene
+microtiter plate (DMSO/methanol also added to
+control wells). Methanol was allowed to evapo-
+rate, and finally 100Ð200 worms in liquid medium
+were added to each well (final DMSO content of
+1%). At 4 and 24 h of incubation at 20 ∞C, motili-
+ties of the worms in each test well were assessed
+under a microscope.
+
+Results and Discussion
+
+Bioassay-guided fractionation of the n-hexane
+extract of the seeds of J. chilensis led to the isola-
+tion of four known fatty acids including capric acid
+(2), lauric acid (3), myristic acid (4), linoleic acid
+(6, Fig. 1) along with a mixture of triglycerides for
+the first time as described in Materials and Meth-
+ods. Compounds 2Ð4, and 6 were identified by
+
+Verification of the origin of 1aÐ8a in fraction 1
+
+In order to verify the origin of the correspond-
+ing methyl esters (1aÐ8a) of 1Ð8 in fraction 1
+(Fig. 2A), n-hexane instead of MeOH was used to
+extract the plant material. In summary, the milled
+and dried seeds (2 g) of J. chilensis were sonicated
+in 30 ml of HPLC n-hexane at 30 ∞C for 60 min.
+After cooling, the mixture was filtered through
+Whatman (Clifton, New Jersey, USA) No. 1 filter
+paper into a 250 ml round bottom flask. The marc
+was extracted two more times in the same man-
+ner. The combined extractions were evaporated
+in vacuo to afford an oil (280 mg). Duplicate sam-
+ple solutions in n-hexane (12 mg/ml) were pre-
+pared for GC-EI-MS analysis. A 2 µl aliquot of the
+n-hexane extract was injected into the capillary
+column and a representative gas chromatogram is
+shown in Fig. 2D.
+
+Fig. 1. Structures of fatty acids of Jubaea chilensis and
+their corresponding methyl esters.
+
+OROn1    R = H, n = 22    R = H, n = 33    R = H, n = 44    R = H, n = 55    R = H, n = 68    R = H, n = 71a    R = CH3, n = 22a    R = CH3, n = 33a    R = CH3, n = 44a    R = CH3, n = 55a    R = CH3, n = 68a    R = CH3, n = 7OROORO6    R = H6a    R = CH37    R = H7a    R = CH3530
+
+J.-Q. Gu et al. · Nematicidal Fatty Acids and Triglycerides
+
+comparison of their physical and spectroscopic
+data (m.p., 1H NMR, 13C NMR, and GC-EI-MS)
+with those of authentic samples or values reported
+in the literature. In turn, the mixture of triglycer-
+ides was obtained as a colorless oil and identified
+by its characteristic NMR data [δH = 4.16 dd (2H,
+J = 6.0 and 12 Hz), 4.31 dd (2H, J = 4.3 and 12 Hz),
+5.29 m (1H); δC = 173.22 (s), 172.80 (s), 68.85 (d),
+62.09 (t)] (Jie and Lam, 1995). In addition, the
+original triglyceride mixture was hydrolyzed with
+KOH, and further neutralized by the addition of
+HCl; the resulting mixture of fatty acids was me-
+thylated with an excess of CH2N2 in diethyl ether.
+Table I shows the GC-EI-MS data for the fatty
+
+acid methyl esters of the triglycerides. The relative
+compositions of the fatty acids of the triglycerides
+were estimated to be octanoic (1, 3.9%), capric
+(2, 15.6%), lauric (3, 100%), myristic (4, 20.0%),
+palmitic (5, 12.5%), linoleic (6, 4.5%), oleic (7,
+21.3%), and stearic (8, 4.5%) acids if an identical
+GC response factor was considered for all of their
+individual methyl esters (1aÐ8a).
+
+In order to identify the minor components of
+fraction 1, its GC-EI-MS data were obtained and
+are shown in Fig. 2A and Table I. Two additional
+fatty acids (1 and 5) in fraction 1 were sequentially
+identified as octanoic acid and palmitic acid by
+comparison of their GC-EI-MS data with their in-
+
+Table I. GC-EI-MS data of 1Ð8 and their corresponding methyl esters 1aÐ8a identified from Jubaea chilensis.
+
+Compound
+
+Octanoic acid (1)
+
+Capric acid (2)
+
+Lauric acid (3)
+
+Myristic acid (4)
+
+Palmitic acid (5)
+
+Linoleic acid (6)
+
+Oleic acid (7)
+
+Stearic acid (8)
+
+Octanoic acid methyl ester (1a)
+
+Capric acid methyl ester (2a)
+
+Lauric acid methyl ester (3a)
+
+Myristic acid methyl ester (4a)
+
+Palmitic acid methyl ester (5a)
+
+Linoleic acid methyl ester (6a)
+
+Oleic acid methyl ester (7a)
+
+Stearic acid methyl ester (8a)
+
+a Retention time.
+
+R. T. [min]a
+
+EI-MS (m/z, rel. int.%)
+
+9.38
+
+12.50
+
+15.08
+
+17.36
+
+19.45
+
+21.09
+
+21.09
+
+21.32
+
+8.21
+
+11.86
+
+14.63
+
+17.00
+
+19.12
+
+20.76
+
+20.83
+
+21.05
+
+144 ([M]+·, 4), 127 (13), 115 (33), 101 (79), 87 (36),
+73 (98), 60 (100), 55 (71)
+172 ([M]+·, 8), 154 (6), 143 (22), 129 (100), 115 (38),
+101 (17), 87 (61), 73 (74), 55 (60)
+200 ([M]+·, 19), 171 (27), 157 (59), 143 (39), 129 (100),
+115 (47), 87 (89), 73 (92), 55 (79)
+228 ([M]+·, 27), 199 (15), 185 (52), 171 (34), 157 (28),
+143 (36), 129 (100), 115 (34), 87 (95), 73 (78), 55 (66)
+256 ([M]+·, 33), 227 (15), 213 (30), 199 (19), 185 (38),
+171 (37), 157 (39), 143 (32), 129 (81), 115 (34), 97
+(35), 87 (100), 73 (69), 55 (64)
+280 ([M]+·, 12), 263 (5), 163 (9), 149 (13), 135 (19),
+121 (22), 109 (37), 95 (74), 81 (97), 67 (100)
+282 ([M]+·, 3), 264 (45), 246 (9), 235 (11), 221 (16), 207
+(11), 193 (11), 179 (14), 165 (15), 151 (22), 137 (26), 123
+(33), 111 (42), 97 (90), 83 (100), 69 (97), 55 (91)
+284 ([M]+·, 86), 255 (21), 241 (27), 227 (22), 213 (22),
+199 (27), 185 (59), 171 (34), 157 (28), 143 (33), 129
+(100), 115 (38), 97 (85), 87 (81), 69 (80), 55 (59)
+158 ([M]+·, 6), 127 (33), 115 (44), 101 (34), 87 (62),
+74 (100), 55 (51)
+186 ([M]+·, 12), 157 (21), 143 (93), 129 (27), 115 (10),
+101 (39), 87 (74), 74 (100), 55 (53)
+214 ([M]+·, 19), 185 (25), 171 (62), 157 (25), 143 (70),
+129 (36), 115 (24), 101 (37), 87 (85), 74 (100), 55 (55)
+242 ([M]+·, 30), 213 (19), 199 (78), 185 (33), 171 (16),
+157 (32), 143 (93), 129 (29), 101 (45), 87 (94), 74
+(100), 55 (57)
+270 ([M]+·, 46), 241 (22), 227 (68), 213 (26), 199 (48),
+185 (43), 171 (46), 157 (26), 143 (76), 129 (34), 115
+(18), 101 (46), 87 (100), 74 (100), 55 (56)
+294 ([M]+·, 6), 262 (14), 191 (5), 177 (7), 164 (13), 149
+(25), 135 (27), 121 (26), 109 (30), 95 (66), 81 (95), 67
+(100), 55 (26)
+296 ([M]+·, 12), 264 (74), 246 (8), 221 (25), 207 (14),
+180 (18), 166 (21), 151 (31), 137 (34), 123 (47), 109
+(50), 97 (89), 83 (100), 67 (100), 55 (98)
+298 ([M]+·, 56), 269 (17), 255 (79), 241 (26), 227 (16),
+213 (33), 199 (70), 185 (34), 171 (20), 157 (28), 143
+(89), 129 (26), 101 (44), 87 (100), 74 (95)
+
+J.-Q. Gu et al. · Nematicidal Fatty Acids and Triglycerides
+
+531
+
+Fig. 2. GC profiles of (A) fraction 1 obtained from J. chilensis; (B) commercial standards 1Ð8; (C) mixture of
+fraction 1 and commercial standards 1Ð8; and (D) n-hexane extract of J. chilensis.
+
+the methyl esters of
+
+dividual commercial standards (Fig. 2B). The iden-
+tities of 1Ð5 in fraction 1 (Fig. 2A) were further
+confirmed by the observed homogenous gas chro-
+matograms after fraction 1 was mixed with their
+individual commercial standards (Fig. 2C). In ad-
+dition, the overlapping GC peaks around 21 min
+(Fig. 2A) were identified as linoleic (6), oleic (7),
+and stearic (8) acids by comparison of the GC-EI-
+MS data of
+fraction 1
+(Fig. 3A) with those of 6aÐ8a prepared from the
+individual standards (Fig. 3B) and the observation
+of their homogenous gas chromatograms (Fig. 3C).
+Furthermore, all the EI-MS data of 1Ð8 and 1aÐ
+8a were confirmed by a mass spectral library (Na-
+tional Institute of Standard and Technology, Wash-
+ington DC, USA). In turn, the corresponding
+methyl esters (1aÐ8a) of 1Ð8 were also identified
+from fraction 1 (Fig. 2A) by using the above men-
+tioned techniques. In order to verify the origin of
+1aÐ8a, an n-hexane extract was prepared for GC-
+
+EI-MS analysis (Fig. 2D). The absence of 1aÐ8a
+in Fig. 2D indicated that compounds 1aÐ8a in
+fraction 1 were artifacts generated during the ex-
+traction and isolation procedures.
+
+All of the 17 compounds (1Ð8, 1aÐ8a, and a
+mixture of triglycerides) were evaluated for their
+nematicidal activities against C. elegans, as de-
+scribed in Materials and Methods. At 150 µg/ml,
+lauric acid (3) and myristic acid (4) were the only
+purified compounds
+showing activity. Further
+characterization of 3 and 4 showed them to be
+fully active (100% of worms immobile) at concen-
+trations down to 75 µg/ml. Partial activity (reduced
+movement) was seen at 38 µg/ml. Fraction 1 was
+also fully active at 75 µg/ml, and sometimes at con-
+centrations as low as 38 µg/ml (2 of 3 assays). Al-
+though compound 3 constitutes almost 50% of
+fraction 1 (Fig. 2A), the activity of fraction 1 may
+be somehow enhanced by other components in
+the mixture.
+
+532
+
+J.-Q. Gu et al. · Nematicidal Fatty Acids and Triglycerides
+
+Fig. 3. GC profiles of (A) methyl esters of fraction 1; (B) corresponding methyl esters (1aÐ8a) of commercial
+standards 1Ð8; (C) mixture of methyl esters of fraction 1 and 1aÐ8a; and (D) fatty acid methyl esters obtained from
+the triglycerides of J. chilensis.
+
+There were some qualitative differences in the
+activities of compounds 3 and 4. The active con-
+centrations of both compounds rendered 100% of
+the worms immobile at times as early as 1 h, and
+this was sustained through at least 4 h (standard
+time for first observation). At the 24 h observa-
+tion, worms treated with compound 3 remained
+completely immobile. Worms treated with com-
+pound 4 showed recovery at 24 h, varying from
+only a few worms to as high as 100% (indistin-
+guishable from controls). In one further experi-
+ment with a commercial preparation of lauric acid
+(Sigma-Aldrich product number L-4250), worms
+initially rendered 100% inactive by a 75 µg/ml
+dose showed partial recovery by 24 h (~ 50% of
+worms with slow movement). Although the mech-
+anism for recovery was not determined, degrada-
+tion of the fatty acids by C. elegans or E. coli pre-
+sent in the assays is an obvious possibility.
+
+The crude extract of J. chilensis was assayed in
+a nematode-infected rodent model at 2,200 mg/kg
+of animal weight and was found to be inactive.
+
+Acknowledgement
+
+The authors are thankful to Ms. Shatasha Ham-
+ilton and Ms. Irene Alvarez-Parra, Department of
+Pharmacology and Toxicology, University of Ari-
+zona, Tucson, USA, for their technical assistance.
+This investigation was supported by the ICBG
+“Bioactive Agents from Dryland Biodiversity of
+Latin America” grant 5 UO1 TW000316Ð10 and
+3 UO1 TW000316Ð10S1 from the National Insti-
+tutes of Health (NIH), the National Science Foun-
+dation (NSF) and the US Department of Agricul-
+ture (USDA) to B.N.T. The contents are solely the
+responsibilities of the authors and do not necessar-
+ily represent the official views of NIH, NSF or
+USDA.
+
+J.-Q. Gu et al. · Nematicidal Fatty Acids and Triglycerides
+
+533
+
+Jie M. S. F. L. K. and Lam C. C. (1995), 13C-Nuclear mag-
+netic resonance spectroscopic studies of triacylglycer-
+ols of type AAA containing (Z)- and (E)-monoethy-
+lenic acyl groups. Chem. Phys. Lipids 78, 15Ð27.
+
+Mabberley D. J. (1997), The Plant-Book, 2nd Ed. Cam-
+
+Timmermann B. N., Wächter G., Valcic S., Hutchinson
+B., Casler C., Henzel J., Ram S., Currim F., Manak
+R., Franzblau S. G., Maiese W., Galinis D., Suarez E.,
+Fortunato R., Saavedra E., Bye R., Mata R., and
+Montenegro G. (1999), The Latin American ICBG:
+the first five years. Pharm. Biol. 37 (suppl.), 35Ð
+54.
+
+bridge University Press, Cambridge, UK.
+
+Pouchert C. J. and Behnke J. (eds.) (1993), The Aldrich
+
+Library of 13C and 1H FT NMR Spectra (Edition I). Wood W. B. (ed.) (1988), The Nematode C. elegans. Cold
+Spring Harbor Laboratory Press, Plainview, New
+Aldrich Chemical Company, Inc., Milwaukee, WI,
+USA, Vol. 1, pp. 753Ð785.
+York, USA.
+
+

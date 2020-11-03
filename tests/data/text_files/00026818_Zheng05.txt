@@ -1,0 +1,1358 @@
+Developmental Biology 286 (2005) 618 – 628
+
+Genomes & Developmental Control
+
+www.elsevier.com/locate/ydbio
+
+Cell-type specific regulation of serotonergic identity by the C. elegans
+
+LIM-homeodomain factor LIM-4
+
+Xianwu Zheng, Shinjae Chung, Takahiro Tanabe, Ji Ying Sze *
+
+Department of Anatomy and Neurobiology, School of Medicine, University of California Irvine, Irvine, CA 92697-4040, USA
+
+Received for publication 19 July 2005, revised 3 August 2005, accepted 5 August 2005
+
+Available online 13 September 2005
+
+Abstract
+
+How a common neurotransmitter phenotype specified in neurons of different origins is an outstanding issue in neuronal development and
+function. In C. elegans larvae, serotonin is synthesized in 2 pairs of neurons, the secretory neurons NSM and the chemosensory neurons ADF. In
+order to delineate the molecular mechanisms of serotonergic phenotype establishment, we have screened for neuron-specific serotonin deficient
+(nss) mutants. Our prior study showed that the POU-homeodomain factor UNC-86 is expressed in and required for the NSM neurons to adopt
+serotonergic phenotype and correct pathfinding, whereas ADF are unaffected in unc-86-null mutants. Here, we report that the LIM-homeodomain
+factor LIM-4 regulates ADF serotonergic phenotype. In lim-4 mutants, many aspects of ADF differentiation occur, however, they fail to express
+serotonin phenotype and exhibit aberrant cilia properties. LIM-4 expression rises in the neuroblast that produces two distinct neurons: ADF and
+the olfactory neuron AWB. We show that lim-4 is regulated by separable mechanisms to determine disparate subtype identities in these two
+neuronal types. In vivo promoter analyses reveal that cis-element(s) within introns are necessary and sufficient to direct lim-4 to specify
+serotonergic phenotype, whereas its 5V-upstream sequence directs lim-4 function in AWB. Thus, a transcription factor may act independently to
+specify distinct differentiation traits in two sister cells. We propose that serotonergic identity is specified in cell-specific contexts to coordinate the
+development and function.
+D 2005 Elsevier Inc. All rights reserved.
+
+Keywords: Serotonin identity; Sensory property; LIM-homeodomain factors; Neuron-specific enhancers; C. elegans
+
+Introduction
+
+Neurotransmitters are vital agents for the function of neural
+circuits, transducing external environmental cues detected by
+sensory neurons to the CNS and ultimately to produce changes
+in behavior and physiology. During neurogenesis, individual
+neural lineages produce diverse neurons in a specific order,
+each neuron with a unique assortment of cell
+identities,
+including cell body position, surface receptors, axonal trajec-
+tory, synaptic connectivity and choice of neurotransmitters. The
+temporal and spatial pattern of neuronal diversification is
+highly reproducible within an organism, forming the funda-
+mental matrix that allows dynamic environmental cues each
+translated via a specific neurotransmitter pathway into a
+particular perception (Udin and Fawcett, 1988; Lewin, 1994).
+
+* Corresponding author. Fax: +1 949 824 5110.
+
+E-mail address: jsze@uci.edu (J.Y. Sze).
+
+0012-1606/$ - see front matter D 2005 Elsevier Inc. All rights reserved.
+doi:10.1016/j.ydbio.2005.08.013
+
+One intriguing phenomenon during neural patterning is the
+development of neurotransmitter
+identity—sister neurons
+derived from a single cell division often express distinct
+neurotransmitters, and, conversely, a variety of neuronal types
+of different origins may adopt a common neurotransmitter.
+Studies of neural development
+in both vertebrates and
+invertebrates have provided considerable insights into the
+contribution of environmental signaling and lineage restrictions
+in neurogenesis and have identified many extracellular
+signaling factors and intracellular proteins that direct neuronal
+diversity (Tanabe and Jessell, 1996; Shirasaki and Pfaff, 2002;
+Brody and Odenwald, 2002; Lanjuin and Sengupta, 2004).
+These studies suggest that sequential production of different
+neuronal subtypes reflects temporal and spatial expression of
+transcription factors in neural progenitors. It remains unclear,
+however, how a common neurotransmitter is specified in
+neurons of different lineages and whether the development of
+transmitter phenotype is intimately linked to other aspects of
+the neuronal identity.
+
+X. Zheng et al. / Developmental Biology 286 (2005) 618 – 628
+
+619
+
+The same set of genes is used to produce mature phenotypes
+of a neurotransmitter in different neurons within an organism,
+and these genes are extremely conserved across phyla.
+Emerging evidences from both vertebrates and invertebrates
+indicate that a common neurotransmitter phenotype may be
+specified by different determinants in different neurons. For
+example, in mammalian CNS, the rostral and caudal seroto-
+nergic neurons arise from a similar origin but develop into
+distinct projection patterns: the rostral neurons project to the
+cortex and hypothalamus, and the caudal neurons project to the
+spinal cord (Wallace and Lauder, 1992; Hynes and Rosenthal,
+1999). The development of
+rostral serotonergic neurons
+requires Shh, FGF signaling and the homeobox gene Nkx2.2
+(Ye et al., 1998; Briscoe et al., 1999; Pattyn et al., 2003), but
+caudal serotonergic identity is dependent on the GATA-3
+transcription factor (van Doorninck et al., 1999). However, the
+ETS transcription factor PET-1 is expressed in both the rostral
+and caudal serotonergic neurons and inactivation of the pet-1
+gene results in 70% loss of rostral and caudal serotonergic
+neurons (Hendricks et al., 2003; Scott et al., 2005). Because
+missing any of these factors results in failure in generation or
+premature degeneration of serotonergic neurons, these factors
+may have broad functions in the development and survival of
+the neurons. Neuron-type-specific determination of serotoner-
+gic phenotype is further demonstrated in Drosophila lacking
+the LIM-homeodomain transcription factor islet,
+in which
+neurons in the ventral nerve cord are generated and survive but
+fail to produce serotonin, while the serotonergic neurons in the
+CNS are unaffected (Thor and Thomas, 1997). However, islet
+also regulates dopaminergic phenotype in ventral cord neurons;
+it
+is not clear how islet-expressing cells choose between
+serotonin and dopamine.
+
+role of
+
+The potential
+
+‘‘neuron-specific’’
+
+regulation of
+neurotransmitter phenotype may be gleaned from studies of
+GABAergic phenotype in C. elegans. The homeobox gene
+unc-30 activates the expression of genes essential for GABA
+synthesis and release, and regulates the synaptic connectivity
+specifically in the type D motor neurons that control C. elegans
+locomotion (Jin et al., 1994; Eastman et al., 1999), whereas the
+LIM-homeobox gene lim-6 coordinates GABAergic phenotype
+and pathfinding of the DVB and AVL motor neurons that
+regulate defecation behavior (Hobert et al., 1999). Coordinated
+transcriptional regulation of neurotransmitter phenotype and
+synaptic property may represent one principle in establishment
+of
+functional circuits and underlie the genetic bases of
+behavioral modulation and, perhaps, behavioral disorders.
+
+To begin to address this issue, we have undertaken genetic
+dissection of serotonergic phenotype in C. elegans. In C.
+elegans larvae, only 4 neurons, a pair of pharyngeal secretory
+neurons NSM and a pair of chemosensory neurons ADF,
+produce serotonin (Sze et al., 2002), providing a simple genetic
+system in which to investigate the development of serotonergic
+phenotype. Serotonin synthesis in C. elegans requires the tph-1
+gene, which encodes a tryptophan hydroxylase that catalyzes
+the rate-limiting first step of serotonin synthesis, and animals
+bearing a tph-1 deletion mutation show no detectable serotonin
+based on whole-mount staining with anti-serotonin antibodies
+
+(Sze et al., 2000). In vivo promoter analyses have revealed that
+tph-1 expression in the NSM and ADF neurons is regulated
+independently via distinct cis-regulatory elements (Sze et al.,
+2002), indicating that serotonergic phenotype in C. elegans
+also is regulated by neuron-specific mechanisms.
+
+To identify factors involved in neuron-specific regulation of
+serotonin synthesis, we have conducted screens for mutants
+with neuron-specific serotonin deficiency (nss). We have
+reported that
+the POU-homeodomain transcription factor
+UNC-86 is expressed in the NSM neurons, and inactivation
+of unc-86 abolishes tph-1 expression in NSM and affects their
+pathfinding, but that the ADF neurons are unaffected in unc-
+86-null mutants (Sze et al., 2002). Here, we describe genetic
+and molecular characterization of
+the LIM-homeodomain
+transcription factor LIM-4 in the development of the seroto-
+nergic neurons ADF. We show that LIM-4 is expressed in the
+precursor neuroblast that produces two distinct neurons, ADF
+and the olfactory neuron AWB, that LIM-4 is regulated by
+distinct mechanisms to regulate distinct subtype identities of
+ADF and AWB, and that this differential action is dictated by
+cis-regulatory elements within the lim-4 gene. Thus, LIM-4
+acts independently to specify distinct differentiation traits in
+two sister cells and a multi-functional transcription factor could
+function as a neuron-specific determinant of neurotransmitter
+phenotype.
+
+Materials and methods
+
+Worm strains
+
+-
+Strains used were cultured at 20
+
+C using standard methods (Brenner,
+1974). Wild-type (WT) is the Caenorhabditis elegans variety Bristol strain
+(N2). The following genes and alleles were used in this work: ceh-37(ok642)
+(Lanjuin et al., 2003),
+lim-
+4(ky403) (Sagasti et al., 1999), lin-11(n566) and lin-11(n389) (Freyd et al.,
+1990), and the C. elegans Hawaiian isolate CB4856.
+
+lim-4(yz12) and lim-4(yz3)
+
+from this work,
+
+DNA constructs, GFP reporters and transgenic lines
+
+this work; yzExAP11: Ex[lim-4(+); elt-20gfp],
+
+DA1262: adEx1262[gcy-50gfp; lin-15(+)] (Yu et al., 1997); DA1267:
+adEx1267[gcy-80gfp; lin-15(+)] (Yu et al., 1997); yzIs71: Is[tph-10gfp; rol-
+6(d)] (Sze et al., 2000); Is[cat-10gfp] (a gift from S. Nurrish and J. Kaplan,
+Sze et al., 2002); plin-11-ABCDE0gfp: Is[lin-110gfp; rol-6(d)] (Hobert et al.,
+1998); yzEx144: Ex[cat-40gfp; rol-6(d)] (previously known as gtpch-10gfp,
+Sze et al., 2002); yzEx210: Ex[srh-1420gfp; rol-6(d)], a translational fusion of
+3.4 Kb 5V-uncoding sequence and first 10 codons of the srh-142 gene to GFP
+and unc-54 3V-untranslated region (UTR) from the plasmid pPD95.75 (from A.
+Fire),
+lim-4(+) is a PCR
+product amplified from WT genomic DNA containing 3.6 Kb 5V-uncoding
+sequence, exons, introns, and 1.5 Kb 3V-UTR of the lim-4 gene, this work;
+yzExX001[str-10gfp; rol-6(d)], a transcriptional fusion of 4.4 Kb 5V-uncoding
+sequence of the str-1 gene (Troemel et al., 1995) to GFP and unc-54 3V-UTR,
+this work; yzExX003: Ex[Plim-40lim-4(cDNA); elt-20gfp], with 3.6 Kb 5V-
+uncoding sequence of lim-4 fused to the full length lim-4 cDNA and the lim-4
+3V-UTR, this work; yzExX004: Ex[myc0lim-4(+); elt-20gfp), with the myc
+epitope tagged to the N-terminus of the lim-4 coding sequence in the context of
+lim-4(+),
+this lim-4
+dominant negative fragment was generated by removal of the sequence
+between the homeodomain (HD) and the C-terminus from lim-4(+), this work;
+yzExX016: Ex[srg-80gfp;elt-20gfp], a transcriptional fusion containing about
+2 Kb 5V-uncoding sequence of the srg-8 gene (Troemel et al., 1995) to GFP and
+unc-54 UTR; this work; yzExX026: Ex[Ppes-100lim-4; elt-20gfp], with the
+
+this work; yzExX012: Ex[lim-4(DHD); elt-20gfp],
+
+620
+
+X. Zheng et al. / Developmental Biology 286 (2005) 618 – 628
+
+sequence corresponding to the basal promoter of the pes-10 gene (from A. Fire)
+fused to the lim-4 exons, introns and 3V-UTR, this work.
+
+All
+
+the constructs from this work were generated by PCR. For each
+construct, products from at least two independent PCR reactions were pooled to
+reduce potential PCR errors. The pooled PCR products were purified
+(QIAquick, Qiagen) and microinjected at the concentration of 50 ng/Al into
+worms. As indicated, the plasmid containing either a dominant rol-6 gene, rol-
+6(d), or elt-20gfp (a gift from J. McGhee, University of Calgary, Canada) was
+coinjected as a transgenic marker.
+
+Isolation and characterization of yz3 and yz12 mutations
+
+The yz3 and yz12 mutations were isolated based on reduction/absence of
+GFP in the ADF neurons after ethyl methanesulfonate mutagenesis of WT
+worms carrying yzIs71[tph-10gfp; rol-6(d)]. The mutagenesis and mutant
+screens have been described previously (Sze et al., 2002). We screened through
+6500 haploid genomes, and recovered 24 neuron-specific serotonin deficient
+mutants (nss). We have reported that two of the nss genes, nss-2 and nss-3, are
+alleles of the TRPV channel genes ocr-2 and osm-9, respectively, that act in the
+ADF neurons to control serotonin synthesis (Zhang et al., 2004). Thus, this
+screen recovers genes that regulate the development as well as the function of
+the serotonergic neurons.
+
+We mapped the yz12 mutation to the X chromosome between clones T06F4
+and C02F12, using restriction enzyme site polymorphisms between N2 and the
+Hawaiian C. elegans isolate CB4856 (Wicks et al., 2001). Complementation
+assays indicated that yz12 and yz3 are allelic to lim-4(ky403). The molecular
+lesion of the yz12 and yz3 mutations was determined by PCR amplification of
+the exons and exon/intron boundaries from the mutant strains and sequencing
+the PCR fragments.
+
+Immunochemical analysis
+
+The staining of anti-serotonin antibody was performed using the McIntire –
+Horvitz whole-mount procedure (McIntire et al., 1992). To conduct anti-myc
+antibody staining, animals were fixed according to an established protocol
+(Finney and Ruvkun, 1990), and stained with monoclonal anti-myc antibody
+(Clontech, 1:200 dilution). Antibody staining of embryos was conducted as
+described (Guenther and Garriga, 1996). Anti-LIN-26 antibody was a gift from
+Dr. M. Labouesse (IGMBC, France) and used at 1:100 dilution. The staining
+patterns were visualized via Alexa Fluor 568 or 488 conjugated secondary
+antibodies (Molecular Probe; 1:2000 dilution) under a Zeiss Axioplan II
+fluorescence microscope equipped with proper filters.
+
+Dye filling assays
+
+The stock solution was 1 mg DiI/ml Dimethlyformamide and stored at
+ 20
+-
+C. The working solution was 1:1500 dilution of the DiI stock in M9
+buffer. Well-fed animals were washed off from cultural plates, incubated in 1.5
+ml of the DiI working solution at room temperature for 30 min, washed 3 times
+with the M9 buffer, and observed under a fluorescence microscope.
+
+Results
+
+yz3 and yz12 mutations specifically disrupt serotonergic
+phenotype in the pair of chemosensory neurons ADF
+
+Serotonergic phenotype can be precisely identified within
+the nervous system of the nematode C. elegans. Although
+seven neurons from four neuronal classes can be stained by
+antibodies raised against serotonin in a hermaphroditic larva
+(Horvitz et al., 1982; Sze et al., 2000), two classes, ADF and
+NSM, each consisting of
+two bilaterally morphological
+symmetric neurons (White et al., 1986), are capable of de
+novo synthesis of serotonin. A pair of AIM and a single RIH
+
+interneurons absorb extracellular serotonin via the membrane
+serotonin transporter (SERT) (Sze et al., 2002; Dempsey and
+Sze, unpublished) encoded by the mod-5 gene (Ranganathan et
+al., 2001). The ADF and NSM neurons are generated from
+different lineages during embryogenesis, each class mediating
+specific behaviors: the ADF neurons sense external environ-
+mental signals (Bargmann and Horvitz, 1991), and NSM are
+involved in feeding behavior (Avery and Horvitz, 1989). In
+addition, a pair of motor neurons HSN produces serotonin in
+adulthood, and HSN modulate the rhythm of vulva muscle
+contraction to release fertilized eggs (Desai et al., 1988).
+
+The tph-1 gene encodes a tryptophan hydroxylase and is
+required for serotonin synthesis in C. elegans (Sze et al., 2000).
+Coincident with serotonin immunoreactivity, the expression of
+a green fluorescent protein reporter (tph-10gfp) starts in the
+ADF and NSM neurons upon the animal hatching to sense the
+environment and feed, and in HSN only when the animal
+begins to fertilize eggs, suggesting that
+the serotonergic
+phenotype is intimately linked to the functional status of
+individual neuronal
+to investigate how
+specification of serotonergic phenotype integrates with the
+development of other cellular identities, we used tph-10gfp as
+a reporter and conducted visual screens for neuron-specific
+serotonin deficient mutants. We reasoned that mutations
+affecting a ‘‘master determinant’’ should abolish tph-1 expres-
+sion in all the neurons, and that mutations in ‘‘neuron-specific
+determinants’’ may affect particular neuronal classes.
+
+In order
+
+types.
+
+yz3 and yz12 (previously known as nss-1(yz12)) are two
+mutations specifically affecting tph-10gfp expression in the
+ADF neurons. In yz3 and yz12 mutants, tph-10gfp expression
+in the ADF neurons is dramatically reduced or undetectable,
+but the GFP level in the NSM and HSN neurons is unaffected
+(Fig. 1a; Table 1). To determine the yz3 and yz12 mutations
+indeed affecting serotonergic phenotype of the ADF neurons,
+we stained mutants with anti-serotonin antibody. 100% of yz12
+mutant and 57% of yz3 mutant animals show ADF serotonin
+immunoreactivity reduced or abolished, but the other neurons
+are stained normally (Fig. 1a, N = 100 for each strain). We
+conclude that yz3 and yz12 mutations affect genes that are
+necessary for ADF to produce serotonin.
+
+yz3 and yz12 are two alleles of the LIM-homeodomain
+transcription factor LIM-4
+
+We mapped the yz3 and yz12 mutations to a small interval
+on the X chromosome. Through complementation assays and
+sequencing of the mutant genomic DNA, we find that yz3 and
+yz12 are allelic to lim-4. The coding sequence predicts that the
+lim-4 gene encodes a transcription factor with two metal-
+binding, protein-interacting LIM-domains followed by a DNA-
+binding homeodomain (Sagasti et al., 1999). yz12 is a 296-bp
+deletion that removes the entire homeodomain and results in a
+premature stop codon shortly after the deletion site, and yz3 is a
+G to A transition that destroys the splice donor site of the fifth
+intron and eliminates the coding sequence for a part of the
+homeodomain (Fig. 1b). Three sets of additional experiments
+further confirm that LIM-4 regulates tph-1 expression in the
+
+X. Zheng et al. / Developmental Biology 286 (2005) 618 – 628
+
+621
+
+Fig. 1. lim-4 mutations specifically disrupt serotonergic phenotype in the pair of ADF chemosensory neurons. (a) The pattern of tph-10gfp expression and anti-
+serotonin antibody staining in lim-4 mutants. Top panel: In WT larvae tph-10gfp is expressed in 2 neuronal classes and anti-serotonin immunoreactivity can be
+detected in 4 neuronal classes. Middle panel: In lim-4(yz12) mutant animals, tph-10gfp expression and serotonin immunoreactivity in the ADF neurons are
+significantly reduced or absence, whereas the other neurons are unaffected. Bottom panel: The lim-4(+) transgene can restore ADF tph-10gfp expression and serotonin
+immunoreactivity in lim-4(yz12) mutants. Quantification of tph-10gfp expression in three lim-4 alleles is presented in Table 1. (b) The genomic structure of the lim-4
+gene. lim-4 exons are indicated by filled boxes and untranslated regions are indicated as lines. The coding regions corresponding to the LIM domains and the
+homeodomain are marked. The drawing is based on reported lim-4 structure (Sagasti et al., 1999). Mutations of two lim-4 alleles identified from this study are shown.
+
+ADF neurons. First, we examined serotonergic phenotype in
+another lim-4 allele.
+is a nonsense mutation
+resulting in a premature termination in the middle of the
+homeodomain of LIM-4 (Sagasti et al., 1999), and lim-
+4(ky403) mutant animals show reduced tph-10gfp expression
+
+lim-4(ky403)
+
+Table 1
+tph-10gfp expression in lim-4 mutants
+
+% of ADF
+
+% NSM % HSN N
+
+Strong Weak None
+
+WT
+yz12
+yz3
+lim-4(ky403)
+yz12;Ex[lim-4(+)]
+yz12; Ex[myc0lim-4(+)]
+WT; Ex[lim-4(DHD)]
+
+99.0
+0.7
+8.0
+2.0
+75.7
+90.0
+36.4
+
+1.0
+22.3
+79.3
+53.5
+21.7
+10.0
+34.6
+
+0.0
+77.0
+12.7
+44.5
+2.6
+0.0
+29.0
+
+100
+100
+100
+100
+100
+NA
+NA
+
+100
+100
+100
+100
+100
+NA
+NA
+
+109
+139
+87
+101
+115
+86
+217
+
+The definition of the strength of GFP: Strong, equivalent to GFP seen in WT
+animals; Weak, GFP still detectable in the cell body; Very weak/None, GFP
+almost visually undetectable. tph-10gfp is integrated to the chromosome IV.
+The lim-4 constructs were carried as extra-chromosomal arrays and marked by
+elg-20gfp. Animals carrying a lim-4 construct were scored. 2 – 3 transgenic
+lines for each construct were analyzed, and the data represent the summary of 3
+generations of the animals. N is the total number of animals scored for each
+strain.
+
+(Table 1) and serotonin immunoreactivity in ADF (78%, N =
+87). Second, a genomic fragment containing the WT lim-4
+gene, lim-4(+), rescues ADF tph-1 expression and serotonin
+immunoreactivity in yz12 mutant animals (Fig. 1a, Table 1).
+Third, expression of a lim-4 genomic fragment containing the
+LIM-domains alone, lim-4(DHD), impairs ADF serotonergic
+phenotype in WT animals (Table 1).
+
+These results indicate that the LIM-homeobox gene lim-4 is
+required for tph-1 expression in the ADF neurons. All three lim-
+4 mutations destroy the DNA-binding homeodomain, suggest-
+ing that LIM-4 activates the expression of genes that produce
+serotonergic phenotype in the ADF neurons. It has been
+reported that LIM-domains function as adapter elements to
+promote assembly of multi-protein complex or directly influ-
+ence the affinity of its homeodomain to the target DNA (Xue et
+al., 1992; Sanchez-Garcia et al., 1993; Lee and Pfaff, 2003). The
+LIM domain of islet-3 has been shown to act as a specific
+dominant-negative variant of islet-3 (Kikuchi et al., 1997). The
+dominant-negative effect of the lim-4(DHD) transgene on tph-1
+expression suggests that expression of the LIM domains alone
+may either prevent the endogenous WT LIM-4 proteins from
+binding to the target DNA, or they titrate out the activating
+cofactors. Because the yz12 mutation that completely removes
+the homeodomain does not completely eliminate tph-1 expres-
+
+622
+
+X. Zheng et al. / Developmental Biology 286 (2005) 618 – 628
+
+sion in the mutant animals (Table 1), LIM-4, instead of acting as
+sole activator, is likely interacting with LIM-binding cofactors
+to promote serotonergic phenotype in ADF.
+
+The LIM-4 protein is expressed in the precursor of ADF
+
+The expression pattern of lim-4 in larval and adult animals
+has been examined with two GFP reporter constructs, and lim-
+40gfp was not detected in the ADF neurons but
+it was
+detected in the olfactory neurons AWB, the sister cells of ADF
+from the same precursor neuroblasts (Sagasti et al., 1999). It
+has been shown that the mouse LIM-homeobox genes Lhx3
+and Lhx4 are transiently expressed during mitotic division to
+specify subclass identity of motor neurons (Sharma et al.,
+1998). We reasoned that LIM-4 could act earlier to promote
+asymmetric cell division producing AWB and ADF. Alterna-
+tively, ADF serotonergic phenotype could be regulated by
+signals from AWB. To test the first possibility, we determined
+whether lim-4 is expressed in the ADF/AWB precursor cells.
+To examine LIM-4 expression in embryos, we inserted a
+myc epitope at the N-terminus of the LIM-4 coding region in
+the context of the lim-4(+) construct and introduced this fusion
+gene into yz12 mutants. This myc0lim-4 transgene potently
+
+rescues ADF serotonergic phenotype in yz12 mutants (Table 1),
+indicating that the MYC0LIM-4 protein is expressed in cells
+necessary to specify ADF serotonergic identity. To examine
+lim-4 expression during the embryogenesis, we stained the eggs
+at various developing stages with anti-myc antibodies. We used
+a GFP reporter for the GATA gene elt-2, which is specifically
+expressed in the gut lineage (Fukushige et al., 1998), to stage
+the embryos. MYC0LIM-4 immunoreactivity is first detected
+in two cells approximately 160 min post-fertilization at 8 gut
+nuclei stage (Fig. 2a). The pair of ADF and the pair of AWB
+neurons are generated approximately 280 min post-fertilization
+from two symmetrical
+lineages descended from the AB
+cell (Sulston et al., 1983; Fig. 3a). We identify the two
+MYC0LIM-4-staining cells as the neuroblasts ABalpppppa
+and ABpraaappa that respectively give rise to left/right ADF
+and AWB neurons, based on triple labeling of the embryos
+with antibodies raised against the LIN-26 protein (Labouesse
+et al., 1996), which is expressed in the nuclei of
+the
+hypodermal cells that border the ADF/AWB mother cells
+(Figs. 2c, d). Like lim-40gfp (Sagasti et al., 1999),
+the
+MYC0LIM-4 immunoreactivity is not detected in ADF at
+any stage of larvae or adults, but it is observed in AWB and
+several other neurons in the head throughout life (Fig. 2b,
+
+Fig. 2. LIM-4 is expressed in the pair of neuroblasts that produce ADF. The animals are WT carrying three transgenes: integrated tph-10gfp is expressed in post-
+embryonic serotonergic neurons, elt-20gfp is specifically expressed in the nuclei of gut cells (Fukushige et al., 1998) and serves as a marker for embryonic stages,
+and myc0lim-4(+) has the myc epitope tagged to the N-terminus of the coding region of the WT lim-4 gene. (a) Images of WT embryos at the stage of 4 gut cells and
+onwards. The embryos are triple-labeled with anti-myc antibody (red), elt-20gfp (green), and DAPI (blue). The top panel shows that myc immunoreactivity is first
+detected in two cells around the stage of 8 gut cells. As the embryos developing additional cells also are stained, but we cannot determine if any of them are ADF.
+The lower panel shows the merged images of anti-myc immunoreactivity, elt-20gfp expression with DAPI labeled nuclei. GFP was visualized with a FITC filter, and
+the staining pattern of anti-myc antibodies was detected by Alexa fluor 568 conjugated anti-mouse antibodies, using a Rhodamine red filter. (b) WT animals double-
+labeled with anti-myc antibody and tph-10gfp. MYC0LIM-4 (red) can be detected in the AWB neurons throughout life. However, we cannot observe myc
+immunoreactivity overlapping with tph-10gfp (green) expression at any stage of the animals. A larval stage-4 animal is shown. Anterior is to the left. (c) A
+schematic representation showing the dorsal view of the nuclei in a WT embryo around 260 min post-fertilization (adapted from Sulston et al., 1983). Two dark green
+nuclei represent the pair of the ADF/AWB precursors. The nuclei of hypodermal cells that express LIN-26 at this stage are shown in red. Six landmark cells are
+marked with white crosses: ALM/BDU precursors (L/R), ADEsh (L/R), and XXX (L/R). (d) MYC0LIM-4 is expressed in the ADF/AWB precursors. The left panel
+shows the patterns of anti-myc antibody staining and elt-20gfp expression, the middle panel shows the pattern of anti-LIN-26 antibody staining, and the right panel
+shows the merged image of myc immunoreactivity, LIN-26 immunoreactivity, and elt-20gfp of the same embryo. Anti-myc antibody staining was labeled with
+Alexa Fluor 488 conjugated chicken anti-mouse antibodies, and anti-LIN-26 antibody staining was labeled with Alexa Fluor 568 goat anti-rabbit antibodies. The
+white crosses indicate the landmarks described in c.
+
+X. Zheng et al. / Developmental Biology 286 (2005) 618 – 628
+
+623
+
+Fig. 3. lim-4 mutations affect subtype identity of two sister cells derived from one postmitotic division. Comparison of neuronal markers and dye filling property of
+the amphid sensory neurons in WT and lim-4(yz12) mutant animals. Living animals carrying various GFP reporters were soaked in a solution containing the
+fluorescent dye DiI. GFP was visualized with a FITC filter, and DiI staining pattern was visualized by a Rhodamine red filter. All the animals shown have their
+anterior towards the left. (a) Lineage (Sulston et al., 1983). The ADF and AWB neurons are produced from the same precursor. In addition, four other classes of
+amphid sensory neurons are sequentially generated from the lineage. (b) The lim-4 mutation is accompanied by reduction of tph-10gfp expression and ectopic dye
+filling in ADF. This suggests that ADF neurons are generated, but their serotonergic phenotype disrupted and cilia property altered. (c) The AWB neurons in lim-4
+mutants fail to express the chemosensory receptor str-1 and lack dye filling. Notice dye filling in mutant ADF. (d – f) The four other classes of the amphid sensory
+neurons from the lineage retain their ability to express pan-neuronal markers and exhibit normal dye filling properties. In WT animals, srg-80gfp is specifically
+expressed in the dye filled ASK neurons, and gcy-80gfp and gcy-50gfp are specifically expressed respectively in non-dye filling AFD and ASE(R) neuron. The lim-
+4(yz12) mutation does not alter the gene expression or dye filling in these neurons.
+
+it
+
+is present
+
+it
+
+is difficult
+
+N > 200). Because we do not have a cellular marker to
+identify ADF neurons immediately following the postmitotic
+division,
+to determine if LIM-4 is excluded
+from ADF or
+there transiently. However,
+neuron-specific rescue experiments show that expression of
+LIM-4 in AWB is not sufficient to induce ADF serotonergic
+phenotype, suggesting that the LIM-4 directly regulates ADF
+development (see below). Our results are most consistent
+with the scenario that LIM-4 specifies ADF serotonergic fate
+either before the last cell division or at an early phase of the
+postmitotic differentiation. The brief action of LIM-4 in
+ADF differentiation may be mechanistically analogous to the
+role of the transient expression of the mouse LIM-home-
+odomain factor
+Isl2 in subtype identity specification of
+nascent motor neurons in the developing spinal cord (Thaler
+et al., 2004).
+
+LIM-4 regulates specific aspects of ADF identity
+
+Does the absence of the lim-4 gene activity cause a
+complete cell fate transformation, or the mutations specifically
+
+prevent the ADF neurons from adopting serotonergic pheno-
+type? To address this question, we have examined GFP
+reporters for other ADF neuronal markers in the most severe
+lim-4 allele, yz12. We first determine the effect of the yz12
+mutation on the expression of other genes their products
+involved in serotonergic phenotype. cat-4 encodes a GTP-
+cyclohydrolase I, a cofactor of tryptophan hydroxylase, and is
+required for serotonin biosynthesis. cat-1 encodes a vesicular
+monoamine transporter (VMAT) that pumps serotonin into
+synaptic vesicles for regulated exocytosis (Duerr et al., 1999).
+We have shown in WT animals that both cat-40gfp and cat-
+10gfp are strongly expressed in serotonergic neurons (Sze et
+al., 2002). The yz12 mutation dramatically reduces or
+eliminates the expression of both GFP reporters in the ADF
+neurons (Table 2). Thus, LIM-4 is required for the expression
+of genes involved in serotonin synthesis and release.
+
+Another LIM-homeobox gene, lin-11, is expressed in the
+ADF neurons (Freyd et al., 1990; Hobert et al., 1998). 75% of
+yz12 animals contain no detectable lin-110gfp in ADF, and the
+remaining yz12 animals express lin-110gfp in one ADF
+neuron (Table 2). To determine if lin-11 acts downstream of
+
+624
+
+X. Zheng et al. / Developmental Biology 286 (2005) 618 – 628
+
+Table 2
+Effects of lim-4 mutations on the expression of ADF markers
+
+Strains GPF reporter
+
+% Strong % Weak % Very weak/None N
+
+WT
+
+yz12
+
+WT
+yz12
+WT
+yz12
+WT
+
+yz12
+
+GTP-cyclohydrolase
+I (cat-4)
+GTP-cyclohydrolase
+I (cat-4)
+VMAT (cat-1)
+VMAT (cat-1)
+LIM-factor lin-11
+LIM-factor lin-11
+Chemoreceptor
+srh-142
+Chemoreceptor
+srh-142
+
+92
+
+19
+
+100
+15
+100
+25a
+99
+
+86b
+
+0
+
+7
+
+0
+0
+0
+0
+0
+
+5
+
+8
+
+74
+
+0
+85
+0
+75
+1
+
+9
+
+64
+
+121
+
+30
+187
+80
+72
+128
+
+130
+
+lin-110 gfp and cat-10gfp are integrated onto the chromosomes. The other
+GFP reporters were carried as extra-chromosomal arrays, and transgenic
+animals were scored. The definition for GFP intensity is as described in Table
+1. Mixed stages animals from multiple generations were scored. N is the
+number of animals observed.
+a All those yz12 mutant animals show lin-110gfp expression in one ADF
+neuron, whereas WT animals express lin-110gfp in both ADF neurons (Hobert
+et al., 1997).
+b 69% of yz12 mutants scored show srh-1420gfp in one ADF neuron, and
+17% show GFP in both ADF neurons, whereas 99% of WT animals show srh-
+1420gfp in both ADF neurons.
+
+lim-4 to specify ADF serotonergic phenotype, we crossed tph-
+10gfp into lin-11 mutants. No reduction of
+tph-10gfp
+expression can be detected in lin-11(n566) mutants (N >
+100), nor serotonin immunoreactivity is affected in lin-
+11(n566) and lin-11-null n389 mutants (data not shown).
+
+The ADF neurons are one of 12 classes of sensory neurons
+that group together forming the major C. elegans sensory
+organ, the amphid. These amphid sensory neurons share a
+similar overt morphology. Every class consists of a bilaterally
+symmetric pair of neurons, and each neuron extends a single
+axon to the nerve ring and projects a single dendrite to the tip
+of the nose (White et al., 1986). However, different neuronal
+classes possess different properties at their ciliated sensory
+endings, express different assortment of membrane receptors,
+and sense different environmental cues (Ward et al., 1975;
+Troemel et al., 1995; Lanjuin and Sengupta, 2004). When live
+WT animals are bathed in a solution containing the
+fluorescent dye DiI, six classes of
+the amphid sensory
+neurons are filled with the dye—AWB exhibit dye filling,
+but ADF do not (Hedgecock et al., 1985). The dye enters the
+neurons through their cilia (Perkins et al., 1986) and it has
+been reported that lim-4 mutations alter AWB cilia structure
+and prevent them from dye filling (Sagasti et al., 1999). By
+contrast, we find that ADF neurons that exhibit significantly
+reduced tph-10gfp expression become dye filled in lim-4
+mutants (Fig. 3b). Judged by fluorescence microscopy, the
+position and morphology of the cell body, and the trajectory
+of the axon and dendrite are indistinguishable to that seen in
+WT animals.
+
+The srh-142 gene encodes a putative seven-transmembrane
+chemoreceptor and is predominantly expressed only in the
+ADF neurons, and this expression is not affected by lim-4
+mutations (Sagasti et al., 1999). Consistent with this report, we
+
+find that lim-4 mutations do not affect the expression level of
+srh-1420gfp in the ADF neurons, although 69% of yz12
+animals show GFP only in one ADF neuron (Table 2). Of ADF
+neurons that express srh-1420gfp, 77% exhibit dye filling in
+yz12 background (N = 44), but no ADF is filled with the dye in
+WT animals (N > 100). Because tph-1 mutants that contain no
+serotonin do not exhibit dye filling in ADF, lacking serotonin
+per se is unlikely affecting the cilia property. Together, these
+results indicate that the generic chemosensory neuronal fate
+and some ADF-specific properties develop in the absence of
+lim-4, and suggest that LIM-4 regulates genes whose products
+are necessary for subsets of ADF identity, including expressing
+serotonergic phenotype and formation of ADF-specific cilia.
+
+LIM-4 is regulated by distinct mechanisms to specify distinct
+subtype identities in two sister cells
+
+Besides ADF and AWB, 4 other classes of the amphid
+sensory neurons also are derived from the same lineage
+(Sulston et al., 1983; Fig. 3a). Consistent with our observation
+that the expression of LIM-4 begins in the ADF/AWB mother
+cells (Fig. 2), lim-4 mutations do not have a detectable effect
+on any other class of the neurons, based on the pattern of dye
+filling and characteristic neuronal markers (Figs. 3c – f). These
+results tend to suggest
+that LIM-4 acts in the ADF/AWB
+precursor to promote asymmetric cell division generating two
+daughter cells with distinct differentiation fates. However, lim-
+4 mutations do not prevent the last mitotic division because
+cells corresponding to ADF and AWB are generated in lim-4
+mutants (Sagasti et al., 1999; Table 2, Fig. 3). Furthermore, the
+absence of LIM-4 does not cause two daughter cells to adopt an
+identical cell fate. In lim-4 mutants, the AWB neurons lost dye
+filling and become to express the olfactory neuron AWC
+marker gene str-2 (Sagasti et al., 1999), whereas the ADF
+neurons gain dye filling property but do not misexpress str-1
+(Figs. 3b and c), str-2 (results not shown), or the markers for
+several other ‘‘dye filling’’ chemosensory neurons (Figs. 3d – f;
+results not shown), and ADF can still express their unique
+sensory receptor srh-142 (Table 1).
+
+is genetically separable.
+
+We have tested whether the action of lim-4 in ADF and
+It has been
+AWB development
+reported that
+the otx/otd homeodomain transcription factor
+CEH-37 is required for lim-4 expression in AWB, and that ceh-
+37 mutations affect AWB neuronal identity, very much like that
+seen in lim-4 mutants (Lanjuin et al., 2003). We tested if
+deletion of ceh-37 affects ADF serotonergic phenotype. There
+is no significant difference detectable in the intensity of tph-
+10gfp expression between WT (N = 20) and ceh-37(ok642)
+mutant (N = 30) animals. Because every lim-4 mutation studied
+affects tph-1 expression in ADF, we conclude that the function
+of LIM-4 in specifying serotonergic phenotype is independent
+of ceh-37 activity. This result suggests that
+lim-4 can be
+activated by factors other than CEH-37 to specify ADF
+serotonergic identity.
+
+To determine the molecular mechanisms underlying the
+differential action of lim-4 in AWB and ADF, we tested
+whether this differential transcriptional regulation of lim-4 is
+
+X. Zheng et al. / Developmental Biology 286 (2005) 618 – 628
+
+625
+
+dictated by cis-regulatory elements within the lim-4 gene. We
+used a GFP reporter for the str-1 gene (str-10gfp) as a marker
+for AWB, and tph-10gfp as a marker for ADF. In yz12
+mutants, tph-10gfp expression in ADF and str-10gfp expres-
+sion in AWB are reduced or absent (Figs. 4b, c). The lim-4(+)
+transgene that contains 3.6 Kb 5V-upstream, exons, introns, and
+1.5 Kb 3V-untranslated sequence of the lim-4 gene strongly
+rescues the expression of both tph-10gfp (Figs. 1 and 4a) and
+str-10gfp (data not shown),
+this construct
+contains the elements to direct lim-4 function in both ADF and
+AWB. It has been reported that lim-4 cDNA when expressed in
+AWB can rescue the str-10gfp expression (Sagasti et al.,
+1999). To determine the cis-regulatory elements that direct lim-
+4 action, we expressed the lim-4 cDNA under the control the
+lim-4 5V-upstream sequence (Fig. 4a) and introduced this fusion
+construct into yz12 mutant animals. The Plim-40lim-4(cDNA)
+transgene, like lim-4(+), restores str-10gfp expression and dye
+filling in AWB (Fig. 4c), supporting the published result.
+However, unlike lim-4(+), Plim-40lim-4(cDNA) does not
+rescue tph-10gfp expression in ADF (Figs. 4a, b).
+
+indicating that
+
+Sequences within introns have been shown to contain
+regulatory elements to specify gene expression in both
+vertebrates and invertebrates (Baumeister et al., 1996; Arnone
+and Davidson, 1997; Levine and Tjian, 2003), including two C.
+elegans LIM-homeobox genes, lin-11 and ttx-3 (Hobert et al.,
+
+1998). We fused the genomic fragment encompassing the entire
+lim-4 introns and exons to the basal promoter of an unrelated
+gene, pes-10. This fusion construct strongly rescues ADF tph-
+10gfp expression in yz12 mutants (Figs. 4a, b), but it does not
+restore str-10gfp expression (comparing 93% of yz12 mutants
+(N = 27) with 85% of yz12; Ppes-100lim-4 animals (N = 72)
+missing str-10gfp expression). This result suggests that
+sequences within the introns are necessary and sufficient to
+direct lim-4 activity to specify ADF serotonergic identity.
+
+The simplest explanation for these observations is that LIM-
+4 participates in different transcriptional cascades to indepen-
+dently regulate the differentiation of two sister cells: CEH-37,
+directly or indirectly, activates the expression of lim-4 via the
+5V-uncoding sequence to specify AWB identity, and that yet
+unidentified transcription factor(s) bind to the elements in the
+introns to activate lim-4 expression either before the last cell
+division or in newly generated ADF to specify serotonergic
+identity. Plim-40lim-4(cDNA) fully rescues AWB differentia-
+tion but does not restore tph-10gfp expression, suggesting that
+LIM-4 specifies ADF serotonin identity independent of AWB.
+
+Discussion
+
+Selection of a common neurotransmitter by diverse neuronal
+types is a conserved mechanism for neuronal diversification in
+
+Fig. 4. Distinct cis-regulatory elements direct lim-4 to specify distinct neuronal identity. (a) cis-elements within introns are essential for lim-4 to specify ADF
+serotonergic identity. All the constructs carry the same 3V-UTR, each was introduced into yz12 mutants carrying integrated tph-10gfp. A plasmid containing elt-
+20gfp was used as the transgenic marker for the lim-4 constructs. tph-10gfp expression in transgenic animals was scored. 2 – 3 transgenic lines for each construct
+were analyzed, and the data represent the summary from at least 3 generations of the animals. The definition of GFP intensity is described in Table 1. N is the total
+number of animals scored for each strain. (b) Fluorescence photomicrographs showing tph-10gfp expression in lim-4(yz12) mutants expressing WT lim-4 coding
+regions under the control of different cis-regulatory sequences. (c) 5V-uncoding sequence directs lim-4 to specify AWB identities. In WT animals, str-10gfp and DiI
+co-localize AWB. In yz12 mutant, str-1 expression is undetectable, and dye filling in AWB is dramatically reduced (as shown) or eliminated (see Fig. 3). Expression
+of the lim-4 cDNA under the control of the lim-4 5V-uncoding sequence rescues str-10gfp expression and restores the dye filling.
+
+626
+
+X. Zheng et al. / Developmental Biology 286 (2005) 618 – 628
+
+nervous systems as divergent as worm, fly and man (Goridis
+and Rohrer, 2002), allowing a small number of neurotransmit-
+ter phenotypes subserving a wide spectrum of neuronal
+circuits. In this study, we make the use of the unique ability
+to observe identified serotonergic neurons in living C. elegans
+animals and determine how serotonergic identity is specified in
+different neuronal classes involved in distinct behaviors. The
+genetic evidence generated from characterization of lim-4,
+together with our previous studies (Sze et al., 2002), supports
+the notion from Drosophila and mammalian systems that
+serotonergic identity in different neurons are conferred by
+different transcription factors and suggests a conservation of
+molecular principles underlying serotonergic identity specifi-
+cation. Neuron-specific regulation of serotonergic phenotype
+may be potential targets for manipulation of serotonin signaling
+in specific neural circuits.
+
+A recurrent finding from our studies of neuron-specific
+serotonin deficient mutants is that transcription factors that
+regulate the development of serotonergic phenotype also
+regulate the synaptic property. The ability of ADF to express
+srh-1420gfp and the normal position and axonal projections
+argue that the ADF neurons are generated and survive in lim-4
+mutants. This suggests that
+the unusual dye filling in the
+mutant ADF is resulted from changes in the cilia property
+rather than a complete cell fate transformation. Because tph-1
+mutants that contain no detectable serotonin do not exhibit dye
+filling in ADF, nor do mutants with compromised ADF cilia
+show reduced serotonin synthesis (data not shown), thus it is
+unlikely that serotonin per se controls the cilia property, or vice
+versa. We have shown that null-mutations in unc-86 abolish
+tph-1 expression and cause pathfinding defects in the NSM
+neurons (Sze et al., 2000). These observations favor the idea
+that the generic cell fates and cell surface receptors of the
+serotonergic neurons are determined before or independent of
+the commitment of serotonergic phenotype, and that LIM-4
+and UNC-86 coordinately regulate serotonergic phenotype and
+synaptic property in cell-specific context. Support to this idea is
+the findings that the Drosophila LIM-homeodomain factor islet
+coordinately regulates serotonergic phenotype and pathfinding
+in the ventral nerve cord (Thor and Thomas, 1997), and LIM-
+homeodomain factor LIM-6 and homeodomain factor UNC-30
+regulate GABAergic phenotype and pathfinding of neurons
+involved in particular behavior (Jin et al., 1994; Hobert et al.,
+1999). Coordinated assignment of neurotransmitter phenotype
+and synaptic property may represent one general mechanism to
+build up functional neural circuits.
+
+Our genetic evidence that LIM-4 regulates serotonergic
+identity in C. elegans chemosensory neurons is consistent with
+the role of LIM-homeodomain transcription factors in specifi-
+cation of subtype neuronal identity during the development of
+nervous systems in both vertebrates and invertebrates (Jessell,
+2000; Hobert and Westphal, 2000; Shirasaki and Pfaff, 2002)
+and LIM factors have been shown to regulate the development
+of a number of neurotransmitter phenotypes (Zhao et al., 2003;
+Simon et al., 2003). Previous studies have shown that in C.
+elegans LIM-homeodomain transcription factors regulate
+neuronal differentiation. mec-3 interacts with the POU-home-
+
+odomain transcription factor UNC-86 and regulates the
+development and function of mechanosensory neurons (Way
+and Chalfie, 1988; Duggan et al., 1998). Unlike the role of lim-
+4 in ADF and AWB, mec-3 mutations cause a complete cell-
+fate transformation and the mechanosensory neurons are not
+generated in the mutants (Way and Chalfie, 1988). ceh-14
+appears to specifically regulate the cilia structure in the
+thermosensory neurons AFD, as ceh-14-null mutations cause
+defects in the cilia structure but do not have a detectable effect
+on the expression of AFD marker genes (Cassata et al., 2000).
+lin-11 functions broadly in both neuronal and non-neuronal
+cells and regulates the development and/or function of these
+cells (Freyd et al., 1987; Hobert et al., 1998; Newman et al.,
+1999). A novel finding from our study is the distinct cis-
+regulatory elements dictating lim-4 function in the ADF and
+AWB neurons, demonstrating that LIM-4 independently
+participates in the differentiation of two neuronal classes
+generated from a single precursor neuroblast. Interestingly, it
+has been shown that lin-11 also regulates the development of
+two sister cells, AWA and ASG (Sarafi-Reinach et al., 2001),
+but it has not yet been reported whether the expression of lin-11
+is differentially regulated in these two neuronal classes. Cell-
+specific cis enhancer elements are part of the evolutionary
+conserved wiring system for a single transcription factor
+participating diverse transcriptional regulatory cascades to
+regulate different cellular identities (Baumeister et al., 1996;
+Arnone and Davidson, 1997; Levine and Tjian, 2003). The
+knowledge of cell-specific enhancers of development determi-
+nants will help to elucidate their precise role in the develop-
+ment of particular cellular identities.
+
+reveal a fresh scenario for
+
+The effects of lim-4 mutations on ADF and AWB deve-
+lopment
+lineage asymmetry.
+Asymmetric allocation of cell fate determinants is a prime
+mechanism for neuroblasts to generate daughter cells with
+diverse cell fates (Hawkins and Garriga, 1998; Roegiers and
+Jan, 2004). Some cell fate determinants are segregated to one
+daughter cell during the cell division and others are selectively
+activated in one daughter cell; these determinants act as a
+binary switch and elimination of these gene activities causes
+the daughter cell to adopt the cell fate of its sister (e.g., Numb
+and Prospero, Spana et al., 1995) or of its mother cell (e.g.,
+UNC-86, Finney et al., 1988). The immediate appearance of
+LIM-4 expression pattern tends to suggest that LIM-4 also is an
+asymmetric determinant that is inherited from the mother cell
+to AWB. However, three lines of observations suggest that
+LIM-4 independently regulates the development of
+two
+daughter cells. First, our studies, together with the previous
+report (Sagasti et al., 1999), do not find lim-4 mutations
+causing two daughter cells to resemble the fate of their mother
+or to each other; instead, AWB adopt the fate of olfactory
+neuron AWC (Sagasti et al., 1999) and ADF retain some of its
+own identity. Second, lim-4 mutations affect distinct subclass
+identities of ADF and AWB. Third, distinct cis-elements and
+trans-regulators direct lim-4 function in ADF and AWB. The
+homeobox gene ceh-37 specifically regulates lim-4 expression
+in AWB, but it is not required for ADF to adopt serotonergic
+transcription factors other than
+identity. This suggests that
+
+X. Zheng et al. / Developmental Biology 286 (2005) 618 – 628
+
+627
+
+CEH-37 must activate lim-4 to specify serotonergic identity.
+Thus, LIM-4 is activated independently in different cellular
+contexts to specify distinct differentiation traits of two neuronal
+types resulted from a single precursor neuroblast. It will be
+interesting to learn if this strategy is widely used for cell-
+identity determinants to regulate daughter cell development.
+
+Acknowledgments
+
+We thank Dr. M. Labouesse for anti-LIN-26 antibody, Dr.
+O. Hobert for lim-40gfp reporters, K. Shi and A. Powell for
+their contribution during early stages of yz12 cloning, T.
+Stiernagle and the Caenorhabditis Genetics Center for worm
+strains, and the C. elegans Knockout Consortium for
+deletion mutants. This work is supported by grants from
+Whitehall foundation and the National Institutes of Mental
+Health (to J. S.).
+
+References
+
+Arnone, M.I., Davidson, E.H., 1997. The hardwiring of development:
+organization and function of genomic regulatory systems. Development
+124, 1851 – 1864.
+
+Avery, L., Horvitz, H.R., 1989. Pharyngeal pumping continues after laser
+killing of the pharyngeal nervous system of C. elegans. Neuron 3,
+473 – 485.
+
+Baumeister, R., Liu, Y., Ruvkun, G., 1996. Lineage-specific regulators couple
+cell lineage asymmetry to the transcription of the Caenorhabditis elegans
+POU gene unc-86 during neurogenesis. Genes Dev. 10, 1395 – 1410.
+Bargmann, C.I., Horvitz, H.R., 1991. Chemosensory neurons with overlapping
+functions direct chemotaxis to multiple chemicals in C. elegans. Neuron 7,
+729 – 742.
+
+Brenner, S., 1974. The genetics of Caenorhabditis elegans. Genetics 77, 71 – 94.
+Briscoe, J., Sussel, L., Serup, P., Hartigan-O’Connor, D., Jessell, T.M.,
+Rubenstein, J.L., Ericson, J., 1999. Homeobox gene Nkx2.2 and specifi-
+cation of neuronal identity by graded Sonic hedgehog signalling. Nature
+398, 622 – 627.
+
+Brody, T., Odenwald, W.F., 2002. Cellular diversity in the developing
+nervous system: a temporal view from Drosophila. Development 129,
+3763 – 3770.
+
+Cassata, G., Kagoshima, H., Andachi, Y., Kohara, Y., Durrenberger, M.B., Hall,
+D.H., Bu¨ rglin, T.R., 2000. The LIM homeobox gene ceh-14 confers
+thermosensory function to the AFD neurons in Caenorhabditis elegans.
+Neuron 25, 587 – 597.
+
+Desai, C., Garriga, G., McIntire, S.L., Horvitz, H.R., 1988. A genetic pathway
+for the development of the Caenorhabditis elegans HSN motor neurons.
+Nature 336, 638 – 646.
+
+Duerr, J.S., Frisby, D.L., Gaskin, J., Duke, A., Asermely, K., Huddleston, D.,
+Eiden, L.E., Rand, J.B., 1999. The cat-1 gene of Caenorhabditis elegans
+encodes a vesicular monoamine transporter required for specific mono-
+amine-dependent behaviors. J. Neurosci. 19, 72 – 84.
+
+Duggan, A., Ma, C., Chalfie, M., 1998. Regulation of
+
+touch receptor
+differentiation by the Caenorhabditis elegans mec-3 and unc-86 genes.
+Development 125, 4107 – 4119.
+
+Eastman, C., Horvitz, H.R., Jin, Y., 1999. Coordinated transcriptional
+regulation of the unc-25 glutamic acid decarboxylase and the unc-47
+GABA vesicular
+transporter by the Caenorhabditis elegans UNC-30
+homeodomain protein. J. Neurosci. 19, 6225 – 6234.
+
+Finney, M., Ruvkun, G., 1990. The unc-86 gene product couples cell lineage
+
+and cell identity in C. elegans. Cell 63, 895 – 905.
+
+Finney, M., Ruvkun, G., Horvitz, H.R., 1988. The C. elegans cell lineage and
+differentiation gene unc-86 encodes a protein with a homeodomain and
+extended similarity to transcription factors. Cell 55, 757 – 769.
+
+homeodomain in the product of the Caenorhabditis elegans cell lineage
+gene lin-11. Nature 344, 876 – 879.
+
+Fukushige, T., Hawkins, M.G., McGhee, J.D., 1998. The GATA-factor elt-2 is
+essential for formation of the Caenorhabditis elegans intestine. Dev. Biol.
+198, 286 – 302.
+
+Goridis, C., Rohrer, H., 2002. Specification of catecholaminergic and
+
+serotonergic neurons. Nat. Rev., Neurosci. 3, 531 – 541.
+
+Guenther, C., Garriga, G., 1996. Asymmetric distribution of the C. elegans
+HAM-1 protein in neuroblasts enables daughter cells to adopt distinct fates.
+Development 122, 3509 – 3518.
+
+Hawkins, N., Garriga, G., 1998. Asymmetric cell division: from A to Z. Genes
+
+Dev. 12, 3625 – 3638.
+
+Hedgecock, E.M., Culotti, J.G., Thomson, J.N., Perkins, L.A., 1985. Axonal
+guidance mutants of Caenorhabditis elegans identified by filling sensory
+neurons with fluorescein dyes. Dev. Biol. 111, 158 – 170.
+
+Hendricks, T.J., Fyodorov, D.V., Wegman, L.J., Lelutiu, N.B., Pehek, E.A.,
+Yamamoto, B., Silver, J., Weeber, E.J., Sweatt, J.D., Deneris, E.S., 2003.
+Pet-1 ETS gene plays a critical role in 5-HT neuron development and is
+required for normal anxiety-like and aggressive behavior. Neuron 37,
+233 – 247.
+
+Hobert, O., Westphal, H., 2000. Functions of LIM-homeobox genes. Trends
+
+Genet. 16, 75 – 83.
+
+Hobert, O., D’Alberti, T., Liu, Y., Ruvkun, G., 1998. Control of neural
+development and function in a thermoregulatory network by the LIM
+homeobox gene lin-11. J. Neurosci. 18, 2084 – 2096.
+
+Hobert, O., Tessmar, K., Ruvkun, G., 1999. The Caenorhabditis elegans lim-6
+LIM homeobox gene regulates neurite outgrowth and function of particular
+GABAergic neurons. Development 126, 1547 – 1562.
+
+Horvitz, H.R., Chalfie, M., Trent, C., Sulston, J.E., Evans, P.D., 1982.
+Serotonin and octopamine in the nematode Caenorhabditis elegans.
+Science 216, 1012 – 1014.
+
+Hynes, M., Rosenthal, A., 1999. Specification of dopaminergic and serotoner-
+gic neurons in the vertebrate CNS. Curr. Opin. Neurobiol. 9, 26 – 36.
+Jessell, T., 2000. Neuronal specification in the spinal cord: inductive signals
+
+and transcriptional codes. Nat. Rev., Genet. 1, 20 – 29.
+
+Jin, Y., Hoskins, R., Horvitz, H.R., 1994. Control of type-D GABAergic neuron
+differentiation by C. elegans UNC-30 homeodomain protein. Nature 372,
+6780 – 6783.
+
+Kikuchi, Y., Segawa, H., Tokumoto, M., Tsubokawa, T., Hotta, Y., Uyemura,
+K., Okamoto, H., 1997. Ocular and cerebellar defects in zebrafish induced
+by overexpression of the LIM domains of the islet-3 LIM/homeodomain
+protein. Neuron 18, 369 – 382.
+
+Labouesse, M., Hartwieg, E., Horvitz, H.R., 1996. The Caenorhabditis elegans
+LIN-26 protein is required to specify and/or maintain all non-neuronal
+ectodermal cell fates. Development 122, 2579 – 2588.
+
+Lanjuin, A., Sengupta, P., 2004. Specification of chemosensory neuron subtype
+identities in Caenorhabditis elegans. Curr. Opin. Neurobiol. 14, 22 – 30.
+Lanjuin, A., VanHoven, M.K., Bargmann, C.I., Thompson, J.K., Sengupta, P.,
+2003. Otx/otd homeobox genes specify distinct sensory neuron identities in
+C. elegans. Dev. Cell 5, 621 – 633.
+
+Lee, S.K., Pfaff, S.L., 2003. Synchronization of neurogenesis and motor neuron
+specification by direct coupling of bHLH and homeodomain transcription
+factors. Neuron 38, 731 – 745.
+
+Levine, M., Tjian, R., 2003. Transcription regulation and animal diversity.
+
+Nature 424, 147 – 151.
+
+Lewin, B., 1994. On neuronal specificity and the molecular basis of perception.
+
+Cell 79, 935 – 943.
+
+McIntire, S.L., Garriga, G., White, J., Jacobson, D., Horvitz, H.R., 1992. Genes
+necessary for directed axonal elongation or fasciculation in C. elegans.
+Neuron 8, 307 – 322.
+
+Newman, A.P., Acton, G.Z., Hartwieg, E., Horvitz, H.R., Sternberg, P.W.,
+is necessary for
+1999. The lin-11 LIM domain transcription factor
+morphogenesis of C. elegans uterine cells. Development 126, 5319 – 5326.
+Pattyn, A., Vallstedt, A., Dias, J.M., Samad, O.A., Krumlauf, R., Rijli, F.M.,
+Brunet, J.F., Ericson, J., 2003. Coordinated temporal and spatial control of
+motor neuron and serotonergic neuron generation from a common pool of
+CNS progenitors. Genes Dev. 17, 729 – 737.
+
+Freyd, G., Kim, S.K., Horvitz, H.R., 1990. Novel cysteine-rich motif and
+
+Perkins, L.A., Hedgecock, E.M., Thomson, J.N., Culotti, J.G., 1986. Mutant
+
+628
+
+X. Zheng et al. / Developmental Biology 286 (2005) 618 – 628
+
+sensory cilia in the nematode Caenorhabditis elegans. Dev. Biol. 117,
+456 – 487.
+
+proteins in the assignment of visceral spinal motor neuron identity. Neuron
+41, 337 – 350.
+
+Ranganathan, R., Sawin, E.R., Trent, C., Horvitz, H.R., 2001. Mutations in the
+Caenorhabditis elegans serotonin reuptake transporter MOD-5 reveal
+serotonin-dependent and -independent activities of fluoxetine. J. Neurosci.
+21, 5871 – 5884.
+
+Roegiers, F., Jan, Y.N., 2004. Asymmetric cell division. Curr. Opin. Cell Biol.
+
+16, 195 – 205.
+
+Sagasti, A., Hobert, O., Troemel, E.R., Ruvkun, G., Bargmann, C.I., 1999.
+Alternative olfactory neuron fates are specified by the LIM homeobox gene
+lim-4. Genes Dev. 13, 1794 – 1806.
+
+Sanchez-Garcia, I., Osada, H., Forster, A., Rabbitts, T.H., 1993. The cysteine-
+rich LIM domains inhibit DNA binding by the associated homeodomain in
+Isl-1. EMBO J. 12, 4243 – 4250.
+
+Sarafi-Reinach, T.R., Melkman, T., Hobert, O., Sengupta, P., 2001. The lin-11
+LIM homeobox gene specifies olfactory and chemosensory neuron fates in
+C. elegans. Development 128, 3269 – 3281.
+
+Scott, M.M., Krueger, K.C., Deneris, E.S., 2005. A differentially autoregulated
+Pet-1 enhancer region is a critical target of the transcriptional cascade that
+governs serotonin neuron development. J. Neurosci. 25, 2628 – 2636.
+
+Sharma, K., Sheng, H.Z., Lettieri, K., Li, H., Karavanov, A., Potter, S.,
+Westphal, H., Pfaff, S.L., 1998. LIM homeodomain factors Lhx3 and Lhx4
+assign subtype identities for motor neurons. Cell 95, 817 – 828.
+
+Shirasaki, R., Pfaff, S.L., 2002. Transcriptional codes and the control of
+
+neuronal identity. Annu. Rev. Neurosci. 25, 251 – 281.
+
+Simon, H.H., Bhatt, L., Gherbassi, D., Sgado, P., Alberi, L., 2003. Midbrain
+fate by
+
+dopaminergic neurons: determination of
+transcription factors. Ann. N. Y. Acad. Sci. 991, 36 – 47.
+
+their developmental
+
+Spana, E.P., Kopczynski, C., Goodman, C.S., Doe, C.Q., 1995. Asymmetric
+localization of numb autonomously determines sibling neuron identity in
+the Drosophila CNS. Development 121, 3489 – 3494.
+
+Sulston, J.E., Schierenberg, E., White, J.G., Thomson, J.N., 1983. The
+embryonic cell lineage of the nematode Caenorhabditis elegans. Dev. Biol.
+100, 64 – 119.
+
+Sze, J.Y., Victor, M., Loer, C., Shi, Y., Ruvkun, G., 2000. Food and metabolic
+signalling defects in a Caenorhabditis elegans serotonin-synthesis mutant.
+Nature 403, 560 – 564.
+
+Sze, J.Y., Zhang, S., Li, J., Ruvkun, G., 2002. The C. elegans POU-domain
+transcription factor UNC-86 regulates the tph-1 tryptophan hydroxylase
+gene and neurite outgrowth in specific serotonergic neurons. Development
+129, 3901 – 3911.
+
+Tanabe, Y., Jessell, T.M., 1996. Diversity and pattern in the developing spinal
+
+cord. Science 274, 1115 – 1123.
+
+Thaler, J.P., Koo, S.J., Kania, A., Lettieri, K., Andrews, S., Cox, C., Jessell,
+T.M., Pfaff, S.L., 2004. A postmitotic role for Isl-class LIM homeodomain
+
+Thor, S., Thomas, J.B., 1997. The Drosophila islet gene governs axon
+
+pathfinding and neurotransmitter identity. Neuron 18, 397 – 409.
+
+Troemel, E.R., Chou, J.H., Dwyer, N.D., Colbert, H.A., Bargmann, C.I., 1995.
+Divergent seven transmembrane receptors are candidate chemosensory
+receptors in C. elegans. Cell 83, 207 – 218.
+
+Udin, S.B., Fawcett, J.W., 1988. Formation of topographic maps. Annu. Rev.
+
+Neurosci. 11, 289 – 327.
+
+van Doorninck, J.H., van Der Wees, J., Karis, A., Goedknegt, E., Engel, J.D.,
+Coesmans, M., Rutteman, M., Grosveld, F., De Zeeuw, C.I., 1999. GATA-3
+is involved in the development of serotonergic neurons in the caudal raphe
+nuclei. J. Neurosci. 19, RC12.
+
+Wallace, J.A., Lauder, J.M., 1992. Development of the serotonergic system in
+rat and chick embryos. In: Bjorklund, A., Hokfelt, T., Tohyama, M.
+(Eds.), Handbook of Chemical Neuroanatomy, Ontogeny of Transmitters
+and Peptides in the CNS, vol. 10. Elsevier Science Published, Amsterdam,
+p. 619.
+
+Ward, S., Thomson, N., White, J.G., Brenner, S., 1975. Electron microscopical
+reconstruction of the anterior sensory anatomy of the nematode Caenor-
+habditis elegans. J. Comp. Neurol. 160, 313 – 337.
+
+Way, J.C., Chalfie, M., 1988. mec-3, a homeobox-containing gene that specifies
+differentiation of the touch receptor neurons in C. elegans. Cell 54, 5 – 16.
+White, J.G., Southgate, E., Thomson, J.N., Brenner, S., 1986. The structure of
+the ventral nerve cord of Caenorhabditis elegans. Philos. Trans. R. Soc.
+Lond., B Biol. Sci. 275, 327 – 348.
+
+Wicks, S.R., Yeh, R.T., Gish, W.R., Waterston, R.H., Plasterk, R.H., 2001.
+Rapid gene mapping in Caenorhabditis elegans using a high density
+polymorphism map. Nat. Genet. 28, 160 – 164.
+
+Xue, D., Finney, M., Ruvkun, G., Chalfie, M., 1992. Regulation of the mec-3
+gene by the C.elegans homeoproteins UNC-86 and MEC-3. EMBO J. 11,
+4969 – 4979.
+
+Ye, W., Shimamura, K., Rubenstein, J.L., Hynes, M.A., Rosenthal, A., 1998.
+FGF and Shh signals control dopaminergic and serotonergic cell fate in the
+anterior neural plate. Cell 93, 755 – 766.
+
+Yu, S., Avery, L., Baude, E., Garbers, D.L., 1997. Guanylyl cyclase expression
+in specific sensory neurons: a new family of chemosensory receptors. Proc.
+Natl. Acad. Sci. 94, 3384 – 3387.
+
+Zhang, S., Sokolchik, I., Blanco, G., Sze, J.Y., 2004. Caenorhabditis elegans
+TRPV ion channel regulates 5HT biosynthesis in chemosensory neurons.
+Development 131, 1629 – 1638.
+
+Zhao, Y., Marin, O., Hermesz, E., Powell, A., Flames, N., Palkovits, M.,
+Rubenstein, J.L., Westphal, H., 2003. The LIM-homeobox gene Lhx8 is
+required for the development of many cholinergic neurons in the mouse
+forebrain. Proc. Natl. Acad. Sci. U. S. A. 100, 9005 – 9010.
+
+
