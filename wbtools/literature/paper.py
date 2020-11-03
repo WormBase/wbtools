@@ -118,8 +118,6 @@ class WBPaper(object):
         """
         if not self.paper_file_reader and remote_file:
             raise Exception("a paper reader must be provided to access remote files")
-        if not self.paper_file_reader:
-            paper_reader = PaperFileReader()
         if dir_path.endswith("supplemental/") and re.match(r'^[0-9]+$', filename):
             filenames = self.paper_file_reader.get_supplemental_file_names(dir_path + filename)
             dir_path = dir_path + filename + "/"
