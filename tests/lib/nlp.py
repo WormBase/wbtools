@@ -7,7 +7,7 @@ from gensim.test.utils import common_texts
 from wbtools.lib.nlp import get_softcosine_index, get_similar_documents
 from wbtools.literature.corpus import CorpusManager
 
-TESTDATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
+TESTDATA_DIR = os.path.join(os.path.dirname(__file__), '../data')
 
 
 class TestNLP(unittest.TestCase):

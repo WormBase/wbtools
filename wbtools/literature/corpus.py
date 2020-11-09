@@ -1,5 +1,7 @@
 import logging
 import os
+import pickle
+
 from typing import Generator
 
 from wbtools.db.dbmanager import WBDBManager
@@ -67,3 +69,12 @@ class CorpusManager(object):
     def get_all_papers(self) -> Generator[WBPaper, None, None]:
         for paper in self.corpus.values():
             yield paper
+
+    def save(self, file_path):
+        with open(file_path, 'wb') as out_file:
+            pickle.dump(self, out_file)
+
+    def load(self, file_path):
+        with open(file_path, 'rb') as in_file:
+            tmp_self = pickle.load(in_file)
+            self.__dict__ = tmp_self.__dict__
