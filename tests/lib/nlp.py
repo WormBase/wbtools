@@ -4,7 +4,8 @@ import unittest
 from gensim.models import Word2Vec
 from gensim.test.utils import common_texts
 
-from wbtools.lib.nlp import get_softcosine_index, get_similar_documents
+from wbtools.lib.nlp import get_softcosine_index, get_similar_documents, get_entities_from_text, ALL_VAR_REGEX, \
+    NEW_VAR_REGEX
 from wbtools.literature.corpus import CorpusManager
 
 TESTDATA_DIR = os.path.join(os.path.dirname(__file__), '../data')
@@ -24,6 +25,13 @@ class TestNLP(unittest.TestCase):
         sim_docs = get_similar_documents(docsim_index, dictionary, query_docs, idx_paperid_map)
         self.assertTrue(idx_paperid_map[0] in [sim_doc[1] for sim_doc in sim_docs[0:2]])
         self.assertTrue(idx_paperid_map[1] in [sim_doc[1] for sim_doc in sim_docs[0:2]])
+
+    def test_get_entities_from_text(self):
+        cm = CorpusManager()
+        cm.load_from_dir_with_txt_files(dir_path=os.path.join(TESTDATA_DIR, 'text_files'))
+        text = " ".join(list(cm.corpus.values())[0].get_text_docs())
+        variations = get_entities_from_text(text, r"[ \(]" + NEW_VAR_REGEX + r"[ \)]")
+        self.assertTrue(variations)
 
 
 if __name__ == '__main__':

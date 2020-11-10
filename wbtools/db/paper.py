@@ -45,24 +45,20 @@ class WBPaperDBManager(WBDBManager):
             else:
                 return None
 
-    def get_svm_value(self, svm_type: str, paper_id: str):
+    def get_svm_values(self, paper_id: str):
         """
-        get the SVM (Support Vector Machine) classifier value for the paper
+        get all the SVM (Support Vector Machine) classifier values for the paper
 
         Args:
-            svm_type (str): type of svm (one of 'antibody', 'catalytic_act', 'expression_cluster', 'geneint',
-                            'geneprod_GO', 'genereg', 'newmutant', 'otherexpr', 'overexpr', 'rnai', 'seqchange',
-                            'structcorr')
             paper_id (str): 8 digit numeric id that identifies the paper
         Returns:
             Union[str, None]: the value associated to the svm ('low', 'medium', or 'high') or None if the paper has not
                               been classified by SVMs yet
         """
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
-            curs.execute("SELECT cur_svmdata from cur_svmdata WHERE cur_paper = %s AND cur_datatype = %s",
-                         (paper_id, svm_type))
-            row = curs.fetchone()
-            return row[0] if row else None
+            curs.execute("SELECT cur_datatype, cur_svmdata from cur_svmdata WHERE cur_paper = %s", (paper_id,))
+            res = curs.fetchall()
+            return [(row[0], row[1]) for row in res]
 
     def get_file_paths(self, paper_id: str):
         """

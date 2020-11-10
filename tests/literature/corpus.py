@@ -5,7 +5,7 @@ import tempfile
 from wbtools.literature.corpus import CorpusManager
 from wbtools.literature.paper import WBPaper
 
-TESTDATA_DIR = os.path.join(os.path.dirname(__file__), 'data', 'text_files')
+TESTDATA_DIR = os.path.join(os.path.dirname(__file__), '../data', 'text_files')
 
 
 class TestCorpusManager(unittest.TestCase):

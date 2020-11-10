@@ -1,4 +1,5 @@
 import itertools
+import re
 
 from gensim.models import KeyedVectors
 from nltk import word_tokenize
@@ -9,8 +10,25 @@ from gensim.similarities import SoftCosineSimilarity, SparseTermSimilarityMatrix
 from nltk import sent_tokenize, word_tokenize
 from nltk.corpus import stopwords
 
+from wbtools.lib.scraping import get_cgc_allele_designations
+
 
 stop_words = set(stopwords.words('english'))
+
+ALL_VAR_REGEX = r'(' + '|'.join(get_cgc_allele_designations()) + '|m|p|It)(_)?([A-z]+)?([0-9]+)([a-zA-Z]{1,4}[0-9]*)?' \
+                                                                 '(\[[0-9]+\])?([a-zA-Z]{1,4}[0-9]*)?(\[.+\])?'
+
+NEW_VAR_REGEX = r'(' + '|'.join(get_cgc_allele_designations()) + '|m|p)([0-9]+)((' + \
+                '|'.join(get_cgc_allele_designations()) + '|m|p|ts|gf|lf|d|sd|am|cs)[0-9]+)?'
+
+
+VAR_EXCLUSION_LIST = ["p53", "p35", "p21", "p38", "p68", "p120", "p130", "p107", "uv1", "w1", "u1"]
+
+
+VAR_FALSE_POSITIVE_REGEX = r'(^(and|www|ab)\d+)|(al\d+$)|(^yk\d+)'
+
+
+VAR_FROM_UNWANTED_PRJ_REGEX = r'^(ok|gk|tm|cx|tt)\d+$'
 
 
 def remove_references(document):
@@ -63,3 +81,17 @@ def get_similar_documents(similarity_index, dictionary, query_documents, idx_fil
     result_list = [idx_filename_map[i] for i in [a[0] for a in sims]]
     score_list = [a[1] for a in sims]
     return [(score, result) for score, result in zip(score_list, result_list)]
+
+
+def get_entities_from_text(text, regex):
+    res = re.findall(regex, text)
+    return ["".join(entity_arr) for entity_arr in res]
+
+
+def get_new_variations_from_text(text):
+    variations = get_entities_from_text(text, r"[\( ]" + NEW_VAR_REGEX + r"[\) ]")
+    variations = [var for var in variations if var not in VAR_EXCLUSION_LIST and not re.match(
+        VAR_FALSE_POSITIVE_REGEX, var) and not re.match(VAR_FROM_UNWANTED_PRJ_REGEX, var)]
+    return variations
+
+

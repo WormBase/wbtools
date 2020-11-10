@@ -1,6 +1,8 @@
 import logging
 import os
 import re
+from collections import defaultdict
+
 import numpy as np
 
 from wbtools.db.paper import WBPaperDBManager
@@ -93,6 +95,7 @@ class WBPaper(object):
         self.aut_text = aut_text
         self.html_text = html_text
         self.supplemental_docs = supplemental_docs if supplemental_docs else []
+        self.svm_values = defaultdict(str)
         self.paper_file_reader = PaperFileReader(tazendra_ssh_user=tazendra_ssh_user,
                                                  tazendra_ssh_passwd=tazendra_ssh_passwd)
 
@@ -162,6 +165,12 @@ class WBPaper(object):
             filename = file_path.split("/")[-1]
             dir_path = file_path.rstrip(filename)
             self.add_file(dir_path=dir_path, filename=filename, remote_file=True, pdf=True)
+
+    def load_info_from_db(self, db_name, db_user, db_password, db_host):
+        wb_paper_db_manager = WBPaperDBManager(db_name, db_user, db_password, db_host)
+        svm_values = wb_paper_db_manager.get_svm_values(paper_id=self.paper_id)
+        for svm_type, svm_value in svm_values:
+            self.svm_values[svm_type] = svm_value
 
     def has_same_wbpaper_id_as_filename(self, filename):
         return self._get_matches_from_filename(filename)[0] == self.paper_id
