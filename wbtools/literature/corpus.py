@@ -42,7 +42,7 @@ class CorpusManager(object):
                 paper.add_file(dir_path=dir_path, filename=f, remote_file=False, pdf=False)
 
     def load_from_wb_database(self, db_name, db_user, db_password, db_host, tazendra_ssh_user, tazendra_ssh_passwd,
-                              from_date, load_additional_info: bool = False):
+                              from_date, load_additional_info: bool = False, max_num_papers: int = None):
         db_manager = WBDBManager(db_name, db_user, db_password, db_host)
         paper_ids = db_manager.get_all_paper_ids(added_or_modified_after=from_date)
         for paper_id in paper_ids:
@@ -53,6 +53,8 @@ class CorpusManager(object):
             if load_additional_info:
                 paper.load_info_from_db(db_name=db_name, db_user=db_user, db_password=db_password, db_host=db_host)
             self.add_or_update_wb_paper(paper)
+            if max_num_papers and self.size() >= max_num_papers:
+                break
 
     def size(self):
         return len(self.corpus)
