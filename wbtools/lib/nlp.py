@@ -88,10 +88,16 @@ def get_entities_from_text(text, regex):
     return ["".join(entity_arr) for entity_arr in res]
 
 
+def is_variation_suspicious(variation):
+    return re.match(r"^p\d+$", variation) or re.match(r"^(c|m|n|k)?m[1-3]$", variation) or \
+            re.match(r"^ws\d+$", variation) or re.match(r"^aa\d+", variation) or \
+            re.match(r"^x(1|2|3|100|200|500|1000)$", variation)
+
+
 def get_new_variations_from_text(text):
     variations = get_entities_from_text(text, r"[\( ]" + NEW_VAR_REGEX + r"[\) ]")
     variations = [var for var in variations if var not in VAR_EXCLUSION_LIST and not re.match(
         VAR_FALSE_POSITIVE_REGEX, var) and not re.match(VAR_FROM_UNWANTED_PRJ_REGEX, var)]
-    return variations
+    return [(variation, is_variation_suspicious(variation)) for variation in variations]
 
 
