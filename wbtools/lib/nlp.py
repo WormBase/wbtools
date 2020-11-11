@@ -18,8 +18,8 @@ stop_words = set(stopwords.words('english'))
 ALL_VAR_REGEX = r'(' + '|'.join(get_cgc_allele_designations()) + '|m|p|It)(_)?([A-z]+)?([0-9]+)([a-zA-Z]{1,4}[0-9]*)?' \
                                                                  '(\[[0-9]+\])?([a-zA-Z]{1,4}[0-9]*)?(\[.+\])?'
 
-NEW_VAR_REGEX = r'(' + '|'.join(get_cgc_allele_designations()) + '|m|p)([0-9]+)((' + \
-                '|'.join(get_cgc_allele_designations()) + '|m|p|ts|gf|lf|d|sd|am|cs)[0-9]+)?'
+NEW_VAR_REGEX = r'[\( ](' + '|'.join(get_cgc_allele_designations()) + r'|m|p)([0-9]+)((' + \
+                '|'.join(get_cgc_allele_designations()) + r'|m|p|ts|gf|lf|d|sd|am|cs)[0-9]+)?[\) \[]'
 
 
 VAR_EXCLUSION_LIST = ["p53", "p35", "p21", "p38", "p68", "p120", "p130", "p107", "uv1", "w1", "u1"]
@@ -89,13 +89,13 @@ def get_entities_from_text(text, regex):
 
 
 def is_variation_suspicious(variation):
-    return re.match(r"^p\d+$", variation) or re.match(r"^(c|m|n|k)?m[1-3]$", variation) or \
+    return "suspicious" if re.match(r"^p\d+$", variation) or re.match(r"^(c|m|n|k)?m[1-3]$", variation) or \
             re.match(r"^ws\d+$", variation) or re.match(r"^aa\d+", variation) or \
-            re.match(r"^x(1|2|3|100|200|500|1000)$", variation)
+            re.match(r"^x(1|2|3|100|200|500|1000)$", variation) else "potentially new"
 
 
 def get_new_variations_from_text(text):
-    variations = get_entities_from_text(text, r"[\( ]" + NEW_VAR_REGEX + r"[\) ]")
+    variations = set(get_entities_from_text(text, NEW_VAR_REGEX))
     variations = [var for var in variations if var not in VAR_EXCLUSION_LIST and not re.match(
         VAR_FALSE_POSITIVE_REGEX, var) and not re.match(VAR_FROM_UNWANTED_PRJ_REGEX, var)]
     return [(variation, is_variation_suspicious(variation)) for variation in variations]
