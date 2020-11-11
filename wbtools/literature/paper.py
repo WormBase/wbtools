@@ -1,19 +1,21 @@
 import logging
 import os
 import re
-from collections import defaultdict
+import tempfile
 
 import numpy as np
 
-from wbtools.db.paper import WBPaperDBManager
-from wbtools.lib.nlp import preprocess, get_documents_from_text
-from wbtools.lib.timeout import timeout
+from collections import defaultdict
 from io import StringIO
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.pdfpage import PDFPage
 from fabric.connection import Connection
+
+from wbtools.db.paper import WBPaperDBManager
+from wbtools.lib.nlp import preprocess, get_documents_from_text
+from wbtools.lib.timeout import timeout
 
 
 logger = logging.getLogger(__name__)
@@ -67,10 +69,13 @@ class PaperFileReader(object):
     def download_paper_and_extract_txt(self, file_url, pdf: bool = False):
         with Connection(TAZENDRA_SSH_HOST, self.tazendra_ssh_user, connect_kwargs={"password": self.tazendra_ssh_passwd}) as \
                 c, c.sftp() as sftp, sftp.open(file_url) as file_stream:
-            if pdf:
-                return self.convert_pdf_to_txt(file_stream)
-            else:
-                return file_stream.read()
+            tmp_file = tempfile.NamedTemporaryFile()
+            with open(tmp_file.name, 'wb') as tmp_file_stream:
+                tmp_file_stream.write(file_stream.read())
+        if pdf:
+            return self.convert_pdf_to_txt(open(tmp_file.name, 'rb'))
+        else:
+            return open(tmp_file).read()
 
     def get_text_from_file(self, dir_path, filename, remote_file: bool = False, pdf: bool = False):
         if remote_file:
@@ -102,11 +107,11 @@ class WBPaper(object):
     def get_text_docs(self, include_supplemental: bool = True, remove_ref_section: bool = False,
                       split_sentences: bool = False, lowercase: bool = False, tokenize: bool = False,
                       remove_stopwords: bool = False, remove_alpha: bool = False):
-        merged_text = self.main_text if self.main_text else self.html_text if self.html_text else self.ocr_text if \
-                      self.ocr_text else self.aut_text if self.aut_text else self.temp_text
+        docs = [self.main_text if self.main_text else self.html_text if self.html_text else self.ocr_text if
+                self.ocr_text else self.aut_text if self.aut_text else self.temp_text]
         if include_supplemental:
-            merged_text += " " + " ".join(self.supplemental_docs)
-        docs = [d for d in get_documents_from_text(merged_text, split_sentences, remove_ref_section)]
+            docs.extend(self.supplemental_docs)
+        docs = [d for doc in docs for d in get_documents_from_text(doc, split_sentences, remove_ref_section)]
         return [preprocess(doc, lower=lowercase, tokenize=tokenize, remove_stopwords=remove_stopwords,
                            remove_alpha=remove_alpha) for doc in docs]
 
@@ -120,11 +125,13 @@ class WBPaper(object):
             remote_file: whether the file is on a remote location
             pdf: whether the file is in pdf format
         """
+        all_supp = False
         if not self.paper_file_reader and remote_file:
             raise Exception("a paper reader must be provided to access remote files")
         if dir_path.endswith("supplemental/") and re.match(r'^[0-9]+$', filename):
             filenames = self.paper_file_reader.get_supplemental_file_names(dir_path + filename)
             dir_path = dir_path + filename + "/"
+            all_supp = True
         else:
             filenames = [filename]
         for filename in filenames:
@@ -133,11 +140,11 @@ class WBPaper(object):
                 wb_paperid, author_year, additional_options = self._get_matches_from_filename(filename)
                 if not self.paper_id:
                     self.paper_id = wb_paperid
-                if author_year and ("_supp" in author_year or "_Supp" in author_year or "_Table" in author_year or
-                                    "_table" in author_year or "_mmc" in author_year or "_Stable" in author_year or
-                                    "_Movie" in author_year or "_movie" in author_year or "supplementary" in author_year
-                                    or "Supplementary" in author_year or
-                                    re.match(r'[_-][Ss][0-9]+', author_year)):
+                if all_supp or (author_year and ("_supp" in author_year or "_Supp" in author_year or "_Table" in
+                                                author_year or "_table" in author_year or "_mmc" in author_year or
+                                                "_Stable" in author_year or "_Movie" in author_year or "_movie" in
+                                                author_year or "supplementary" in author_year or "Supplementary" in
+                                                author_year or re.match(r'[_-][Ss][0-9]+', author_year))):
                     self.supplemental_docs.append(self.paper_file_reader.get_text_from_file(
                         dir_path, filename, remote_file, pdf))
                     return
