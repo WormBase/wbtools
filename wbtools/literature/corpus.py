@@ -42,9 +42,11 @@ class CorpusManager(object):
                 paper.add_file(dir_path=dir_path, filename=f, remote_file=False, pdf=False)
 
     def load_from_wb_database(self, db_name, db_user, db_password, db_host, tazendra_ssh_user, tazendra_ssh_passwd,
-                              from_date, load_additional_info: bool = False, max_num_papers: int = None):
-        db_manager = WBDBManager(db_name, db_user, db_password, db_host)
-        paper_ids = db_manager.get_all_paper_ids(added_or_modified_after=from_date)
+                              paper_ids: list = None, from_date: str = None, load_additional_info: bool = False,
+                              max_num_papers: int = None):
+        if not paper_ids:
+            db_manager = WBDBManager(db_name, db_user, db_password, db_host)
+            paper_ids = db_manager.get_all_paper_ids(added_or_modified_after=from_date)
         for paper_id in paper_ids:
             paper = WBPaper(paper_id=paper_id, tazendra_ssh_user=tazendra_ssh_user,
                             tazendra_ssh_passwd=tazendra_ssh_passwd)
