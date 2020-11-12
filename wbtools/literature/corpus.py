@@ -2,9 +2,10 @@ import logging
 import os
 import pickle
 
-from typing import Generator
+from typing import Generator, List
 
 from wbtools.db.dbmanager import WBDBManager
+from wbtools.lib.nlp import PaperSections
 from wbtools.literature.paper import WBPaper
 
 
@@ -61,12 +62,15 @@ class CorpusManager(object):
     def size(self):
         return len(self.corpus)
 
-    def get_flat_corpus_list_and_idx_paperid_map(self, split_sentences: bool = False, remove_ref_section: bool = False,
+    def get_flat_corpus_list_and_idx_paperid_map(self, split_sentences: bool = False,
+                                                 remove_sections: List[PaperSections] = None,
+                                                 must_be_present: List[PaperSections] = None,
                                                  lowercase: bool = False, tokenize: bool = False,
                                                  remove_stopwords: bool = False, remove_alpha: bool = False):
         flat_list_with_ids = [(doc, paper.paper_id) for paper in self.corpus.values() for doc in paper.get_text_docs(
-            include_supplemental=True, remove_ref_section=remove_ref_section, split_sentences=split_sentences,
-            lowercase=lowercase, tokenize=tokenize, remove_stopwords=remove_stopwords, remove_alpha=remove_alpha)]
+            include_supplemental=True, remove_sections=remove_sections, must_be_present=must_be_present,
+            split_sentences=split_sentences, lowercase=lowercase, tokenize=tokenize, remove_stopwords=remove_stopwords,
+            remove_alpha=remove_alpha)]
         return [d[0] for d in flat_list_with_ids], {idx: d[1] for idx, d in enumerate(flat_list_with_ids)}
 
     def get_paper(self, paper_id) -> WBPaper:

@@ -1,6 +1,9 @@
 import itertools
 import re
+from enum import Enum
+from typing import List
 
+import regex
 from gensim.models import KeyedVectors
 from nltk import word_tokenize
 from nltk.corpus import stopwords
@@ -31,22 +34,68 @@ VAR_FALSE_POSITIVE_REGEX = r'(^(and|www|ab)\d+)|(al\d+$)|(^yk\d+)'
 VAR_FROM_UNWANTED_PRJ_REGEX = r'^(ok|gk|tm|cx|tt)\d+$'
 
 
-def remove_references(document):
-    try:
-        document = document[0:document.rindex("References")]
-    except:
-        pass
-    try:
-        document = document[0:document.rindex("REFERENCES")]
-    except:
-        pass
-    return document
+class PaperSections(str, Enum):
+    INTRODUCTION = 1
+    METHOD = 2
+    RELATED_WORK = 3
+    RESULTS = 4
+    DISCUSSION = 5
+    CONCLUSION = 6
+    REFERENCES = 7
 
 
-def get_documents_from_text(text: str, split_sentences: bool = False, remove_ref_section: bool = False) -> list:
-    if remove_ref_section:
-        text = remove_references(text)
+PAPER_SECTIONS = {
+    PaperSections.INTRODUCTION: [["introduction"], ["the", "section"], ["section"], 0.2],
+    PaperSections.METHOD: [["method", "methods"], ["section"], ["section"], 0.3],
+    PaperSections.RELATED_WORK: [["related work", "related works"], ["the", "previous", "section"], ["section"], 0.3],
+    PaperSections.RESULTS: [["results"], ["section"], ["section"], 0.5],
+    PaperSections.DISCUSSION: [["discussion", "discussions"], ["section"], ["section"], 0.7],
+    PaperSections.CONCLUSION: [["conclusion", "conclusions"], ["the", "section"], ["section"], 0.8],
+    PaperSections.REFERENCES: [["references", "literature"], ["the"], [], 0.9]
+}
+
+
+def get_documents_from_text(text: str, split_sentences: bool = False, remove_sections: List[PaperSections] = None,
+                            must_be_present: List[PaperSections] = None) -> \
+        list:
+    if remove_sections:
+        text = remove_sections_from_text(text=text, sections_to_remove=remove_sections, must_be_present=must_be_present)
     return sent_tokenize(text) if split_sentences else [text]
+
+
+def remove_sections_from_text(text: str, sections_to_remove: List[PaperSections] = None,
+                              must_be_present: List[PaperSections] = None):
+    if sections_to_remove:
+        sections_idx = {}
+        for section, (section_matches, prefix_to_exclude, postfix_to_exclude, expected_position) in \
+                PAPER_SECTIONS.items():
+            sections_idx[section] = -1
+            pre_match_regex = r"(?<!" + r"\s*|".join(prefix_to_exclude) + r"\s*)" if prefix_to_exclude else ""
+            post_match_regex = r"(?!\s*" + r"\s*|".join(postfix_to_exclude) + ")" if postfix_to_exclude else ""
+            for string_to_match in section_matches:
+                section_match_regex = pre_match_regex + "(" + string_to_match.title() + "|" + \
+                                      string_to_match.upper() + ")" + post_match_regex
+                matches_idx = [match.start() for match in regex.finditer(section_match_regex, text)]
+                if matches_idx:
+                    # take the index closest to the expected position, if it's les than 50% off the expected position
+                    idx_sorted = sorted([(match_id, match_id / len(text) - expected_position) for match_id in
+                                         matches_idx if match_id / len(text) - expected_position < 0.5],
+                                        key=lambda x: x[1])
+                    if idx_sorted:
+                        sections_idx[section] = idx_sorted[0][0]
+                        if sections_idx[section] != -1:
+                            break
+        if not must_be_present or all([sections_idx[must_sec] != -1 for must_sec in must_be_present]):
+            sec_idx_arr = sorted([(section, idx) for section, idx in sections_idx.items() if idx > -1 and section in
+                                  sections_to_remove], key=lambda x: x[1])
+            # remove sections too close to each other (e.g., RESULTS AND DISCUSSION)
+            sec_idx_arr = [s_i for i, s_i in enumerate(sec_idx_arr) if i == 0 or s_i[1] - sec_idx_arr[i - 1][1] > 20]
+            # get first and last position of each section based on the next one
+            slices_idx = [(s_i[1], (sec_idx_arr[i + 1][1] - 1) if i < len(sec_idx_arr) - 1 else len(text)) for
+                          i, s_i in enumerate(sec_idx_arr) if s_i[0] in sections_to_remove]
+            text = "".join([c for i, c in enumerate(text) if not any([slice_idx[0] <= i <= slice_idx[1] for slice_idx in
+                                                                      slices_idx])])
+    return text
 
 
 def preprocess(doc, lower: bool = False, tokenize: bool = False, remove_stopwords: bool = False,

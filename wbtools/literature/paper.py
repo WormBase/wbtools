@@ -2,6 +2,7 @@ import logging
 import os
 import re
 import tempfile
+from typing import List
 
 import numpy as np
 
@@ -14,7 +15,7 @@ from pdfminer.pdfpage import PDFPage
 from fabric.connection import Connection
 
 from wbtools.db.paper import WBPaperDBManager
-from wbtools.lib.nlp import preprocess, get_documents_from_text
+from wbtools.lib.nlp import preprocess, get_documents_from_text, PaperSections
 from wbtools.lib.timeout import timeout
 
 
@@ -104,14 +105,17 @@ class WBPaper(object):
         self.paper_file_reader = PaperFileReader(tazendra_ssh_user=tazendra_ssh_user,
                                                  tazendra_ssh_passwd=tazendra_ssh_passwd)
 
-    def get_text_docs(self, include_supplemental: bool = True, remove_ref_section: bool = False,
-                      split_sentences: bool = False, lowercase: bool = False, tokenize: bool = False,
-                      remove_stopwords: bool = False, remove_alpha: bool = False):
+    def get_text_docs(self, include_supplemental: bool = True, remove_sections: List[PaperSections] = None,
+                      must_be_present: List[PaperSections] = None, split_sentences: bool = False,
+                      lowercase: bool = False, tokenize: bool = False, remove_stopwords: bool = False,
+                      remove_alpha: bool = False):
         docs = [self.main_text if self.main_text else self.html_text if self.html_text else self.ocr_text if
                 self.ocr_text else self.aut_text if self.aut_text else self.temp_text]
         if include_supplemental:
             docs.extend(self.supplemental_docs)
-        docs = [d for doc in docs for d in get_documents_from_text(doc, split_sentences, remove_ref_section)]
+        docs = [d for doc in docs for d in get_documents_from_text(
+            text=doc, split_sentences=split_sentences, must_be_present=must_be_present,
+            remove_sections=remove_sections)]
         return [preprocess(doc, lower=lowercase, tokenize=tokenize, remove_stopwords=remove_stopwords,
                            remove_alpha=remove_alpha) for doc in docs]
 
