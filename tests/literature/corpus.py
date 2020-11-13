@@ -28,6 +28,13 @@ class TestCorpusManager(unittest.TestCase):
         self.assertTrue(len(idx_paperid_map[0]) == 8)
         self.assertEqual(len(set(idx_paperid_map.values())), self.cm.size())
 
+    def test_split_sentences(self):
+        cl1, map1 = self.cm.get_flat_corpus_list_and_idx_paperid_map(tokenize=False, remove_stopwords=False,
+                                                                     remove_alpha=False, split_sentences=True)
+        cl2, map2 = self.cm.get_flat_corpus_list_and_idx_paperid_map(tokenize=True, remove_stopwords=True,
+                                                                     remove_alpha=True, split_sentences=True)
+        self.assertEqual(len(cl1), len(cl2))
+
     def test_pickle(self):
         tmp_file = tempfile.NamedTemporaryFile()
         self.cm.save(tmp_file.name)

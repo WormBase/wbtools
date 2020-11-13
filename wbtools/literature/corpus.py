@@ -47,7 +47,7 @@ class CorpusManager(object):
                               max_num_papers: int = None):
         if not paper_ids:
             db_manager = WBDBManager(db_name, db_user, db_password, db_host)
-            paper_ids = db_manager.get_all_paper_ids(added_or_modified_after=from_date)
+            paper_ids = db_manager.generic.get_all_paper_ids(added_or_modified_after=from_date)
         for paper_id in paper_ids:
             paper = WBPaper(paper_id=paper_id, tazendra_ssh_user=tazendra_ssh_user,
                             tazendra_ssh_passwd=tazendra_ssh_passwd)

@@ -111,7 +111,7 @@ def preprocess(doc, lower: bool = False, tokenize: bool = False, remove_stopword
     return doc
 
 
-def get_softcosine_index(model_path: str = '', model=None, corpus_list_token: list = None):
+def get_softcosine_index(model_path: str = '', model=None, corpus_list_token: list = None, num_best: int = 10):
     if model_path:
         model = KeyedVectors.load_word2vec_format(model_path, binary=True)
     elif model:
@@ -122,14 +122,19 @@ def get_softcosine_index(model_path: str = '', model=None, corpus_list_token: li
     dictionary = Dictionary(corpus_list_token)
     bow_corpus = [dictionary.doc2bow(doc) for doc in corpus_list_token]
     similarity_matrix = SparseTermSimilarityMatrix(termsim_index, dictionary)
-    return SoftCosineSimilarity(bow_corpus, similarity_matrix, num_best=10), dictionary
+    return SoftCosineSimilarity(bow_corpus, similarity_matrix, num_best=num_best), dictionary
 
 
-def get_similar_documents(similarity_index, dictionary, query_documents, idx_filename_map):
-    sims = similarity_index[dictionary.doc2bow(list(itertools.chain.from_iterable(query_documents)))]
+def get_similar_documents(similarity_index, dictionary, query_documents, idx_filename_map, average_match: bool = True):
+    if average_match:
+        sims = similarity_index[dictionary.doc2bow(list(itertools.chain.from_iterable(query_documents)))]
+    else:
+        sims = [sim for query_doc in query_documents for sim in similarity_index[dictionary.doc2bow(query_doc)]]
     result_list = [idx_filename_map[i] for i in [a[0] for a in sims]]
+    result_id_list = [i for i in [a[0] for a in sims]]
     score_list = [a[1] for a in sims]
-    return [(score, result) for score, result in zip(score_list, result_list)]
+    return sorted([(score, result, list_id) for score, result, list_id in zip(score_list, result_list, result_id_list)],
+                  key=lambda x: x[0], reverse=True)
 
 
 def get_entities_from_text(text, regex):

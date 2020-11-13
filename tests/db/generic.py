@@ -3,7 +3,7 @@ import unittest
 import configparser
 import os
 
-from wbtools.db.dbmanager import WBDBManager
+from wbtools.db.generic import WBGenericDBManager
 from wbtools.lib.nlp import ALL_VAR_REGEX
 
 
@@ -18,9 +18,11 @@ class TestWBDBManager(unittest.TestCase):
         return config
 
     def setUp(self) -> None:
-        self.db_manager = WBDBManager(dbname=config["wb_database"]["db_name"], user=config["wb_database"]["db_user"],
-                                      password=config["wb_database"]["db_password"],
-                                      host=config["wb_database"]["db_host"])
+        config = self.read_db_config()
+        self.db_manager = WBGenericDBManager(dbname=config["wb_database"]["db_name"],
+                                             user=config["wb_database"]["db_user"],
+                                             password=config["wb_database"]["db_password"],
+                                             host=config["wb_database"]["db_host"])
 
     def test_get_curated_variations(self):
         curated_variations = self.db_manager.get_curated_variations()

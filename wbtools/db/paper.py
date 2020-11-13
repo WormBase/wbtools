@@ -3,10 +3,10 @@ from psycopg2 import sql
 
 import psycopg2
 
-from wbtools.db.dbmanager import WBDBManager
+from wbtools.db.abstract_manager import AbstractWBDBManager
 
 
-class WBPaperDBManager(WBDBManager):
+class WBPaperDBManager(AbstractWBDBManager):
 
     def __init__(self, dbname, user, password, host):
         super().__init__(dbname, user, password, host)

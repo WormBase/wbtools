@@ -2,7 +2,7 @@ import configparser
 import os
 import unittest
 
-from tests.db.dbmanager import TestWBDBManager
+from tests.db.generic import TestWBDBManager
 from wbtools.lib.nlp import PaperSections
 from wbtools.literature.paper import WBPaper
 
