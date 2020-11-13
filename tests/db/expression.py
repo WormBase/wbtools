@@ -1,12 +1,8 @@
-import re
 import unittest
-import configparser
 import os
 
 from tests.db.generic import TestWBDBManager
-from wbtools.db.dbmanager import WBDBManager
 from wbtools.db.expression import WBExpressionDBManager
-from wbtools.lib.nlp import ALL_VAR_REGEX
 
 
 @unittest.skipIf(not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data",
