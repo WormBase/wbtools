@@ -3,9 +3,11 @@ import os
 import pickle
 
 from typing import Generator, List
+from gensim.models import Word2Vec
+from gensim.test.utils import common_texts
 
 from wbtools.db.dbmanager import WBDBManager
-from wbtools.lib.nlp import PaperSections
+from wbtools.lib.nlp import PaperSections, get_softcosine_index, preprocess, get_similar_documents, SimilarityResult
 from wbtools.literature.paper import WBPaper
 
 
@@ -88,3 +90,24 @@ class CorpusManager(object):
         with open(file_path, 'rb') as in_file:
             tmp_self = pickle.load(in_file)
             self.__dict__ = tmp_self.__dict__
+
+    def query_papers(self, query_docs: List[str], sentence_search: bool = False,
+                     remove_sections: List[PaperSections] = None, must_be_present: List[PaperSections] = None,
+                     path_to_model: str = None, average_match: bool = True):
+        model = Word2Vec(common_texts, min_count=1) if not path_to_model else None
+        corpus_list_token, idx_paperid_map = self.get_flat_corpus_list_and_idx_paperid_map(
+            split_sentences=sentence_search, remove_sections=remove_sections, must_be_present=must_be_present,
+            lowercase=True, tokenize=True, remove_stopwords=True, remove_alpha=True)
+        corpus_list_token_orig, _ = self.get_flat_corpus_list_and_idx_paperid_map(
+            split_sentences=sentence_search, remove_sections=remove_sections, must_be_present=must_be_present,
+            lowercase=False, tokenize=False, remove_stopwords=False, remove_alpha=False)
+        docsim_index, dictionary = get_softcosine_index(model=model, model_path=path_to_model,
+                                                        corpus_list_token=corpus_list_token)
+        query_docs_preprocessed = [preprocess(doc=sentence, lower=True, tokenize=True, remove_stopwords=True,
+                                              remove_alpha=True) for sentence in query_docs]
+        sims = get_similar_documents(docsim_index, dictionary, query_docs_preprocessed, idx_paperid_map,
+                                     average_match=average_match)
+        return [SimilarityResult(score=sim.score, paper_id=sim.paper_id, match_idx=sim.match_idx,
+                                 query_idx=sim.query_idx, match="\"" + corpus_list_token_orig[sim.match_idx] + "\"",
+                                 query="\"" + (" ".join(query_docs) if average_match else query_docs[sim.query_idx]) +
+                                       "\"") for sim in sims]

@@ -25,8 +25,17 @@ class TestNLP(unittest.TestCase):
         docsim_index, dictionary = get_softcosine_index(model=model, corpus_list_token=corpus_list_token)
         query_docs = [corpus_list_token[0], corpus_list_token[1]]
         sim_docs = get_similar_documents(docsim_index, dictionary, query_docs, idx_paperid_map)
-        self.assertTrue(idx_paperid_map[0] in [sim_doc[1] for sim_doc in sim_docs[0:2]])
-        self.assertTrue(idx_paperid_map[1] in [sim_doc[1] for sim_doc in sim_docs[0:2]])
+        self.assertTrue(idx_paperid_map[0] in [sim_doc.paper_id for sim_doc in sim_docs[0:2]])
+        self.assertTrue(idx_paperid_map[1] in [sim_doc.paper_id for sim_doc in sim_docs[0:2]])
+
+        corpus_list_token, idx_paperid_map = self.cm.get_flat_corpus_list_and_idx_paperid_map(
+            split_sentences=True, remove_sections=[PaperSections.REFERENCES], lowercase=True, tokenize=True,
+            remove_stopwords=True, remove_alpha=True)
+        docsim_index, dictionary = get_softcosine_index(model=model, corpus_list_token=corpus_list_token)
+        query_docs = [corpus_list_token[0], corpus_list_token[1]]
+        sim_docs = get_similar_documents(docsim_index, dictionary, query_docs, idx_paperid_map)
+        self.assertTrue(idx_paperid_map[0] in [sim_doc.paper_id for sim_doc in sim_docs[0:2]])
+        self.assertTrue(idx_paperid_map[1] in [sim_doc.paper_id for sim_doc in sim_docs[0:2]])
 
     def test_get_entities_from_text(self):
         text = " ".join(list(self.cm.corpus.values())[0].get_text_docs())

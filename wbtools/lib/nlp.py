@@ -1,5 +1,6 @@
 import itertools
 import re
+from dataclasses import dataclass
 from enum import Enum
 from typing import List
 
@@ -32,6 +33,16 @@ VAR_FALSE_POSITIVE_REGEX = r'(^(and|www|ab)\d+)|(al\d+$)|(^yk\d+)'
 
 
 VAR_FROM_UNWANTED_PRJ_REGEX = r'^(ok|gk|tm|cx|tt)\d+$'
+
+
+@dataclass
+class SimilarityResult:
+    score: int = 0
+    paper_id: str = ''
+    match_idx: int = 0
+    query_idx: int = 0
+    match: str = ''
+    query: str = ''
 
 
 class PaperSections(str, Enum):
@@ -127,14 +138,13 @@ def get_softcosine_index(model_path: str = '', model=None, corpus_list_token: li
 
 def get_similar_documents(similarity_index, dictionary, query_documents, idx_filename_map, average_match: bool = True):
     if average_match:
-        sims = similarity_index[dictionary.doc2bow(list(itertools.chain.from_iterable(query_documents)))]
+        res = [SimilarityResult(score=sim[1], paper_id=idx_filename_map[sim[0]], match_idx=sim[0], query_idx=-1)
+               for sim in similarity_index[dictionary.doc2bow(list(itertools.chain.from_iterable(query_documents)))]]
     else:
-        sims = [sim for query_doc in query_documents for sim in similarity_index[dictionary.doc2bow(query_doc)]]
-    result_list = [idx_filename_map[i] for i in [a[0] for a in sims]]
-    result_id_list = [i for i in [a[0] for a in sims]]
-    score_list = [a[1] for a in sims]
-    return sorted([(score, result, list_id) for score, result, list_id in zip(score_list, result_list, result_id_list)],
-                  key=lambda x: x[0], reverse=True)
+        res = [SimilarityResult(score=sim[1], paper_id=idx_filename_map[sim[0]], match_idx=sim[0], query_idx=q_idx) for
+               q_idx, query_doc in enumerate(query_documents) for sim in similarity_index[dictionary.doc2bow(
+                query_doc)]]
+    return sorted(res, key=lambda x: x.score, reverse=True)
 
 
 def get_entities_from_text(text, regex):
