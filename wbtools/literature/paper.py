@@ -90,6 +90,7 @@ class PaperFileReader(object):
 
 
 class WBPaper(object):
+    """WormBase paper information"""
 
     def __init__(self, paper_id: str = '', main_text: str = '', ocr_text: str = '', temp_text: str = '',
                  aut_text: str = '', html_text: str = '', supplemental_docs: list = None, tazendra_ssh_user: str = '',
@@ -108,7 +109,24 @@ class WBPaper(object):
     def get_text_docs(self, include_supplemental: bool = True, remove_sections: List[PaperSections] = None,
                       must_be_present: List[PaperSections] = None, split_sentences: bool = False,
                       lowercase: bool = False, tokenize: bool = False, remove_stopwords: bool = False,
-                      remove_alpha: bool = False):
+                      remove_alpha: bool = False) -> list:
+        """get text documents for the paper
+
+        Args:
+            include_supplemental (bool): include supplemental material
+            remove_sections (List[PaperSections]): sections to be removed
+            must_be_present (List[PaperSections]): sections that must be present in the text to be able to remove
+                                                   undesired sections
+            split_sentences (bool): split documents into sections
+            lowercase (bool): transform text to lowercase
+            tokenize (bool): tokenize text into words
+            remove_stopwords (bool): remove common stopwords
+            remove_alpha (bool): remove special characters and punctuation
+
+        Returns:
+            list: a list of documents, which can be strings or lists of strings or list of lists of strings according to
+                  the combination of tokenization arguments passed
+        """
         docs = [self.main_text if self.main_text else self.html_text if self.html_text else self.ocr_text if
                 self.ocr_text else self.aut_text if self.aut_text else self.temp_text]
         if include_supplemental:
@@ -120,14 +138,14 @@ class WBPaper(object):
                            remove_alpha=remove_alpha) for doc in docs]
 
     def add_file(self, dir_path, filename, remote_file: bool = False, pdf: bool = False):
-        """
-        add one or more files to the paper. Information about the type of file is derived from file name. If the file
-        path points to a directory, all supplementary files in it are loaded.
+        """add one or more files to the paper. Information about the type of file is derived from file name. If the file
+           path points to a directory, all supplementary files in it are loaded.
+
         Args:
             dir_path (str): path to the base directory
             filename (str): name of the file to load
-            remote_file: whether the file is on a remote location
-            pdf: whether the file is in pdf format
+            remote_file (bool): whether the file is on a remote location
+            pdf (bool): whether the file is in pdf format
         """
         all_supp = False
         if not self.paper_file_reader and remote_file:
@@ -170,6 +188,14 @@ class WBPaper(object):
                     logger.warning("No rule to read filename: " + filename)
 
     def load_text_from_pdf_files_in_db(self, db_name, db_user, db_password, db_host):
+        """load text from pdf files in the WormBase database
+
+        Args:
+            db_name (str): database name
+            db_user (str): database user
+            db_password (str): database password
+            db_host (str): database host
+        """
         wb_paper_db_manager = WBPaperDBManager(db_name, db_user, db_password, db_host)
         file_paths = wb_paper_db_manager.get_file_paths(self.paper_id)
         for file_path in file_paths:
@@ -177,7 +203,15 @@ class WBPaper(object):
             dir_path = file_path.rstrip(filename)
             self.add_file(dir_path=dir_path, filename=filename, remote_file=True, pdf=True)
 
-    def load_info_from_db(self, db_name, db_user, db_password, db_host):
+    def load_curation_info_from_db(self, db_name, db_user, db_password, db_host):
+        """load curation data from WormBase database
+
+        Args:
+            db_name (str): database name
+            db_user (str): database user
+            db_password (str): database password
+            db_host (str): database host
+        """
         wb_paper_db_manager = WBPaperDBManager(db_name, db_user, db_password, db_host)
         svm_values = wb_paper_db_manager.get_svm_values(paper_id=self.paper_id)
         for svm_type, svm_value in svm_values:
@@ -195,7 +229,17 @@ class WBPaper(object):
             raise Exception("Can't extract WBPaperID from filename: " + filename)
 
     def is_temp(self):
+        """determine if the paper has a temporary pdf
+
+        Returns:
+            bool: whether the paper has a temporary pdf file
+        """
         return not self.main_text
 
     def has_supplementary_material(self):
+        """determine if the paper has supplemental material associated to it
+
+        Returns:
+            bool: whether the paper has supplemental material
+        """
         return self.supplemental_docs

@@ -84,7 +84,7 @@ class CorpusManager(object):
                 paper.load_text_from_pdf_files_in_db(db_name=db_name, db_user=db_user, db_password=db_password,
                                                      db_host=db_host)
             if load_curation_info:
-                paper.load_info_from_db(db_name=db_name, db_user=db_user, db_password=db_password, db_host=db_host)
+                paper.load_curation_info_from_db(db_name=db_name, db_user=db_user, db_password=db_password, db_host=db_host)
             self.add_or_update_wb_paper(paper)
             if max_num_papers and self.size() >= max_num_papers:
                 break
