@@ -17,7 +17,7 @@ from wbtools.literature.corpus import CorpusManager
 
 paper_id = "000050564"
 cm = CorpusManager()
-cm.load_from_wb_database(db_name="wb_dbname", db_user="wb_dbuser", db_passwd="wb_dbpasswd", db_host="wb_dbhost",
+cm.load_from_wb_database(db_name="wb_dbname", db_user="wb_dbuser", db_password="wb_dbpasswd", db_host="wb_dbhost",
                          paper_ids=[paper_id])
 sentences = cm.get_paper(paper_id).get_text_docs(split_sentences=True)
 ```
