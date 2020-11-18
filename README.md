@@ -13,7 +13,7 @@ database. The package also exposes text mining functions on papers' fulltext.
 ### Get sentences from a WormBase paper
 
 ```python
-from wbtools.literature import CorpusManager
+from wbtools.literature.corpus import CorpusManager
 
 paper_id = "000050564"
 cm = CorpusManager()
