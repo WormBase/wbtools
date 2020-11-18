@@ -5,10 +5,11 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="wbtools",
-    version="0.0.1",
+    version="1.0.0",
     author="Valerio Arnaboldi",
     author_email="valearna@caltech.edu",
-    description="Interface to WB curation data, including literature management and NLP functions",
+    description="Interface to WormBase (www.wormbase.org) curation data, including literature management and NLP "
+                "functions",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/WormBase/wbtools",
