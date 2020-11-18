@@ -2,6 +2,7 @@ import os
 import unittest
 import tempfile
 
+from wbtools.lib.nlp import PaperSections
 from wbtools.literature.corpus import CorpusManager
 from wbtools.literature.paper import WBPaper
 
@@ -44,6 +45,13 @@ class TestCorpusManager(unittest.TestCase):
         self.cm.load(tmp_file.name)
         self.assertGreater(self.cm.size(), 0)
         self.assertTrue(all([type(paper) == WBPaper for paper in self.cm.corpus.values()]))
+
+    def test_exclude_sections(self):
+        test_list, _ = self.cm.get_flat_corpus_list_and_idx_paperid_map(
+            split_sentences=False, remove_sections=[PaperSections.INTRODUCTION, PaperSections.REFERENCES],
+            must_be_present=[PaperSections.RESULTS], lowercase=False, tokenize=False, remove_stopwords=False,
+            remove_alpha=False)
+        pass
 
 
 if __name__ == '__main__':

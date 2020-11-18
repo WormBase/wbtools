@@ -52,7 +52,8 @@ class PaperSections(str, Enum):
     RESULTS = 4
     DISCUSSION = 5
     CONCLUSION = 6
-    REFERENCES = 7
+    ACKNOWLEDGEMENTS = 7
+    REFERENCES = 8
 
 
 PAPER_SECTIONS = {
@@ -62,6 +63,7 @@ PAPER_SECTIONS = {
     PaperSections.RESULTS: [["results"], ["section"], ["section"], 0.5],
     PaperSections.DISCUSSION: [["discussion", "discussions"], ["section"], ["section"], 0.7],
     PaperSections.CONCLUSION: [["conclusion", "conclusions"], ["the", "section"], ["section"], 0.8],
+    PaperSections.ACKNOWLEDGEMENTS: [["acknowledgements"], ["the", "section"], ["section"], 0.8],
     PaperSections.REFERENCES: [["references", "literature"], ["the"], [], 0.9]
 }
 
@@ -91,14 +93,14 @@ def remove_sections_from_text(text: str, sections_to_remove: List[PaperSections]
                     # take the index closest to the expected position, if it's les than 50% off the expected position
                     idx_sorted = sorted([(match_id, match_id / len(text) - expected_position) for match_id in
                                          matches_idx if match_id / len(text) - expected_position < 0.5],
-                                        key=lambda x: x[1])
+                                        key=lambda x: abs(x[1]))
                     if idx_sorted:
                         sections_idx[section] = idx_sorted[0][0]
                         if sections_idx[section] != -1:
                             break
         if not must_be_present or all([sections_idx[must_sec] != -1 for must_sec in must_be_present]):
-            sec_idx_arr = sorted([(section, idx) for section, idx in sections_idx.items() if idx > -1 and section in
-                                  sections_to_remove], key=lambda x: x[1])
+            sec_idx_arr = sorted([(section, idx) for section, idx in sections_idx.items() if idx > -1],
+                                 key=lambda x: x[1])
             # remove sections too close to each other (e.g., RESULTS AND DISCUSSION)
             sec_idx_arr = [s_i for i, s_i in enumerate(sec_idx_arr) if i == 0 or s_i[1] - sec_idx_arr[i - 1][1] > 20]
             # get first and last position of each section based on the next one
