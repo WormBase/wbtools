@@ -11,7 +11,7 @@ setuptools.setup(
     description="Interface to WB curation data, including literature management and NLP functions",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/valearna/wbtools",
+    url="https://github.com/WormBase/wbtools",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
