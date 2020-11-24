@@ -57,8 +57,8 @@ class CorpusManager(object):
 
     def load_from_wb_database(self, db_name: str, db_user: str, db_password: str, db_host: str,
                               tazendra_ssh_user: str = None, tazendra_ssh_passwd: str = None, paper_ids: list = None,
-                              from_date: str = None, load_pdf_files: bool = True, load_curation_info: bool = False,
-                              max_num_papers: int = None) -> None:
+                              from_date: str = None, load_pdf_files: bool = True, load_bib_info: bool = True,
+                              load_curation_info: bool = True, max_num_papers: int = None) -> None:
         """load papers from WormBase database
 
         Args:
@@ -71,7 +71,8 @@ class CorpusManager(object):
             paper_ids (list): optional list of paper ids to be fetched
             from_date (str): load papers added or modified from the specified date (only if paper_ids is not provided)
             load_pdf_files (bool): load pdf files using ssh credentials
-            load_curation_info (bool): load curation info for papers
+            load_bib_info (bool): load bibliographic info of the papers
+            load_curation_info (bool): load curation info of the papers
             max_num_papers (int): limit number of papers to be loaded
         """
         if not paper_ids:
@@ -84,7 +85,10 @@ class CorpusManager(object):
                 paper.load_text_from_pdf_files_in_db(db_name=db_name, db_user=db_user, db_password=db_password,
                                                      db_host=db_host)
             if load_curation_info:
-                paper.load_curation_info_from_db(db_name=db_name, db_user=db_user, db_password=db_password, db_host=db_host)
+                paper.load_curation_info_from_db(db_name=db_name, db_user=db_user, db_password=db_password,
+                                                 db_host=db_host)
+            if load_bib_info:
+                paper.load_bib_info_from_db(db_name=db_name, db_user=db_user, db_password=db_password, db_host=db_host)
             self.add_or_update_wb_paper(paper)
             if max_num_papers and self.size() >= max_num_papers:
                 break

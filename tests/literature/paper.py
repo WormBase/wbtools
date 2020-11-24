@@ -45,3 +45,14 @@ class TestWBPaper(unittest.TestCase):
                                          db_password=config["wb_database"]["db_password"],
                                          db_host=config["wb_database"]["db_host"])
         self.assertTrue(paper.svm_values["seqchange"] == 'high')
+
+    @unittest.skipIf(not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data",
+                                                     "local_config", "db.cfg")), "Test DB config file not present")
+    def test_load_bib_info_from_db(self):
+        config = TestWBDBManager.read_db_config()
+        paper = WBPaper()
+        paper.paper_id = "00004161"
+        paper.load_bib_info_from_db(db_name=config["wb_database"]["db_name"], db_user=config["wb_database"]["db_user"],
+                                    db_password=config["wb_database"]["db_password"],
+                                    db_host=config["wb_database"]["db_host"])
+        self.assertGreater(len(paper.authors), 0)

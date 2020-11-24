@@ -17,7 +17,7 @@ from fabric.connection import Connection
 from wbtools.db.paper import WBPaperDBManager
 from wbtools.lib.nlp import preprocess, get_documents_from_text, PaperSections
 from wbtools.lib.timeout import timeout
-
+from wbtools.literature.person import WBAuthor
 
 logger = logging.getLogger(__name__)
 
@@ -94,8 +94,14 @@ class WBPaper(object):
 
     def __init__(self, paper_id: str = '', main_text: str = '', ocr_text: str = '', temp_text: str = '',
                  aut_text: str = '', html_text: str = '', supplemental_docs: list = None, tazendra_ssh_user: str = '',
-                 tazendra_ssh_passwd: str = ''):
+                 tazendra_ssh_passwd: str = '', title: str = '', journal: str = '', pub_date: str = '',
+                 authors: List[WBAuthor] = None, abstract: str = ''):
         self.paper_id = paper_id
+        self.title = title
+        self.journal = journal
+        self.pub_date = pub_date
+        self.authors = authors
+        self.abstract = abstract
         self.main_text = main_text
         self.ocr_text = ocr_text
         self.temp_text = temp_text
@@ -105,6 +111,12 @@ class WBPaper(object):
         self.svm_values = defaultdict(str)
         self.paper_file_reader = PaperFileReader(tazendra_ssh_user=tazendra_ssh_user,
                                                  tazendra_ssh_passwd=tazendra_ssh_passwd)
+
+    def get_corresponding_author(self):
+        for author in self.authors:
+            if author.corresponding:
+                return author
+        return None
 
     def get_text_docs(self, include_supplemental: bool = True, remove_sections: List[PaperSections] = None,
                       must_be_present: List[PaperSections] = None, split_sentences: bool = False,
@@ -163,10 +175,10 @@ class WBPaper(object):
                 if not self.paper_id:
                     self.paper_id = wb_paperid
                 if all_supp or (author_year and ("_supp" in author_year or "_Supp" in author_year or "_Table" in
-                                                author_year or "_table" in author_year or "_mmc" in author_year or
-                                                "_Stable" in author_year or "_Movie" in author_year or "_movie" in
-                                                author_year or "supplementary" in author_year or "Supplementary" in
-                                                author_year or re.match(r'[_-][Ss][0-9]+', author_year))):
+                                                 author_year or "_table" in author_year or "_mmc" in author_year or
+                                                 "_Stable" in author_year or "_Movie" in author_year or "_movie" in
+                                                 author_year or "supplementary" in author_year or "Supplementary" in
+                                                 author_year or re.match(r'[_-][Ss][0-9]+', author_year))):
                     self.supplemental_docs.append(self.paper_file_reader.get_text_from_file(
                         dir_path, filename, remote_file, pdf))
                     return
@@ -216,6 +228,23 @@ class WBPaper(object):
         svm_values = wb_paper_db_manager.get_svm_values(paper_id=self.paper_id)
         for svm_type, svm_value in svm_values:
             self.svm_values[svm_type] = svm_value
+
+    def load_bib_info_from_db(self, db_name, db_user, db_password, db_host):
+        """load curation data from WormBase database
+
+        Args:
+            db_name (str): database name
+            db_user (str): database user
+            db_password (str): database password
+            db_host (str): database host
+        """
+        wb_paper_db_manager = WBPaperDBManager(db_name, db_user, db_password, db_host)
+        self.abstract = wb_paper_db_manager.get_paper_abstract(self.paper_id)
+        self.title = wb_paper_db_manager.get_paper_title(self.paper_id)
+        self.journal = wb_paper_db_manager.get_paper_journal(self.paper_id)
+        self.abstract = wb_paper_db_manager.get_paper_abstract(self.paper_id)
+        self.pub_date = wb_paper_db_manager.get_paper_pub_date(self.paper_id)
+        self.authors = wb_paper_db_manager.get_paper_authors(self.paper_id)
 
     def has_same_wbpaper_id_as_filename(self, filename):
         return self._get_matches_from_filename(filename)[0] == self.paper_id

@@ -1,39 +1,56 @@
-from typing import Union
+from typing import Union, List
 from psycopg2 import sql
 
 import psycopg2
 
 from wbtools.db.abstract_manager import AbstractWBDBManager
+from wbtools.db.person import WBPersonDBManager
+from wbtools.literature.person import WBAuthor
 
 
 class WBPaperDBManager(AbstractWBDBManager):
 
     def __init__(self, dbname, user, password, host):
         super().__init__(dbname, user, password, host)
-
-    def _get_single_field(self, paper_id: str, field_name: str) -> Union[str, None]:
-        """
-        get a specific field for a paper from a single field table
-
-        Args:
-            paper_id (str): 8 digit numeric id that specifies the paper
-            field_name (str): the field to retrieve from the related pap_<field_name> table
-        Returns:
-            str: the value of the specified field for the paper
-        """
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
-            curs.execute("SELECT * FROM pap_{} WHERE joinkey = %s".format(sql.Identifier(field_name)), (paper_id, ))
-            res = curs.fetchone()
-            return res[1] if res else None
+        self.person_db_manager = WBPersonDBManager(dbname, user, password, host)
 
     def get_paper_abstract(self, paper_id):
-        return self._get_single_field(paper_id=paper_id, field_name="abstract")
+        return self._get_single_field(join_key=paper_id, field_name="pap_abstract")
 
     def get_paper_title(self, paper_id):
-        return self._get_single_field(paper_id=paper_id, field_name="title")
+        return self._get_single_field(join_key=paper_id, field_name="pap_title")
 
     def get_paper_journal(self, paper_id):
-        return self._get_single_field(paper_id=paper_id, field_name="journal")
+        return self._get_single_field(join_key=paper_id, field_name="pap_journal")
+
+    def get_paper_pub_date(self, paper_id):
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            curs.execute(
+                "SELECT pap_year, pap_month, pap_day FROM pap_year JOIN pap_month ON "
+                "pap_year.joinkey = pap_month.joinkey JOIN pap_day ON pap_year.joinkey = pap_day.joinkey "
+                "WHERE pap_year.joinkey = %s", (paper_id,))
+            res = curs.fetchone()
+            return res[0] + '-' + res[1] + '-' + res[2] if res else None
+
+    def get_paper_authors(self, paper_id) -> List[WBAuthor]:
+        authors = []
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            curs.execute(
+                "SELECT pap_author FROM pap_author "
+                "WHERE joinkey = %s", (paper_id,))
+            res = curs.fetchall()
+            authors_ids = [row[0] for row in res]
+            for author_id in authors_ids:
+                curs.execute("SELECT pap_author_possible FROM pap_author_possible JOIN pap_author_verified ON "
+                             "pap_author_possible.author_id = pap_author_verified.author_id and "
+                             "pap_author_possible.pap_join = pap_author_verified.pap_join "
+                             "WHERE pap_author_verified LIKE 'YES%%' AND pap_author_possible.author_id = %s",
+                             (author_id,))
+                res = curs.fetchone()
+                person = self.person_db_manager.get_person(person_id=res[0])
+                author = WBAuthor.from_person(person)
+                authors.append(author)
+        return authors
 
     def get_pmid(self, paper_id):
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
@@ -44,6 +61,18 @@ class WBPaperDBManager(AbstractWBDBManager):
                 return res[1].replace("pmid", "")
             else:
                 return None
+
+    def get_corresponding_emails(self, paper_id):
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            curs.execute("SELECT two_email.two_email "
+                         "FROM pap_author_corresponding "
+                         "JOIN pap_author_possible "
+                         "ON pap_author_corresponding.author_id = pap_author_possible.author_id "
+                         "JOIN pap_author on pap_author.pap_author = pap_author_corresponding.author_id "
+                         "JOIN two_email ON two_email.joinkey = pap_author_possible.pap_author_possible "
+                         "WHERE pap_author.joinkey = %s", (paper_id,))
+            res = curs.fetchone()
+            return [res[0]] if res else []
 
     def get_svm_values(self, paper_id: str):
         """
