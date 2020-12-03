@@ -41,15 +41,18 @@ class WBPaperDBManager(AbstractWBDBManager):
             res = curs.fetchall()
             authors_ids = [row[0] for row in res]
             for author_id in authors_ids:
-                curs.execute("SELECT pap_author_possible FROM pap_author_possible JOIN pap_author_verified ON "
+                curs.execute("SELECT pap_author_possible, pap_author_verified LIKE 'YES%%' "
+                             "FROM pap_author_possible LEFT OUTER JOIN pap_author_verified ON "
                              "pap_author_possible.author_id = pap_author_verified.author_id and "
                              "pap_author_possible.pap_join = pap_author_verified.pap_join "
-                             "WHERE pap_author_verified LIKE 'YES%%' AND pap_author_possible.author_id = %s",
+                             "WHERE pap_author_possible.author_id = %s",
                              (author_id,))
                 res = curs.fetchone()
-                person = self.person_db_manager.get_person(person_id=res[0])
-                author = WBAuthor.from_person(person)
-                authors.append(author)
+                if res:
+                    person = self.person_db_manager.get_person(person_id=res[0])
+                    author = WBAuthor.from_person(person)
+                    author.verified = res[1]
+                    authors.append(author)
         return authors
 
     def get_pmid(self, paper_id):

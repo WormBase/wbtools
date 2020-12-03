@@ -38,9 +38,10 @@ class WBPerson(object):
 
 class WBAuthor(WBPerson):
 
-    def __init__(self, *args, corresponding: bool = False, **kwargs):
+    def __init__(self, *args, corresponding: bool = False, verified: bool = False, **kwargs):
         super().__init__(*args, **kwargs)
         self.corresponding = corresponding
+        self.verified = verified
 
     @classmethod
     def from_person(cls, person):
