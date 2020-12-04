@@ -58,7 +58,8 @@ class CorpusManager(object):
     def load_from_wb_database(self, db_name: str, db_user: str, db_password: str, db_host: str,
                               tazendra_ssh_user: str = None, tazendra_ssh_passwd: str = None, paper_ids: list = None,
                               from_date: str = None, load_pdf_files: bool = True, load_bib_info: bool = True,
-                              load_curation_info: bool = True, max_num_papers: int = None) -> None:
+                              load_curation_info: bool = True, max_num_papers: int = None,
+                              must_have_svm: bool = False) -> None:
         """load papers from WormBase database
 
         Args:
@@ -74,6 +75,7 @@ class CorpusManager(object):
             load_bib_info (bool): load bibliographic info of the papers
             load_curation_info (bool): load curation info of the papers
             max_num_papers (int): limit number of papers to be loaded
+            must_have_svm (bool): whether to load only papers that have been flagged by WB SVMs
         """
         if not paper_ids:
             db_manager = WBDBManager(db_name, db_user, db_password, db_host)
@@ -81,12 +83,14 @@ class CorpusManager(object):
         for paper_id in paper_ids:
             paper = WBPaper(paper_id=paper_id, tazendra_ssh_user=tazendra_ssh_user,
                             tazendra_ssh_passwd=tazendra_ssh_passwd)
-            if load_pdf_files:
-                paper.load_text_from_pdf_files_in_db(db_name=db_name, db_user=db_user, db_password=db_password,
-                                                     db_host=db_host)
             if load_curation_info:
                 paper.load_curation_info_from_db(db_name=db_name, db_user=db_user, db_password=db_password,
                                                  db_host=db_host)
+                if must_have_svm and not paper.svm_values:
+                    continue
+            if load_pdf_files:
+                paper.load_text_from_pdf_files_in_db(db_name=db_name, db_user=db_user, db_password=db_password,
+                                                     db_host=db_host)
             if load_bib_info:
                 paper.load_bib_info_from_db(db_name=db_name, db_user=db_user, db_password=db_password, db_host=db_host)
             self.add_or_update_wb_paper(paper)
