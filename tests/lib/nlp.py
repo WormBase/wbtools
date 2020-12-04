@@ -38,8 +38,8 @@ class TestNLP(unittest.TestCase):
         self.assertTrue(idx_paperid_map[1] in [sim_doc.paper_id for sim_doc in sim_docs[0:2]])
 
     def test_get_entities_from_text(self):
-        text = " ".join(list(self.cm.corpus.values())[0].get_text_docs())
-        variations = get_entities_from_text(text, r"[ \(]" + NEW_VAR_REGEX + r"[ \)]")
+        text = "  g2 is a new variant"
+        variations = get_entities_from_text(text, NEW_VAR_REGEX)
         self.assertTrue(variations)
 
     def test_sectioning(self):

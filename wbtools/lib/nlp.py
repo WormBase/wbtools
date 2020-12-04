@@ -22,8 +22,8 @@ stop_words = set(stopwords.words('english'))
 ALL_VAR_REGEX = r'(' + '|'.join(get_cgc_allele_designations()) + '|m|p|It)(_)?([A-z]+)?([0-9]+)([a-zA-Z]{1,4}[0-9]*)?' \
                                                                  '(\[[0-9]+\])?([a-zA-Z]{1,4}[0-9]*)?(\[.+\])?'
 
-NEW_VAR_REGEX = r'[\( ](' + '|'.join(get_cgc_allele_designations()) + r'|m|p)([0-9]+)((' + \
-                '|'.join(get_cgc_allele_designations()) + r'|m|p|ts|gf|lf|d|sd|am|cs)[0-9]+)?[\) \[]'
+NEW_VAR_REGEX = r'[\(\s](' + '|'.join(get_cgc_allele_designations()) + r'|m|p)([0-9]+)((' + \
+                '|'.join(get_cgc_allele_designations()) + r'|m|p|ts|gf|lf|d|sd|am|cs)[0-9]+)?[\)\s\[]'
 
 
 VAR_EXCLUSION_LIST = ["p53", "p35", "p21", "p38", "p68", "p120", "p130", "p107", "uv1", "w1", "u1"]
@@ -150,7 +150,7 @@ def get_similar_documents(similarity_index, dictionary, query_documents, idx_fil
 
 
 def get_entities_from_text(text, regex):
-    res = re.findall(regex, text)
+    res = re.findall(regex, " " + text + " ")
     return ["".join(entity_arr) for entity_arr in res]
 
 
