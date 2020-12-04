@@ -61,8 +61,11 @@ class PaperFileReader(object):
         else:
             with open(os.path.join(dir_path, filename), 'r') as file:
                 text = file.read()
-        if np.average([len(w) for w in preprocess(text)]) < 1.001:
+        if np.average([len(w) for w in preprocess(text).split("\n")]) < 1.001:
+            text = text.replace("\n\n", " ")
             text = text.replace("\n", "")
+        else:
+            text = text.replace("\n", " ")
         return text
 
 
