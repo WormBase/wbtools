@@ -7,11 +7,7 @@ from typing import List
 import numpy as np
 
 from collections import defaultdict
-from io import StringIO
-from pdfminer.converter import TextConverter
-from pdfminer.layout import LAParams
-from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
-from pdfminer.pdfpage import PDFPage
+import fitz
 from fabric.connection import Connection
 
 from wbtools.db.paper import WBPaperDBManager
@@ -33,30 +29,11 @@ class PaperFileReader(object):
 
     @staticmethod
     @timeout(3600)
-    def convert_pdf_to_txt(file_stream):
+    def convert_pdf_to_txt(file_path):
         logger.info("Started pdf to text conversion")
-        text = ""
-        try:
-            rsrcmgr = PDFResourceManager()
-            retstr = StringIO()
-            laparams = LAParams()
-            device = TextConverter(rsrcmgr, retstr, laparams=laparams)
-            fp = file_stream
-            interpreter = PDFPageInterpreter(rsrcmgr, device)
-            password = ""
-            maxpages = 0
-            caching = True
-            pagenos = set()
-            for page in PDFPage.get_pages(fp, pagenos, maxpages=maxpages, password=password, caching=caching,
-                                          check_extractable=True):
-                interpreter.process_page(page)
-            text = retstr.getvalue()
-            fp.close()
-            device.close()
-            retstr.close()
-        except:
-            logger.error("Cannot convert pdf file")
-        return text
+        doc = fitz.Document(file_path)
+        text = " ".join([doc.loadPage(page_num).getText("text") for page_num in range(doc.pageCount)])
+        return text if text is not None else ""
 
     def get_supplemental_file_names(self, supp_dir_path):
         with Connection(TAZENDRA_SSH_HOST, self.tazendra_ssh_user,
@@ -74,9 +51,9 @@ class PaperFileReader(object):
             with open(tmp_file.name, 'wb') as tmp_file_stream:
                 tmp_file_stream.write(file_stream.read())
         if pdf:
-            return self.convert_pdf_to_txt(open(tmp_file.name, 'rb'))
+            return self.convert_pdf_to_txt(tmp_file.name)
         else:
-            return open(tmp_file).read()
+            return open(tmp_file.name).read()
 
     def get_text_from_file(self, dir_path, filename, remote_file: bool = False, pdf: bool = False):
         if remote_file:

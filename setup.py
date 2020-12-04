@@ -23,10 +23,10 @@ setuptools.setup(
     install_requires=[
         'psycopg2-binary',
         'numpy~=1.19.2',
-        'pdfminer',
         'fabric~=2.5.0',
         'gensim~=3.8.3',
         'nltk~=3.5',
-        'setuptools~=50.3.2'
+        'setuptools~=50.3.2',
+        'PyMuPDF~=1.18.4'
     ]
 )
