@@ -66,6 +66,8 @@ class PaperFileReader(object):
             text = text.replace("\n", "")
         else:
             text = text.replace("\n", " ")
+        text = text.replace("Fig.", "Fig")
+        text = text.replace("et al.", "et al")
         return text
 
 
