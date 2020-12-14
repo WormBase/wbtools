@@ -59,7 +59,8 @@ class CorpusManager(object):
                               tazendra_ssh_user: str = None, tazendra_ssh_passwd: str = None, paper_ids: list = None,
                               from_date: str = None, load_pdf_files: bool = True, load_bib_info: bool = True,
                               load_curation_info: bool = True, max_num_papers: int = None,
-                              must_have_svm: bool = False) -> None:
+                              exclude_ids: List[str] = None, must_have_svm: bool = False,
+                              exclude_pap_types: List[str] = None) -> None:
         """load papers from WormBase database
 
         Args:
@@ -75,11 +76,16 @@ class CorpusManager(object):
             load_bib_info (bool): load bibliographic info of the papers
             load_curation_info (bool): load curation info of the papers
             max_num_papers (int): limit number of papers to be loaded
+            exclude_ids (List[str]): list of paper ids to exclude
             must_have_svm (bool): whether to load only papers that have been flagged by WB SVMs
+            exclude_pap_types (List[str]): list of pap_types (string value, not numeric) to exclude
         """
+        db_manager = WBDBManager(db_name, db_user, db_password, db_host)
         if not paper_ids:
-            db_manager = WBDBManager(db_name, db_user, db_password, db_host)
-            paper_ids = db_manager.generic.get_all_paper_ids(added_or_modified_after=from_date)
+            paper_ids = db_manager.generic.get_all_paper_ids(added_or_modified_after=from_date, exclude_ids=exclude_ids)
+        if exclude_pap_types:
+            ids_to_exclude = db_manager.generic.get_paper_ids_with_pap_types(exclude_pap_types)
+            paper_ids = list(set(paper_ids) - set(ids_to_exclude))
         for paper_id in paper_ids:
             paper = WBPaper(paper_id=paper_id, tazendra_ssh_user=tazendra_ssh_user,
                             tazendra_ssh_passwd=tazendra_ssh_passwd)
