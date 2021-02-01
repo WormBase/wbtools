@@ -1,8 +1,8 @@
 import os
 import unittest
 
-from tests.db.generic import TestWBDBManager
-from wbtools.lib.nlp import PaperSections
+from tests.db.test_generic import TestWBDBManager
+from wbtools.lib.nlp.common import PaperSections
 from wbtools.literature.paper import WBPaper
 
 TESTDATA_DIR = os.path.join(os.path.dirname(__file__), '../data', 'text_files')

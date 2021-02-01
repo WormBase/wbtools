@@ -2,7 +2,7 @@ import logging
 import os
 import re
 import tempfile
-from typing import List
+from typing import List, Tuple
 
 import numpy as np
 
@@ -11,7 +11,8 @@ import fitz
 from fabric.connection import Connection
 
 from wbtools.db.paper import WBPaperDBManager
-from wbtools.lib.nlp import preprocess, get_documents_from_text, PaperSections
+from wbtools.lib.nlp.common import EntityType, EntityExtractionType, ExtractedEntity
+from wbtools.lib.nlp.text_preprocessing import preprocess, get_documents_from_text, PaperSections
 from wbtools.lib.timeout import timeout
 from wbtools.literature.person import WBAuthor
 
@@ -254,3 +255,25 @@ class WBPaper(object):
             bool: whether the paper has supplemental material
         """
         return self.supplemental_docs
+
+    def extract_entities(self, type_method: List[Tuple[EntityType, EntityExtractionType]],
+                         include_supplemental: bool = True, remove_sections: List[PaperSections] = None,
+                         must_be_present: List[PaperSections] = None) -> List[ExtractedEntity]:
+        """extract biological entities from the full text
+
+        Args:
+            type_method (List[Tuple[EntityType, EntityExtractionType]]): list containing entity type and extraction type
+                                                                         for each of the entity types to be extracted
+            include_supplemental (bool): whether to extract entities from the supplemental material
+            remove_sections (List[PaperSections]): list of sections to remove
+            must_be_present (List[PaperSections]): list of sections that must be present
+        Returns:
+            List[ExtractedEntity]: the list of extracted entites
+        """
+        full_text = self.get_text_docs(
+            include_supplemental=include_supplemental, remove_sections=remove_sections, must_be_present=must_be_present,
+            split_sentences=False, lowercase=False, tokenize=False, remove_stopwords=False, remove_alpha=False)
+        for entity_type, extraction_method in type_method:
+            pass
+        return
+

@@ -7,7 +7,9 @@ from gensim.models import Word2Vec
 from gensim.test.utils import common_texts
 
 from wbtools.db.dbmanager import WBDBManager
-from wbtools.lib.nlp import PaperSections, get_softcosine_index, preprocess, get_similar_documents, SimilarityResult
+from wbtools.lib.nlp.common import PaperSections
+from wbtools.lib.nlp.text_preprocessing import preprocess
+from wbtools.lib.nlp.text_similarity import get_softcosine_index, get_similar_documents, SimilarityResult
 from wbtools.literature.paper import WBPaper
 
 

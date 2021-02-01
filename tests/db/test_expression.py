@@ -1,7 +1,7 @@
 import unittest
 import os
 
-from tests.db.generic import TestWBDBManager
+from tests.db.test_generic import TestWBDBManager
 from wbtools.db.expression import WBExpressionDBManager
 
 
@@ -19,3 +19,7 @@ class TestWBExpressionDBManager(unittest.TestCase):
     def test_get_all_expression_sentences(self):
         sentences = self.db_manager.get_all_expression_sentences()
         self.assertTrue(sentences)
+
+
+if __name__ == '__main__':
+    unittest.main()

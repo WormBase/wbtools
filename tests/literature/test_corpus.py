@@ -2,7 +2,7 @@ import os
 import unittest
 import tempfile
 
-from wbtools.lib.nlp import PaperSections
+from wbtools.lib.nlp.common import PaperSections
 from wbtools.literature.corpus import CorpusManager
 from wbtools.literature.paper import WBPaper
 
