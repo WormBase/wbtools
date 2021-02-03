@@ -260,6 +260,9 @@ class WBPaper(object):
     def extract_all_email_addresses(self):
         return get_email_addresses_from_text(self.get_text_docs())
 
+    def get_aut_class_value_for_datatype(self, datatype: str):
+        return self.aut_class_values[datatype] if self.aut_class_values[datatype] else None
+
     def extract_entities(self, type_method: List[Tuple[EntityType, EntityExtractionType]],
                          include_supplemental: bool = True, remove_sections: List[PaperSections] = None,
                          must_be_present: List[PaperSections] = None) -> List[ExtractedEntity]:
