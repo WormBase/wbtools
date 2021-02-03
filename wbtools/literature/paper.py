@@ -12,6 +12,7 @@ from fabric.connection import Connection
 
 from wbtools.db.paper import WBPaperDBManager
 from wbtools.lib.nlp.common import EntityType, EntityExtractionType, ExtractedEntity
+from wbtools.lib.nlp.entity_extraction.email_addresses import get_email_addresses_from_text
 from wbtools.lib.nlp.text_preprocessing import preprocess, get_documents_from_text, PaperSections
 from wbtools.lib.timeout import timeout
 from wbtools.literature.person import WBAuthor
@@ -91,7 +92,7 @@ class WBPaper(object):
         self.aut_text = aut_text
         self.html_text = html_text
         self.supplemental_docs = supplemental_docs if supplemental_docs else []
-        self.svm_values = defaultdict(str)
+        self.aut_class_values = defaultdict(str)
         self.paper_file_reader = PaperFileReader(tazendra_ssh_user=tazendra_ssh_user,
                                                  tazendra_ssh_passwd=tazendra_ssh_passwd)
 
@@ -208,9 +209,9 @@ class WBPaper(object):
             db_host (str): database host
         """
         wb_paper_db_manager = WBPaperDBManager(db_name, db_user, db_password, db_host)
-        svm_values = wb_paper_db_manager.get_svm_values(paper_id=self.paper_id)
-        for svm_type, svm_value in svm_values:
-            self.svm_values[svm_type] = svm_value
+        aut_class_values = wb_paper_db_manager.get_automated_classification_values(paper_id=self.paper_id)
+        for class_type, class_value in aut_class_values:
+            self.aut_class_values[class_type] = class_value
 
     def load_bib_info_from_db(self, db_name, db_user, db_password, db_host):
         """load curation data from WormBase database
@@ -255,6 +256,9 @@ class WBPaper(object):
             bool: whether the paper has supplemental material
         """
         return self.supplemental_docs
+
+    def extract_all_email_addresses(self):
+        return get_email_addresses_from_text(self.get_text_docs())
 
     def extract_entities(self, type_method: List[Tuple[EntityType, EntityExtractionType]],
                          include_supplemental: bool = True, remove_sections: List[PaperSections] = None,

@@ -80,18 +80,18 @@ class WBPaperDBManager(AbstractWBDBManager):
             res = curs.fetchone()
             return [res[0]] if res else []
 
-    def get_svm_values(self, paper_id: str):
+    def get_automated_classification_values(self, paper_id: str):
         """
-        get all the SVM (Support Vector Machine) classifier values for the paper
+        get all the automated classification values for the paper
 
         Args:
             paper_id (str): 8 digit numeric id that identifies the paper
         Returns:
-            Union[str, None]: the value associated to the svm ('low', 'medium', or 'high') or None if the paper has not
-                              been classified by SVMs yet
+            Union[str, None]: the value associated to the classification ('low', 'medium', or 'high') or None if the
+                              paper has not been classified yet
         """
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
-            curs.execute("SELECT cur_datatype, cur_svmdata from cur_svmdata WHERE cur_paper = %s", (paper_id,))
+            curs.execute("SELECT cur_datatype, cur_blackbox from cur_blackbox WHERE cur_paper = %s", (paper_id,))
             res = curs.fetchall()
             return [(row[0], row[1]) for row in res]
 

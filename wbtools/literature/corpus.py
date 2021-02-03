@@ -61,7 +61,7 @@ class CorpusManager(object):
                               tazendra_ssh_user: str = None, tazendra_ssh_passwd: str = None, paper_ids: list = None,
                               from_date: str = None, load_pdf_files: bool = True, load_bib_info: bool = True,
                               load_curation_info: bool = True, max_num_papers: int = None,
-                              exclude_ids: List[str] = None, must_have_svm: bool = False,
+                              exclude_ids: List[str] = None, must_have_automated_classification: bool = False,
                               exclude_pap_types: List[str] = None) -> None:
         """load papers from WormBase database
 
@@ -79,7 +79,8 @@ class CorpusManager(object):
             load_curation_info (bool): load curation info of the papers
             max_num_papers (int): limit number of papers to be loaded
             exclude_ids (List[str]): list of paper ids to exclude
-            must_have_svm (bool): whether to load only papers that have been flagged by WB SVMs
+            must_have_automated_classification (bool): whether to load only papers that have been flagged by WB
+                                                       classifiers
             exclude_pap_types (List[str]): list of pap_types (string value, not numeric) to exclude
         """
         db_manager = WBDBManager(db_name, db_user, db_password, db_host)
@@ -94,7 +95,7 @@ class CorpusManager(object):
             if load_curation_info:
                 paper.load_curation_info_from_db(db_name=db_name, db_user=db_user, db_password=db_password,
                                                  db_host=db_host)
-                if must_have_svm and not paper.svm_values:
+                if must_have_automated_classification and not paper.aut_class_values:
                     continue
             if load_pdf_files:
                 paper.load_text_from_pdf_files_in_db(db_name=db_name, db_user=db_user, db_password=db_password,
