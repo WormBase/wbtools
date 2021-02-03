@@ -49,3 +49,9 @@ class WBGenericDBManager(AbstractWBDBManager):
                 else:
                     logger.warning(f"Possible bogus variation entry in DB: {row[0]}")
             return variations
+
+    def get_paper_ids_with_email_addresses_extracted(self):
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            curs.execute("SELECT DISTINCT joinkey from pdf_email")
+            res = curs.fetchall()
+            return [row[0] for row in res] if res else []
