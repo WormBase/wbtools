@@ -49,7 +49,7 @@ class WBPaperDBManager(AbstractWBDBManager):
                              (author_id,))
                 res = curs.fetchone()
                 if res:
-                    curs.execute("SELECT count(*) from pap_author_corresponding WHERE pap_author = %s", (author_id,))
+                    curs.execute("SELECT count(*) from pap_author_corresponding WHERE author_id = %s", (author_id,))
                     is_corresponding = curs.fetchone()[0] == 1
                     person = self.person_db_manager.get_person(person_id=res[0])
                     author = WBAuthor.from_person(person)
