@@ -109,3 +109,8 @@ class WBPaperDBManager(AbstractWBDBManager):
                          (paper_id, ))
             rows = curs.fetchall()
             return [row[0] for row in rows] if rows else []
+
+    def write_email_addresses_extracted_from_paper(self, paper_id: str, email_addresses: List[str]):
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            curs.execute("INSERT INTO pdf_email (joinkey, pdf_email) VALUES (%s, %s)", (paper_id,
+                                                                                        ",".join(email_addresses)))
