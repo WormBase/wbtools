@@ -83,25 +83,24 @@ class CorpusManager(object):
                                                        classifiers
             exclude_pap_types (List[str]): list of pap_types (string value, not numeric) to exclude
         """
-        db_manager = WBDBManager(db_name, db_user, db_password, db_host)
+        main_db_manager = WBDBManager(db_name, db_user, db_password, db_host)
         if not paper_ids:
-            paper_ids = db_manager.generic.get_all_paper_ids(added_or_modified_after=from_date, exclude_ids=exclude_ids)
+            paper_ids = main_db_manager.generic.get_all_paper_ids(added_or_modified_after=from_date,
+                                                                  exclude_ids=exclude_ids)
         if exclude_pap_types:
-            ids_to_exclude = db_manager.generic.get_paper_ids_with_pap_types(exclude_pap_types)
+            ids_to_exclude = main_db_manager.generic.get_paper_ids_with_pap_types(exclude_pap_types)
             paper_ids = list(set(paper_ids) - set(ids_to_exclude))
         for paper_id in paper_ids:
             paper = WBPaper(paper_id=paper_id, tazendra_ssh_user=tazendra_ssh_user,
-                            tazendra_ssh_passwd=tazendra_ssh_passwd)
+                            tazendra_ssh_passwd=tazendra_ssh_passwd, db_manager=main_db_manager.paper)
             if load_curation_info:
-                paper.load_curation_info_from_db(db_name=db_name, db_user=db_user, db_password=db_password,
-                                                 db_host=db_host)
+                paper.load_curation_info_from_db()
                 if must_have_automated_classification and not paper.aut_class_values:
                     continue
             if load_pdf_files:
-                paper.load_text_from_pdf_files_in_db(db_name=db_name, db_user=db_user, db_password=db_password,
-                                                     db_host=db_host)
+                paper.load_text_from_pdf_files_in_db()
             if load_bib_info:
-                paper.load_bib_info_from_db(db_name=db_name, db_user=db_user, db_password=db_password, db_host=db_host)
+                paper.load_bib_info_from_db()
             self.add_or_update_wb_paper(paper)
             if max_num_papers and self.size() >= max_num_papers:
                 break

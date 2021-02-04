@@ -2,7 +2,7 @@ import logging
 import os
 import re
 import tempfile
-from typing import List, Tuple
+from typing import List, Tuple, Union
 
 import numpy as np
 
@@ -79,7 +79,7 @@ class WBPaper(object):
     def __init__(self, paper_id: str = '', main_text: str = '', ocr_text: str = '', temp_text: str = '',
                  aut_text: str = '', html_text: str = '', supplemental_docs: list = None, tazendra_ssh_user: str = '',
                  tazendra_ssh_passwd: str = '', title: str = '', journal: str = '', pub_date: str = '',
-                 authors: List[WBAuthor] = None, abstract: str = ''):
+                 authors: List[WBAuthor] = None, abstract: str = '', db_manager: WBPaperDBManager = None):
         self.paper_id = paper_id
         self.title = title
         self.journal = journal
@@ -95,6 +95,7 @@ class WBPaper(object):
         self.aut_class_values = defaultdict(str)
         self.paper_file_reader = PaperFileReader(tazendra_ssh_user=tazendra_ssh_user,
                                                  tazendra_ssh_passwd=tazendra_ssh_passwd)
+        self.db_manager = db_manager
 
     def get_corresponding_author(self):
         for author in self.authors:
@@ -105,7 +106,7 @@ class WBPaper(object):
     def get_text_docs(self, include_supplemental: bool = True, remove_sections: List[PaperSections] = None,
                       must_be_present: List[PaperSections] = None, split_sentences: bool = False,
                       lowercase: bool = False, tokenize: bool = False, remove_stopwords: bool = False,
-                      remove_alpha: bool = False) -> list:
+                      remove_alpha: bool = False, return_concatenated: bool = False) -> Union[List[str], str]:
         """get text documents for the paper
 
         Args:
@@ -118,6 +119,8 @@ class WBPaper(object):
             tokenize (bool): tokenize text into words
             remove_stopwords (bool): remove common stopwords
             remove_alpha (bool): remove special characters and punctuation
+            return_concatenated (bool): whether to concatenate the text documents and return a single string containing
+                                        the full text
 
         Returns:
             list: a list of documents, which can be strings or lists of strings or list of lists of strings according to
@@ -130,8 +133,12 @@ class WBPaper(object):
         docs = [d for doc in docs for d in get_documents_from_text(
             text=doc, split_sentences=split_sentences, must_be_present=must_be_present,
             remove_sections=remove_sections)]
-        return [preprocess(doc, lower=lowercase, tokenize=tokenize, remove_stopwords=remove_stopwords,
+        docs = [preprocess(doc, lower=lowercase, tokenize=tokenize, remove_stopwords=remove_stopwords,
                            remove_alpha=remove_alpha) for doc in docs]
+        if return_concatenated:
+            return " ".join(docs)
+        else:
+            return docs
 
     def add_file(self, dir_path, filename, remote_file: bool = False, pdf: bool = False):
         """add one or more files to the paper. Information about the type of file is derived from file name. If the file
@@ -183,52 +190,37 @@ class WBPaper(object):
                 else:
                     logger.warning("No rule to read filename: " + filename)
 
-    def load_text_from_pdf_files_in_db(self, db_name, db_user, db_password, db_host):
-        """load text from pdf files in the WormBase database
+    def load_text_from_pdf_files_in_db(self):
+        """load text from pdf files in the WormBase database"""
+        if self.db_manager:
+            file_paths = self.db_manager.get_file_paths(self.paper_id)
+            for file_path in file_paths:
+                filename = file_path.split("/")[-1]
+                dir_path = file_path.rstrip(filename)
+                self.add_file(dir_path=dir_path, filename=filename, remote_file=True, pdf=True)
+        else:
+            raise Exception("PaperDBManager not set")
 
-        Args:
-            db_name (str): database name
-            db_user (str): database user
-            db_password (str): database password
-            db_host (str): database host
-        """
-        wb_paper_db_manager = WBPaperDBManager(db_name, db_user, db_password, db_host)
-        file_paths = wb_paper_db_manager.get_file_paths(self.paper_id)
-        for file_path in file_paths:
-            filename = file_path.split("/")[-1]
-            dir_path = file_path.rstrip(filename)
-            self.add_file(dir_path=dir_path, filename=filename, remote_file=True, pdf=True)
+    def load_curation_info_from_db(self):
+        """load curation data from WormBase database"""
+        if self.db_manager:
+            aut_class_values = self.db_manager.get_automated_classification_values(paper_id=self.paper_id)
+            for class_type, class_value in aut_class_values:
+                self.aut_class_values[class_type] = class_value
+        else:
+            raise Exception("PaperDBManager not set")
 
-    def load_curation_info_from_db(self, db_name, db_user, db_password, db_host):
-        """load curation data from WormBase database
-
-        Args:
-            db_name (str): database name
-            db_user (str): database user
-            db_password (str): database password
-            db_host (str): database host
-        """
-        wb_paper_db_manager = WBPaperDBManager(db_name, db_user, db_password, db_host)
-        aut_class_values = wb_paper_db_manager.get_automated_classification_values(paper_id=self.paper_id)
-        for class_type, class_value in aut_class_values:
-            self.aut_class_values[class_type] = class_value
-
-    def load_bib_info_from_db(self, db_name, db_user, db_password, db_host):
-        """load curation data from WormBase database
-
-        Args:
-            db_name (str): database name
-            db_user (str): database user
-            db_password (str): database password
-            db_host (str): database host
-        """
-        wb_paper_db_manager = WBPaperDBManager(db_name, db_user, db_password, db_host)
-        self.abstract = wb_paper_db_manager.get_paper_abstract(self.paper_id)
-        self.title = wb_paper_db_manager.get_paper_title(self.paper_id)
-        self.journal = wb_paper_db_manager.get_paper_journal(self.paper_id)
-        self.abstract = wb_paper_db_manager.get_paper_abstract(self.paper_id)
-        self.pub_date = wb_paper_db_manager.get_paper_pub_date(self.paper_id)
-        self.authors = wb_paper_db_manager.get_paper_authors(self.paper_id)
+    def load_bib_info_from_db(self):
+        """load curation data from WormBase database"""
+        if self.db_manager:
+            self.abstract = self.db_manager.get_paper_abstract(self.paper_id)
+            self.title = self.db_manager.get_paper_title(self.paper_id)
+            self.journal = self.db_manager.get_paper_journal(self.paper_id)
+            self.abstract = self.db_manager.get_paper_abstract(self.paper_id)
+            self.pub_date = self.db_manager.get_paper_pub_date(self.paper_id)
+            self.authors = self.db_manager.get_paper_authors(self.paper_id)
+        else:
+            raise Exception("PaperDBManager not set")
 
     def has_same_wbpaper_id_as_filename(self, filename):
         return self._get_matches_from_filename(filename)[0] == self.paper_id
@@ -257,8 +249,23 @@ class WBPaper(object):
         """
         return self.supplemental_docs
 
-    def extract_all_email_addresses(self):
-        return get_email_addresses_from_text(self.get_text_docs())
+    def extract_all_email_addresses_from_text(self):
+        """get all the email addresses mentioned in any of the documents associated with this paper"""
+        return get_email_addresses_from_text(self.get_text_docs(return_concatenated=True))
+
+    def write_email_addresses_to_db(self, email_addresses: List[str]):
+        """write a list of email addresses associated with the paper to DB
+
+        Args:
+            email_addresses (List[str]): list of email addresses to write
+        """
+        if self.db_manager:
+            self.db_manager.write_email_addresses_extracted_from_paper(self.paper_id, email_addresses)
+        else:
+            raise Exception("PaperDBManager not set")
+
+    def extract_all_email_addresses_from_text_and_write_to_db(self):
+        self.write_email_addresses_to_db(self.extract_all_email_addresses_from_text())
 
     def get_aut_class_value_for_datatype(self, datatype: str):
         return self.aut_class_values[datatype] if self.aut_class_values[datatype] else None
