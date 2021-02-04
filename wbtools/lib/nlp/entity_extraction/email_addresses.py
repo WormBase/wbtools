@@ -1,6 +1,6 @@
 import re
 
-EMAIL_ADDRESS_REGEX = r'[\(\[]?[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+[\)\]\.]?'
+EMAIL_ADDRESS_REGEX = r'[\(\[]?([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)[\)\]\.]?'
 
 
 def get_email_addresses_from_text(text):
