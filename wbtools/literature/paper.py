@@ -35,7 +35,7 @@ class PaperFileReader(object):
         try:
             logger.info("Started pdf to text conversion")
             doc = fitz.Document(file_path)
-            text = " ".join([doc.loadPage(page_num).getText("text") for page_num in range(doc.pageCount)])
+            text = b" ".join([doc.loadPage(page_num).getText().encode('utf8') for page_num in range(doc.pageCount)]).replace(b'\xef\xbf\xbd', b' ').decode('utf-8')
             return text if text is not None else ""
         except:
             return ""
