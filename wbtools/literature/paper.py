@@ -32,10 +32,14 @@ class PaperFileReader(object):
     @staticmethod
     @timeout(3600)
     def convert_pdf_to_txt(file_path):
-        logger.info("Started pdf to text conversion")
-        doc = fitz.Document(file_path)
-        text = " ".join([doc.loadPage(page_num).getText("text") for page_num in range(doc.pageCount)])
-        return text if text is not None else ""
+        try:
+            logger.info("Started pdf to text conversion")
+            doc = fitz.Document(file_path)
+            text = " ".join([doc.loadPage(page_num).getText("text") for page_num in range(doc.pageCount)])
+            return text if text is not None else ""
+        except:
+            return ""
+
 
     def get_supplemental_file_names(self, supp_dir_path):
         with Connection(TAZENDRA_SSH_HOST, self.tazendra_ssh_user,

@@ -91,6 +91,7 @@ class CorpusManager(object):
             ids_to_exclude = main_db_manager.generic.get_paper_ids_with_pap_types(exclude_pap_types)
             paper_ids = list(set(paper_ids) - set(ids_to_exclude))
         for paper_id in paper_ids:
+            logger.info("Loading paper " + paper_id)
             paper = WBPaper(paper_id=paper_id, tazendra_ssh_user=tazendra_ssh_user,
                             tazendra_ssh_passwd=tazendra_ssh_passwd, db_manager=main_db_manager.paper)
             if load_curation_info:
