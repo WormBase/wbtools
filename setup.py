@@ -27,6 +27,6 @@ setuptools.setup(
         'gensim~=3.8.3',
         'nltk~=3.5',
         'setuptools~=50.3.2',
-        'pdfminer.six~=20201018'
+        'pdfminer.six==20201018'
     ]
 )
