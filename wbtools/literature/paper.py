@@ -19,6 +19,8 @@ from wbtools.literature.person import WBAuthor
 
 logger = logging.getLogger(__name__)
 
+logging.getLogger("pdfminer").setLevel(logging.WARNING)
+
 
 TAZENDRA_SSH_HOST = "tazendra.caltech.edu"
 
@@ -50,15 +52,19 @@ class PaperFileReader(object):
                 return []
 
     def download_paper_and_extract_txt(self, file_url, pdf: bool = False):
-        with Connection(TAZENDRA_SSH_HOST, self.tazendra_ssh_user, connect_kwargs={"password": self.tazendra_ssh_passwd}) as \
-                c, c.sftp() as sftp, sftp.open(file_url) as file_stream:
-            tmp_file = tempfile.NamedTemporaryFile()
-            with open(tmp_file.name, 'wb') as tmp_file_stream:
-                tmp_file_stream.write(file_stream.read())
-        if pdf:
-            return self.convert_pdf_to_txt(tmp_file.name)
-        else:
-            return open(tmp_file.name).read()
+        try:
+            with Connection(TAZENDRA_SSH_HOST, self.tazendra_ssh_user, connect_kwargs={"password": self.tazendra_ssh_passwd}) as \
+                    c, c.sftp() as sftp, sftp.open(file_url) as file_stream:
+                tmp_file = tempfile.NamedTemporaryFile()
+                with open(tmp_file.name, 'wb') as tmp_file_stream:
+                    tmp_file_stream.write(file_stream.read())
+            if pdf:
+                return self.convert_pdf_to_txt(tmp_file.name)
+            else:
+                return open(tmp_file.name).read()
+        except FileNotFoundError:
+            logger.warning("File not found: " + file_url)
+            return ""
 
     def get_text_from_file(self, dir_path, filename, remote_file: bool = False, pdf: bool = False):
         if remote_file:
