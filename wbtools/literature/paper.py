@@ -7,7 +7,7 @@ from typing import List, Tuple, Union
 import numpy as np
 
 from collections import defaultdict
-import fitz
+from pdfminer.high_level import extract_text
 from fabric.connection import Connection
 
 from wbtools.db.paper import WBPaperDBManager
@@ -34,8 +34,7 @@ class PaperFileReader(object):
     def convert_pdf_to_txt(file_path):
         try:
             logger.info("Started pdf to text conversion")
-            doc = fitz.Document(file_path)
-            text = b" ".join([doc.loadPage(page_num).getText().encode('utf8') for page_num in range(doc.pageCount)]).replace(b'\xef\xbf\xbd', b' ').decode('utf-8')
+            text = extract_text(file_path)
             return text if text is not None else ""
         except:
             return ""
