@@ -89,7 +89,7 @@ class CorpusManager(object):
                                                                   exclude_ids=exclude_ids)
         if exclude_pap_types:
             ids_to_exclude = main_db_manager.generic.get_paper_ids_with_pap_types(exclude_pap_types)
-            paper_ids = list(set(paper_ids) - set(ids_to_exclude))
+            paper_ids = sorted(list(set(paper_ids) - set(ids_to_exclude)))
         for paper_id in paper_ids:
             paper = WBPaper(paper_id=paper_id, tazendra_ssh_user=tazendra_ssh_user,
                             tazendra_ssh_passwd=tazendra_ssh_passwd, db_manager=main_db_manager.paper)

@@ -41,7 +41,6 @@ class PaperFileReader(object):
         except:
             return ""
 
-
     def get_supplemental_file_names(self, supp_dir_path):
         with Connection(TAZENDRA_SSH_HOST, self.tazendra_ssh_user,
                         connect_kwargs={"password": self.tazendra_ssh_passwd}) as c, c.sftp() as sftp:
