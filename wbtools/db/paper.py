@@ -1,5 +1,4 @@
 from typing import Union, List
-from psycopg2 import sql
 
 import psycopg2
 
