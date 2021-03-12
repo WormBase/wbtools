@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="wbtools",
-    version="1.0.15",
+    version="1.0.17",
     author="Valerio Arnaboldi",
     author_email="valearna@caltech.edu",
     description="Interface to WormBase (www.wormbase.org) curation data, including literature management and NLP "
@@ -27,6 +27,7 @@ setuptools.setup(
         'gensim~=3.8.3',
         'nltk~=3.5',
         'setuptools~=50.3.2',
+        'regex~=2020.10.28',
         'pdfminer.six==20201018'
     ]
 )

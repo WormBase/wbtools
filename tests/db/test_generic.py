@@ -4,7 +4,7 @@ import configparser
 import os
 
 from wbtools.db.generic import WBGenericDBManager
-from wbtools.lib.nlp.entity_extraction.generic import ALL_VAR_REGEX
+from wbtools.lib.nlp.entity_extraction.ntt_extractor import ALL_VAR_REGEX
 
 
 @unittest.skipIf(not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data",
@@ -28,8 +28,9 @@ class TestWBDBManager(unittest.TestCase):
         curated_variations = self.db_manager.get_curated_variations()
         self.assertGreater(len(curated_variations), 0)
         curated_variations = self.db_manager.get_curated_variations(exclude_id_used_as_name=True)
+        allele_regex = ALL_VAR_REGEX.format(designations=self.db_manager.get_allele_designations())
         for variation in curated_variations:
-            self.assertTrue(re.match(ALL_VAR_REGEX, variation))
+            self.assertTrue(re.match(allele_regex, variation))
 
 
 if __name__ == '__main__':

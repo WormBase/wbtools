@@ -14,4 +14,12 @@ def get_cgc_allele_designations():
     res = urllib.request.urlopen('https://cgc.umn.edu/laboratories')
     html_content = res.read().decode('utf-8')
     results = re.findall(r'<td><a href="https://cgc\.umn\.edu/laboratory/[A-Z]{1,3}">[A-Z]{1,3}</a></td>\n[ ]*<td>([a-z]+)</td>', html_content)
-    return results
+    return sorted(list(set(results)))
+
+
+def get_cgc_lab_designations():
+    skip_ssl_validation()
+    res = urllib.request.urlopen('https://cgc.umn.edu/laboratories')
+    html_content = res.read().decode('utf-8')
+    results = re.findall(r'<td><a href="https://cgc\.umn\.edu/laboratory/([A-Z]{1,3})">[A-Z]{1,3}</a></td>\n[ ]*<td>[a-z]+</td>', html_content)
+    return sorted(list(set(results)))
