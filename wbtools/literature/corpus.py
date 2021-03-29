@@ -62,7 +62,7 @@ class CorpusManager(object):
                               from_date: str = None, load_pdf_files: bool = True, load_bib_info: bool = True,
                               load_curation_info: bool = True, max_num_papers: int = None,
                               exclude_ids: List[str] = None, must_have_automated_classification: bool = False,
-                              exclude_pap_types: List[str] = None) -> None:
+                              exclude_temp_pdf: bool = False, exclude_pap_types: List[str] = None) -> None:
         """load papers from WormBase database
 
         Args:
@@ -81,6 +81,7 @@ class CorpusManager(object):
             exclude_ids (List[str]): list of paper ids to exclude
             must_have_automated_classification (bool): whether to load only papers that have been flagged by WB
                                                        classifiers
+            exclude_temp_pdf (bool): whether to exclude papers with temp pdfs only
             exclude_pap_types (List[str]): list of pap_types (string value, not numeric) to exclude
         """
         main_db_manager = WBDBManager(db_name, db_user, db_password, db_host)
@@ -93,18 +94,19 @@ class CorpusManager(object):
         for paper_id in paper_ids:
             paper = WBPaper(paper_id=paper_id, tazendra_ssh_user=tazendra_ssh_user,
                             tazendra_ssh_passwd=tazendra_ssh_passwd, db_manager=main_db_manager.paper)
-            if load_curation_info:
-                paper.load_curation_info_from_db()
-                if must_have_automated_classification and not paper.aut_class_values:
-                    continue
-            if load_pdf_files:
-                paper.load_text_from_pdf_files_in_db()
-            if load_bib_info:
-                paper.load_bib_info_from_db()
-            logger.info("Loading paper " + paper_id)
-            self.add_or_update_wb_paper(paper)
-            if max_num_papers and self.size() >= max_num_papers:
-                break
+            if not exclude_temp_pdf or not paper.is_temp():
+                if load_curation_info:
+                    paper.load_curation_info_from_db()
+                    if must_have_automated_classification and not paper.aut_class_values:
+                        continue
+                if load_pdf_files:
+                    paper.load_text_from_pdf_files_in_db()
+                if load_bib_info:
+                    paper.load_bib_info_from_db()
+                logger.info("Loading paper " + paper_id)
+                self.add_or_update_wb_paper(paper)
+                if max_num_papers and self.size() >= max_num_papers:
+                    break
 
     def size(self) -> int:
         """number of papers in the corpus manager

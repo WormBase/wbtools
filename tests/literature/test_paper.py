@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from tests.db.test_generic import TestWBDBManager
+from tests.config_reader import read_db_config
 from wbtools.db.paper import WBPaperDBManager
 from wbtools.lib.nlp.common import PaperSections
 from wbtools.literature.paper import WBPaper
@@ -39,7 +39,7 @@ class TestWBPaper(unittest.TestCase):
     @unittest.skipIf(not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data",
                                                      "local_config", "db.cfg")), "Test DB config file not present")
     def test_load_curation_info_from_db(self):
-        config = TestWBDBManager.read_db_config()
+        config = read_db_config()
         paper = WBPaper(paper_id="00004161", db_manager=WBPaperDBManager(
             dbname=config["wb_database"]["db_name"], user=config["wb_database"]["db_user"],
             password=config["wb_database"]["db_password"], host=config["wb_database"]["db_host"]))
@@ -50,7 +50,7 @@ class TestWBPaper(unittest.TestCase):
     @unittest.skipIf(not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data",
                                                      "local_config", "db.cfg")), "Test DB config file not present")
     def test_load_bib_info_from_db(self):
-        config = TestWBDBManager.read_db_config()
+        config = read_db_config()
         paper = WBPaper(paper_id="00004161", db_manager=WBPaperDBManager(
             dbname=config["wb_database"]["db_name"], user=config["wb_database"]["db_user"],
             password=config["wb_database"]["db_password"], host=config["wb_database"]["db_host"]))

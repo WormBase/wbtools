@@ -1,7 +1,7 @@
 import unittest
 import os
 
-from tests.db.test_generic import TestWBDBManager
+from tests.config_reader import read_db_config
 from wbtools.db.expression import WBExpressionDBManager
 
 
@@ -10,7 +10,7 @@ from wbtools.db.expression import WBExpressionDBManager
 class TestWBExpressionDBManager(unittest.TestCase):
 
     def setUp(self) -> None:
-        config = TestWBDBManager.read_db_config()
+        config = read_db_config()
         self.db_manager = WBExpressionDBManager(dbname=config["wb_database"]["db_name"],
                                                 user=config["wb_database"]["db_user"],
                                                 password=config["wb_database"]["db_password"],

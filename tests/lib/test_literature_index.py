@@ -1,7 +1,7 @@
-import configparser
 import os
 import unittest
 
+from tests.config_reader import read_tpc_config
 from wbtools.lib.nlp.literature_index.textpresso import TextpressoLiteratureIndex
 
 
@@ -10,15 +10,8 @@ from wbtools.lib.nlp.literature_index.textpresso import TextpressoLiteratureInde
                  "Textpresso test config file not present")
 class TestTextpressoLiteratureIndex(unittest.TestCase):
 
-    @staticmethod
-    def read_tpc_config():
-        config = configparser.ConfigParser()
-        config.read(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "local_config",
-                                 "textpresso.cfg"))
-        return config
-
     def setUp(self) -> None:
-        config = self.read_tpc_config()
+        config = read_tpc_config()
         self.lit_index = TextpressoLiteratureIndex(api_url=config["tpc"]["api_base_url"],
                                                    api_token=config["tpc"]["api_token"], use_cache=True,
                                                    corpora=[config["tpc"]["corpora"]])

@@ -85,9 +85,10 @@ class WBPaper(object):
     """WormBase paper information"""
 
     def __init__(self, paper_id: str = '', main_text: str = '', ocr_text: str = '', temp_text: str = '',
-                 aut_text: str = '', html_text: str = '', supplemental_docs: list = None, tazendra_ssh_user: str = '',
-                 tazendra_ssh_passwd: str = '', title: str = '', journal: str = '', pub_date: str = '',
-                 authors: List[WBAuthor] = None, abstract: str = '', db_manager: WBPaperDBManager = None):
+                 aut_text: str = '', html_text: str = '', proof_text: str = '', supplemental_docs: list = None,
+                 tazendra_ssh_user: str = '', tazendra_ssh_passwd: str = '', title: str = '', journal: str = '',
+                 pub_date: str = '', authors: List[WBAuthor] = None, abstract: str = '',
+                 db_manager: WBPaperDBManager = None):
         self.paper_id = paper_id
         self.title = title
         self.journal = journal
@@ -99,6 +100,7 @@ class WBPaper(object):
         self.temp_text = temp_text
         self.aut_text = aut_text
         self.html_text = html_text
+        self.proof_text = proof_text
         self.supplemental_docs = supplemental_docs if supplemental_docs else []
         self.aut_class_values = defaultdict(str)
         self.paper_file_reader = PaperFileReader(tazendra_ssh_user=tazendra_ssh_user,
@@ -135,7 +137,8 @@ class WBPaper(object):
                   the combination of tokenization arguments passed
         """
         docs = [self.main_text if self.main_text else self.html_text if self.html_text else self.ocr_text if
-                self.ocr_text else self.aut_text if self.aut_text else self.temp_text]
+                self.ocr_text else self.aut_text if self.aut_text else self.temp_text if self.temp_text else
+                self.proof_text]
         if include_supplemental:
             docs.extend(self.supplemental_docs)
         docs = [d for doc in docs for d in get_documents_from_text(
@@ -189,6 +192,8 @@ class WBPaper(object):
                         dir_path, filename, remote_file, pdf))
                 elif "ocr" in additional_options:
                     self.ocr_text = self.paper_file_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
+                elif "temp_proof" in additional_options:
+                    self.proof_text = self.paper_file_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
                 elif "temp" in additional_options:
                     self.temp_text = self.paper_file_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
                 elif "aut" in additional_options:
@@ -247,7 +252,8 @@ class WBPaper(object):
         Returns:
             bool: whether the paper has a temporary pdf file
         """
-        return not self.main_text
+        return self.main_text is None and self.html_text is None and self.html_text is None and self.ocr_text is None \
+            and self.aut_text is None and self.temp_text is None
 
     def has_supplementary_material(self):
         """determine if the paper has supplemental material associated to it

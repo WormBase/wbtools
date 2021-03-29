@@ -2,6 +2,7 @@ import os
 import unittest
 import tempfile
 
+from tests.config_reader import read_db_config, read_tazendra_config
 from wbtools.lib.nlp.common import PaperSections
 from wbtools.literature.corpus import CorpusManager
 from wbtools.literature.paper import WBPaper
@@ -41,10 +42,10 @@ class TestCorpusManager(unittest.TestCase):
         self.cm.save(tmp_file.name)
         self.assertGreater(os.path.getsize(tmp_file.name), 0)
 
-        self.cm = CorpusManager()
-        self.cm.load(tmp_file.name)
-        self.assertGreater(self.cm.size(), 0)
-        self.assertTrue(all([type(paper) == WBPaper for paper in self.cm.corpus.values()]))
+        cm = CorpusManager()
+        cm.load(tmp_file.name)
+        self.assertGreater(cm.size(), 0)
+        self.assertTrue(all([type(paper) == WBPaper for paper in cm.corpus.values()]))
 
     def test_exclude_sections(self):
         test_list, _ = self.cm.get_flat_corpus_list_and_idx_paperid_map(
@@ -52,6 +53,27 @@ class TestCorpusManager(unittest.TestCase):
             must_be_present=[PaperSections.RESULTS], lowercase=False, tokenize=False, remove_stopwords=False,
             remove_alpha=False)
         pass
+
+    @unittest.skipIf(not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data",
+                                                     "local_config", "db.cfg")), "Test DB config file not present")
+    def test_load_from_wb_database(self):
+        db_config = read_db_config()
+        tazendra_config = read_tazendra_config()
+        cm = CorpusManager()
+        cm.load_from_wb_database(db_name=db_config["wb_database"]["db_name"], db_user=db_config["wb_database"]["db_user"],
+                                 db_password=db_config["wb_database"]["db_password"],
+                                 db_host=db_config["wb_database"]["db_host"],
+                                 tazendra_ssh_user=tazendra_config["ssh"]["ssh_user"],
+                                 tazendra_ssh_passwd=tazendra_config["ssh"]["ssh_password"], max_num_papers=2)
+        self.assertTrue(cm.size() == 2)
+        cm.load_from_wb_database(db_name=db_config["wb_database"]["db_name"],
+                                 db_user=db_config["wb_database"]["db_user"],
+                                 db_password=db_config["wb_database"]["db_password"],
+                                 db_host=db_config["wb_database"]["db_host"],
+                                 tazendra_ssh_user=tazendra_config["ssh"]["ssh_user"],
+                                 tazendra_ssh_passwd=tazendra_config["ssh"]["ssh_password"], max_num_papers=2,
+                                 exclude_temp_pdf=True)
+        self.assertFalse(any([paper.is_temp() for paper in cm.get_all_papers()]))
 
 
 if __name__ == '__main__':

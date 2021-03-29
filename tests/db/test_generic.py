@@ -1,8 +1,8 @@
 import re
 import unittest
-import configparser
 import os
 
+from tests.config_reader import read_db_config
 from wbtools.db.generic import WBGenericDBManager
 from wbtools.lib.nlp.entity_extraction.ntt_extractor import ALL_VAR_REGEX
 
@@ -11,14 +11,8 @@ from wbtools.lib.nlp.entity_extraction.ntt_extractor import ALL_VAR_REGEX
                                                  "local_config", "db.cfg")), "Test DB config file not present")
 class TestWBDBManager(unittest.TestCase):
 
-    @staticmethod
-    def read_db_config():
-        config = configparser.ConfigParser()
-        config.read(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "local_config", "db.cfg"))
-        return config
-
     def setUp(self) -> None:
-        config = self.read_db_config()
+        config = read_db_config()
         self.db_manager = WBGenericDBManager(dbname=config["wb_database"]["db_name"],
                                              user=config["wb_database"]["db_user"],
                                              password=config["wb_database"]["db_password"],
