@@ -1,5 +1,6 @@
 import logging
 
+from wbtools.db.afp import WBAFPDBManager
 from wbtools.db.expression import WBExpressionDBManager
 from wbtools.db.gene import WBGeneDBManager
 from wbtools.db.generic import WBGenericDBManager
@@ -17,3 +18,4 @@ class WBDBManager(object):
         self.paper = WBPaperDBManager(dbname, user, password, host)
         self.person = WBPersonDBManager(dbname, user, password, host)
         self.gene = WBGeneDBManager(dbname, user, password, host)
+        self.afp = WBAFPDBManager(dbname, user, password, host)

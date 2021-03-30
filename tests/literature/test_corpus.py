@@ -75,6 +75,22 @@ class TestCorpusManager(unittest.TestCase):
                                  exclude_temp_pdf=True)
         self.assertFalse(any([paper.is_temp() for paper in cm.get_all_papers()]))
 
+    @unittest.skipIf(not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data",
+                                                     "local_config", "db.cfg")), "Test DB config file not present")
+    def test_load_from_wb_database_afp(self):
+        db_config = read_db_config()
+        tazendra_config = read_tazendra_config()
+        cm = CorpusManager()
+        cm.load_from_wb_database(db_name=db_config["wb_database"]["db_name"],
+                                 db_user=db_config["wb_database"]["db_user"],
+                                 db_password=db_config["wb_database"]["db_password"],
+                                 db_host=db_config["wb_database"]["db_host"],
+                                 tazendra_ssh_user=tazendra_config["ssh"]["ssh_user"],
+                                 tazendra_ssh_passwd=tazendra_config["ssh"]["ssh_password"], max_num_papers=2,
+                                 load_curation_info=True, load_afp_info=True,
+                                 exclude_temp_pdf=True, exclude_afp_processed=True, must_be_autclass_flagged=True)
+        self.assertFalse(any([paper.afp_processed for paper in cm.get_all_papers()]))
+
 
 if __name__ == '__main__':
     unittest.main()

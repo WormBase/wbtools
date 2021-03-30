@@ -6,6 +6,7 @@ import psycopg2
 
 from wbtools.db.abstract_manager import AbstractWBDBManager
 from wbtools.lib.nlp.common import EntityType
+from wbtools.lib.scraping import get_curated_papers
 
 logger = logging.getLogger(__name__)
 
@@ -93,3 +94,47 @@ class WBGenericDBManager(AbstractWBDBManager):
             return self.get_strain_designations()
         elif entity_type == EntityType.VARIATION:
             return self.get_allele_designations()
+
+    def get_paper_ids(self, query, must_be_autclass_positive_data_types: List[str] = None,
+                      must_be_positive_manual_flag_data_types: List[str] = None,
+                      must_be_curation_negative_data_types: List[str] = None,
+                      combine_filters: str = 'OR', count: bool = False, limit: int = None, offset: int = None):
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            curs.execute(query)
+            res = curs.fetchall()
+            paper_ids = list(set([row[0] for row in res]))
+            if must_be_autclass_positive_data_types and must_be_autclass_positive_data_types[0]:
+                paper_ids = list(set(paper_ids) & set(self.get_paper_ids_flagged_positive_autclass(
+                    must_be_autclass_positive_data_types, combine_filters)))
+            if must_be_positive_manual_flag_data_types and must_be_positive_manual_flag_data_types[0]:
+                paper_ids = list(set(paper_ids) & set(self.get_paper_ids_flagged_positive_manual(
+                    must_be_positive_manual_flag_data_types, combine_filters)))
+            if must_be_curation_negative_data_types and must_be_curation_negative_data_types[0]:
+                paper_ids = list(set(paper_ids) - set([pap_id for datatype in must_be_curation_negative_data_types for
+                                                       pap_id in get_curated_papers(datatype)]))
+            if count:
+                return len(paper_ids)
+            else:
+                return sorted(paper_ids, reverse=True)[offset: offset + limit] if limit and offset and limit != offset \
+                    else sorted(paper_ids, reverse=True)
+
+    def get_paper_ids_flagged_positive_autclass(self, data_types: List[str], combine_fitlers: str = 'OR'):
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            curs.execute("SELECT cur_paper, cur_datatype FROM cur_blackbox "
+                         "WHERE cur_datatype IN %s AND UPPER(cur_blackbox) IN ('HIGH', 'MEDIUM')",
+                         (tuple(data_types),))
+            if combine_fitlers == 'AND':
+                datatype_ids = {svm_filter: set() for svm_filter in data_types}
+                for row in curs.fetchall():
+                    datatype_ids[row[1]].add(row[0])
+                return set.intersection(*list(datatype_ids.values()))
+            else:
+                return [row[0] for row in curs.fetchall()]
+
+    def get_paper_ids_flagged_positive_manual(self, data_types: List[str], combine_filters: str = 'OR'):
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            curs.execute("SELECT afp_email.joinkey FROM afp_email " + " ".join(
+                ["JOIN afp_" + table_name + " ON afp_email.joinkey = afp_" + table_name + ".joinkey " for table_name in
+                 data_types]) + " WHERE " + (combine_filters + " ").join(["afp_" + data_type + " <> ''" for
+                                                                          data_type in data_types]))
+        return [row[0] for row in curs.fetchall()]

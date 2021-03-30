@@ -8,12 +8,19 @@ class AbstractWBDBManager(metaclass=abc.ABCMeta):
 
     @abc.abstractmethod
     def __init__(self, dbname, user, password, host):
+        self.db_name = dbname
+        self.user = user
+        self.password = password
+        self.host = host
         self.connection_str = "dbname='" + dbname
         if user:
             self.connection_str += "' user='" + user
         if password:
             self.connection_str += "' password='" + password
         self.connection_str += "' host='" + host + "'"
+
+    def get_db_manager(self, cls):
+        return cls(self.db_name, self.user, self.password, self.host)
 
     def _get_single_field(self, join_key: str, field_name: str) -> Union[str, None]:
         """

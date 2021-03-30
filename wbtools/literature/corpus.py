@@ -60,9 +60,10 @@ class CorpusManager(object):
     def load_from_wb_database(self, db_name: str, db_user: str, db_password: str, db_host: str,
                               tazendra_ssh_user: str = None, tazendra_ssh_passwd: str = None, paper_ids: list = None,
                               from_date: str = None, load_pdf_files: bool = True, load_bib_info: bool = True,
-                              load_curation_info: bool = True, max_num_papers: int = None,
-                              exclude_ids: List[str] = None, must_have_automated_classification: bool = False,
-                              exclude_temp_pdf: bool = False, exclude_pap_types: List[str] = None) -> None:
+                              load_curation_info: bool = True, load_afp_info: bool = False, max_num_papers: int = None,
+                              exclude_ids: List[str] = None, must_be_autclass_flagged: bool = False,
+                              exclude_temp_pdf: bool = False, exclude_pap_types: List[str] = None,
+                              exclude_afp_processed: bool = False) -> None:
         """load papers from WormBase database
 
         Args:
@@ -77,12 +78,13 @@ class CorpusManager(object):
             load_pdf_files (bool): load pdf files using ssh credentials
             load_bib_info (bool): load bibliographic info of the papers
             load_curation_info (bool): load curation info of the papers
+            load_afp_info (bool): load author first pass info of the papers
             max_num_papers (int): limit number of papers to be loaded
             exclude_ids (List[str]): list of paper ids to exclude
-            must_have_automated_classification (bool): whether to load only papers that have been flagged by WB
-                                                       classifiers
+            must_be_autclass_flagged (bool): whether to exclude papers that have not been flagged by WB classifiers
             exclude_temp_pdf (bool): whether to exclude papers with temp pdfs only
             exclude_pap_types (List[str]): list of pap_types (string value, not numeric) to exclude
+            exclude_afp_processed (bool): whether to exclude
         """
         main_db_manager = WBDBManager(db_name, db_user, db_password, db_host)
         if not paper_ids:
@@ -91,18 +93,33 @@ class CorpusManager(object):
         if exclude_pap_types:
             ids_to_exclude = set(main_db_manager.generic.get_paper_ids_with_pap_types(exclude_pap_types))
             paper_ids = [paper_id for paper_id in paper_ids if paper_id not in ids_to_exclude]
+        if load_afp_info or exclude_afp_processed:
+            afp_no_submission_ids = main_db_manager.afp.get_paper_ids_afp_no_submission()
+            afp_full_submission_ids = main_db_manager.afp.get_paper_ids_afp_full_submission()
+            afp_partial_submission_ids = main_db_manager.afp.get_paper_ids_afp_partial_submission()
+        else:
+            afp_no_submission_ids = []
+            afp_full_submission_ids = []
+            afp_partial_submission_ids = []
+        afp_processed_ids = set(afp_no_submission_ids) | set(afp_partial_submission_ids) | set(afp_full_submission_ids)
         for paper_id in paper_ids:
             paper = WBPaper(paper_id=paper_id, tazendra_ssh_user=tazendra_ssh_user,
                             tazendra_ssh_passwd=tazendra_ssh_passwd, db_manager=main_db_manager.paper)
+            if exclude_afp_processed and paper_id in afp_processed_ids:
+                continue
             if not exclude_temp_pdf or not paper.is_temp():
                 if load_curation_info:
                     paper.load_curation_info_from_db()
-                    if must_have_automated_classification and not paper.aut_class_values:
+                    if must_be_autclass_flagged and not paper.aut_class_values:
                         continue
                 if load_pdf_files:
                     paper.load_text_from_pdf_files_in_db()
                 if load_bib_info:
                     paper.load_bib_info_from_db()
+                if load_afp_info:
+                    paper.load_afp_info_from_db(paper_ids_no_submission=afp_no_submission_ids,
+                                                paper_ids_full_submission=afp_full_submission_ids,
+                                                paper_ids_partial_submission=afp_partial_submission_ids)
                 logger.info("Loading paper " + paper_id)
                 self.add_or_update_wb_paper(paper)
                 if max_num_papers and self.size() >= max_num_papers:
