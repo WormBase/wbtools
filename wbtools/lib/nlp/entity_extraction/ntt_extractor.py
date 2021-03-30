@@ -43,7 +43,7 @@ class NttExtractor:
         if not self.curated_entities[entity_type]:
             self.curated_entities[entity_type] = self.db_manager.get_curated_entities(
                 entity_type=entity_type, exclude_id_used_as_name=exclude_id_used_as_name)
-        return self.curated_entities
+        return self.curated_entities[entity_type]
 
     @staticmethod
     def match_entities_regex(text, regex):

@@ -138,7 +138,7 @@ class WBPaper(object):
 
         Returns:
             list: a list of documents, which can be strings or lists of strings or list of lists of strings according to
-                  the combination of tokenization arguments passed
+                  the provided combination of tokenization arguments
         """
         docs = [self.main_text if self.main_text else self.html_text if self.html_text else self.ocr_text if
                 self.ocr_text else self.aut_text if self.aut_text else self.temp_text if self.temp_text else
@@ -224,7 +224,6 @@ class WBPaper(object):
             aut_class_values = self.db_manager.get_automated_classification_values(paper_id=self.paper_id)
             for class_type, class_value in aut_class_values:
                 self.aut_class_values[class_type] = class_value
-
         else:
             raise Exception("PaperDBManager not set")
 
