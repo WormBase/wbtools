@@ -12,6 +12,7 @@ from fabric.connection import Connection
 
 from wbtools.db.afp import WBAFPDBManager
 from wbtools.db.paper import WBPaperDBManager
+from wbtools.db.person import WBPersonDBManager
 from wbtools.lib.nlp.common import EntityType, EntityExtractionType, ExtractedEntity
 from wbtools.lib.nlp.entity_extraction.email_addresses import get_email_addresses_from_text
 from wbtools.lib.nlp.text_preprocessing import preprocess, get_documents_from_text, PaperSections
@@ -280,7 +281,7 @@ class WBPaper(object):
         Returns:
             bool: whether the paper has a temporary pdf file
         """
-        return self.main_text is None and self.html_text is None and self.html_text is None and self.ocr_text is None \
+        return self.main_text is None and self.html_text is None and self.ocr_text is None \
             and self.aut_text is None and self.temp_text is None
 
     def has_supplementary_material(self):
@@ -291,9 +292,15 @@ class WBPaper(object):
         """
         return self.supplemental_docs
 
-    def extract_all_email_addresses_from_text(self):
+    def has_main_text(self):
+        return self.main_text is not None or self.html_text is not None or self.ocr_text is not None or self.aut_text \
+               is not None or self.temp_text is not None or self.proof_text is not None
+
+    def extract_all_email_addresses_from_text(self, text: str = None):
         """get all the email addresses mentioned in any of the documents associated with this paper"""
-        return get_email_addresses_from_text(self.get_text_docs(return_concatenated=True))
+        if not text:
+            text = self.get_text_docs(return_concatenated=True)
+        return get_email_addresses_from_text(text)
 
     def write_email_addresses_to_db(self, email_addresses: List[str]):
         """write a list of email addresses associated with the paper to DB
@@ -312,24 +319,20 @@ class WBPaper(object):
     def get_aut_class_value_for_datatype(self, datatype: str):
         return self.aut_class_values[datatype] if self.aut_class_values[datatype] else None
 
-    def extract_entities(self, type_method: List[Tuple[EntityType, EntityExtractionType]],
-                         include_supplemental: bool = True, remove_sections: List[PaperSections] = None,
-                         must_be_present: List[PaperSections] = None) -> List[ExtractedEntity]:
-        """extract biological entities from the full text
-
-        Args:
-            type_method (List[Tuple[EntityType, EntityExtractionType]]): list containing entity type and extraction type
-                                                                         for each of the entity types to be extracted
-            include_supplemental (bool): whether to extract entities from the supplemental material
-            remove_sections (List[PaperSections]): list of sections to remove
-            must_be_present (List[PaperSections]): list of sections that must be present
-        Returns:
-            List[ExtractedEntity]: the list of extracted entites
-        """
-        full_text = self.get_text_docs(
-            include_supplemental=include_supplemental, remove_sections=remove_sections, must_be_present=must_be_present,
-            split_sentences=False, lowercase=False, tokenize=False, remove_stopwords=False, remove_alpha=False)
-        for entity_type, extraction_method in type_method:
-            pass
-        return
-
+    def get_first_author_with_email_address_in_wb(self, blacklisted_email_addresses: List[str] = None):
+        all_addresses = self.extract_all_email_addresses_from_text()
+        if not all_addresses:
+            all_addresses = self.extract_all_email_addresses_from_text(self.get_text_docs(
+                include_supplemental=False, return_concatenated=True).replace(". ", "."))
+        if all_addresses:
+            for address in all_addresses:
+                if "'" not in address and (not blacklisted_email_addresses or address not in
+                                           set(blacklisted_email_addresses)):
+                    person_id = self.db_manager.get_db_manager(
+                        WBPersonDBManager).get_person_id_from_email_address(address)
+                    if person_id:
+                        # curr_address = db_manager.get_current_email_address_for_person(person_id)
+                        return self.db_manager.get_db_manager(WBPersonDBManager).get_person(person_id=person_id)
+        if self.get_corresponding_author():
+            return self.get_corresponding_author()
+        return None

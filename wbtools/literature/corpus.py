@@ -63,7 +63,8 @@ class CorpusManager(object):
                               load_curation_info: bool = True, load_afp_info: bool = False, max_num_papers: int = None,
                               exclude_ids: List[str] = None, must_be_autclass_flagged: bool = False,
                               exclude_temp_pdf: bool = False, exclude_pap_types: List[str] = None,
-                              exclude_afp_processed: bool = False, exclude_afp_not_curatable: bool = False) -> None:
+                              exclude_afp_processed: bool = False, exclude_afp_not_curatable: bool = False,
+                              exclude_no_main_text: bool = False, exclude_no_author_email: bool = False) -> None:
         """load papers from WormBase database
 
         Args:
@@ -86,6 +87,8 @@ class CorpusManager(object):
             exclude_pap_types (List[str]): list of pap_types (string value, not numeric) to exclude
             exclude_afp_processed (bool): whether to exclude
             exclude_afp_not_curatable (bool): whether to exclude papers that are not relevant for AFP curation
+            exclude_no_main_text (bool): whether to exclude papers without a fulltext that can be converted to txt
+            exclude_no_author_email (bool): whether to exclude papers without any contact email in WB
         """
         main_db_manager = WBDBManager(db_name, db_user, db_password, db_host)
         if not paper_ids:
@@ -103,7 +106,10 @@ class CorpusManager(object):
             afp_full_submission_ids = []
             afp_partial_submission_ids = []
         afp_processed_ids = set(afp_no_submission_ids) | set(afp_partial_submission_ids) | set(afp_full_submission_ids)
-        afp_curatable = main_db_manager.afp.get_afp_curatable_paper_ids() if exclude_afp_not_curatable else []
+        afp_curatable = set(main_db_manager.afp.get_afp_curatable_paper_ids() if exclude_afp_not_curatable else [])
+        blacklisted_email_addresses = main_db_manager.generic.get_blacklisted_email_addresses() if \
+            exclude_no_author_email else []
+
         for paper_id in paper_ids:
             paper = WBPaper(paper_id=paper_id, tazendra_ssh_user=tazendra_ssh_user,
                             tazendra_ssh_passwd=tazendra_ssh_passwd, db_manager=main_db_manager.paper)
@@ -119,8 +125,13 @@ class CorpusManager(object):
                 paper.load_text_from_pdf_files_in_db()
                 if exclude_temp_pdf and paper.is_temp():
                     continue
+                if exclude_no_main_text and not paper.has_main_text():
+                    continue
             if load_bib_info:
                 paper.load_bib_info_from_db()
+                if exclude_no_author_email and not paper.get_first_author_with_email_address_in_wb(
+                        blacklisted_email_addresses=blacklisted_email_addresses):
+                    continue
             if load_afp_info:
                 paper.load_afp_info_from_db(paper_ids_no_submission=afp_no_submission_ids,
                                             paper_ids_full_submission=afp_full_submission_ids,

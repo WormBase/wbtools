@@ -31,7 +31,7 @@ class WBGenericDBManager(AbstractWBDBManager):
             for paper_id, timestamp in paper_ids_time:
                 paper_id_timestamps[paper_id].append(timestamp)
             paper_id_maxtime = {paper_id: max(timestamps) for paper_id, timestamps in paper_id_timestamps.items()}
-            return sorted(list(set(paper_id_maxtime.keys())), reverse=True, key=lambda x : paper_id_maxtime[x])
+            return sorted(list(set(paper_id_maxtime.keys())), reverse=True, key=lambda x: paper_id_maxtime[x])
 
     def get_paper_ids_with_pap_types(self, pap_types: List[str]):
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
@@ -226,3 +226,12 @@ class WBGenericDBManager(AbstractWBDBManager):
                  data_types]) + " WHERE " + (combine_filters + " ").join(["afp_" + data_type + " <> ''" for
                                                                           data_type in data_types]))
         return [row[0] for row in curs.fetchall()]
+
+    def get_blacklisted_email_addresses(self):
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            curs.execute("select frm_email_skip from frm_email_skip")
+            res = curs.fetchall()
+            if res:
+                return [row[0] for row in res]
+            else:
+                return []
