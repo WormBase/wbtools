@@ -135,7 +135,7 @@ class WBPaperDBManager(AbstractWBDBManager):
         """
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
             curs.execute("SELECT * FROM cur_strdata WHERE cur_paper = '{}'".format(paper_id))
-            res = self.cur.fetchone()
+            res = curs.fetchone()
             if res:
                 if res[1] == "antibody" and res[3] != "":
                     return True
