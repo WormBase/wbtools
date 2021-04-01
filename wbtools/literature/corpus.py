@@ -114,25 +114,35 @@ class CorpusManager(object):
             paper = WBPaper(paper_id=paper_id, tazendra_ssh_user=tazendra_ssh_user,
                             tazendra_ssh_passwd=tazendra_ssh_passwd, db_manager=main_db_manager.paper)
             if exclude_afp_processed and paper_id in afp_processed_ids:
+                logger.info("Skipping paper already processed by AFP")
                 continue
             if exclude_afp_not_curatable and paper_id not in afp_curatable:
+                logger.info("Skipping paper not AFP curatable")
                 continue
             if load_curation_info:
+                logger.info("Loading curation info for paper")
                 paper.load_curation_info_from_db()
                 if must_be_autclass_flagged and not paper.aut_class_values:
+                    logger.info("Skipping paper without automated classification")
                     continue
             if load_pdf_files:
+                logger.info("Loading text from PDF files for paper")
                 paper.load_text_from_pdf_files_in_db()
                 if exclude_temp_pdf and paper.is_temp():
+                    logger.info("Skipping proof paper")
                     continue
                 if exclude_no_main_text and not paper.has_main_text():
+                    logger.info("Skipping paper without main text")
                     continue
             if load_bib_info:
+                logger.info("Loading bib info for paper")
                 paper.load_bib_info_from_db()
                 if exclude_no_author_email and not paper.get_first_author_with_email_address_in_wb(
                         blacklisted_email_addresses=blacklisted_email_addresses):
+                    logger.info("Skipping paper without any email address in text with records in WB")
                     continue
             if load_afp_info:
+                logger.info("Loading AFP info for paper")
                 paper.load_afp_info_from_db(paper_ids_no_submission=afp_no_submission_ids,
                                             paper_ids_full_submission=afp_full_submission_ids,
                                             paper_ids_partial_submission=afp_partial_submission_ids)

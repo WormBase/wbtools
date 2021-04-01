@@ -60,7 +60,7 @@ class WBPaperDBManager(AbstractWBDBManager):
     def get_pmid(self, paper_id):
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
             curs.execute(
-                "SELECT * FROM pap_identifier WHERE joinkey = %s AND pap_identifier LIKE 'pmid%'", (paper_id, ))
+                "SELECT * FROM pap_identifier WHERE joinkey = %s AND pap_identifier LIKE 'pmid%%'", (paper_id, ))
             res = curs.fetchone()
             if res and res[1].startswith("pmid"):
                 return res[1].replace("pmid", "")
@@ -70,7 +70,7 @@ class WBPaperDBManager(AbstractWBDBManager):
     def get_doi(self, paper_id):
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
             curs.execute(
-                "SELECT * FROM pap_identifier WHERE joinkey = %s AND pap_identifier LIKE 'doi%'", (paper_id,))
+                "SELECT * FROM pap_identifier WHERE joinkey = %s AND pap_identifier LIKE 'doi%%'", (paper_id,))
             res = curs.fetchone()
             if res and res[1].startswith("doi"):
                 return res[1][3:]
