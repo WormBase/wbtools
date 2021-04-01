@@ -67,6 +67,16 @@ class WBPaperDBManager(AbstractWBDBManager):
             else:
                 return None
 
+    def get_doi(self, paper_id):
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            curs.execute(
+                "SELECT * FROM pap_identifier WHERE joinkey = %s AND pap_identifier LIKE 'doi%'", (paper_id,))
+            res = curs.fetchone()
+            if res and res[1].startswith("doi"):
+                return res[1][3:]
+            else:
+                return None
+
     def get_corresponding_emails(self, paper_id):
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
             curs.execute("SELECT two_email.two_email "
@@ -113,3 +123,20 @@ class WBPaperDBManager(AbstractWBDBManager):
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
             curs.execute("INSERT INTO pdf_email (joinkey, pdf_email) VALUES (%s, %s)", (paper_id,
                                                                                         ", ".join(email_addresses)))
+
+    def is_antibody_set(self, paper_id: str):
+        """
+        get paper antibody value
+
+        Args:
+            paper_id: the id of the paper
+        Returns:
+            bool: whether the antibody value has been set for this paper
+        """
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            curs.execute("SELECT * FROM cur_strdata WHERE cur_paper = '{}'".format(paper_id))
+            res = self.cur.fetchone()
+            if res:
+                if res[1] == "antibody" and res[3] != "":
+                    return True
+            return False

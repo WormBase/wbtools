@@ -1,6 +1,6 @@
 import math
 import re
-from typing import List
+from typing import List, Dict
 
 from wbtools.db.generic import WBGenericDBManager
 from wbtools.lib.nlp.common import EntityType
@@ -76,8 +76,9 @@ class NttExtractor:
                                                                  match_uppercase=match_uppercase) for
                         keyword in entity_keywords)
         return True if raw_count >= min_num_occurrences and (
-                tfidf_threshold <= 0 or 0 < tfidf_threshold < NttExtractor.tfidf(raw_count,
-                                                                                 lit_index)) else False
+                tfidf_threshold <= 0 or 0 < tfidf_threshold < NttExtractor.tfidf(entity_keywords=entity_keywords,
+                                                                                 raw_count=raw_count,
+                                                                                 lit_index=lit_index)) else False
 
     @staticmethod
     def tfidf(entity_keywords: List[str], raw_count, lit_index: AbstractLiteratureIndex) -> float:
@@ -86,30 +87,41 @@ class NttExtractor:
         return raw_count * idf
 
     @staticmethod
-    def extract_meaningful_entities(keywords: List[str], text: str, lit_index: AbstractLiteratureIndex,
-                                    match_uppercase: bool = False, min_matches: int = 1, tfidf_threshold: float = 0.0,
-                                    blacklist: List[str] = None) -> List[str]:
+    def extract_meaningful_entities_by_keywords(keywords: List[str], text: str,
+                                                lit_index: AbstractLiteratureIndex = None,
+                                                match_uppercase: bool = False, min_matches: int = 1,
+                                                tfidf_threshold: float = 0.0,
+                                                blacklist: List[str] = None) -> List[str]:
         blacklist = set(blacklist) if blacklist else set()
         return [keyword for keyword in set(keywords) if keyword not in blacklist and
                 NttExtractor.is_entity_meaningful(
             entity_keywords=[keyword], text=text, match_uppercase=match_uppercase, min_num_occurrences=min_matches,
             tfidf_threshold=tfidf_threshold, lit_index=lit_index)]
 
-    # def extract_species_regex(self, text: str, blacklist: List[str] = None, whitelist: List[str] = None,
-    #                           min_matches: int = 1, tfidf_threshold: float = 0.0):
-    #     blacklist = set(blacklist) if blacklist else set()
-    #     whitelist = set(whitelist) if whitelist else set()
-    #     return [regex_list[0].replace("\\", "") for taxon_id, regex_list in taxonid_name_map.items() if
-    #             taxon_id not in blacklist and (taxon_id in whitelist or
-    #                                            NttExtractor.is_entity_meaningful(entity_keywords=regex_list, text=text,
-    #                                                                      match_uppercase=False,
-    #                                                                      min_num_occurrences=min_matches,
-    #                                                                      tfidf_threshold=tfidf_threshold))]
+    def extract_species_regex(self, text: str, taxon_id_name_map: Dict[str, List[str]] = None,
+                              blacklist: List[str] = None,
+                              whitelist: List[str] = None, min_matches: int = 1, tfidf_threshold: float = 0.0,
+                              lit_index: AbstractLiteratureIndex = None):
+        blacklist = set(blacklist) if blacklist else set()
+        whitelist = set(whitelist) if whitelist else set()
+        if taxon_id_name_map is None:
+            taxon_id_name_map = self.db_manager.get_taxon_id_names_map()
+        return [regex_list[0].replace("\\", "") for taxon_id, regex_list in taxon_id_name_map.items() if
+                taxon_id not in blacklist and (taxon_id in whitelist or
+                                               NttExtractor.is_entity_meaningful(entity_keywords=regex_list, text=text,
+                                                                                 match_uppercase=False,
+                                                                                 lit_index=lit_index,
+                                                                                 min_num_occurrences=min_matches,
+                                                                                 tfidf_threshold=tfidf_threshold))]
 
-    def extract_entities(self, text: str, entity_type: EntityType, include_new: bool = True,
-                         match_curated: bool = False, exclude_curated: bool = False,
-                         match_entities: List[str] = None, exclude_entities: List[str] = None,
-                         exclude_id_used_as_name: bool = True):
+    @staticmethod
+    def get_entity_ids_from_names(entity_names: List[str], entity_name_id_map: Dict[str, str]):
+        return list(set([(entity_name_id_map[entity_name], entity_name) for entity_name in entity_names]))
+
+    def extract_all_entities_by_type(self, text: str, entity_type: EntityType, include_new: bool = True,
+                                     match_curated: bool = False, exclude_curated: bool = False,
+                                     match_entities: List[str] = None, exclude_entities: List[str] = None,
+                                     exclude_id_used_as_name: bool = True):
         """
         extract entities mentioned in text
 
@@ -137,8 +149,7 @@ class NttExtractor:
                     entity_type=entity_type, exclude_id_used_as_name=exclude_id_used_as_name)) +
                 OPENING_CLOSING_REGEXES[entity_type][1]))
         if exclude_curated:
-            entities -= set(self.get_curated_entities(entity_type=entity_type,
-                                                      exclude_id_used_as_name=exclude_id_used_as_name))
+            entities -= set(self.get_curated_entities(entity_type=entity_type, exclude_id_used_as_name=exclude_id_used_as_name))
         if match_entities:
             entities.update(NttExtractor.match_entities_regex(
                 text, OPENING_CLOSING_REGEXES[entity_type][0] + '|'.join(match_entities) +

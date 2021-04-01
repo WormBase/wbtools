@@ -26,6 +26,10 @@ class TestWBDBManager(unittest.TestCase):
         for variation in curated_variations:
             self.assertTrue(re.match(allele_regex, variation))
 
+    def test_entity_name_id_maps(self):
+        gene_name_id_map = self.db_manager.get_gene_name_id_map()
+        self.assertTrue(len(gene_name_id_map) > 0)
+
 
 if __name__ == '__main__':
     unittest.main()

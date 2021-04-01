@@ -41,6 +41,7 @@ class EntityType(Enum):
     SPECIES = 3
     STRAIN = 4
     ANTIBODY = 5
+    TRANSGENE = 6
 
 
 class EntityExtractionType(Enum):
@@ -54,3 +55,13 @@ class ExtractedEntity:
     entity_extraction_type: EntityExtractionType
     text: str
     mod_id: str
+
+
+SPECIES_ALIASES = {"9913": ["cow", "bovine", "calf"],
+                   "7955": ["zebrafish"],
+                   "7227": ["fruitfly", "fruitflies"],
+                   "9606": ["human"],
+                   "10090": ["mouse", "mice", "murine"],
+                   "10116": ["rat"],
+                   "559292": ["budding yeast"],
+                   "4896": ["fission yeast"]}

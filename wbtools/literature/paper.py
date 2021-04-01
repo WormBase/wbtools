@@ -88,7 +88,7 @@ class WBPaper(object):
     def __init__(self, paper_id: str = '', main_text: str = '', ocr_text: str = '', temp_text: str = '',
                  aut_text: str = '', html_text: str = '', proof_text: str = '', supplemental_docs: list = None,
                  tazendra_ssh_user: str = '', tazendra_ssh_passwd: str = '', title: str = '', journal: str = '',
-                 pub_date: str = '', authors: List[WBAuthor] = None, abstract: str = '',
+                 pub_date: str = '', authors: List[WBAuthor] = None, abstract: str = '', doi: str = '', pmid: str = '',
                  db_manager: WBPaperDBManager = None):
         self.paper_id = paper_id
         self.title = title
@@ -96,6 +96,8 @@ class WBPaper(object):
         self.pub_date = pub_date
         self.authors = authors
         self.abstract = abstract
+        self.doi = doi
+        self.pmid = pmid
         self.main_text = main_text
         self.ocr_text = ocr_text
         self.temp_text = temp_text
@@ -236,6 +238,8 @@ class WBPaper(object):
             self.abstract = self.db_manager.get_paper_abstract(self.paper_id)
             self.pub_date = self.db_manager.get_paper_pub_date(self.paper_id)
             self.authors = self.db_manager.get_paper_authors(self.paper_id)
+            self.doi = self.db_manager.get_doi(self.paper_id)
+            self.pmid = self.db_manager.get_pmid(self.paper_id)
         else:
             raise Exception("PaperDBManager not set")
 

@@ -58,12 +58,94 @@ class WBGenericDBManager(AbstractWBDBManager):
                     logger.warning(f"Possible bogus variation entry in DB: {row[0]}")
             return variations
 
+    def get_variation_name_id_map(self):
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            curs.execute("SELECT * FROM obo_name_variation WHERE joinkey != ''")
+            rows = curs.fetchall()
+            return {row[1]: row[0] for row in rows}
+
     def get_curated_strains(self, exclude_id_used_as_name: bool = False):
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
             curs.execute("SELECT obo_name_strain FROM obo_name_strain")
             res = curs.fetchall()
             return sorted(list(set([row[0] for row in res if not exclude_id_used_as_name or not
                                     row[0].startswith("WBStrain")])))
+
+    def get_strain_name_id_map(self):
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            curs.execute("SELECT obo_name_strain FROM obo_name_strain")
+            res = curs.fetchall()
+            return {row[1]: row[0] for row in res}
+
+    def get_curated_genes(self, exclude_id_used_as_name: bool = False, include_seqname: bool = True,
+                          include_synonyms: bool = True):
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            genes_names = set()
+            curs.execute("SELECT * FROM gin_locus WHERE joinkey != ''")
+            genes_names.update([row[1] for row in curs.fetchall()])
+            if not exclude_id_used_as_name:
+                curs.execute("SELECT * FROM gin_wbgene WHERE joinkey != ''")
+                genes_names.update([row[1] for row in curs.fetchall()])
+            if include_seqname:
+                curs.execute("SELECT * FROM gin_seqname WHERE joinkey != ''")
+                genes_names.update([row[1] for row in curs.fetchall()])
+            if include_synonyms:
+                curs.execute("SELECT * FROM gin_synonyms WHERE joinkey != ''")
+                genes_names.update([row[1] for row in curs.fetchall()])
+            return sorted(list(set([gene_name for gene_name in genes_names if not exclude_id_used_as_name or
+                                    not gene_name.startswith("WBGene")])))
+
+    def get_gene_name_id_map(self):
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            gene_name_id_map = {}
+            curs.execute("SELECT * FROM gin_locus WHERE joinkey != ''")
+            for row in curs.fetchall():
+                gene_name_id_map[row[1]] = "WBGene" + row[0]
+            curs.execute("SELECT * FROM gin_synonyms WHERE joinkey != ''")
+            for row in curs.fetchall():
+                if row[1] not in gene_name_id_map:
+                    gene_name_id_map[row[1]] = "WBGene" + row[0]
+            curs.execute("SELECT * FROM gin_wbgene WHERE joinkey != ''")
+            for row in curs.fetchall():
+                if row[1] not in gene_name_id_map:
+                    gene_name_id_map[row[1]] = "WBGene" + row[0]
+            curs.execute("SELECT * FROM gin_seqname WHERE joinkey != ''")
+            for row in curs.fetchall():
+                if row[1] not in gene_name_id_map:
+                    gene_name_id_map[row[1]] = "WBGene" + row[0]
+            return gene_name_id_map
+
+    def get_curated_transgenes(self, exclude_id_used_as_name: bool = False):
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            curs.execute("SELECT * FROM trp_publicname")
+            rows = curs.fetchall()
+            return [row[1] for row in rows]
+
+    def get_transgene_name_id_map(self):
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            transgene_name_id_map = {}
+            curs.execute("SELECT trp_name.trp_name, trp_synonym.trp_synonym "
+                         "FROM trp_name, trp_synonym "
+                         "WHERE trp_name.joinkey = trp_synonym.joinkey")
+            rows = curs.fetchall()
+            transgene_name_id_map.update({row[1]: row[0] for row in rows})
+            curs.execute("SELECT trp_name.trp_name, trp_publicname.trp_publicname "
+                         "FROM trp_name, trp_publicname "
+                         "WHERE trp_name.joinkey = trp_publicname.joinkey")
+            rows = curs.fetchall()
+            transgene_name_id_map.update({row[1]: row[0] for row in rows})
+            return transgene_name_id_map
+
+    def get_taxon_id_names_map(self):
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            curs.execute("SELECT * FROM pap_species_index")
+            rows = curs.fetchall()
+            taxon_id_name_map = {row[0]: [row[1]] for row in rows}
+            for taxon_id, species_alias_arr in SPECIES_ALIASES.items():
+                taxon_id_name_map[taxon_id].extend(species_alias_arr)
+            for species_id, regex_list in taxon_id_name_map.items():
+                if len(regex_list[0].split(" ")) > 1:
+                    taxon_id_name_map[species_id].append(regex_list[0][0] + "\\. " + " ".join(regex_list[0].split(" ")[1:]))
 
     def get_paper_ids_with_email_addresses_extracted(self):
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
@@ -76,6 +158,12 @@ class WBGenericDBManager(AbstractWBDBManager):
             return self.get_curated_strains(exclude_id_used_as_name=exclude_id_used_as_name)
         elif entity_type == EntityType.VARIATION:
             return self.get_curated_variations(exclude_id_used_as_name=exclude_id_used_as_name)
+        elif entity_type == EntityType.GENE:
+            return self.get_curated_genes(exclude_id_used_as_name=exclude_id_used_as_name)
+        elif entity_type == EntityType.TRANSGENE:
+            return self.get_curated_transgenes(exclude_id_used_as_name=exclude_id_used_as_name)
+        else:
+            return []
 
     def get_allele_designations(self):
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
