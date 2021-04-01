@@ -146,7 +146,7 @@ class CorpusManager(object):
                 paper.load_afp_info_from_db(paper_ids_no_submission=afp_no_submission_ids,
                                             paper_ids_full_submission=afp_full_submission_ids,
                                             paper_ids_partial_submission=afp_partial_submission_ids)
-            logger.info("Loading paper " + paper_id)
+            logger.info("Paper " + paper_id + " added to corpus")
             self.add_or_update_wb_paper(paper)
             if max_num_papers and self.size() >= max_num_papers:
                 break
