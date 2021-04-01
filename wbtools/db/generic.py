@@ -5,7 +5,7 @@ from typing import List
 import psycopg2
 
 from wbtools.db.abstract_manager import AbstractWBDBManager
-from wbtools.lib.nlp.common import EntityType
+from wbtools.lib.nlp.common import EntityType, SPECIES_ALIASES
 from wbtools.lib.scraping import get_curated_papers
 
 logger = logging.getLogger(__name__)
@@ -146,6 +146,7 @@ class WBGenericDBManager(AbstractWBDBManager):
             for species_id, regex_list in taxon_id_name_map.items():
                 if len(regex_list[0].split(" ")) > 1:
                     taxon_id_name_map[species_id].append(regex_list[0][0] + "\\. " + " ".join(regex_list[0].split(" ")[1:]))
+            return taxon_id_name_map
 
     def get_paper_ids_with_email_addresses_extracted(self):
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
