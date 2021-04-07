@@ -36,7 +36,7 @@ class WBGenericDBManager(AbstractWBDBManager):
     def get_paper_ids_with_pap_types(self, pap_types: List[str]):
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
             curs.execute("SELECT DISTINCT pap_type.joinkey from pap_type join pap_type_index "
-                         "ON pap_type.joinkey = pap_type_index.joinkey WHERE pap_type_index.pap_type_index IN %s ",
+                         "ON pap_type.pap_type = pap_type_index.joinkey WHERE pap_type_index.pap_type_index IN %s ",
                          (tuple(pap_types),))
             res = curs.fetchall()
             return [row[0] for row in res] if res else []
@@ -226,7 +226,7 @@ class WBGenericDBManager(AbstractWBDBManager):
                 ["JOIN afp_" + table_name + " ON afp_email.joinkey = afp_" + table_name + ".joinkey " for table_name in
                  data_types]) + " WHERE " + (combine_filters + " ").join(["afp_" + data_type + " <> ''" for
                                                                           data_type in data_types]))
-        return [row[0] for row in curs.fetchall()]
+            return [row[0] for row in curs.fetchall()]
 
     def get_blacklisted_email_addresses(self):
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
@@ -236,3 +236,8 @@ class WBGenericDBManager(AbstractWBDBManager):
                 return [row[0] for row in res]
             else:
                 return []
+
+    def get_paper_ids_processed_antibody(self):
+        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+            curs.execute("SELECT cur_paper FROM cur_strdata where cur_datatype = 'antibody'")
+            return [row[0] for row in curs.fetchall()]

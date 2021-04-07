@@ -63,6 +63,7 @@ class CorpusManager(object):
                               load_curation_info: bool = True, load_afp_info: bool = False, max_num_papers: int = None,
                               exclude_ids: List[str] = None, must_be_autclass_flagged: bool = False,
                               exclude_temp_pdf: bool = False, exclude_pap_types: List[str] = None,
+                              pap_types: List[str] = None,
                               exclude_afp_processed: bool = False, exclude_afp_not_curatable: bool = False,
                               exclude_no_main_text: bool = False, exclude_no_author_email: bool = False) -> None:
         """load papers from WormBase database
@@ -85,6 +86,7 @@ class CorpusManager(object):
             must_be_autclass_flagged (bool): whether to exclude papers that have not been flagged by WB classifiers
             exclude_temp_pdf (bool): whether to exclude papers with temp pdfs only
             exclude_pap_types (List[str]): list of pap_types (string value, not numeric) to exclude
+            pap_types (List(str]): list of paper types to load
             exclude_afp_processed (bool): whether to exclude
             exclude_afp_not_curatable (bool): whether to exclude papers that are not relevant for AFP curation
             exclude_no_main_text (bool): whether to exclude papers without a fulltext that can be converted to txt
@@ -94,6 +96,9 @@ class CorpusManager(object):
         if not paper_ids:
             paper_ids = main_db_manager.generic.get_all_paper_ids(added_or_modified_after=from_date,
                                                                   exclude_ids=exclude_ids)
+        if pap_types:
+            ids_to_include = set(main_db_manager.generic.get_paper_ids_with_pap_types(pap_types))
+            paper_ids = [paper_id for paper_id in paper_ids if paper_id in ids_to_include]
         if exclude_pap_types:
             ids_to_exclude = set(main_db_manager.generic.get_paper_ids_with_pap_types(exclude_pap_types))
             paper_ids = [paper_id for paper_id in paper_ids if paper_id not in ids_to_exclude]
@@ -131,6 +136,9 @@ class CorpusManager(object):
                 if exclude_temp_pdf and paper.is_temp():
                     logger.info("Skipping proof paper")
                     continue
+                if paper.main_text or paper.html_text or paper.ocr_text or paper.aut_text:
+                    logger.info("Skipping paper with main text - keeping only old temp for debugging")
+                    continue
                 if exclude_no_main_text and not paper.has_main_text():
                     logger.info("Skipping paper without main text")
                     continue
@@ -146,8 +154,8 @@ class CorpusManager(object):
                 paper.load_afp_info_from_db(paper_ids_no_submission=afp_no_submission_ids,
                                             paper_ids_full_submission=afp_full_submission_ids,
                                             paper_ids_partial_submission=afp_partial_submission_ids)
-            logger.info("Paper " + paper_id + " added to corpus. Corpus size: " + str(self.size()))
             self.add_or_update_wb_paper(paper)
+            logger.info("Paper " + paper_id + " added to corpus. Corpus size: " + str(self.size()))
             if max_num_papers and self.size() >= max_num_papers:
                 break
 
