@@ -136,9 +136,6 @@ class CorpusManager(object):
                 if exclude_temp_pdf and paper.is_temp():
                     logger.info("Skipping proof paper")
                     continue
-                if paper.main_text or paper.html_text or paper.ocr_text or paper.aut_text:
-                    logger.info("Skipping paper with main text - keeping only old temp for debugging")
-                    continue
                 if exclude_no_main_text and not paper.has_main_text():
                     logger.info("Skipping paper without main text")
                     continue
