@@ -114,7 +114,13 @@ class WBPaper(object):
         self.afp_partial_submission = False
         self.db_manager = db_manager
 
-    def get_corresponding_author(self):
+    def get_corresponding_author(self) -> Union[WBAuthor, None]:
+        """
+        Get the corresponding author of the paper, as recorded in WB DB
+
+        Returns:
+            Union[WBAuthor, None]: the corresponding author, if available in the DB, otherwise None
+        """
         for author in self.authors:
             if author.corresponding:
                 return author
@@ -319,7 +325,21 @@ class WBPaper(object):
     def get_aut_class_value_for_datatype(self, datatype: str):
         return self.aut_class_values[datatype] if self.aut_class_values[datatype] else None
 
-    def get_first_author_with_email_address_in_wb(self, blacklisted_email_addresses: List[str] = None):
+    def get_first_author_with_email_address_in_wb(self, blacklisted_email_addresses: List[str] = None) -> \
+            Union[Tuple[WBAuthor, str], None]:
+        """
+        Get the first email address in the paper with a corresponding person entry in WB and return the person object
+        and the email address found in the paper, which may be more recent than the one in WB
+
+        Args:
+            blacklisted_email_addresses (List[str]): a list of email addresses to be excluded from the search
+
+        Returns:
+            Union[Tuple[WBPerson, str], None]: a tuple containing the WBPerson and the email address found in the paper.
+                                               If no email is found with a corresponding person in WB, then the function
+                                               will return the corresponding author associated with the paper in WB and
+                                               its email address, if any, otherwise None.
+        """
         all_addresses = self.extract_all_email_addresses_from_text()
         if not all_addresses:
             all_addresses = self.extract_all_email_addresses_from_text(self.get_text_docs(
@@ -332,7 +352,9 @@ class WBPaper(object):
                         WBPersonDBManager).get_person_id_from_email_address(address)
                     if person_id:
                         # curr_address = db_manager.get_current_email_address_for_person(person_id)
-                        return self.db_manager.get_db_manager(WBPersonDBManager).get_person(person_id=person_id)
-        if self.get_corresponding_author():
-            return self.get_corresponding_author()
+                        return (self.db_manager.get_db_manager(WBPersonDBManager).get_person(person_id=person_id),
+                                address)
+        corresponding_author = self.get_corresponding_author()
+        if corresponding_author:
+            return corresponding_author, corresponding_author.email
         return None
