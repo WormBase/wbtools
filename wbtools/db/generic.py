@@ -73,7 +73,7 @@ class WBGenericDBManager(AbstractWBDBManager):
 
     def get_strain_name_id_map(self):
         with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
-            curs.execute("SELECT obo_name_strain FROM obo_name_strain")
+            curs.execute("SELECT * FROM obo_name_strain where joinkey != ''")
             res = curs.fetchall()
             return {row[1]: row[0] for row in res}
 
