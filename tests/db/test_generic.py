@@ -30,6 +30,11 @@ class TestWBDBManager(unittest.TestCase):
         gene_name_id_map = self.db_manager.get_gene_name_id_map()
         self.assertTrue(len(gene_name_id_map) > 0)
 
+    def test_get_curated_transgenes(self):
+        all_curated = self.db_manager.get_curated_transgenes(exclude_id_used_as_name=False, exclude_invalid=False)
+        exclude_invalid = self.db_manager.get_curated_transgenes(exclude_id_used_as_name=False, exclude_invalid=True)
+        self.assertGreater(len(all_curated), len(exclude_invalid))
+
 
 if __name__ == '__main__':
     unittest.main()
