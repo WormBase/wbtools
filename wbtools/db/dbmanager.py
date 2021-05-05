@@ -1,6 +1,7 @@
 import logging
 
 from wbtools.db.afp import WBAFPDBManager
+from wbtools.db.antibody import WBAntibodyDBManager
 from wbtools.db.expression import WBExpressionDBManager
 from wbtools.db.gene import WBGeneDBManager
 from wbtools.db.generic import WBGenericDBManager
@@ -19,3 +20,4 @@ class WBDBManager(object):
         self.person = WBPersonDBManager(dbname, user, password, host)
         self.gene = WBGeneDBManager(dbname, user, password, host)
         self.afp = WBAFPDBManager(dbname, user, password, host)
+        self.antibody = WBAntibodyDBManager(dbname, user, password, host)

@@ -1,11 +1,7 @@
-from typing import Union, List
-
 import psycopg2
 import re
 
 from wbtools.db.abstract_manager import AbstractWBDBManager
-from wbtools.db.person import WBPersonDBManager
-from wbtools.literature.person import WBAuthor
 
 
 class WBGeneDBManager(AbstractWBDBManager):

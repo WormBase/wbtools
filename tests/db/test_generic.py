@@ -1,4 +1,3 @@
-import datetime
 import re
 import unittest
 import os
@@ -30,11 +29,6 @@ class TestWBDBManager(unittest.TestCase):
     def test_entity_name_id_maps(self):
         gene_name_id_map = self.db_manager.get_gene_name_id_map()
         self.assertTrue(len(gene_name_id_map) > 0)
-
-    def test_get_antibody_str_values(self):
-        antib_str_values = self.db_manager.get_antibody_str_values(
-            from_date=datetime.datetime.now() - datetime.timedelta(days=365))
-        self.assertTrue(len(antib_str_values) > 0)
 
 
 if __name__ == '__main__':
