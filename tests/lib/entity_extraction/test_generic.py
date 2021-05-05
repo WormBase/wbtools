@@ -20,13 +20,13 @@ class TestGenericNLP(unittest.TestCase):
 
     def test_extract_entities(self):
         text = "  g2 is a new variant"
-        variations = self.ntt_extractor.extract_entities(text, entity_type=EntityType.VARIATION)
+        variations = self.ntt_extractor.extract_all_entities_by_type(text, entity_type=EntityType.VARIATION)
         self.assertEqual(len(variations), 1)
         self.assertTrue("g2" in variations)
 
     def test_get_strains_from_text(self):
         text = "  AB4 is a strain, (N2) is another one, but AAA23 is not a strain "
-        strains = self.ntt_extractor.extract_entities(text, EntityType.STRAIN, match_curated=True)
+        strains = self.ntt_extractor.extract_all_entities_by_type(text, EntityType.STRAIN, match_curated=True)
         self.assertEqual(len(strains), 2)
 
 
