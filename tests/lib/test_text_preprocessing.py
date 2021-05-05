@@ -1,6 +1,7 @@
 import os
 import unittest
 
+from tests.config_reader import read_db_config, read_tazendra_config
 from wbtools.lib.nlp.common import PaperSections
 from wbtools.lib.nlp.text_preprocessing import remove_sections_from_text, get_documents_from_text, preprocess
 from wbtools.literature.corpus import CorpusManager
@@ -19,6 +20,24 @@ class TestTextPreprocessing(unittest.TestCase):
         self.assertTrue("REFERENCES" not in remove_sections_from_text(
             text=text, sections_to_remove=[PaperSections.INTRODUCTION, PaperSections.REFERENCES],
             must_be_present=[PaperSections.RESULTS]))
+
+    @unittest.skipIf(not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data",
+                                                     "local_config", "db.cfg")), "Test DB config file not present")
+    def test_sectioning_cell_template(self):
+        config = read_db_config()
+        tazendra_config = read_tazendra_config()
+        cm = CorpusManager()
+        cm.load_from_wb_database(db_name=config["wb_database"]["db_name"], db_user=config["wb_database"]["db_user"],
+                                 db_password=config["wb_database"]["db_password"],
+                                 db_host=config["wb_database"]["db_host"],
+                                 tazendra_ssh_user=tazendra_config["ssh"]["ssh_user"],
+                                 tazendra_ssh_passwd=tazendra_config["ssh"]["ssh_password"],
+                                 paper_ids=['00059375'])
+        fulltext = cm.get_paper('00059375').get_text_docs(remove_sections=[PaperSections.REFERENCES],
+                                                          must_be_present=[PaperSections.METHOD, PaperSections.RESULTS])
+        self.assertTrue(fulltext)
+
+
 
     def test_get_documents_from_text(self):
         docs = get_documents_from_text(list(self.cm.corpus.values())[0].main_text)

@@ -24,7 +24,7 @@ class PaperSections(str, Enum):
 
 
 PAPER_SECTIONS = {
-    PaperSections.INTRODUCTION: [["introduction"], ["the", "section"], ["section"], 0.2],
+    PaperSections.INTRODUCTION: [["introduction", "summary"], ["the", "section"], ["section"], 0.2],
     PaperSections.METHOD: [["method", "methods"], ["section"], ["section"], 0.3],
     PaperSections.RELATED_WORK: [["related work", "related works"], ["the", "previous", "section"], ["section"], 0.3],
     PaperSections.RESULTS: [["results"], ["section"], ["section"], 0.5],

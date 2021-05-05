@@ -31,7 +31,7 @@ def remove_sections_from_text(text: str, sections_to_remove: List[PaperSections]
                                       string_to_match.upper() + ")" + post_match_regex
                 matches_idx = [match.start() for match in regex.finditer(section_match_regex, text)]
                 if matches_idx:
-                    # take the index closest to the expected position, if it's les than 50% off the expected position
+                    # take the index closest to the expected position, if it's less than 50% off the expected position
                     idx_sorted = sorted([(match_id, match_id / len(text) - expected_position) for match_id in
                                          matches_idx if match_id / len(text) - expected_position < 0.5],
                                         key=lambda x: abs(x[1]))
