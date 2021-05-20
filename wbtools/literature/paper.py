@@ -13,7 +13,6 @@ from fabric.connection import Connection
 from wbtools.db.afp import WBAFPDBManager
 from wbtools.db.paper import WBPaperDBManager
 from wbtools.db.person import WBPersonDBManager
-from wbtools.lib.nlp.common import EntityType, EntityExtractionType, ExtractedEntity
 from wbtools.lib.nlp.entity_extraction.email_addresses import get_email_addresses_from_text
 from wbtools.lib.nlp.text_preprocessing import preprocess, get_documents_from_text, PaperSections
 from wbtools.lib.timeout import timeout
@@ -24,14 +23,12 @@ logger = logging.getLogger(__name__)
 logging.getLogger("pdfminer").setLevel(logging.WARNING)
 
 
-TAZENDRA_SSH_HOST = "tazendra.caltech.edu"
-
-
 class PaperFileReader(object):
 
-    def __init__(self, tazendra_ssh_user: str = '', tazendra_ssh_passwd: str = ''):
-        self.tazendra_ssh_user = tazendra_ssh_user
-        self.tazendra_ssh_passwd = tazendra_ssh_passwd
+    def __init__(self, ssh_host: str = '', ssh_user: str = '', ssh_passwd: str = ''):
+        self.ssh_host = ssh_host
+        self.ssh_user = ssh_user
+        self.ssh_passwd = ssh_passwd
 
     @staticmethod
     @timeout(3600)
@@ -44,8 +41,8 @@ class PaperFileReader(object):
             return ""
 
     def get_supplemental_file_names(self, supp_dir_path):
-        with Connection(TAZENDRA_SSH_HOST, self.tazendra_ssh_user,
-                        connect_kwargs={"password": self.tazendra_ssh_passwd}) as c, c.sftp() as sftp:
+        with Connection(self.ssh_host, self.ssh_user,
+                        connect_kwargs={"password": self.ssh_passwd}) as c, c.sftp() as sftp:
             try:
                 return [filename for filename in sftp.listdir(supp_dir_path) if filename.endswith(".pdf")]
             except UnicodeDecodeError:
@@ -54,7 +51,7 @@ class PaperFileReader(object):
 
     def download_paper_and_extract_txt(self, file_url, pdf: bool = False):
         try:
-            with Connection(TAZENDRA_SSH_HOST, self.tazendra_ssh_user, connect_kwargs={"password": self.tazendra_ssh_passwd}) as \
+            with Connection(self.ssh_host, self.ssh_user, connect_kwargs={"password": self.ssh_passwd}) as \
                     c, c.sftp() as sftp, sftp.open(file_url) as file_stream:
                 tmp_file = tempfile.NamedTemporaryFile()
                 with open(tmp_file.name, 'wb') as tmp_file_stream:
@@ -88,7 +85,8 @@ class WBPaper(object):
 
     def __init__(self, paper_id: str = '', main_text: str = '', ocr_text: str = '', temp_text: str = '',
                  aut_text: str = '', html_text: str = '', proof_text: str = '', supplemental_docs: list = None,
-                 tazendra_ssh_user: str = '', tazendra_ssh_passwd: str = '', title: str = '', journal: str = '',
+                 ssh_host: str = 'tazendra.caltech.edu', ssh_user: str = '', ssh_passwd: str = '', title: str = '',
+                 journal: str = '',
                  pub_date: str = '', authors: List[WBAuthor] = None, abstract: str = '', doi: str = '', pmid: str = '',
                  db_manager: WBPaperDBManager = None):
         self.paper_id = paper_id
@@ -107,8 +105,7 @@ class WBPaper(object):
         self.proof_text = proof_text
         self.supplemental_docs = supplemental_docs if supplemental_docs else []
         self.aut_class_values = defaultdict(str)
-        self.paper_file_reader = PaperFileReader(tazendra_ssh_user=tazendra_ssh_user,
-                                                 tazendra_ssh_passwd=tazendra_ssh_passwd)
+        self.paper_file_reader = PaperFileReader(ssh_host=ssh_host, ssh_user=ssh_user, ssh_passwd=ssh_passwd)
         self.afp_final_submission = False
         self.afp_processed = False
         self.afp_partial_submission = False

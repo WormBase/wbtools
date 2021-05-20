@@ -58,7 +58,8 @@ class CorpusManager(object):
                 paper.add_file(dir_path=dir_path, filename=f, remote_file=False, pdf=False)
 
     def load_from_wb_database(self, db_name: str, db_user: str, db_password: str, db_host: str,
-                              tazendra_ssh_user: str = None, tazendra_ssh_passwd: str = None, paper_ids: list = None,
+                              ssh_host: str = 'tazendra.caltech.edu', ssh_user: str = None, ssh_passwd: str = None,
+                              paper_ids: list = None,
                               from_date: str = None, load_pdf_files: bool = True, load_bib_info: bool = True,
                               load_curation_info: bool = True, load_afp_info: bool = False, max_num_papers: int = None,
                               exclude_ids: List[str] = None, must_be_autclass_flagged: bool = False,
@@ -73,8 +74,9 @@ class CorpusManager(object):
             db_user (str): database user
             db_password (str): database password
             db_host (str): database host
-            tazendra_ssh_user (str): ssh user to fetch pdf files
-            tazendra_ssh_passwd (str): ssh password to fetch pdf files
+            ssh_host (str): host where to fetch the files via ssh
+            ssh_user (str): ssh user to fetch pdf files
+            ssh_passwd (str): ssh password to fetch pdf files
             paper_ids (list): optional list of paper ids to be fetched
             from_date (str): load papers added or modified from the specified date (only if paper_ids is not provided)
             load_pdf_files (bool): load pdf files using ssh credentials
@@ -116,8 +118,8 @@ class CorpusManager(object):
             exclude_no_author_email else []
 
         for paper_id in paper_ids:
-            paper = WBPaper(paper_id=paper_id, tazendra_ssh_user=tazendra_ssh_user,
-                            tazendra_ssh_passwd=tazendra_ssh_passwd, db_manager=main_db_manager.paper)
+            paper = WBPaper(paper_id=paper_id, ssh_host=ssh_host, ssh_user=ssh_user,
+                            ssh_passwd=ssh_passwd, db_manager=main_db_manager.paper)
             if exclude_afp_processed and paper_id in afp_processed_ids:
                 logger.info("Skipping paper already processed by AFP")
                 continue
