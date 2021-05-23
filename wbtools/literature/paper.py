@@ -219,8 +219,9 @@ class WBPaper(object):
             file_paths = self.db_manager.get_file_paths(self.paper_id)
             for file_path in file_paths:
                 filename = file_path.split("/")[-1]
-                dir_path = file_path.rstrip(filename)
-                self.add_file(dir_path=dir_path, filename=filename, remote_file=True, pdf=True)
+                if filename.lower().endswith(".pdf"):
+                    dir_path = file_path.rstrip(filename)
+                    self.add_file(dir_path=dir_path, filename=filename, remote_file=True, pdf=True)
         else:
             raise Exception("PaperDBManager not set")
 
