@@ -18,7 +18,7 @@ from wbtools.literature.corpus import CorpusManager
 paper_id = "000050564"
 cm = CorpusManager()
 cm.load_from_wb_database(db_name="wb_dbname", db_user="wb_dbuser", db_password="wb_dbpasswd", db_host="wb_dbhost",
-                         paper_ids=[paper_id])
+                         paper_ids=[paper_id], ssh_host="ssh_host", ssh_user="ssh_user", ssh_passwd="ssh_passwd")
 sentences = cm.get_paper(paper_id).get_text_docs(split_sentences=True)
 ```
 
@@ -30,7 +30,8 @@ import datetime
 
 cm = CorpusManager()
 cm.load_from_wb_database(db_name="wb_dbname", db_user="wb_dbuser", db_password="wb_dbpasswd", db_host="wb_dbhost",
-                         from_date=datetime.datetime.now(), max_num_papers=50)
+                         from_date=datetime.datetime.now(), max_num_papers=50, ssh_host="ssh_host", ssh_user="ssh_user", 
+                         ssh_passwd="ssh_passwd")
 paper_ids = [paper.paper_id for paper in cm.get_all_papers()]
 ```
 
@@ -42,7 +43,8 @@ import datetime
 
 cm = CorpusManager()
 cm.load_from_wb_database(db_name="wb_dbname", db_user="wb_dbuser", db_password="wb_dbpasswd", db_host="wb_dbhost",
-                         from_date=datetime.datetime.now(), max_num_papers=50, exclude_not_autclass_flagged=True,
-                         exclude_pap_types=['Review'], exclude_temp_pdf=True)
+                         from_date=datetime.datetime.now(), max_num_papers=50, must_be_autclass_flagged=True,
+                         exclude_pap_types=['Review'], exclude_temp_pdf=True, ssh_host="ssh_host", ssh_user="ssh_user", 
+                         ssh_passwd="ssh_passwd")
 paper_ids = [paper.paper_id for paper in cm.get_all_papers()]
 ```
