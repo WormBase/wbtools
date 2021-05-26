@@ -15,7 +15,7 @@ database. The package also exposes text mining functions on papers' fulltext.
 ```python
 from wbtools.literature.corpus import CorpusManager
 
-paper_id = "000050564"
+paper_id = "00050564"
 cm = CorpusManager()
 cm.load_from_wb_database(db_name="wb_dbname", db_user="wb_dbuser", db_password="wb_dbpasswd", db_host="wb_dbhost",
                          paper_ids=[paper_id], ssh_host="ssh_host", ssh_user="ssh_user", ssh_passwd="ssh_passwd")
