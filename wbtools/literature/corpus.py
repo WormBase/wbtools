@@ -95,68 +95,69 @@ class CorpusManager(object):
             exclude_no_author_email (bool): whether to exclude papers without any contact email in WB
         """
         main_db_manager = WBDBManager(db_name, db_user, db_password, db_host)
-        if not paper_ids:
-            paper_ids = main_db_manager.generic.get_all_paper_ids(added_or_modified_after=from_date,
-                                                                  exclude_ids=exclude_ids)
-        if pap_types:
-            ids_to_include = set(main_db_manager.generic.get_paper_ids_with_pap_types(pap_types))
-            paper_ids = [paper_id for paper_id in paper_ids if paper_id in ids_to_include]
-        if exclude_pap_types:
-            ids_to_exclude = set(main_db_manager.generic.get_paper_ids_with_pap_types(exclude_pap_types))
-            paper_ids = [paper_id for paper_id in paper_ids if paper_id not in ids_to_exclude]
-        if load_afp_info or exclude_afp_processed:
-            afp_no_submission_ids = main_db_manager.afp.get_paper_ids_afp_no_submission()
-            afp_full_submission_ids = main_db_manager.afp.get_paper_ids_afp_full_submission()
-            afp_partial_submission_ids = main_db_manager.afp.get_paper_ids_afp_partial_submission()
-        else:
-            afp_no_submission_ids = []
-            afp_full_submission_ids = []
-            afp_partial_submission_ids = []
-        afp_processed_ids = set(afp_no_submission_ids) | set(afp_partial_submission_ids) | set(afp_full_submission_ids)
-        afp_curatable = set(main_db_manager.afp.get_afp_curatable_paper_ids() if exclude_afp_not_curatable else [])
-        blacklisted_email_addresses = main_db_manager.generic.get_blacklisted_email_addresses() if \
-            exclude_no_author_email else []
+        with main_db_manager.generic, main_db_manager.afp, main_db_manager.paper:
+            if not paper_ids:
+                paper_ids = main_db_manager.generic.get_all_paper_ids(added_or_modified_after=from_date,
+                                                                      exclude_ids=exclude_ids)
+            if pap_types:
+                ids_to_include = set(main_db_manager.generic.get_paper_ids_with_pap_types(pap_types))
+                paper_ids = [paper_id for paper_id in paper_ids if paper_id in ids_to_include]
+            if exclude_pap_types:
+                ids_to_exclude = set(main_db_manager.generic.get_paper_ids_with_pap_types(exclude_pap_types))
+                paper_ids = [paper_id for paper_id in paper_ids if paper_id not in ids_to_exclude]
+            if load_afp_info or exclude_afp_processed:
+                afp_no_submission_ids = main_db_manager.afp.get_paper_ids_afp_no_submission()
+                afp_full_submission_ids = main_db_manager.afp.get_paper_ids_afp_full_submission()
+                afp_partial_submission_ids = main_db_manager.afp.get_paper_ids_afp_partial_submission()
+            else:
+                afp_no_submission_ids = []
+                afp_full_submission_ids = []
+                afp_partial_submission_ids = []
+            afp_processed_ids = set(afp_no_submission_ids) | set(afp_partial_submission_ids) | set(afp_full_submission_ids)
+            afp_curatable = set(main_db_manager.afp.get_afp_curatable_paper_ids() if exclude_afp_not_curatable else [])
+            blacklisted_email_addresses = main_db_manager.generic.get_blacklisted_email_addresses() if \
+                exclude_no_author_email else []
 
-        for paper_id in paper_ids:
-            paper = WBPaper(paper_id=paper_id, ssh_host=ssh_host, ssh_user=ssh_user,
-                            ssh_passwd=ssh_passwd, db_manager=main_db_manager.paper)
-            if exclude_afp_processed and paper_id in afp_processed_ids:
-                logger.info("Skipping paper already processed by AFP")
-                continue
-            if exclude_afp_not_curatable and paper_id not in afp_curatable:
-                logger.info("Skipping paper not AFP curatable")
-                continue
-            if load_curation_info:
-                logger.info("Loading curation info for paper")
-                paper.load_curation_info_from_db()
-                if must_be_autclass_flagged and not paper.aut_class_values:
-                    logger.info("Skipping paper without automated classification")
+            for paper_id in paper_ids:
+                paper = WBPaper(paper_id=paper_id, ssh_host=ssh_host, ssh_user=ssh_user,
+                                ssh_passwd=ssh_passwd, db_manager=main_db_manager.paper)
+                if exclude_afp_processed and paper_id in afp_processed_ids:
+                    logger.info("Skipping paper already processed by AFP")
                     continue
-            if load_pdf_files:
-                logger.info("Loading text from PDF files for paper")
-                paper.load_text_from_pdf_files_in_db()
-                if exclude_temp_pdf and paper.is_temp():
-                    logger.info("Skipping proof paper")
+                if exclude_afp_not_curatable and paper_id not in afp_curatable:
+                    logger.info("Skipping paper not AFP curatable")
                     continue
-                if exclude_no_main_text and not paper.has_main_text():
-                    logger.info("Skipping paper without main text")
-                    continue
-            if load_bib_info:
-                logger.info("Loading bib info for paper")
-                paper.load_bib_info_from_db()
-                if exclude_no_author_email and not paper.get_first_author_with_email_address_in_wb(
-                        blacklisted_email_addresses=blacklisted_email_addresses):
-                    logger.info("Skipping paper without any email address in text with records in WB")
-                    continue
-            if load_afp_info:
-                logger.info("Loading AFP info for paper")
-                paper.load_afp_info_from_db(paper_ids_no_submission=afp_no_submission_ids,
-                                            paper_ids_full_submission=afp_full_submission_ids,
-                                            paper_ids_partial_submission=afp_partial_submission_ids)
-            self.add_or_update_wb_paper(paper)
-            logger.info("Paper " + paper_id + " added to corpus. Corpus size: " + str(self.size()))
-            if max_num_papers and self.size() >= max_num_papers:
-                break
+                if load_curation_info:
+                    logger.info("Loading curation info for paper")
+                    paper.load_curation_info_from_db()
+                    if must_be_autclass_flagged and not paper.aut_class_values:
+                        logger.info("Skipping paper without automated classification")
+                        continue
+                if load_pdf_files:
+                    logger.info("Loading text from PDF files for paper")
+                    paper.load_text_from_pdf_files_in_db()
+                    if exclude_temp_pdf and paper.is_temp():
+                        logger.info("Skipping proof paper")
+                        continue
+                    if exclude_no_main_text and not paper.has_main_text():
+                        logger.info("Skipping paper without main text")
+                        continue
+                if load_bib_info:
+                    logger.info("Loading bib info for paper")
+                    paper.load_bib_info_from_db()
+                    if exclude_no_author_email and not paper.get_first_author_with_email_address_in_wb(
+                            blacklisted_email_addresses=blacklisted_email_addresses):
+                        logger.info("Skipping paper without any email address in text with records in WB")
+                        continue
+                if load_afp_info:
+                    logger.info("Loading AFP info for paper")
+                    paper.load_afp_info_from_db(paper_ids_no_submission=afp_no_submission_ids,
+                                                paper_ids_full_submission=afp_full_submission_ids,
+                                                paper_ids_partial_submission=afp_partial_submission_ids)
+                self.add_or_update_wb_paper(paper)
+                logger.info("Paper " + paper_id + " added to corpus. Corpus size: " + str(self.size()))
+                if max_num_papers and self.size() >= max_num_papers:
+                    break
 
     def size(self) -> int:
         """number of papers in the corpus manager

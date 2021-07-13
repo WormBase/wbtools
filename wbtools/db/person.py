@@ -10,7 +10,7 @@ class WBPersonDBManager(AbstractWBDBManager):
         super().__init__(dbname, user, password, host)
 
     def get_person_id_from_email_address(self, email_address):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("SELECT * FROM two_email WHERE two_email=%s", (email_address, ))
             res = curs.fetchone()
             if res:
@@ -83,7 +83,7 @@ class WBPersonDBManager(AbstractWBDBManager):
         return self._get_single_field(person_id, "two_officephone")
 
     def get_old_emails(self, person_id):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("SELECT two_old_email FROM two_old_email WHERE joinkey=%s", (person_id, ))
             res = curs.fetchall()
             return [row[0] for row in res]
@@ -93,6 +93,25 @@ class WBPersonDBManager(AbstractWBDBManager):
 
     def get_contact_data(self, person_id):
         return self._get_single_field(person_id, "two_contactdata")
+
+    def get_fullname_from_personid(self, person_id):
+        with self.get_cursor() as curs:
+            fullname_arr = []
+            curs.execute("SELECT * FROM two_firstname WHERE joinkey='{}' ORDER BY two_order".format(person_id))
+            res = curs.fetchall()
+            if res:
+                fullname_arr.append(" ".join([col[2] for col in res]))
+            curs.execute("SELECT * FROM two_middlename WHERE joinkey='{}' ORDER BY two_order".format(person_id))
+            res = curs.fetchall()
+            if res:
+                fullname_arr.append(" ".join([col[2] for col in res]))
+            curs.execute("SELECT * FROM two_lastname WHERE joinkey='{}' ORDER BY two_order".format(person_id))
+            res = curs.fetchall()
+            if res:
+                fullname_arr.append(" ".join([col[2] for col in res]))
+            if not fullname_arr:
+                fullname_arr = ["Unknown user"]
+            return " ".join(fullname_arr)
 
     def get_person(self, person_id) -> WBPerson:
         person = WBPerson()

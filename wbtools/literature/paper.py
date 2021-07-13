@@ -109,6 +109,7 @@ class WBPaper(object):
         self.afp_final_submission = False
         self.afp_processed = False
         self.afp_partial_submission = False
+        self.afp_contact_emails = []
         self.db_manager = db_manager
 
     def get_corresponding_author(self) -> Union[WBAuthor, None]:
@@ -240,7 +241,6 @@ class WBPaper(object):
             self.abstract = self.db_manager.get_paper_abstract(self.paper_id)
             self.title = self.db_manager.get_paper_title(self.paper_id)
             self.journal = self.db_manager.get_paper_journal(self.paper_id)
-            self.abstract = self.db_manager.get_paper_abstract(self.paper_id)
             self.pub_date = self.db_manager.get_paper_pub_date(self.paper_id)
             self.authors = self.db_manager.get_paper_authors(self.paper_id)
             self.doi = self.db_manager.get_doi(self.paper_id)
@@ -252,21 +252,23 @@ class WBPaper(object):
                               paper_ids_full_submission: List[str] = None,
                               paper_ids_partial_submission: List[str] = None):
         """load AFP data from WormBase database"""
+        if self.db_manager:
+            afp_db_manager = self.db_manager.get_db_manager(cls=WBAFPDBManager)
+        else:
+            raise Exception("PaperDBManager not set")
         if not paper_ids_no_submission or not paper_ids_full_submission or not paper_ids_partial_submission:
-            if self.db_manager:
-                afp_db_manager = self.db_manager.get_db_manager(cls=WBAFPDBManager)
-                if not paper_ids_no_submission:
-                    paper_ids_no_submission = afp_db_manager.get_paper_ids_afp_no_submission()
-                if not paper_ids_full_submission:
-                    paper_ids_full_submission = afp_db_manager.get_paper_ids_afp_full_submission()
-                if not paper_ids_partial_submission:
-                    paper_ids_partial_submission = afp_db_manager.get_paper_ids_afp_partial_submission()
-            else:
-                raise Exception("PaperDBManager not set")
+            afp_db_manager = self.db_manager.get_db_manager(cls=WBAFPDBManager)
+            if not paper_ids_no_submission:
+                paper_ids_no_submission = afp_db_manager.get_paper_ids_afp_no_submission()
+            if not paper_ids_full_submission:
+                paper_ids_full_submission = afp_db_manager.get_paper_ids_afp_full_submission()
+            if not paper_ids_partial_submission:
+                paper_ids_partial_submission = afp_db_manager.get_paper_ids_afp_partial_submission()
         self.afp_processed = self.paper_id in (set(paper_ids_no_submission) | set(paper_ids_full_submission) |
                                                set(paper_ids_full_submission))
         self.afp_partial_submission = self.paper_id in paper_ids_partial_submission
         self.afp_final_submission = self.paper_id in paper_ids_full_submission
+        self.afp_contact_emails = afp_db_manager.get_contact_emails(paper_id=self.paper_id)
 
     def has_same_wbpaper_id_as_filename(self, filename):
         return self._get_matches_from_filename(filename)[0] == self.paper_id

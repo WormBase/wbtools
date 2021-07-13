@@ -51,10 +51,12 @@ class TestWBPaper(unittest.TestCase):
                                                      "local_config", "db.cfg")), "Test DB config file not present")
     def test_load_bib_info_from_db(self):
         config = read_db_config()
-        paper = WBPaper(paper_id="00004161", db_manager=WBPaperDBManager(
+        db_manager = WBPaperDBManager(
             dbname=config["wb_database"]["db_name"], user=config["wb_database"]["db_user"],
-            password=config["wb_database"]["db_password"], host=config["wb_database"]["db_host"]))
-        paper.load_bib_info_from_db()
+            password=config["wb_database"]["db_password"], host=config["wb_database"]["db_host"])
+        paper = WBPaper(paper_id="00004161", db_manager=db_manager)
+        with db_manager:
+            paper.load_bib_info_from_db()
         self.assertGreater(len(paper.authors), 0)
 
     def test_extract_all_email_addresses_from_text(self):

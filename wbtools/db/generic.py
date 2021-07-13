@@ -19,7 +19,7 @@ class WBGenericDBManager(AbstractWBDBManager):
     def get_all_paper_ids(self, added_or_modified_after: str = '1970-01-01', exclude_ids: List[str] = None):
         if not added_or_modified_after:
             added_or_modified_after = '1970-01-01'
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("SELECT DISTINCT joinkey, pap_timestamp from pap_electronic_path WHERE pap_timestamp > %s "
                          "ORDER BY pap_timestamp DESC",
                          (added_or_modified_after, ))
@@ -34,7 +34,7 @@ class WBGenericDBManager(AbstractWBDBManager):
             return sorted(list(set(paper_id_maxtime.keys())), reverse=True, key=lambda x: paper_id_maxtime[x])
 
     def get_paper_ids_with_pap_types(self, pap_types: List[str]):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("SELECT DISTINCT pap_type.joinkey from pap_type join pap_type_index "
                          "ON pap_type.pap_type = pap_type_index.joinkey WHERE pap_type_index.pap_type_index IN %s ",
                          (tuple(pap_types),))
@@ -42,7 +42,7 @@ class WBGenericDBManager(AbstractWBDBManager):
             return [row[0] for row in res] if res else []
 
     def get_curated_variations(self, exclude_id_used_as_name: bool = False):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("SELECT * FROM obo_data_variation WHERE obo_data_variation ~ 'name' AND "
                          "obo_data_variation ~ 'gene'")
             res = curs.fetchall()
@@ -59,27 +59,27 @@ class WBGenericDBManager(AbstractWBDBManager):
             return variations
 
     def get_variation_name_id_map(self):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("SELECT * FROM obo_name_variation WHERE joinkey != ''")
             rows = curs.fetchall()
             return {row[1]: row[0] for row in rows}
 
     def get_curated_strains(self, exclude_id_used_as_name: bool = False):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("SELECT obo_name_strain FROM obo_name_strain")
             res = curs.fetchall()
             return sorted(list(set([row[0] for row in res if not exclude_id_used_as_name or not
                                     row[0].startswith("WBStrain")])))
 
     def get_strain_name_id_map(self):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("SELECT * FROM obo_name_strain where joinkey != ''")
             res = curs.fetchall()
             return {row[1]: row[0] for row in res}
 
     def get_curated_genes(self, exclude_id_used_as_name: bool = False, include_seqname: bool = True,
                           include_synonyms: bool = True):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             genes_names = set()
             curs.execute("SELECT * FROM gin_locus WHERE joinkey != ''")
             genes_names.update([row[1] for row in curs.fetchall()])
@@ -96,7 +96,7 @@ class WBGenericDBManager(AbstractWBDBManager):
                                     not gene_name.startswith("WBGene")])))
 
     def get_gene_name_id_map(self):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             gene_name_id_map = {}
             curs.execute("SELECT * FROM gin_locus WHERE joinkey != ''")
             for row in curs.fetchall():
@@ -116,7 +116,7 @@ class WBGenericDBManager(AbstractWBDBManager):
             return gene_name_id_map
 
     def get_curated_transgenes(self, exclude_id_used_as_name: bool = False, exclude_invalid: bool = True):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             invalid_ids = set()
             if exclude_invalid:
                 curs.execute("select joinkey from trp_objpap_falsepos where trp_objpap_falsepos = 'Fail'")
@@ -127,7 +127,7 @@ class WBGenericDBManager(AbstractWBDBManager):
                                     (not exclude_id_used_as_name or not row[1].startswith("WBTransgene"))])))
 
     def get_transgene_name_id_map(self):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             transgene_name_id_map = {}
             curs.execute("SELECT trp_name.trp_name, trp_synonym.trp_synonym "
                          "FROM trp_name, trp_synonym "
@@ -142,7 +142,7 @@ class WBGenericDBManager(AbstractWBDBManager):
             return transgene_name_id_map
 
     def get_taxon_id_names_map(self):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("SELECT * FROM pap_species_index")
             rows = curs.fetchall()
             taxon_id_name_map = {row[0]: [row[1]] for row in rows}
@@ -154,7 +154,7 @@ class WBGenericDBManager(AbstractWBDBManager):
             return taxon_id_name_map
 
     def get_paper_ids_with_email_addresses_extracted(self):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("SELECT DISTINCT joinkey from pdf_email")
             res = curs.fetchall()
             return [row[0] for row in res] if res else []
@@ -172,13 +172,13 @@ class WBGenericDBManager(AbstractWBDBManager):
             return []
 
     def get_allele_designations(self):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("SELECT DISTINCT lab_alleledesignation from lab_alleledesignation")
             res = curs.fetchall()
             return [row[0] for row in res] if res else []
 
     def get_strain_designations(self):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("SELECT DISTINCT lab_straindesignation from lab_straindesignation")
             res = curs.fetchall()
             return [row[0] for row in res] if res else []
@@ -193,7 +193,7 @@ class WBGenericDBManager(AbstractWBDBManager):
                       must_be_positive_manual_flag_data_types: List[str] = None,
                       must_be_curation_negative_data_types: List[str] = None,
                       combine_filters: str = 'OR', count: bool = False, limit: int = None, offset: int = None):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute(query)
             res = curs.fetchall()
             paper_ids = list(set([row[0] for row in res]))
@@ -213,7 +213,7 @@ class WBGenericDBManager(AbstractWBDBManager):
                     else sorted(paper_ids, reverse=True)
 
     def get_paper_ids_flagged_positive_autclass(self, data_types: List[str], combine_fitlers: str = 'OR'):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("SELECT cur_paper, cur_datatype FROM cur_blackbox "
                          "WHERE cur_datatype IN %s AND UPPER(cur_blackbox) IN ('HIGH', 'MEDIUM')",
                          (tuple(data_types),))
@@ -226,7 +226,7 @@ class WBGenericDBManager(AbstractWBDBManager):
                 return [row[0] for row in curs.fetchall()]
 
     def get_paper_ids_flagged_positive_manual(self, data_types: List[str], combine_filters: str = 'OR'):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("SELECT afp_email.joinkey FROM afp_email " + " ".join(
                 ["JOIN afp_" + table_name + " ON afp_email.joinkey = afp_" + table_name + ".joinkey " for table_name in
                  data_types]) + " WHERE " + (combine_filters + " ").join(["afp_" + data_type + " <> ''" for
@@ -234,7 +234,7 @@ class WBGenericDBManager(AbstractWBDBManager):
             return [row[0] for row in curs.fetchall()]
 
     def get_blacklisted_email_addresses(self):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("select frm_email_skip from frm_email_skip")
             res = curs.fetchall()
             if res:

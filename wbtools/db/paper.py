@@ -23,7 +23,7 @@ class WBPaperDBManager(AbstractWBDBManager):
         return self._get_single_field(join_key=paper_id, field_name="pap_journal")
 
     def get_paper_pub_date(self, paper_id):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute(
                 "SELECT pap_year, pap_month, pap_day FROM pap_year JOIN pap_month ON "
                 "pap_year.joinkey = pap_month.joinkey JOIN pap_day ON pap_year.joinkey = pap_day.joinkey "
@@ -33,32 +33,33 @@ class WBPaperDBManager(AbstractWBDBManager):
 
     def get_paper_authors(self, paper_id) -> List[WBAuthor]:
         authors = []
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute(
                 "SELECT pap_author FROM pap_author "
                 "WHERE joinkey = %s", (paper_id,))
             res = curs.fetchall()
             authors_ids = [row[0] for row in res]
-            for author_id in authors_ids:
-                curs.execute("SELECT pap_author_possible, pap_author_verified LIKE 'YES%%' "
-                             "FROM pap_author_possible LEFT OUTER JOIN pap_author_verified ON "
-                             "pap_author_possible.author_id = pap_author_verified.author_id and "
-                             "pap_author_possible.pap_join = pap_author_verified.pap_join "
-                             "WHERE pap_author_possible.author_id = %s",
-                             (author_id,))
-                res = curs.fetchone()
-                if res:
-                    curs.execute("SELECT count(*) from pap_author_corresponding WHERE author_id = %s", (author_id,))
-                    is_corresponding = curs.fetchone()[0] == 1
-                    person = self.person_db_manager.get_person(person_id=res[0])
-                    author = WBAuthor.from_person(person)
-                    author.verified = res[1]
-                    author.corresponding = is_corresponding
-                    authors.append(author)
+            with self.person_db_manager:
+                for author_id in authors_ids:
+                    curs.execute("SELECT pap_author_possible, pap_author_verified LIKE 'YES%%' "
+                                 "FROM pap_author_possible LEFT OUTER JOIN pap_author_verified ON "
+                                 "pap_author_possible.author_id = pap_author_verified.author_id and "
+                                 "pap_author_possible.pap_join = pap_author_verified.pap_join "
+                                 "WHERE pap_author_possible.author_id = %s",
+                                 (author_id,))
+                    res = curs.fetchone()
+                    if res:
+                        curs.execute("SELECT count(*) from pap_author_corresponding WHERE author_id = %s", (author_id,))
+                        is_corresponding = curs.fetchone()[0] == 1
+                        person = self.person_db_manager.get_person(person_id=res[0])
+                        author = WBAuthor.from_person(person)
+                        author.verified = res[1]
+                        author.corresponding = is_corresponding
+                        authors.append(author)
         return authors
 
     def get_pmid(self, paper_id):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute(
                 "SELECT * FROM pap_identifier WHERE joinkey = %s AND pap_identifier LIKE 'pmid%%'", (paper_id, ))
             res = curs.fetchone()
@@ -68,7 +69,7 @@ class WBPaperDBManager(AbstractWBDBManager):
                 return None
 
     def get_doi(self, paper_id):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute(
                 "SELECT * FROM pap_identifier WHERE joinkey = %s AND pap_identifier LIKE 'doi%%'", (paper_id,))
             res = curs.fetchone()
@@ -78,7 +79,7 @@ class WBPaperDBManager(AbstractWBDBManager):
                 return None
 
     def get_corresponding_emails(self, paper_id):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("SELECT two_email.two_email "
                          "FROM pap_author_corresponding "
                          "JOIN pap_author_possible "
@@ -99,7 +100,7 @@ class WBPaperDBManager(AbstractWBDBManager):
             Union[str, None]: the value associated to the classification ('low', 'medium', or 'high') or None if the
                               paper has not been classified yet
         """
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("SELECT cur_datatype, cur_blackbox from cur_blackbox WHERE cur_paper = %s", (paper_id,))
             res = curs.fetchall()
             return [(row[0], row[1]) for row in res]
@@ -113,14 +114,14 @@ class WBPaperDBManager(AbstractWBDBManager):
         Returns:
             list[str]: a list of electronic paths to the files
         """
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("SELECT pap_electronic_path FROM pap_electronic_path WHERE joinkey = %s ORDER BY joinkey",
                          (paper_id, ))
             rows = curs.fetchall()
             return [row[0] for row in rows] if rows else []
 
     def write_email_addresses_extracted_from_paper(self, paper_id: str, email_addresses: List[str]):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("INSERT INTO pdf_email (joinkey, pdf_email) VALUES (%s, %s)", (paper_id,
                                                                                         ", ".join(email_addresses)))
 
@@ -133,7 +134,7 @@ class WBPaperDBManager(AbstractWBDBManager):
         Returns:
             bool: whether the antibody value has been set for this paper
         """
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("SELECT * FROM cur_strdata WHERE cur_paper = '{}'".format(paper_id))
             res = curs.fetchone()
             if res:

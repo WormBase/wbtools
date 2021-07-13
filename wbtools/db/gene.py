@@ -19,15 +19,15 @@ class WBGeneDBManager(AbstractWBDBManager):
         return locus
 
     def get_all_gene_names(self):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("SELECT joinkey, gin_locus from gin_locus")
             res = curs.fetchall()
             gene_locus = {row[0]: row[1] for row in res}
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("SELECT joinkey, gin_seqname from gin_seqname")
             res = curs.fetchall()
             gene_seqname = {row[0]: row[1] for row in res}
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("SELECT joinkey, gin_dead from gin_dead")
             res = curs.fetchall()
             gene_dead = {row[0]: re.findall(row[1], "WBGene[0-9]+") for row in res}
@@ -36,7 +36,7 @@ class WBGeneDBManager(AbstractWBDBManager):
                 gene_id in gene_ids}
 
     def get_weighted_gene_interactions(self):
-        with psycopg2.connect(self.connection_str) as conn, conn.cursor() as curs:
+        with self.get_cursor() as curs:
             curs.execute("select least(int_genebait.int_genebait, translate(int_genetarget.int_genetarget,'\"','')), "
                          "greatest(int_genebait.int_genebait, translate(int_genetarget.int_genetarget,'\"','')), "
                          "count(*) from int_genebait JOIN int_genetarget "
