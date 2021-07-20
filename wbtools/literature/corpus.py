@@ -95,7 +95,7 @@ class CorpusManager(object):
             exclude_no_author_email (bool): whether to exclude papers without any contact email in WB
         """
         main_db_manager = WBDBManager(db_name, db_user, db_password, db_host)
-        with main_db_manager.generic, main_db_manager.afp, main_db_manager.paper:
+        with main_db_manager:
             if not paper_ids:
                 paper_ids = main_db_manager.generic.get_all_paper_ids(added_or_modified_after=from_date,
                                                                       exclude_ids=exclude_ids)
