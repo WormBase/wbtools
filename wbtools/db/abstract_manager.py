@@ -1,6 +1,7 @@
 import abc
+
 from contextlib import contextmanager
-from typing import Union
+from typing import Union, List, Dict
 
 import psycopg2
 
@@ -27,6 +28,7 @@ class AbstractWBDBManager(metaclass=abc.ABCMeta):
         self.curs = self.conn.cursor()
 
     def __exit__(self, exc_type, exc_val, exc_tb):
+        self.conn.commit()
         self.curs.close()
         self.conn.close()
 
@@ -45,7 +47,10 @@ class AbstractWBDBManager(metaclass=abc.ABCMeta):
                 self.conn.close()
 
     def get_db_manager(self, cls):
-        return cls(self.db_name, self.user, self.password, self.host)
+        new_dbmanager = cls(self.db_name, self.user, self.password, self.host)
+        new_dbmanager.conn = self.conn
+        new_dbmanager.curs = self.curs
+        return new_dbmanager
 
     def _get_single_field(self, join_key: str, field_name: str) -> Union[str, None]:
         """
@@ -63,3 +68,15 @@ class AbstractWBDBManager(metaclass=abc.ABCMeta):
                 field_name, field_name, table_prefix), (join_key,))
             res = curs.fetchone()
             return res[0] if res and res[0] != "NULL" and res[0] != "null" else None
+
+    def _get_single_field_multiple_keys(self, join_keys: List[str], field_name: str) -> Union[Dict[str, str], None]:
+        table_prefix = field_name.split("_")[0]
+        with self.get_cursor() as curs:
+            curs.execute("SELECT joinkey, {}, {}_timestamp FROM {} WHERE joinkey IN %s".format(
+                field_name, table_prefix, field_name), (tuple(join_keys),))
+            res = curs.fetchall()
+            val_maxtime = {}
+            for row in res:
+                if row[0] not in val_maxtime or row[2] > val_maxtime[row[0]][1]:
+                    val_maxtime[row[0]] = (row[1], row[2])
+            return {joinkey: val_time[0] for joinkey, val_time in val_maxtime.items()}
