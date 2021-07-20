@@ -1,8 +1,7 @@
 import logging
+import re
 from collections import defaultdict
 from typing import List
-
-import psycopg2
 
 from wbtools.db.abstract_manager import AbstractWBDBManager
 from wbtools.lib.nlp.common import EntityType, SPECIES_ALIASES
@@ -193,24 +192,39 @@ class WBGenericDBManager(AbstractWBDBManager):
                       must_be_positive_manual_flag_data_types: List[str] = None,
                       must_be_curation_negative_data_types: List[str] = None,
                       combine_filters: str = 'OR', count: bool = False, limit: int = None, offset: int = None):
+        if must_be_autclass_positive_data_types and len(must_be_autclass_positive_data_types) == 1 and \
+                must_be_autclass_positive_data_types[0] == '':
+            must_be_autclass_positive_data_types = None
+        if must_be_positive_manual_flag_data_types and len(must_be_positive_manual_flag_data_types) == 1 and \
+                must_be_positive_manual_flag_data_types[0] == '':
+            must_be_positive_manual_flag_data_types = None
+        if must_be_curation_negative_data_types and len(must_be_curation_negative_data_types) == 1 and \
+                must_be_curation_negative_data_types[0] == '':
+            must_be_curation_negative_data_types = None
         with self.get_cursor() as curs:
-            curs.execute(query)
-            res = curs.fetchall()
-            paper_ids = list(set([row[0] for row in res]))
-            if must_be_autclass_positive_data_types and must_be_autclass_positive_data_types[0]:
-                paper_ids = list(set(paper_ids) & set(self.get_paper_ids_flagged_positive_autclass(
-                    must_be_autclass_positive_data_types, combine_filters)))
-            if must_be_positive_manual_flag_data_types and must_be_positive_manual_flag_data_types[0]:
-                paper_ids = list(set(paper_ids) & set(self.get_paper_ids_flagged_positive_manual(
-                    must_be_positive_manual_flag_data_types, combine_filters)))
-            if must_be_curation_negative_data_types and must_be_curation_negative_data_types[0]:
-                paper_ids = list(set(paper_ids) - set([pap_id for datatype in must_be_curation_negative_data_types for
-                                                       pap_id in get_curated_papers(datatype)]))
-            if count:
-                return len(paper_ids)
+            if count and not must_be_autclass_positive_data_types and not must_be_positive_manual_flag_data_types and \
+                    not must_be_curation_negative_data_types:
+                curs.execute(re.sub(r"SELECT (.*) FROM (.*)", r"SELECT COUNT(\1) FROM \2", query))
+                res = curs.fetchone()
+                return res[0]
             else:
-                return sorted(paper_ids, reverse=True)[offset: offset + limit] if limit and offset and limit != offset \
-                    else sorted(paper_ids, reverse=True)
+                curs.execute(query)
+                res = curs.fetchall()
+                paper_ids = list(set([row[0] for row in res]))
+                if must_be_autclass_positive_data_types and must_be_autclass_positive_data_types[0]:
+                    paper_ids = list(set(paper_ids) & set(self.get_paper_ids_flagged_positive_autclass(
+                        must_be_autclass_positive_data_types, combine_filters)))
+                if must_be_positive_manual_flag_data_types and must_be_positive_manual_flag_data_types[0]:
+                    paper_ids = list(set(paper_ids) & set(self.get_paper_ids_flagged_positive_manual(
+                        must_be_positive_manual_flag_data_types, combine_filters)))
+                if must_be_curation_negative_data_types and must_be_curation_negative_data_types[0]:
+                    paper_ids = list(set(paper_ids) - set([pap_id for datatype in must_be_curation_negative_data_types
+                                                           for pap_id in get_curated_papers(datatype)]))
+                if count:
+                    return len(paper_ids)
+                else:
+                    return sorted(paper_ids, reverse=True)[offset: offset + limit] if \
+                        limit is not None and offset is not None and limit != offset else sorted(paper_ids, reverse=True)
 
     def get_paper_ids_flagged_positive_autclass(self, data_types: List[str], combine_fitlers: str = 'OR'):
         with self.get_cursor() as curs:
