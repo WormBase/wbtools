@@ -1,4 +1,4 @@
-from typing import Union, List
+from typing import Union, List, Tuple
 
 import psycopg2
 
@@ -18,6 +18,9 @@ class WBPaperDBManager(AbstractWBDBManager):
 
     def get_paper_title(self, paper_id):
         return self._get_single_field(join_key=paper_id, field_name="pap_title")
+
+    def get_papers_titles(self, paper_ids: List[str]):
+        return self._get_single_field_multiple_keys(join_keys=paper_ids, field_name="pap_title")
 
     def get_paper_journal(self, paper_id):
         return self._get_single_field(join_key=paper_id, field_name="pap_journal")
@@ -104,6 +107,12 @@ class WBPaperDBManager(AbstractWBDBManager):
             curs.execute("SELECT cur_datatype, cur_blackbox from cur_blackbox WHERE cur_paper = %s", (paper_id,))
             res = curs.fetchall()
             return [(row[0], row[1]) for row in res]
+
+    @staticmethod
+    def is_paper_positive_for_class(automated_classification_values: List[Tuple[str, str]], cl: str,
+                                    min_value: str = 'medium'):
+        scale = {"neg": 0, "low": 1, "medium": 2, "high": 3}
+        return scale[{cl: val for (cl, val) in automated_classification_values}[cl].lower()] >= scale[min_value]
 
     def get_file_paths(self, paper_id: str):
         """
