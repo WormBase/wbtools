@@ -1,5 +1,6 @@
 import time
 import urllib.parse
+from collections import defaultdict
 from datetime import datetime, timedelta
 from typing import List
 
@@ -222,7 +223,7 @@ class WBAFPDBManager(AbstractWBDBManager):
             doi = ''
         person_id = self.get_latest_contributor_id(paper_id)
         if not person_id:
-            afp_emails = self.get_afp_emails(paper_id)
+            afp_emails = self.get_contact_emails(paper_id)
             if afp_emails:
                 person_id = self.get_db_manager(cls=WBPersonDBManager).get_person_id_from_email_address(afp_emails[0])
         if person_id:
@@ -255,17 +256,19 @@ class WBAFPDBManager(AbstractWBDBManager):
     def set_contact_emails(self, publication_id, email_addr_list: List[str]):
         with self.get_cursor() as curs:
             curs.execute("DELETE FROM afp_email WHERE joinkey = '{}'".format(publication_id))
-            for email_addr in email_addr_list:
-                curs.execute(
-                    "INSERT INTO afp_email (joinkey, afp_email) VALUES('{}', '{}')".format(publication_id, email_addr))
-                curs.execute(
-                    "INSERT INTO afp_email_hst (joinkey, afp_email_hst) VALUES('{}', '{}')".format(publication_id,
-                                                                                                   email_addr))
+            curs.execute("INSERT INTO afp_email (joinkey, afp_email) VALUES('{}', '{}')".format(
+                publication_id, " | ".join(email_addr_list)))
+            curs.execute("INSERT INTO afp_email_hst (joinkey, afp_email_hst) VALUES('{}', '{}')".format(
+                publication_id, " | ".join(email_addr_list)))
 
     def get_contact_emails(self, paper_id):
         with self.get_cursor() as curs:
-            curs.execute("SELECT distinct afp_email FROM afp_email WHERE joinkey = '{}'".format(paper_id))
-            return [res[0] for res in curs.fetchall()]
+            curs.execute("SELECT afp_email FROM afp_email WHERE joinkey = '{}'".format(paper_id))
+            res = curs.fetchone()
+            if res:
+                return res[0].split(" | ")
+            else:
+                return []
 
     def set_submitted_gene_list(self, genes, paper_id):
         with self.get_cursor() as curs:
@@ -653,26 +656,25 @@ class WBAFPDBManager(AbstractWBDBManager):
 
     def get_num_unique_emailed_addresses(self):
         with self.get_cursor() as curs:
-            curs.execute("select count(distinct afp_email.afp_email) from afp_email WHERE joinkey IN "
+            curs.execute("select afp_email.afp_email from afp_email WHERE joinkey IN "
                          "(SELECT joinkey from afp_version WHERE afp_version.afp_version = '2')")
-            res = curs.fetchone()
-            if res:
-                return int(res[0])
-            else:
-                return 0
+            return len(list(set([email_addr for row in curs.fetchall() for email_addr in row[0].split(" | ")])))
 
     def get_emailed_authors_with_count(self, from_offset, count):
         with self.get_cursor() as curs:
-            curs.execute("select afp_email.afp_email, count(afp_email.afp_email) from "
+            curs.execute("select afp_email from "
                          "afp_email where joinkey in (select joinkey from afp_version where "
-                         "afp_version.afp_version = '2') "
-                         "group by afp_email.afp_email order by count(afp_email.afp_email) "
-                         "desc OFFSET {} LIMIT {}".format(from_offset, count))
-            res = curs.fetchall()
-            if res:
-                return [(row[0], row[1]) for row in res]
+                         "afp_version.afp_version = '2') ")
+            email_counter = defaultdict(int)
+            for pap_email_addresses in curs.fetchall():
+                for email_addr in pap_email_addresses[0].split(" | "):
+                    email_counter[email_addr] += 1
+            ret_list = sorted([(email_addr, counter) for email_addr, counter in email_counter.items()],
+                              key=lambda x: x[1], reverse=True)
+            if from_offset > 0 or count > 0:
+                return ret_list[from_offset : from_offset + count]
             else:
-                return []
+                return ret_list
 
     def get_author_token_from_email(self, email):
         with self.get_cursor() as curs:
@@ -734,7 +736,7 @@ class WBAFPDBManager(AbstractWBDBManager):
                          "FULL OUTER JOIN afp_additionalexpr ON afp_ve.joinkey = afp_additionalexpr.joinkey "
                          "FULL OUTER JOIN afp_comment ON afp_ve.joinkey = afp_comment.joinkey "
                          "WHERE afp_lasttouched.afp_lasttouched IS NULL AND afp_ve.afp_version = '2' "
-                         "AND (afp_email.afp_email = '{}' OR two_email.two_email = '{}') "
+                         "AND (afp_email.afp_email LIKE '%{}%' OR two_email.two_email = '{}') "
                          "AND (pap_author_verified.pap_author_verified IS NULL OR "
                          "pap_author_verified.pap_author_verified NOT LIKE 'NO%') "
                          "AND afp_g.afp_genestudied IS NULL AND afp_s.afp_species IS NULL AND "
@@ -788,7 +790,7 @@ class WBAFPDBManager(AbstractWBDBManager):
                          "FULL OUTER JOIN afp_additionalexpr ON afp_ve.joinkey = afp_additionalexpr.joinkey "
                          "FULL OUTER JOIN afp_comment ON afp_ve.joinkey = afp_comment.joinkey "
                          "WHERE afp_lasttouched.afp_lasttouched IS NULL AND afp_ve.afp_version = '2' "
-                         "AND (afp_email.afp_email = '{}' OR two_email.two_email = '{}') "
+                         "AND (afp_email.afp_email LIKE '%{}%' OR two_email.two_email = '{}') "
                          "AND (pap_author_verified.pap_author_verified IS NULL OR "
                          "pap_author_verified.pap_author_verified NOT LIKE 'NO%') "
                          "AND afp_g.afp_genestudied IS NULL AND afp_s.afp_species IS NULL AND "
@@ -816,7 +818,7 @@ class WBAFPDBManager(AbstractWBDBManager):
                          "FULL OUTER JOIN pap_author_possible ON pap_author.pap_author = pap_author_possible.author_id "
                          "FULL OUTER JOIN pap_author_verified ON pap_author.pap_author = pap_author_verified.author_id "
                          "FULL OUTER JOIN two_email ON pap_author_possible.pap_author_possible = two_email.joinkey "
-                         "WHERE (afp_email.afp_email = '{}' OR two_email.two_email = '{}') "
+                         "WHERE (afp_email.afp_email LIKE '%{}%' OR two_email.two_email = '{}') "
                          "AND (pap_author_verified.pap_author_verified IS NULL OR "
                          "pap_author_verified.pap_author_verified NOT LIKE 'NO%') "
                          "AND afp_version.afp_version = '2' "
@@ -835,7 +837,7 @@ class WBAFPDBManager(AbstractWBDBManager):
                          "FULL OUTER JOIN pap_author_possible ON pap_author.pap_author = pap_author_possible.author_id "
                          "FULL OUTER JOIN pap_author_verified ON pap_author.pap_author = pap_author_verified.author_id "
                          "FULL OUTER JOIN two_email ON pap_author_possible.pap_author_possible = two_email.joinkey "
-                         "WHERE (afp_email.afp_email = '{}' OR two_email.two_email = '{}') "
+                         "WHERE (afp_email.afp_email LIKE '%{}%' OR two_email.two_email = '{}') "
                          "AND (pap_author_verified.pap_author_verified IS NULL OR "
                          "pap_author_verified.pap_author_verified NOT LIKE 'NO%') "
                          "AND afp_version.afp_version = '2'".format(author_email, author_email))
@@ -873,7 +875,7 @@ class WBAFPDBManager(AbstractWBDBManager):
                          "FULL OUTER JOIN pap_author_possible ON pap_author.pap_author = pap_author_possible.author_id "
                          "FULL OUTER JOIN pap_author_verified ON pap_author.pap_author = pap_author_verified.author_id "
                          "FULL OUTER JOIN two_email ON pap_author_possible.pap_author_possible = two_email.joinkey "
-                         "WHERE (afp_email = '{}' OR two_email.two_email = '{}') AND afp_ve.afp_version = '2' "
+                         "WHERE (afp_email LIKE '%{}%' OR two_email.two_email = '{}') AND afp_ve.afp_version = '2' "
                          "AND afp_l.afp_lasttouched is NULL "
                          "AND (pap_author_verified.pap_author_verified IS NULL OR "
                          "pap_author_verified.pap_author_verified NOT LIKE 'NO%') "
@@ -925,7 +927,7 @@ class WBAFPDBManager(AbstractWBDBManager):
                          "FULL OUTER JOIN pap_author_possible ON pap_author.pap_author = pap_author_possible.author_id "
                          "FULL OUTER JOIN pap_author_verified ON pap_author.pap_author = pap_author_verified.author_id "
                          "FULL OUTER JOIN two_email ON pap_author_possible.pap_author_possible = two_email.joinkey "
-                         "WHERE (afp_email = '{}' OR two_email.two_email = '{}') AND afp_ve.afp_version = '2' "
+                         "WHERE (afp_email LIKE '%{}%' OR two_email.two_email = '{}') AND afp_ve.afp_version = '2' "
                          "AND afp_l.afp_lasttouched is NULL "
                          "AND (pap_author_verified.pap_author_verified IS NULL OR "
                          "pap_author_verified.pap_author_verified NOT LIKE 'NO%') "
