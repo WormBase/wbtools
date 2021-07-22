@@ -1,9 +1,13 @@
 import abc
+import logging
 
 from contextlib import contextmanager
 from typing import Union, List, Dict
 
 import psycopg2
+
+
+logger = logging.getLogger(__name__)
 
 
 class AbstractWBDBManager(metaclass=abc.ABCMeta):
@@ -37,12 +41,16 @@ class AbstractWBDBManager(metaclass=abc.ABCMeta):
         close_conn = False
         try:
             if not self.curs or self.curs.closed:
+                logger.debug("opening a new db cursor")
                 self.conn = psycopg2.connect(self.connection_str)
                 self.curs = self.conn.cursor()
                 close_conn = True
+            else:
+                logger.debug("using existing db cursor")
             yield self.curs
         finally:
             if close_conn:
+                logger.debug("closing db cursor and connection")
                 self.curs.close()
                 self.conn.close()
 
