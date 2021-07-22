@@ -51,6 +51,7 @@ class AbstractWBDBManager(metaclass=abc.ABCMeta):
         finally:
             if close_conn:
                 logger.debug("closing db cursor and connection")
+                self.conn.commit()
                 self.curs.close()
                 self.conn.close()
 
