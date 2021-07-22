@@ -106,9 +106,9 @@ class WBAFPDBManager(AbstractWBDBManager):
 
     def get_num_papers_old_afp_processed(self):
         with self.get_cursor() as curs:
-            curs.execute("SELECT count(*) FROM afp_email FULL OUTER JOIN afp_version ON afp_email.joinkey = "
-                         "afp_version.joinkey WHERE afp_version.afp_version IS NULL OR afp_version.afp_version = '1' "
-                         "AND afp_email.afp_email IS NOT NULL")
+            curs.execute("SELECT count(distinct afp_email.joinkey) FROM afp_email FULL OUTER JOIN afp_version "
+                         "ON afp_email.joinkey = afp_version.joinkey WHERE afp_version.afp_version IS NULL "
+                         "OR afp_version.afp_version = '1' AND afp_email.afp_email IS NOT NULL")
             res = curs.fetchone()
             if res:
                 return int(res[0])
@@ -117,8 +117,8 @@ class WBAFPDBManager(AbstractWBDBManager):
 
     def get_num_papers_old_afp_author_submitted(self):
         with self.get_cursor() as curs:
-            curs.execute("SELECT count(*) FROM afp_lasttouched FULL OUTER JOIN afp_version ON "
-                         "afp_lasttouched.joinkey = afp_version.joinkey JOIN afp_email "
+            curs.execute("SELECT count(distinct afp_lasttouched.joinkey) FROM afp_lasttouched "
+                         "FULL OUTER JOIN afp_version ON afp_lasttouched.joinkey = afp_version.joinkey JOIN afp_email "
                          "ON afp_lasttouched.joinkey = afp_email.joinkey WHERE afp_version.afp_version IS NULL OR "
                          "afp_version.afp_version = '1'")
             res = curs.fetchone()
@@ -130,8 +130,7 @@ class WBAFPDBManager(AbstractWBDBManager):
     def get_num_entities_per_paper(self, enetity_label):
         with self.get_cursor() as curs:
             curs.execute("SELECT tfp_{} FROM tfp_{} FULL OUTER JOIN afp_version ON "
-                         "tfp_{}.joinkey = afp_version.joinkey JOIN afp_email ON "
-                         "afp_version.joinkey = afp_email.joinkey WHERE afp_version.afp_version = '2'"
+                         "tfp_{}.joinkey = afp_version.joinkey WHERE afp_version.afp_version = '2'"
                          .format(enetity_label, enetity_label, enetity_label))
             res = curs.fetchall()
             return [len(row[0].split(" | ")) for row in res]
@@ -234,11 +233,6 @@ class WBAFPDBManager(AbstractWBDBManager):
             url = ""
         return url
 
-    def get_afp_emails(self, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("SELECT afp_email FROM afp_email WHERE joinkey = '{}'".format(paper_id))
-            return [res[0] for res in curs.fetchall()]
-
     def set_extracted_entities_in_paper(self, publication_id, entities_ids: List[str], table_name):
         with self.get_cursor() as curs:
             curs.execute("DELETE FROM {} WHERE joinkey = '{}'".format(table_name, publication_id))
@@ -270,7 +264,7 @@ class WBAFPDBManager(AbstractWBDBManager):
 
     def get_contact_emails(self, paper_id):
         with self.get_cursor() as curs:
-            curs.execute("SELECT afp_email FROM afp_email WHERE joinkey = '{}'".format(paper_id))
+            curs.execute("SELECT distinct afp_email FROM afp_email WHERE joinkey = '{}'".format(paper_id))
             return [res[0] for res in curs.fetchall()]
 
     def set_submitted_gene_list(self, genes, paper_id):

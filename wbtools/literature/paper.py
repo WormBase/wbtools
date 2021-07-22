@@ -325,21 +325,23 @@ class WBPaper(object):
     def get_aut_class_value_for_datatype(self, datatype: str):
         return self.aut_class_values[datatype] if self.aut_class_values[datatype] else None
 
-    def get_first_author_with_email_address_in_wb(self, blacklisted_email_addresses: List[str] = None) -> \
-            Union[Tuple[WBAuthor, str], None]:
+    def get_authors_with_email_address_in_wb(self, blacklisted_email_addresses: List[str] = None,
+                                             first_only: bool = False) -> Union[List[Tuple[WBAuthor, str]], None]:
         """
         Get the first email address in the paper with a corresponding person entry in WB and return the person object
         and the email address found in the paper, which may be more recent than the one in WB
 
         Args:
             blacklisted_email_addresses (List[str]): a list of email addresses to be excluded from the search
+            first_only (bool): whether to return only the first available author
 
         Returns:
-            Union[Tuple[WBPerson, str], None]: a tuple containing the WBPerson and the email address found in the paper.
+            Union[List[Tuple[WBPerson, str]], None]: a tuple containing the WBPerson and the email address found in the paper.
                                                If no email is found with a corresponding person in WB, then the function
                                                will return the corresponding author associated with the paper in WB and
                                                its email address, if any, otherwise None.
         """
+        result = []
         all_addresses = self.extract_all_email_addresses_from_text()
         if not all_addresses:
             all_addresses = self.extract_all_email_addresses_from_text(self.get_text_docs(
@@ -352,9 +354,21 @@ class WBPaper(object):
                         WBPersonDBManager).get_person_id_from_email_address(address)
                     if person_id:
                         # curr_address = db_manager.get_current_email_address_for_person(person_id)
-                        return (self.db_manager.get_db_manager(WBPersonDBManager).get_person(person_id=person_id),
-                                address)
-        corresponding_author = self.get_corresponding_author()
-        if corresponding_author:
-            return corresponding_author, corresponding_author.email
-        return None
+                        if first_only:
+                            result = (self.db_manager.get_db_manager(WBPersonDBManager).get_person(person_id=person_id),
+                                      address)
+                        else:
+                            result.append((self.db_manager.get_db_manager(WBPersonDBManager).get_person(
+                                person_id=person_id), address))
+        if not result:
+            if first_only:
+                corresponding_author = self.get_corresponding_author()
+                if corresponding_author:
+                    result = corresponding_author, corresponding_author.email
+            else:
+                for author in self.authors:
+                    result.append((author, author.email))
+        if result:
+            return result
+        else:
+            return None

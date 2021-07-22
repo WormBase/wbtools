@@ -145,7 +145,7 @@ class CorpusManager(object):
                 if load_bib_info:
                     logger.info("Loading bib info for paper")
                     paper.load_bib_info_from_db()
-                    if exclude_no_author_email and not paper.get_first_author_with_email_address_in_wb(
+                    if exclude_no_author_email and not paper.get_authors_with_email_address_in_wb(
                             blacklisted_email_addresses=blacklisted_email_addresses):
                         logger.info("Skipping paper without any email address in text with records in WB")
                         continue
