@@ -27,7 +27,7 @@ def get_cgc_lab_designations():
     return sorted(list(set(results)))
 
 
-def get_curated_papers(datatype) -> List[str]:
+def get_curated_papers(datatype, tazendra_user, tazendra_password) -> List[str]:
     """Get the list of papers already curated for a specific data type
 
     The list is fetched from the WB curation status form
@@ -44,7 +44,7 @@ def get_curated_papers(datatype) -> List[str]:
     request = urllib.request.Request("http://tazendra.caltech.edu/~postgres/cgi-bin/curation_status.cgi?action="
                                      "listCurationStatisticsPapersPage&select_curator=two1823&method=allcur&"
                                      "listDatatype=" + datatype)
-    base64string = base64.b64encode(bytes('%s:%s' % (self.tazendra_user, self.tazendra_password), 'ascii'))
+    base64string = base64.b64encode(bytes('%s:%s' % (tazendra_user, tazendra_password), 'ascii'))
     request.add_header("Authorization", "Basic %s" % base64string.decode('utf-8'))
     with urllib.request.urlopen(request) as response:
         res = response.read().decode("utf8")
@@ -55,7 +55,7 @@ def get_curated_papers(datatype) -> List[str]:
     request = urllib.request.Request("http://tazendra.caltech.edu/~postgres/cgi-bin/curation_status.cgi?action="
                                      "listCurationStatisticsPapersPage&select_curator=two1823&method=allval%20neg&"
                                      "listDatatype=" + datatype)
-    base64string = base64.b64encode(bytes('%s:%s' % (self.tazendra_user, self.tazendra_password), 'ascii'))
+    base64string = base64.b64encode(bytes('%s:%s' % (tazendra_user, tazendra_password), 'ascii'))
     request.add_header("Authorization", "Basic %s" % base64string.decode('utf-8'))
     with urllib.request.urlopen(request) as response:
         res = response.read().decode("utf8")

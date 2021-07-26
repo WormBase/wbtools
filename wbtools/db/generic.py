@@ -191,7 +191,8 @@ class WBGenericDBManager(AbstractWBDBManager):
     def get_paper_ids(self, query, must_be_autclass_positive_data_types: List[str] = None,
                       must_be_positive_manual_flag_data_types: List[str] = None,
                       must_be_curation_negative_data_types: List[str] = None,
-                      combine_filters: str = 'OR', count: bool = False, limit: int = None, offset: int = None):
+                      combine_filters: str = 'OR', count: bool = False, limit: int = None, offset: int = None,
+                      tazendra_user: str = None, tazendra_password: str = None):
         if must_be_autclass_positive_data_types and len(must_be_autclass_positive_data_types) == 1 and \
                 must_be_autclass_positive_data_types[0] == '':
             must_be_autclass_positive_data_types = None
@@ -219,12 +220,13 @@ class WBGenericDBManager(AbstractWBDBManager):
                         must_be_positive_manual_flag_data_types, combine_filters)))
                 if must_be_curation_negative_data_types and must_be_curation_negative_data_types[0]:
                     paper_ids = list(set(paper_ids) - set([pap_id for datatype in must_be_curation_negative_data_types
-                                                           for pap_id in get_curated_papers(datatype)]))
+                                                           for pap_id in get_curated_papers(datatype, tazendra_user,
+                                                                                            tazendra_password)]))
                 if count:
                     return len(paper_ids)
                 else:
                     return sorted(paper_ids, reverse=True)[offset: offset + limit] if \
-                        limit is not None and offset is not None and limit != offset else sorted(paper_ids, reverse=True)
+                        limit is not None and offset is not None else sorted(paper_ids, reverse=True)
 
     def get_paper_ids_flagged_positive_autclass(self, data_types: List[str], combine_fitlers: str = 'OR'):
         with self.get_cursor() as curs:

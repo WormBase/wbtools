@@ -28,49 +28,55 @@ class WBAFPDBManager(AbstractWBDBManager):
                                     must_be_positive_manual_flag_data_types: List[str] = None,
                                     must_be_curation_negative_data_types: List[str] = None,
                                     combine_filters: str = 'OR', offset: int = None, limit: int = None,
-                                    count: bool = False):
+                                    count: bool = False, tazendra_user: str = None, tazendra_password: str = None):
         return self.get_db_manager(cls=WBGenericDBManager).get_paper_ids(
             query="SELECT joinkey FROM afp_version WHERE afp_version = '2'",
             must_be_autclass_positive_data_types=must_be_autclass_positive_data_types,
             must_be_positive_manual_flag_data_types=must_be_positive_manual_flag_data_types,
             must_be_curation_negative_data_types=must_be_curation_negative_data_types,
-            combine_filters=combine_filters, count=count, offset=offset, limit=limit)
+            combine_filters=combine_filters, count=count, offset=offset, limit=limit, tazendra_user=tazendra_user,
+            tazendra_password=tazendra_password)
 
     def get_paper_ids_afp_no_submission(self, must_be_autclass_positive_data_types: List[str] = None,
                                         must_be_positive_manual_flag_data_types: List[str] = None,
                                         must_be_curation_negative_data_types: List[str] = None,
                                         combine_filters: str = 'OR', offset: int = None, limit: int = None,
-                                        count: bool = False):
+                                        count: bool = False, tazendra_user: str = None, tazendra_password: str = None):
         return self.get_db_manager(cls=WBGenericDBManager).get_paper_ids(
             query=QUERY_PAPER_IDS_NO_SUBMISSION,
             must_be_autclass_positive_data_types=must_be_autclass_positive_data_types,
             must_be_positive_manual_flag_data_types=must_be_positive_manual_flag_data_types,
             must_be_curation_negative_data_types=must_be_curation_negative_data_types,
-            combine_filters=combine_filters, count=count, offset=offset, limit=limit)
+            combine_filters=combine_filters, count=count, offset=offset, limit=limit, tazendra_user=tazendra_user,
+            tazendra_password=tazendra_password)
 
     def get_paper_ids_afp_full_submission(self, must_be_autclass_positive_data_types: List[str] = None,
                                           must_be_positive_manual_flag_data_types: List[str] = None,
                                           must_be_curation_negative_data_types: List[str] = None,
                                           combine_filters: str = 'OR', offset: int = None, limit: int = None,
-                                          count: bool = False):
+                                          count: bool = False, tazendra_user: str = None,
+                                          tazendra_password: str = None):
         return self.get_db_manager(cls=WBGenericDBManager).get_paper_ids(
             query=QUERY_PAPER_IDS_FULL_SUBMISSION,
             must_be_autclass_positive_data_types=must_be_autclass_positive_data_types,
             must_be_positive_manual_flag_data_types=must_be_positive_manual_flag_data_types,
             must_be_curation_negative_data_types=must_be_curation_negative_data_types,
-            combine_filters=combine_filters, count=count, offset=offset, limit=limit)
+            combine_filters=combine_filters, count=count, offset=offset, limit=limit, tazendra_user=tazendra_user,
+            tazendra_password=tazendra_password)
 
     def get_paper_ids_afp_partial_submission(self, must_be_autclass_positive_data_types: List[str] = None,
                                              must_be_positive_manual_flag_data_types: List[str] = None,
                                              must_be_curation_negative_data_types: List[str] = None,
                                              combine_filters: str = 'OR', offset: int = None, limit: int = None,
-                                             count: bool = False):
+                                             count: bool = False, tazendra_user: str = None,
+                                             tazendra_password: str = None):
         return self.get_db_manager(cls=WBGenericDBManager).get_paper_ids(
             query=QUERY_PAPER_IDS_PARTIAL_SUBMISSION,
             must_be_autclass_positive_data_types=must_be_autclass_positive_data_types,
             must_be_positive_manual_flag_data_types=must_be_positive_manual_flag_data_types,
             must_be_curation_negative_data_types=must_be_curation_negative_data_types,
-            combine_filters=combine_filters, count=count, offset=offset, limit=limit)
+            combine_filters=combine_filters, count=count, offset=offset, limit=limit, tazendra_user=tazendra_user,
+            tazendra_password=tazendra_password)
 
     def get_num_papers_no_entities(self):
         with self.get_cursor() as curs:
@@ -946,3 +952,32 @@ class WBAFPDBManager(AbstractWBDBManager):
                                                                                   offset, count))
             res = curs.fetchall()
             return [row[0] for row in res]
+
+    def get_papers_emails_no_submission_emailed_between(self, after_month, before_month):
+        with self.get_cursor() as curs:
+            curs.execute("SELECT afp_email.joinkey, afp_email.afp_email from afp_email JOIN afp_version "
+                         "ON afp_email.joinkey = afp_version.joinkey FULL OUTER JOIN afp_lasttouched "
+                         "ON afp_email.joinkey = afp_lasttouched.joinkey "
+                         "WHERE afp_email.afp_timestamp < now() - interval '{} month' "
+                         "AND afp_email.afp_timestamp > now() - interval '{} months' "
+                         "AND afp_version.afp_version = '2' "
+                         "AND afp_lasttouched.afp_lasttouched IS NULL".format(after_month, before_month))
+            rows = curs.fetchall()
+            return [(row[0], row[1]) for row in rows]
+
+    def get_positive_paper_ids_sumbitted_last_month_for_data_type(self, data_type_table_name, tazendra_user,
+                                                                  tazendra_password):
+        curated_ids = self.get_curated_papers(data_type_table_name[4:], tazendra_user, tazendra_password)
+        self.cur.execute("SELECT {}.joinkey, {}.{} from {} join afp_lasttouched "
+                         "ON {}.joinkey = afp_lasttouched.joinkey JOIN afp_version "
+                         "ON afp_lasttouched.joinkey = afp_version.joinkey "
+                         "WHERE afp_version.afp_version = '2' AND {}.afp_timestamp > now() - interval '1 week' AND "
+                         "{}.{} IS NOT NULL".format(
+            data_type_table_name, data_type_table_name, data_type_table_name, data_type_table_name,
+            data_type_table_name, data_type_table_name, data_type_table_name, data_type_table_name))
+        rows = self.cur.fetchall()
+        return {row[0]: row[1] if row[1] != "Checked" else "" for row in rows if row[0] not in curated_ids and
+                row[1] != "" and
+                row[1] != "[{\"id\":1,\"name\":\"\"}]" and
+                row[1] != "[{\"id\":1,\"name\":\"\",\"publicationId\":\"\"}]"}
+
