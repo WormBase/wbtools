@@ -367,7 +367,8 @@ class WBPaper(object):
                     result = corresponding_author, corresponding_author.email
             else:
                 for author in self.authors:
-                    result.append((author, author.email))
+                    if author.email:
+                        result.append((author, author.email))
         if result:
             return result
         else:

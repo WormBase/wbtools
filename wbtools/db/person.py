@@ -11,7 +11,7 @@ class WBPersonDBManager(AbstractWBDBManager):
 
     def get_person_id_from_email_address(self, email_address):
         with self.get_cursor() as curs:
-            curs.execute("SELECT * FROM two_email WHERE two_email=%s", (email_address, ))
+            curs.execute("SELECT * FROM two_email WHERE lower(two_email)=lower(%s)", (email_address, ))
             res = curs.fetchone()
             if res:
                 return res[0]
