@@ -244,34 +244,32 @@ class WBAFPDBManager(AbstractWBDBManager):
 
     def set_extracted_entities_in_paper(self, publication_id, entities_ids: List[str], table_name):
         with self.get_cursor() as curs:
-            curs.execute("DELETE FROM {} WHERE joinkey = '{}'".format(table_name, publication_id))
-            curs.execute("INSERT INTO {} (joinkey, {}) VALUES('{}', '{}')".format(
-                table_name, table_name, publication_id, AFP_ENTITIES_SEPARATOR.join(entities_ids)))
+            curs.execute("DELETE FROM {} WHERE joinkey = %s".format(table_name), (publication_id, ))
+            curs.execute("INSERT INTO {} (joinkey, {}) VALUES(%s, %s)".format(table_name, table_name),
+                         (publication_id, AFP_ENTITIES_SEPARATOR.join(entities_ids)))
+
+    def set_value_with_history(self, publication_id, table_name, value):
+        with self.get_cursor() as curs:
+            curs.execute("DELETE FROM {} WHERE joinkey = %s".format(table_name), (publication_id, ))
+            curs.execute("INSERT INTO {} (joinkey, {}) VALUES(%s, %s)".format(table_name, table_name),
+                         (publication_id, value))
+            curs.execute("INSERT INTO {}_hst (joinkey, {}_hst) VALUES(%s, %s)".format(table_name, table_name),
+                         (publication_id, value))
 
     def set_extracted_antibody(self, paper_id):
         with self.get_cursor() as curs:
-            curs.execute("DELETE FROM tfp_antibody WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO tfp_antibody (joinkey, tfp_antibody) VALUES('{}', 'checked')".format(paper_id))
+            curs.execute("DELETE FROM tfp_antibody WHERE joinkey = %s", (paper_id, ))
+            curs.execute("INSERT INTO tfp_antibody (joinkey, tfp_antibody) VALUES(%s, 'checked')", (paper_id, ))
 
     def set_passwd(self, publication_id, passwd):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_passwd WHERE joinkey = '{}'".format(publication_id))
-            curs.execute(
-                "INSERT INTO afp_passwd (joinkey, afp_passwd) VALUES('{}', '{}')".format(publication_id, passwd))
-            curs.execute(
-                "INSERT INTO afp_passwd_hst (joinkey, afp_passwd_hst) VALUES('{}', '{}')".format(publication_id, passwd))
+        self.set_value_with_history(publication_id, "afp_passwd", passwd)
 
     def set_contact_emails(self, publication_id, email_addr_list: List[str]):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_email WHERE joinkey = '{}'".format(publication_id))
-            curs.execute("INSERT INTO afp_email (joinkey, afp_email) VALUES('{}', '{}')".format(
-                publication_id, " | ".join(email_addr_list)))
-            curs.execute("INSERT INTO afp_email_hst (joinkey, afp_email_hst) VALUES('{}', '{}')".format(
-                publication_id, " | ".join(email_addr_list)))
+        self.set_value_with_history(publication_id, "afp_email", " | ".join(email_addr_list))
 
     def get_contact_emails(self, paper_id):
         with self.get_cursor() as curs:
-            curs.execute("SELECT afp_email FROM afp_email WHERE joinkey = '{}'".format(paper_id))
+            curs.execute("SELECT afp_email FROM afp_email WHERE joinkey = %s", (paper_id, ))
             res = curs.fetchone()
             if res:
                 return res[0].split(" | ")
@@ -279,257 +277,102 @@ class WBAFPDBManager(AbstractWBDBManager):
                 return []
 
     def set_submitted_gene_list(self, genes, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_genestudied WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_genestudied (joinkey, afp_genestudied) VALUES('{}', '{}')"
-                         .format(paper_id, genes))
-            curs.execute("INSERT INTO afp_genestudied_hst (joinkey, afp_genestudied_hst) VALUES('{}', '{}')"
-                         .format(paper_id, genes))
+        self.set_value_with_history(paper_id, "afp_genestudied", genes)
 
     def set_submitted_gene_model_update(self, gene_model_update, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_structcorr WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_structcorr (joinkey, afp_structcorr) VALUES('{}', '{}')"
-                         .format(paper_id, gene_model_update))
-            curs.execute("INSERT INTO afp_structcorr_hst (joinkey, afp_structcorr_hst) VALUES('{}', '{}')"
-                         .format(paper_id, gene_model_update))
+        self.set_value_with_history(paper_id, "afp_structcorr", gene_model_update)
 
     def set_submitted_species_list(self, species, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_species WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_species (joinkey, afp_species) VALUES('{}', '{}')"
-                         .format(paper_id, species))
-            curs.execute("INSERT INTO afp_species_hst (joinkey, afp_species_hst) VALUES('{}', '{}')"
-                         .format(paper_id, species))
+        self.set_value_with_history(paper_id, "afp_species", species)
 
     def set_submitted_alleles_list(self, alleles, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_variation WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_variation (joinkey, afp_variation) VALUES('{}', '{}')"
-                         .format(paper_id, alleles))
-            curs.execute("INSERT INTO afp_variation_hst (joinkey, afp_variation_hst) VALUES('{}', '{}')"
-                         .format(paper_id, alleles))
+        self.set_value_with_history(paper_id, "afp_variation", alleles)
 
     def set_submitted_allele_seq_change(self, allele_seq_change, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_seqchange WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_seqchange (joinkey, afp_seqchange) VALUES('{}', '{}')"
-                         .format(paper_id, allele_seq_change))
-            curs.execute("INSERT INTO afp_seqchange_hst (joinkey, afp_seqchange_hst) VALUES('{}', '{}')"
-                         .format(paper_id, allele_seq_change))
+        self.set_value_with_history(paper_id, "afp_seqchange", allele_seq_change)
 
     def set_submitted_other_alleles(self, other_alleles, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_othervariation WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_othervariation (joinkey, afp_othervariation) VALUES('{}', '{}')"
-                         .format(paper_id, other_alleles))
-            curs.execute("INSERT INTO afp_othervariation_hst (joinkey, afp_othervariation_hst) VALUES('{}', '{}')"
-                         .format(paper_id, other_alleles))
+        self.set_value_with_history(paper_id, "afp_othervariation", other_alleles)
 
     def set_submitted_strains_list(self, strains, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_strain WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_strain (joinkey, afp_strain) VALUES('{}', '{}')"
-                         .format(paper_id, strains))
-            curs.execute("INSERT INTO afp_strain_hst (joinkey, afp_strain_hst) VALUES('{}', '{}')"
-                         .format(paper_id, strains))
+        self.set_value_with_history(paper_id, "afp_strain", strains)
 
     def set_submitted_other_strains(self, other_strains, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_otherstrain WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_otherstrain (joinkey, afp_otherstrain) VALUES('{}', '{}')"
-                         .format(paper_id, other_strains))
-            curs.execute("INSERT INTO afp_otherstrain_hst (joinkey, afp_otherstrain_hst) VALUES('{}', '{}')"
-                         .format(paper_id, other_strains))
+        self.set_value_with_history(paper_id, "afp_otherstrain", other_strains)
 
     def set_submitted_transgenes_list(self, transgenes, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_transgene WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_transgene (joinkey, afp_transgene) VALUES('{}', '{}')"
-                         .format(paper_id, transgenes))
-            curs.execute("INSERT INTO afp_transgene_hst (joinkey, afp_transgene_hst) VALUES('{}', '{}')"
-                         .format(paper_id, transgenes))
+        self.set_value_with_history(paper_id, "afp_transgene", transgenes)
 
     def set_submitted_new_transgenes(self, new_transgenes, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_othertransgene WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_othertransgene (joinkey, afp_othertransgene) VALUES('{}', '{}')"
-                         .format(paper_id, new_transgenes))
-            curs.execute("INSERT INTO afp_othertransgene_hst (joinkey, afp_othertransgene_hst) VALUES('{}', '{}')"
-                         .format(paper_id, new_transgenes))
+        self.set_value_with_history(paper_id, "afp_othertransgene", new_transgenes)
 
     def set_submitted_new_antibody(self, new_antibody, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_antibody WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_antibody (joinkey, afp_antibody) VALUES('{}', '{}')"
-                         .format(paper_id, new_antibody))
-            curs.execute("INSERT INTO afp_antibody_hst (joinkey, afp_antibody_hst) VALUES('{}', '{}')"
-                         .format(paper_id, new_antibody))
+        self.set_value_with_history(paper_id, "afp_antibody", new_antibody)
 
     def set_submitted_other_antibodies(self, other_antibodies, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_otherantibody WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_otherantibody (joinkey, afp_otherantibody) VALUES('{}', '{}')"
-                         .format(paper_id, other_antibodies))
-            curs.execute("INSERT INTO afp_otherantibody_hst (joinkey, afp_otherantibody_hst) VALUES('{}', '{}')"
-                         .format(paper_id, other_antibodies))
+        self.set_value_with_history(paper_id, "afp_otherantibody", other_antibodies)
 
     def set_submitted_anatomic_expr(self, anatomic_expr, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_otherexpr WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_otherexpr (joinkey, afp_otherexpr) VALUES('{}', '{}')"
-                         .format(paper_id, anatomic_expr))
-            curs.execute("INSERT INTO afp_otherexpr_hst (joinkey, afp_otherexpr_hst) VALUES('{}', '{}')"
-                         .format(paper_id, anatomic_expr))
+        self.set_value_with_history(paper_id, "afp_otherexpr", anatomic_expr)
 
     def set_submitted_site_action(self, site_action, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_siteaction WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_siteaction (joinkey, afp_siteaction) VALUES('{}', '{}')"
-                         .format(paper_id, site_action))
-            curs.execute("INSERT INTO afp_siteaction_hst (joinkey, afp_siteaction_hst) VALUES('{}', '{}')"
-                         .format(paper_id, site_action))
+        self.set_value_with_history(paper_id, "afp_siteaction", site_action)
 
     def set_submitted_time_action(self, time_action, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_timeaction WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_timeaction (joinkey, afp_timeaction) VALUES('{}', '{}')"
-                         .format(paper_id, time_action))
-            curs.execute("INSERT INTO afp_timeaction_hst (joinkey, afp_timeaction_hst) VALUES('{}', '{}')"
-                         .format(paper_id, time_action))
+        self.set_value_with_history(paper_id, "afp_timeaction", time_action)
 
     def set_submitted_rnaseq(self, rnaseq, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_rnaseq WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_rnaseq (joinkey, afp_rnaseq) VALUES('{}', '{}')"
-                         .format(paper_id, rnaseq))
-            curs.execute("INSERT INTO afp_rnaseq_hst (joinkey, afp_rnaseq_hst) VALUES('{}', '{}')"
-                         .format(paper_id, rnaseq))
+        self.set_value_with_history(paper_id, "afp_rnaseq", rnaseq)
 
     def set_submitted_additional_expr(self, additional_expr, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_additionalexpr WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_additionalexpr (joinkey, afp_additionalexpr) VALUES('{}', '{}')"
-                         .format(paper_id, additional_expr))
-            curs.execute("INSERT INTO afp_additionalexpr_hst (joinkey, afp_additionalexpr_hst) VALUES('{}', '{}')"
-                         .format(paper_id, additional_expr))
+        self.set_value_with_history(paper_id, "afp_additionalexpr", additional_expr)
 
     def set_submitted_gene_int(self, gene_int, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_geneint WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_geneint (joinkey, afp_geneint) VALUES('{}', '{}')"
-                         .format(paper_id, gene_int))
-            curs.execute("INSERT INTO afp_geneint_hst (joinkey, afp_geneint_hst) VALUES('{}', '{}')"
-                         .format(paper_id, gene_int))
+        self.set_value_with_history(paper_id, "afp_geneint", gene_int)
 
     def set_submitted_phys_int(self, phys_int, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_geneprod WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_geneprod (joinkey, afp_geneprod) VALUES('{}', '{}')"
-                         .format(paper_id, phys_int))
-            curs.execute("INSERT INTO afp_geneprod_hst (joinkey, afp_geneprod_hst) VALUES('{}', '{}')"
-                         .format(paper_id, phys_int))
+        self.set_value_with_history(paper_id, "afp_geneprod", phys_int)
 
     def set_submitted_gene_reg(self, gene_reg, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_genereg WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_genereg (joinkey, afp_genereg) VALUES('{}', '{}')"
-                         .format(paper_id, gene_reg))
-            curs.execute("INSERT INTO afp_genereg_hst (joinkey, afp_genereg_hst) VALUES('{}', '{}')"
-                         .format(paper_id, gene_reg))
+        self.set_value_with_history(paper_id, "afp_genereg", gene_reg)
 
     def set_submitted_allele_pheno(self, allele_pheno, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_newmutant WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_newmutant (joinkey, afp_newmutant) VALUES('{}', '{}')"
-                         .format(paper_id, allele_pheno))
-            curs.execute("INSERT INTO afp_newmutant_hst (joinkey, afp_newmutant_hst) VALUES('{}', '{}')"
-                         .format(paper_id, allele_pheno))
+        self.set_value_with_history(paper_id, "afp_newmutant", allele_pheno)
 
     def set_submitted_rnai_pheno(self, rnai_pheno, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_rnai WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_rnai (joinkey, afp_rnai) VALUES('{}', '{}')"
-                         .format(paper_id, rnai_pheno))
-            curs.execute("INSERT INTO afp_rnai_hst (joinkey, afp_rnai_hst) VALUES('{}', '{}')"
-                         .format(paper_id, rnai_pheno))
+        self.set_value_with_history(paper_id, "afp_rnai", rnai_pheno)
 
     def set_submitted_transover_pheno(self, transover_pheno, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_overexpr WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_overexpr (joinkey, afp_overexpr) VALUES('{}', '{}')"
-                         .format(paper_id, transover_pheno))
-            curs.execute("INSERT INTO afp_overexpr_hst (joinkey, afp_overexpr_hst) VALUES('{}', '{}')"
-                         .format(paper_id, transover_pheno))
+        self.set_value_with_history(paper_id, "afp_overexpr", transover_pheno)
 
     def set_submitted_chemical(self, chemical, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_chemphen WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_chemphen (joinkey, afp_chemphen) VALUES('{}', '{}')"
-                         .format(paper_id, chemical))
-            curs.execute("INSERT INTO afp_chemphen_hst (joinkey, afp_chemphen_hst) VALUES('{}', '{}')"
-                         .format(paper_id, chemical))
+        self.set_value_with_history(paper_id, "afp_chemphen", chemical)
 
     def set_submitted_env(self, env, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_envpheno WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_envpheno (joinkey, afp_envpheno) VALUES('{}', '{}')"
-                         .format(paper_id, env))
-            curs.execute("INSERT INTO afp_envpheno_hst (joinkey, afp_envpheno_hst) VALUES('{}', '{}')"
-                         .format(paper_id, env))
+        self.set_value_with_history(paper_id, "afp_envpheno", env)
 
     def set_submitted_protein(self, protein, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_catalyticact WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_catalyticact (joinkey, afp_catalyticact) VALUES('{}', '{}')"
-                         .format(paper_id, protein))
-            curs.execute("INSERT INTO afp_catalyticact_hst (joinkey, afp_catalyticact_hst) VALUES('{}', '{}')"
-                         .format(paper_id, protein))
+        self.set_value_with_history(paper_id, "afp_catalyticact", protein)
 
     def set_submitted_othergenefunc(self, othergenefunc, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_othergenefunc WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_othergenefunc (joinkey, afp_othergenefunc) VALUES('{}', '{}')"
-                         .format(paper_id, othergenefunc))
-            curs.execute("INSERT INTO afp_othergenefunc_hst (joinkey, afp_othergenefunc_hst) VALUES('{}', '{}')"
-                         .format(paper_id, othergenefunc))
+        self.set_value_with_history(paper_id, "afp_othergenefunc", othergenefunc)
 
     def set_submitted_disease(self, disease, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_humdis WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_humdis (joinkey, afp_humdis) VALUES('{}', '{}')"
-                         .format(paper_id, disease))
-            curs.execute("INSERT INTO afp_humdis_hst (joinkey, afp_humdis_hst) VALUES('{}', '{}')"
-                         .format(paper_id, disease))
+        self.set_value_with_history(paper_id, "afp_humdis", disease)
 
     def set_submitted_comments(self, comments, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_comment WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_comment (joinkey, afp_comment) VALUES('{}', '{}')"
-                         .format(paper_id, comments))
-            curs.execute("INSERT INTO afp_comment_hst (joinkey, afp_comment_hst) VALUES('{}', '{}')"
-                         .format(paper_id, comments))
+        self.set_value_with_history(paper_id, "afp_comment", comments)
 
     def set_version(self, paper_id):
         with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_version WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_version (joinkey, afp_version) VALUES('{}', '2')".format(paper_id))
+            curs.execute("DELETE FROM afp_version WHERE joinkey = %s", (paper_id,))
+            curs.execute("INSERT INTO afp_version (joinkey, afp_version) VALUES(%s, '2')", (paper_id,))
 
     def set_gene_list(self, genes, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_genestudied WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_genestudied (joinkey, afp_genestudied) VALUES('{}', '{}')"
-                         .format(paper_id, genes))
-            curs.execute("INSERT INTO afp_genestudied_hst (joinkey, afp_genestudied_hst) VALUES('{}', '{}')"
-                         .format(paper_id, genes))
+        self.set_value_with_history(paper_id, "afp_genestudied", genes)
 
     def set_gene_model_update(self, gene_model_update, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_structcorr WHERE joinkey = '{}'".format(paper_id))
-            curs.execute("INSERT INTO afp_structcorr (joinkey, afp_structcorr) VALUES('{}', '{}')"
-                         .format(paper_id, gene_model_update))
-            curs.execute("INSERT INTO afp_structcorr_hst (joinkey, afp_structcorr_hst) VALUES('{}', '{}')"
-                         .format(paper_id, gene_model_update))
+        self.set_value_with_history(paper_id, "afp_structcorr", gene_model_update)
 
     def save_extracted_data_to_db(self, paper_id: str, genes: List[str], alleles: List[str], species: List[str], 
                                   strains: List[str], transgenes: List[str], author_emails: List[str]):
@@ -549,13 +392,13 @@ class WBAFPDBManager(AbstractWBDBManager):
 
     def set_pap_gene_list(self, paper_id, person_id):
         with self.get_cursor() as curs:
-            curs.execute("SELECT * FROM pap_gene WHERE joinkey = '{}' AND pap_evidence = '{}'".format(
-                paper_id, PAP_AFP_EVIDENCE_CODE))
+            curs.execute("SELECT * FROM pap_gene WHERE joinkey = %s AND pap_evidence = %s", (paper_id,
+                                                                                             PAP_AFP_EVIDENCE_CODE))
             res_pap = curs.fetchall()
             if res_pap:
                 for res in res_pap:
                     curs.execute("INSERT INTO h_pap_gene (joinkey, pap_gene, pap_order, pap_curator, pap_evidence) "
-                                     "VALUES('{}', '{}', {}, '{}', '{}')".format(res[0], res[1], res[2], res[3], res[4]))
+                                 "VALUES('{}', '{}', {}, '{}', '{}')".format(res[0], res[1], res[2], res[3], res[4]))
             curs.execute("DELETE FROM pap_gene WHERE joinkey = '{}' AND pap_evidence = '{}'".format(
                 paper_id, PAP_AFP_EVIDENCE_CODE))
             max_order = 0
@@ -615,10 +458,9 @@ class WBAFPDBManager(AbstractWBDBManager):
 
     def set_contributor(self, paper_id, person_id):
         with self.get_cursor() as curs:
-            curs.execute("INSERT INTO afp_contributor (joinkey, afp_contributor) VALUES('{}', '{}')"
-                         .format(paper_id, person_id))
-            curs.execute("INSERT INTO afp_contributor_hst (joinkey, afp_contributor_hst) VALUES('{}', '{}')"
-                         .format(paper_id, person_id))
+            curs.execute("INSERT INTO afp_contributor (joinkey, afp_contributor) VALUES(%s, %s)", (paper_id, person_id))
+            curs.execute("INSERT INTO afp_contributor_hst (joinkey, afp_contributor_hst) VALUES(%s, %s)",
+                         (paper_id, person_id))
 
     def get_latest_contributor_id(self, paper_id):
         with self.get_cursor() as curs:
@@ -628,13 +470,7 @@ class WBAFPDBManager(AbstractWBDBManager):
             return res[0] if res else None
 
     def set_last_touched(self, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute("DELETE FROM afp_lasttouched WHERE joinkey = '{}'".format(paper_id))
-            curtime = int(time.time())
-            curs.execute("INSERT INTO afp_lasttouched (joinkey, afp_lasttouched) VALUES('{}', '{}')"
-                         .format(paper_id, curtime))
-            curs.execute("INSERT INTO afp_lasttouched_hst (joinkey, afp_lasttouched_hst) VALUES('{}', '{}')"
-                         .format(paper_id, curtime))
+        self.set_value_with_history(paper_id, "afp_lasttouched", int(time.time()))
 
     def get_num_contributors(self):
         with self.get_cursor() as curs:
