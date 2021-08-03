@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from tests.config_reader import read_db_config
+from tests.config_reader import read_db_config, read_tazendra_config
 from wbtools.db.paper import WBPaperDBManager
 from wbtools.lib.nlp.common import PaperSections
 from wbtools.literature.paper import WBPaper
@@ -66,3 +66,28 @@ class TestWBPaper(unittest.TestCase):
         paper.add_file(dir_path=TESTDATA_DIR, filename='00026804_McCracken05_supp.txt', remote_file=False, pdf=False)
         addresses = paper.extract_all_email_addresses_from_text()
         self.assertGreater(len(addresses), 0)
+
+    def test_pdf2txt_conversion(self):
+        config = read_db_config()
+        ssh_config = read_tazendra_config()
+        db_manager = WBPaperDBManager(
+            dbname=config["wb_database"]["db_name"], user=config["wb_database"]["db_user"],
+            password=config["wb_database"]["db_password"], host=config["wb_database"]["db_host"])
+        paper = WBPaper(paper_id="00003969", db_manager=db_manager, ssh_user=ssh_config["ssh"]["ssh_user"],
+                        ssh_passwd=ssh_config["ssh"]["ssh_password"])
+        paper.load_text_from_pdf_files_in_db()
+        fulltext = paper.get_text_docs()
+        self.assertGreater(len(fulltext), 0)
+        self.assertTrue("u253, u423 deletion in exon 3" in fulltext[0])
+
+    def test_pdf_table_conversion(self):
+        config = read_db_config()
+        ssh_config = read_tazendra_config()
+        db_manager = WBPaperDBManager(
+            dbname=config["wb_database"]["db_name"], user=config["wb_database"]["db_user"],
+            password=config["wb_database"]["db_password"], host=config["wb_database"]["db_host"])
+        paper = WBPaper(paper_id="00059755", db_manager=db_manager, ssh_user=ssh_config["ssh"]["ssh_user"],
+                        ssh_passwd=ssh_config["ssh"]["ssh_password"])
+        paper.load_text_from_pdf_files_in_db()
+        fulltext = paper.get_text_docs()
+        self.assertTrue(fulltext)

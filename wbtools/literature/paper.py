@@ -9,6 +9,7 @@ import numpy as np
 from collections import defaultdict
 from pdfminer.high_level import extract_text
 from fabric.connection import Connection
+from pdfminer.layout import LAParams
 
 from wbtools.db.afp import WBAFPDBManager
 from wbtools.db.paper import WBPaperDBManager
@@ -35,7 +36,8 @@ class PaperFileReader(object):
     def convert_pdf_to_txt(file_path):
         try:
             logger.info("Started pdf to text conversion")
-            text = extract_text(file_path)
+            laparams = LAParams(char_margin=50)
+            text = extract_text(file_path, laparams=laparams)
             return text if text is not None else ""
         except:
             return ""
