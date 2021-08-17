@@ -36,7 +36,7 @@ class PaperFileReader(object):
     def convert_pdf_to_txt(file_path):
         try:
             logger.info("Started pdf to text conversion")
-            laparams = LAParams(char_margin=50)
+            laparams = LAParams(char_margin=100)
             text = extract_text(file_path, laparams=laparams)
             return text if text is not None else ""
         except:
@@ -74,9 +74,7 @@ class PaperFileReader(object):
                 text = file.read()
         if np.average([len(w) for w in preprocess(text).split("\n")]) < 1.001:
             text = text.replace("\n\n", " ")
-            text = text.replace("\n", "")
-        else:
-            text = text.replace("\n", " ")
+        text = re.sub('(?<![\r\n])(\r?\n|\n?\r)(?![\r\n])', ' ', text)
         text = text.replace("Fig.", "Fig")
         text = text.replace("et al.", "et al")
         return text
