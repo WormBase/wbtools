@@ -205,7 +205,7 @@ class WBPaper(object):
                         dir_path, filename, remote_file, pdf))
                 elif "ocr" in additional_options:
                     self.ocr_text = self.paper_file_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
-                elif "temp_proof" in additional_options:
+                elif "_proof" in additional_options:
                     self.proof_text = self.paper_file_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
                 elif "temp" in additional_options:
                     self.temp_text = self.paper_file_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
