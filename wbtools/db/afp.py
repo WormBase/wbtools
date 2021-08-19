@@ -96,17 +96,19 @@ class WBAFPDBManager(AbstractWBDBManager):
             else:
                 return 0
 
-    def get_list_papers_no_entities(self, from_offset, count):
+    def get_list_papers_no_entities(self, from_offset: int = None, count: int = None):
         with self.get_cursor() as curs:
-            curs.execute("select afp_version.joinkey FROM "
-                         "afp_version JOIN tfp_genestudied ON afp_version.joinkey = tfp_genestudied.joinkey "
-                         "JOIN tfp_transgene ON afp_version.joinkey = tfp_transgene.joinkey "
-                         "JOIN tfp_variation ON afp_version.joinkey = tfp_variation.joinkey "
-                         "JOIN tfp_strain ON afp_version.joinkey = tfp_strain.joinkey "
-                         "WHERE afp_version.afp_version = '2' AND tfp_genestudied.tfp_genestudied = '' "
-                         "AND tfp_transgene.tfp_transgene = '' AND tfp_variation.tfp_variation = '' "
-                         "AND tfp_strain = '' "
-                         "OFFSET {} LIMIT {}".format(from_offset, count))
+            query = "select afp_version.joinkey FROM afp_version JOIN tfp_genestudied ON afp_version.joinkey = " \
+                    "tfp_genestudied.joinkey JOIN tfp_transgene ON afp_version.joinkey = tfp_transgene.joinkey JOIN " \
+                    "tfp_variation ON afp_version.joinkey = tfp_variation.joinkey JOIN tfp_strain ON " \
+                    "afp_version.joinkey = tfp_strain.joinkey WHERE afp_version.afp_version = '2' AND " \
+                    "tfp_genestudied.tfp_genestudied = '' AND tfp_transgene.tfp_transgene = '' AND " \
+                    "tfp_variation.tfp_variation = '' AND tfp_strain = ''"
+            if from_offset:
+                query += " OFFSET " + str(from_offset)
+            if count:
+                query += " LIMIT " + str(count)
+            curs.execute(query)
             res = curs.fetchall()
             if res:
                 return [papid[0] for papid in res]
@@ -374,7 +376,7 @@ class WBAFPDBManager(AbstractWBDBManager):
     def set_gene_model_update(self, gene_model_update, paper_id):
         self.set_value_with_history(paper_id, "afp_structcorr", gene_model_update)
 
-    def save_extracted_data_to_db(self, paper_id: str, genes: List[str], alleles: List[str], species: List[str], 
+    def save_extracted_data_to_db(self, paper_id: str, genes: List[str], alleles: List[str], species: List[str],
                                   strains: List[str], transgenes: List[str], author_emails: List[str]):
         passwd = self.get_passwd(paper_id=paper_id)
         passwd = time.time() if not passwd else passwd
