@@ -92,6 +92,18 @@ class TestWBPaper(unittest.TestCase):
         fulltext = paper.get_text_docs()
         self.assertTrue(fulltext)
 
+    def test_tokenize_sentences_with_tables(self):
+        config = read_db_config()
+        ssh_config = read_tazendra_config()
+        db_manager = WBPaperDBManager(
+            dbname=config["wb_database"]["db_name"], user=config["wb_database"]["db_user"],
+            password=config["wb_database"]["db_password"], host=config["wb_database"]["db_host"])
+        paper = WBPaper(paper_id="00003969", db_manager=db_manager, ssh_user=ssh_config["ssh"]["ssh_user"],
+                        ssh_passwd=ssh_config["ssh"]["ssh_password"])
+        paper.load_text_from_pdf_files_in_db()
+        sentences = paper.get_text_docs(split_sentences=True)
+        self.assertGreater(len(sentences), 0)
+
     def test_two_cols_conversion(self):
         config = read_db_config()
         ssh_config = read_tazendra_config()

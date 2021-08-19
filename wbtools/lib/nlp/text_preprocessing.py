@@ -14,7 +14,16 @@ def get_documents_from_text(text: str, split_sentences: bool = False, remove_sec
                             must_be_present: List[PaperSections] = None) -> list:
     if remove_sections:
         text = remove_sections_from_text(text=text, sections_to_remove=remove_sections, must_be_present=must_be_present)
-    return sent_tokenize(text) if split_sentences else [text]
+    if split_sentences:
+        text = text.replace("Fig.", "Fig")
+        text = text.replace("et al.", "et al")
+        text = text.replace('.\n\n', '. ')
+        text = text.replace('\n\n', '. ')
+        text = text.replace('-\n', '')
+        return sent_tokenize(text)
+    else:
+        text = text.replace('-\n', '')
+        return [text]
 
 
 def remove_sections_from_text(text: str, sections_to_remove: List[PaperSections] = None,

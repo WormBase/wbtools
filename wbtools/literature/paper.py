@@ -74,9 +74,6 @@ class PaperFileReader(object):
                 text = file.read()
         if np.average([len(w) for w in preprocess(text).split("\n")]) < 1.001:
             text = text.replace("\n\n", " ")
-        text = re.sub('(?<![\r\n])(\r?\n|\n?\r)(?![\r\n])', ' ', text)
-        text = text.replace("Fig.", "Fig")
-        text = text.replace("et al.", "et al")
         return text
 
 
