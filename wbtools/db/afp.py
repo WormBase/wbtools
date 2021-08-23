@@ -801,7 +801,8 @@ class WBAFPDBManager(AbstractWBDBManager):
                          "WHERE afp_email.afp_timestamp < now() - interval '{} month' "
                          "AND afp_email.afp_timestamp > now() - interval '{} months' "
                          "AND afp_version.afp_version = '2' "
-                         "AND afp_lasttouched.afp_lasttouched IS NULL".format(after_month, before_month))
+                         "AND afp_lasttouched.afp_lasttouched IS NULL AND afp_email.joinkey NOT IN "
+                         "(SELECT joinkey from pap_status WHERE pap_status = 'invalid')".format(after_month, before_month))
             rows = curs.fetchall()
             return [(row[0], row[1]) for row in rows]
 
