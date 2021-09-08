@@ -26,6 +26,31 @@ class WBAFPDBManager(AbstractWBDBManager):
     def __init__(self, dbname, user, password, host):
         super().__init__(dbname, user, password, host)
 
+    def get_filtered_paper_ids(self, query, must_be_autclass_positive_data_types: List[str] = None,
+                               must_be_positive_manual_flag_data_types: List[str] = None,
+                               must_be_curation_negative_data_types: List[str] = None,
+                               combine_filters: str = 'OR', offset: int = None, limit: int = None,
+                               count: bool = False, tazendra_user: str = None, tazendra_password: str = None):
+        main_paper_ids = self.get_db_manager(cls=WBGenericDBManager).get_paper_ids(
+            query=query,
+            must_be_autclass_positive_data_types=must_be_autclass_positive_data_types,
+            must_be_positive_manual_flag_data_types=must_be_positive_manual_flag_data_types,
+            must_be_curation_negative_data_types=must_be_curation_negative_data_types,
+            combine_filters=combine_filters, count=count, offset=offset, limit=limit, tazendra_user=tazendra_user,
+            tazendra_password=tazendra_password)
+        if must_be_autclass_positive_data_types and len(must_be_autclass_positive_data_types) > 0 and \
+                must_be_autclass_positive_data_types[0] != '':
+            additional_paper_ids = self.get_db_manager(cls=WBGenericDBManager).get_paper_ids(
+                query=query,
+                must_be_autclass_positive_data_types=None,
+                must_be_positive_manual_flag_data_types=must_be_autclass_positive_data_types,
+                must_be_curation_negative_data_types=must_be_curation_negative_data_types,
+                combine_filters=combine_filters, count=count, offset=offset, limit=limit, tazendra_user=tazendra_user,
+                tazendra_password=tazendra_password)
+            return list(set(main_paper_ids) | set(additional_paper_ids))
+        else:
+            return main_paper_ids
+
     def get_paper_ids_afp_processed(self, must_be_autclass_positive_data_types: List[str] = None,
                                     must_be_positive_manual_flag_data_types: List[str] = None,
                                     must_be_curation_negative_data_types: List[str] = None,
@@ -58,10 +83,20 @@ class WBAFPDBManager(AbstractWBDBManager):
                                           combine_filters: str = 'OR', offset: int = None, limit: int = None,
                                           count: bool = False, tazendra_user: str = None,
                                           tazendra_password: str = None):
+        # note that the value of 'must_be_autclass_positive_data_types' are added to the manual filter, so that
+        # submitted values are filtered, and not the original svm value
+        combined_manual_autoclass_datatypes = None
+        if must_be_autclass_positive_data_types:
+            combined_manual_autoclass_datatypes = must_be_autclass_positive_data_types
+        if must_be_positive_manual_flag_data_types:
+            if combined_manual_autoclass_datatypes:
+                combined_manual_autoclass_datatypes = [cl for cl in list(set(must_be_autclass_positive_data_types) |
+                               set(must_be_positive_manual_flag_data_types)) if cl != '']
+            else:
+                combined_manual_autoclass_datatypes = must_be_positive_manual_flag_data_types
         return self.get_db_manager(cls=WBGenericDBManager).get_paper_ids(
             query=QUERY_PAPER_IDS_FULL_SUBMISSION,
-            must_be_autclass_positive_data_types=must_be_autclass_positive_data_types,
-            must_be_positive_manual_flag_data_types=must_be_positive_manual_flag_data_types,
+            must_be_positive_manual_flag_data_types=combined_manual_autoclass_datatypes,
             must_be_curation_negative_data_types=must_be_curation_negative_data_types,
             combine_filters=combine_filters, count=count, offset=offset, limit=limit, tazendra_user=tazendra_user,
             tazendra_password=tazendra_password)

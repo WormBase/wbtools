@@ -1,3 +1,5 @@
+import datetime
+import pytz
 import logging
 import re
 from collections import defaultdict
@@ -7,6 +9,8 @@ from wbtools.db.abstract_manager import AbstractWBDBManager
 from wbtools.lib.nlp.common import EntityType, SPECIES_ALIASES
 from wbtools.lib.scraping import get_curated_papers
 
+
+utc = pytz.UTC
 logger = logging.getLogger(__name__)
 
 
@@ -230,16 +234,23 @@ class WBGenericDBManager(AbstractWBDBManager):
 
     def get_paper_ids_flagged_positive_autclass(self, data_types: List[str], combine_fitlers: str = 'OR'):
         with self.get_cursor() as curs:
-            curs.execute("SELECT cur_paper, cur_datatype FROM cur_blackbox "
-                         "WHERE cur_datatype IN %s AND UPPER(cur_blackbox) IN ('HIGH', 'MEDIUM')",
-                         (tuple(data_types),))
+            curs.execute("SELECT cur_paper, cur_datatype, cur_timestamp, UPPER(cur_blackbox) from cur_blackbox "
+                         "WHERE cur_datatype IN %s", (tuple(data_types),))
+            pap_maxdate = defaultdict(lambda: utc.localize(datetime.datetime.min))
+            pap_autclass = {}
+            for row in curs.fetchall():
+                if row[2] >= pap_maxdate[row[0] + "_" + row[1]]:
+                    pap_maxdate[row[0] + "_" + row[1]] = row[2]
+                    pap_autclass[row[0] + "_" + row[1]] = row[3]
+            pap_id_datatype = [(paper_id_datatype.split("_")[0], "_".join(paper_id_datatype.split("_")[1:])) for
+                               paper_id_datatype, autclass in pap_autclass.items() if autclass in ['HIGH', 'MEDIUM']]
             if combine_fitlers == 'AND':
                 datatype_ids = {svm_filter: set() for svm_filter in data_types}
-                for row in curs.fetchall():
-                    datatype_ids[row[1]].add(row[0])
-                return set.intersection(*list(datatype_ids.values()))
+                for pid_type in pap_id_datatype:
+                    datatype_ids[pid_type[1]].add(pid_type[0])
+                return list(set.intersection(*list(datatype_ids.values())))
             else:
-                return [row[0] for row in curs.fetchall()]
+                return list(set(pap_id for pap_id, _ in pap_id_datatype))
 
     def get_paper_ids_flagged_positive_manual(self, data_types: List[str], combine_filters: str = 'OR'):
         with self.get_cursor() as curs:
