@@ -216,12 +216,20 @@ class WBGenericDBManager(AbstractWBDBManager):
                 curs.execute(query)
                 res = curs.fetchall()
                 paper_ids = list(set([row[0] for row in res]))
-                if must_be_autclass_positive_data_types and must_be_autclass_positive_data_types[0]:
-                    paper_ids = list(set(paper_ids) & set(self.get_paper_ids_flagged_positive_autclass(
-                        must_be_autclass_positive_data_types, combine_filters)))
-                if must_be_positive_manual_flag_data_types and must_be_positive_manual_flag_data_types[0]:
-                    paper_ids = list(set(paper_ids) & set(self.get_paper_ids_flagged_positive_manual(
-                        must_be_positive_manual_flag_data_types, combine_filters)))
+                if must_be_autclass_positive_data_types and must_be_autclass_positive_data_types[0] and \
+                must_be_positive_manual_flag_data_types and must_be_positive_manual_flag_data_types[0] and \
+                        combine_filters == "OR":
+                    paper_ids = list(set(paper_ids) & (set(self.get_paper_ids_flagged_positive_autclass(
+                        must_be_autclass_positive_data_types, combine_filters)) | set(
+                        self.get_paper_ids_flagged_positive_manual(must_be_positive_manual_flag_data_types,
+                                                                   combine_filters))))
+                else:
+                    if must_be_autclass_positive_data_types and must_be_autclass_positive_data_types[0]:
+                        paper_ids = list(set(paper_ids) & set(self.get_paper_ids_flagged_positive_autclass(
+                            must_be_autclass_positive_data_types, combine_filters)))
+                    if must_be_positive_manual_flag_data_types and must_be_positive_manual_flag_data_types[0]:
+                        paper_ids = list(set(paper_ids) & set(self.get_paper_ids_flagged_positive_manual(
+                            must_be_positive_manual_flag_data_types, combine_filters)))
                 if must_be_curation_negative_data_types and must_be_curation_negative_data_types[0]:
                     paper_ids = list(set(paper_ids) - set([pap_id for datatype in must_be_curation_negative_data_types
                                                            for pap_id in get_curated_papers(datatype, tazendra_user,
