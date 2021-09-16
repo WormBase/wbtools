@@ -112,7 +112,10 @@ class WBPaperDBManager(AbstractWBDBManager):
     def is_paper_positive_for_class(automated_classification_values: List[Tuple[str, str]], cl: str,
                                     min_value: str = 'medium'):
         scale = {"neg": 0, "low": 1, "medium": 2, "high": 3}
-        return scale[{cl: val for (cl, val) in automated_classification_values}[cl].lower()] >= scale[min_value]
+        if cl in automated_classification_values:
+            return scale[{cl: val for (cl, val) in automated_classification_values}[cl].lower()] >= scale[min_value]
+        else:
+            return False
 
     def get_file_paths(self, paper_id: str):
         """
