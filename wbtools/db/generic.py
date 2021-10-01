@@ -153,7 +153,7 @@ class WBGenericDBManager(AbstractWBDBManager):
                 taxon_id_name_map[taxon_id].extend(species_alias_arr)
             for species_id, regex_list in taxon_id_name_map.items():
                 if len(regex_list[0].split(" ")) > 1:
-                    taxon_id_name_map[species_id].append(regex_list[0][0] + "\\. " + " ".join(regex_list[0].split(" ")[1:]))
+                    taxon_id_name_map[species_id].append(regex_list[0][0] + ". " + " ".join(regex_list[0].split(" ")[1:]))
             return taxon_id_name_map
 
     def get_paper_ids_with_email_addresses_extracted(self):
