@@ -67,6 +67,8 @@ class TestWBPaper(unittest.TestCase):
         addresses = paper.extract_all_email_addresses_from_text()
         self.assertGreater(len(addresses), 0)
 
+    @unittest.skipIf(not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data",
+                                                     "local_config", "db.cfg")), "Test DB config file not present")
     def test_pdf2txt_conversion(self):
         config = read_db_config()
         ssh_config = read_tazendra_config()
@@ -80,6 +82,8 @@ class TestWBPaper(unittest.TestCase):
         self.assertGreater(len(fulltext), 0)
         self.assertTrue("u253, u423 deletion in exon 3" in fulltext[0])
 
+    @unittest.skipIf(not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data",
+                                                     "local_config", "db.cfg")), "Test DB config file not present")
     def test_pdf_table_conversion(self):
         config = read_db_config()
         ssh_config = read_tazendra_config()
@@ -92,6 +96,8 @@ class TestWBPaper(unittest.TestCase):
         fulltext = paper.get_text_docs()
         self.assertTrue(fulltext)
 
+    @unittest.skipIf(not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data",
+                                                     "local_config", "db.cfg")), "Test DB config file not present")
     def test_tokenize_sentences_with_tables(self):
         config = read_db_config()
         ssh_config = read_tazendra_config()
@@ -104,6 +110,8 @@ class TestWBPaper(unittest.TestCase):
         sentences = paper.get_text_docs(split_sentences=True)
         self.assertGreater(len(sentences), 0)
 
+    @unittest.skipIf(not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data",
+                                                     "local_config", "db.cfg")), "Test DB config file not present")
     def test_two_cols_conversion(self):
         config = read_db_config()
         ssh_config = read_tazendra_config()

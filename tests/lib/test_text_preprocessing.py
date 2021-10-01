@@ -37,8 +37,6 @@ class TestTextPreprocessing(unittest.TestCase):
                                                           must_be_present=[PaperSections.METHOD, PaperSections.RESULTS])
         self.assertTrue(fulltext)
 
-
-
     def test_get_documents_from_text(self):
         docs = get_documents_from_text(list(self.cm.corpus.values())[0].main_text)
         self.assertEqual(len(docs), 1)
