@@ -29,6 +29,7 @@ setuptools.setup(
         'setuptools~=50.3.2',
         'regex~=2020.10.28',
         'pdfminer.six==20201018',
-        'pytz~=2021.1'
+        'pytz~=2021.1',
+        'pandas~=1.3.3'
     ]
 )
