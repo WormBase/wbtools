@@ -16,8 +16,8 @@ class TestWBAFPDBManager(unittest.TestCase):
                                          password=config["wb_database"]["db_password"],
                                          host=config["wb_database"]["db_host"])
 
-    def test_get_monthly_stats(self):
-        monthly_stats = self.db_manager.get_monthly_stats(bin_period='m')
+    def test_get_stats_timeseries(self):
+        monthly_stats = self.db_manager.get_stats_timeseries(bin_period='m')
         self.assertTrue(len(monthly_stats) > 0)
         self.assertTrue(len(monthly_stats[0]) == 2)
         self.assertTrue(len(monthly_stats[0][1]) == 5)

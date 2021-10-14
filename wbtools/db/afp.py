@@ -936,7 +936,7 @@ class WBAFPDBManager(AbstractWBDBManager):
         s = s.reindex(pd.period_range(s.index.min(), s.index.max(), freq=bin_period), fill_value=0)
         return list(zip([tp.strftime('%Y-%m') for tp in s.index.to_list()], s.to_list()))
 
-    def get_monthly_stats(self, bin_period: str = 'm'):
+    def get_stats_timeseries(self, bin_period: str = 'm'):
         with self.get_cursor() as curs:
             curs.execute("SELECT distinct afp_lasttouched.joinkey, afp_version.afp_timestamp FROM afp_lasttouched "
                          "JOIN afp_version ON afp_lasttouched.joinkey = afp_version.joinkey "
