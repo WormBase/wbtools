@@ -41,7 +41,7 @@ def get_curated_papers(datatype, tazendra_user, tazendra_password) -> List[str]:
     if datatype == "humdis":
         datatype = "humandisease"
     curated_papers = set()
-    request = urllib.request.Request("http://tazendra.caltech.edu/~postgres/cgi-bin/curation_status.cgi?action="
+    request = urllib.request.Request("http://tazendra.textpressolab.com/~postgres/cgi-bin/curation_status.cgi?action="
                                      "listCurationStatisticsPapersPage&select_curator=two1823&method=allcur&"
                                      "listDatatype=" + datatype)
     base64string = base64.b64encode(bytes('%s:%s' % (tazendra_user, tazendra_password), 'ascii'))
@@ -52,7 +52,7 @@ def get_curated_papers(datatype, tazendra_user, tazendra_password) -> List[str]:
                      res.replace('\n', ''))
         if m:
             curated_papers = set(m.group(1).split())
-    request = urllib.request.Request("http://tazendra.caltech.edu/~postgres/cgi-bin/curation_status.cgi?action="
+    request = urllib.request.Request("http://tazendra.textpressolab.com/~postgres/cgi-bin/curation_status.cgi?action="
                                      "listCurationStatisticsPapersPage&select_curator=two1823&method=allval%20neg&"
                                      "listDatatype=" + datatype)
     base64string = base64.b64encode(bytes('%s:%s' % (tazendra_user, tazendra_password), 'ascii'))
