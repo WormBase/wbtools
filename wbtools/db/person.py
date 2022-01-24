@@ -16,7 +16,7 @@ class WBPersonDBManager(AbstractWBDBManager):
             if res:
                 return res[0]
             else:
-                curs.execute("SELECT * FROM two_old_email WHERE two_old_email=%s", (email_address, ))
+                curs.execute("SELECT * FROM two_old_email WHERE lower(two_old_email)=lower(%s)", (email_address, ))
                 res = curs.fetchone()
                 if res:
                     return res[0]
