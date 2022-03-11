@@ -2,6 +2,7 @@ import base64
 import os
 import re
 import ssl
+import tempfile
 import urllib.request
 from typing import List
 
@@ -64,3 +65,27 @@ def get_curated_papers(datatype, tazendra_user, tazendra_password) -> List[str]:
         if m:
             curated_papers = curated_papers | set(m.group(1).split())
     return list(curated_papers)
+
+
+def get_supp_file_names_from_paper_dir(paper_sup_dir_url, user, password):
+    request = urllib.request.Request(paper_sup_dir_url)
+    base64string = base64.b64encode(bytes('%s:%s' % (user, password), 'ascii'))
+    request.add_header("Authorization", "Basic %s" % base64string.decode('utf-8'))
+    supp_files = set()
+    with urllib.request.urlopen(request) as response:
+        res = response.read().decode("utf8")
+        m = re.findall('.*alt="\[   \]"></td><td><a href="([^"]+)">.*', res)
+        if m:
+            supp_files = set(m)
+    return list(supp_files)
+
+
+def download_pdf_file_from_url(url, user, password):
+    tmp_file = tempfile.NamedTemporaryFile()
+    request = urllib.request.Request(url)
+    base64string = base64.b64encode(bytes('%s:%s' % (user, password), 'ascii'))
+    request.add_header("Authorization", "Basic %s" % base64string.decode('utf-8'))
+    with urllib.request.urlopen(request) as response:
+        with open(tmp_file.name, 'wb') as tmp_file_stream:
+            tmp_file_stream.write(response.read())
+    return tmp_file

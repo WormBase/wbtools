@@ -24,7 +24,7 @@ class TestWBDBManager(unittest.TestCase):
         curated_variations = self.db_manager.get_curated_variations(exclude_id_used_as_name=True)
         allele_regex = ALL_VAR_REGEX.format(designations=self.db_manager.get_allele_designations())
         for variation in curated_variations:
-            self.assertTrue(re.match(allele_regex, variation))
+            self.assertTrue(re.match(allele_regex, variation.lower()))
 
     def test_entity_name_id_maps(self):
         gene_name_id_map = self.db_manager.get_gene_name_id_map()

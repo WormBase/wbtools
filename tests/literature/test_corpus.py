@@ -63,15 +63,15 @@ class TestCorpusManager(unittest.TestCase):
         cm.load_from_wb_database(db_name=db_config["wb_database"]["db_name"], db_user=db_config["wb_database"]["db_user"],
                                  db_password=db_config["wb_database"]["db_password"],
                                  db_host=db_config["wb_database"]["db_host"],
-                                 ssh_user=tazendra_config["ssh"]["ssh_user"],
-                                 ssh_passwd=tazendra_config["ssh"]["ssh_password"], max_num_papers=2)
+                                 file_server_user=tazendra_config["file_server"]["user"],
+                                 file_server_passwd=tazendra_config["file_server"]["password"], max_num_papers=2)
         self.assertTrue(cm.size() == 2)
         cm.load_from_wb_database(db_name=db_config["wb_database"]["db_name"],
                                  db_user=db_config["wb_database"]["db_user"],
                                  db_password=db_config["wb_database"]["db_password"],
                                  db_host=db_config["wb_database"]["db_host"],
-                                 ssh_user=tazendra_config["ssh"]["ssh_user"],
-                                 ssh_passwd=tazendra_config["ssh"]["ssh_password"], max_num_papers=2,
+                                 file_server_user=tazendra_config["file_server"]["user"],
+                                 file_server_passwd=tazendra_config["file_server"]["password"], max_num_papers=2,
                                  exclude_temp_pdf=True)
         self.assertFalse(any([paper.is_temp() for paper in cm.get_all_papers()]))
 
@@ -83,8 +83,8 @@ class TestCorpusManager(unittest.TestCase):
                                  db_user=db_config["wb_database"]["db_user"],
                                  db_password=db_config["wb_database"]["db_password"],
                                  db_host=db_config["wb_database"]["db_host"],
-                                 ssh_user=tazendra_config["ssh"]["ssh_user"],
-                                 ssh_passwd=tazendra_config["ssh"]["ssh_password"], paper_ids=["00062512"])
+                                 file_server_user=tazendra_config["file_server"]["user"],
+                                 file_server_passwd=tazendra_config["file_server"]["password"], paper_ids=["00062512"])
         self.assertTrue(len(cm.get_paper("00062512").supplemental_docs) > 0)
 
     @unittest.skipIf(not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data",
@@ -97,8 +97,8 @@ class TestCorpusManager(unittest.TestCase):
                                  db_user=db_config["wb_database"]["db_user"],
                                  db_password=db_config["wb_database"]["db_password"],
                                  db_host=db_config["wb_database"]["db_host"],
-                                 ssh_user=tazendra_config["ssh"]["ssh_user"],
-                                 ssh_passwd=tazendra_config["ssh"]["ssh_password"], max_num_papers=2,
+                                 file_server_user=tazendra_config["file_server"]["user"],
+                                 file_server_passwd=tazendra_config["file_server"]["password"], max_num_papers=2,
                                  load_curation_info=True, load_afp_info=True,
                                  exclude_temp_pdf=True, exclude_afp_processed=True, must_be_autclass_flagged=True)
         self.assertFalse(any([paper.afp_processed for paper in cm.get_all_papers()]))

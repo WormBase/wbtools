@@ -23,8 +23,8 @@ class TestEmailAddresses(unittest.TestCase):
         cm.load_from_wb_database(db_name=config["wb_database"]["db_name"], db_user=config["wb_database"]["db_user"],
                                  db_password=config["wb_database"]["db_password"],
                                  db_host=config["wb_database"]["db_host"],
-                                 ssh_user=tazendra_config["ssh"]["ssh_user"],
-                                 ssh_passwd=tazendra_config["ssh"]["ssh_password"],
+                                 file_server_user=tazendra_config["file_server"]["user"],
+                                 file_server_passwd=tazendra_config["file_server"]["password"],
                                  paper_ids=['00062455'])
         email_addresses = get_email_addresses_from_text(cm.get_paper('00062455').get_text_docs(
             include_supplemental=False, return_concatenated=True))

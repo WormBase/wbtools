@@ -16,6 +16,7 @@ from wbtools.db.paper import WBPaperDBManager
 from wbtools.db.person import WBPersonDBManager
 from wbtools.lib.nlp.entity_extraction.email_addresses import get_email_addresses_from_text
 from wbtools.lib.nlp.text_preprocessing import preprocess, get_documents_from_text, PaperSections
+from wbtools.lib.scraping import get_supp_file_names_from_paper_dir, download_pdf_file_from_url
 from wbtools.lib.timeout import timeout
 from wbtools.literature.person import WBAuthor
 
@@ -26,10 +27,10 @@ logging.getLogger("pdfminer").setLevel(logging.WARNING)
 
 class PaperFileReader(object):
 
-    def __init__(self, ssh_host: str = '', ssh_user: str = '', ssh_passwd: str = ''):
-        self.ssh_host = ssh_host
-        self.ssh_user = ssh_user
-        self.ssh_passwd = ssh_passwd
+    def __init__(self, host: str = "https://tazendra.caltech.edu/~acedb/daniel/", user: str = '', password: str = ''):
+        self.host = host
+        self.user = user
+        self.passwd = password
 
     @staticmethod
     @timeout(3600)
@@ -43,21 +44,11 @@ class PaperFileReader(object):
             return ""
 
     def get_supplemental_file_names(self, supp_dir_path):
-        with Connection(self.ssh_host, self.ssh_user,
-                        connect_kwargs={"password": self.ssh_passwd}) as c, c.sftp() as sftp:
-            try:
-                return [filename for filename in sftp.listdir(supp_dir_path) if filename.endswith(".pdf")]
-            except UnicodeDecodeError:
-                logger.error("Cannot read non-unicode chars in filenames due to bug in ssh library")
-                return []
+        return get_supp_file_names_from_paper_dir(self.host.rstrip("/") + "/" + supp_dir_path, self.user, self.passwd)
 
     def download_paper_and_extract_txt(self, file_url, pdf: bool = False):
         try:
-            with Connection(self.ssh_host, self.ssh_user, connect_kwargs={"password": self.ssh_passwd}) as \
-                    c, c.sftp() as sftp, sftp.open(file_url) as file_stream:
-                tmp_file = tempfile.NamedTemporaryFile()
-                with open(tmp_file.name, 'wb') as tmp_file_stream:
-                    tmp_file_stream.write(file_stream.read())
+            tmp_file = download_pdf_file_from_url(file_url, self.user, self.passwd)
             if pdf:
                 return self.convert_pdf_to_txt(tmp_file.name)
             else:
@@ -66,9 +57,9 @@ class PaperFileReader(object):
             logger.warning("File not found: " + file_url)
             return ""
 
-    def get_text_from_file(self, dir_path, filename, remote_file: bool = False, pdf: bool = False):
+    def get_text_from_file(self, dir_path, supp_dir, filename, remote_file: bool = False, pdf: bool = False):
         if remote_file:
-            text = self.download_paper_and_extract_txt(dir_path + filename, pdf)
+            text = self.download_paper_and_extract_txt(self.host.rstrip("/") + "/" + supp_dir + filename, pdf)
         else:
             with open(os.path.join(dir_path, filename), 'r') as file:
                 text = file.read()
@@ -82,9 +73,9 @@ class WBPaper(object):
 
     def __init__(self, paper_id: str = '', main_text: str = '', ocr_text: str = '', temp_text: str = '',
                  aut_text: str = '', html_text: str = '', proof_text: str = '', supplemental_docs: list = None,
-                 ssh_host: str = 'tazendra.caltech.edu', ssh_user: str = '', ssh_passwd: str = '', title: str = '',
-                 journal: str = '',
-                 pub_date: str = '', authors: List[WBAuthor] = None, abstract: str = '', doi: str = '', pmid: str = '',
+                 file_server_host: str = 'https://tazendra.caltech.edu/~acedb/daniel/', file_server_user: str = '',
+                 file_server_passwd: str = '', title: str = '', journal: str = '', pub_date: str = '',
+                 authors: List[WBAuthor] = None, abstract: str = '', doi: str = '', pmid: str = '',
                  db_manager: WBPaperDBManager = None):
         self.paper_id = paper_id
         self.title = title
@@ -102,7 +93,8 @@ class WBPaper(object):
         self.proof_text = proof_text
         self.supplemental_docs = supplemental_docs if supplemental_docs else []
         self.aut_class_values = defaultdict(str)
-        self.paper_file_reader = PaperFileReader(ssh_host=ssh_host, ssh_user=ssh_user, ssh_passwd=ssh_passwd)
+        self.paper_file_reader = PaperFileReader(host=file_server_host, user=file_server_user,
+                                                 password=file_server_passwd)
         self.afp_final_submission = False
         self.afp_processed = False
         self.afp_partial_submission = False
@@ -170,11 +162,13 @@ class WBPaper(object):
             pdf (bool): whether the file is in pdf format
         """
         all_supp = False
+        sup_dir = ""
         if not self.paper_file_reader and remote_file:
             raise Exception("a paper reader must be provided to access remote files")
         if dir_path.endswith("supplemental/") and re.match(r'^[0-9]+$', filename):
-            filenames = self.paper_file_reader.get_supplemental_file_names(dir_path + filename)
+            filenames = self.paper_file_reader.get_supplemental_file_names(filename)
             dir_path = dir_path + filename + "/"
+            sup_dir = "/" + filename + "/"
             all_supp = True
         else:
             filenames = [filename]
@@ -190,24 +184,24 @@ class WBPaper(object):
                                                  author_year or "supplementary" in author_year or "Supplementary" in
                                                  author_year or re.match(r'[_-][Ss][0-9]+', author_year))):
                     self.supplemental_docs.append(self.paper_file_reader.get_text_from_file(
-                        dir_path, filename, remote_file, pdf))
+                        dir_path, sup_dir, filename, remote_file, pdf))
                     return
                 if not additional_options:
-                    self.main_text = self.paper_file_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
+                    self.main_text = self.paper_file_reader.get_text_from_file(dir_path, sup_dir, filename, remote_file, pdf)
                 elif "Supp" in additional_options or "supp" in additional_options or "Table" in additional_options or \
                         "table" in additional_options or "Movie" in additional_options or "movie" in additional_options:
                     self.supplemental_docs.append(self.paper_file_reader.get_text_from_file(
-                        dir_path, filename, remote_file, pdf))
+                        dir_path, sup_dir, filename, remote_file, pdf))
                 elif "ocr" in additional_options:
-                    self.ocr_text = self.paper_file_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
+                    self.ocr_text = self.paper_file_reader.get_text_from_file(dir_path, sup_dir, filename, remote_file, pdf)
                 elif "_proof" in additional_options:
-                    self.proof_text = self.paper_file_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
+                    self.proof_text = self.paper_file_reader.get_text_from_file(dir_path, sup_dir, filename, remote_file, pdf)
                 elif "temp" in additional_options:
-                    self.temp_text = self.paper_file_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
+                    self.temp_text = self.paper_file_reader.get_text_from_file(dir_path, sup_dir, filename, remote_file, pdf)
                 elif "aut" in additional_options:
-                    self.aut_text = self.paper_file_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
+                    self.aut_text = self.paper_file_reader.get_text_from_file(dir_path, sup_dir, filename, remote_file, pdf)
                 elif "html" in additional_options:
-                    self.html_text = self.paper_file_reader.get_text_from_file(dir_path, filename, remote_file, pdf)
+                    self.html_text = self.paper_file_reader.get_text_from_file(dir_path, sup_dir, filename, remote_file, pdf)
                 else:
                     logger.warning("No rule to read filename: " + filename)
 

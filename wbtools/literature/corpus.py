@@ -58,7 +58,8 @@ class CorpusManager(object):
                 paper.add_file(dir_path=dir_path, filename=f, remote_file=False, pdf=False)
 
     def load_from_wb_database(self, db_name: str, db_user: str, db_password: str, db_host: str,
-                              ssh_host: str = 'tazendra.caltech.edu', ssh_user: str = None, ssh_passwd: str = None,
+                              file_server_host: str = 'https://tazendra.caltech.edu/~acedb/daniel/',
+                              file_server_user: str = None, file_server_passwd: str = None,
                               paper_ids: list = None,
                               from_date: str = None, load_pdf_files: bool = True, load_bib_info: bool = True,
                               load_curation_info: bool = True, load_afp_info: bool = False, max_num_papers: int = None,
@@ -74,9 +75,9 @@ class CorpusManager(object):
             db_user (str): database user
             db_password (str): database password
             db_host (str): database host
-            ssh_host (str): host where to fetch the files via ssh
-            ssh_user (str): ssh user to fetch pdf files
-            ssh_passwd (str): ssh password to fetch pdf files
+            file_server_host (str): host where to fetch the files via url
+            file_server_user (str): user required to log in to web form
+            file_server_passwd (str): password to fetch pdf files from web form
             paper_ids (list): optional list of paper ids to be fetched
             from_date (str): load papers added or modified from the specified date (only if paper_ids is not provided)
             load_pdf_files (bool): load pdf files using ssh credentials
@@ -119,8 +120,8 @@ class CorpusManager(object):
                 exclude_no_author_email else []
 
         for paper_id in paper_ids:
-            paper = WBPaper(paper_id=paper_id, ssh_host=ssh_host, ssh_user=ssh_user,
-                            ssh_passwd=ssh_passwd, db_manager=main_db_manager.paper)
+            paper = WBPaper(paper_id=paper_id, file_server_host=file_server_host, file_server_user=file_server_user,
+                            file_server_passwd=file_server_passwd, db_manager=main_db_manager.paper)
             if exclude_afp_processed and paper_id in afp_processed_ids:
                 logger.info("Skipping paper already processed by AFP")
                 continue

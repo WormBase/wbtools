@@ -18,20 +18,24 @@ from wbtools.literature.corpus import CorpusManager
 paper_id = "00050564"
 cm = CorpusManager()
 cm.load_from_wb_database(db_name="wb_dbname", db_user="wb_dbuser", db_password="wb_dbpasswd", db_host="wb_dbhost",
-                         paper_ids=[paper_id], ssh_host="ssh_host", ssh_user="ssh_user", ssh_passwd="ssh_passwd")
+                         paper_ids=[paper_id], file_server_host="file_server_base_url", file_server_user="username", 
+                         file_server_passwd="password")
 sentences = cm.get_paper(paper_id).get_text_docs(split_sentences=True)
 ```
 
-### Get the latest papers (up to 50) added to WormBase or modified in the last month  
+### Get the latest papers (up to 50) added to WormBase or modified in the last 30 days 
 
 ```python
 from wbtools.literature.corpus import CorpusManager
 import datetime
 
+one_month_ago = (datetime.datetime.now() - datetime.timedelta(days=30)).strftime("%M/%D/%Y")
+
 cm = CorpusManager()
 cm.load_from_wb_database(db_name="wb_dbname", db_user="wb_dbuser", db_password="wb_dbpasswd", db_host="wb_dbhost",
-                         from_date=datetime.datetime.now(), max_num_papers=50, ssh_host="ssh_host", ssh_user="ssh_user", 
-                         ssh_passwd="ssh_passwd")
+                         from_date=one_month_ago, max_num_papers=50, 
+                         file_server_host="file_server_base_url", file_server_user="username", 
+                         file_server_passwd="password")
 paper_ids = [paper.paper_id for paper in cm.get_all_papers()]
 ```
 
@@ -43,8 +47,8 @@ import datetime
 
 cm = CorpusManager()
 cm.load_from_wb_database(db_name="wb_dbname", db_user="wb_dbuser", db_password="wb_dbpasswd", db_host="wb_dbhost",
-                         from_date=datetime.datetime.now(), max_num_papers=50, must_be_autclass_flagged=True,
-                         exclude_pap_types=['Review'], exclude_temp_pdf=True, ssh_host="ssh_host", ssh_user="ssh_user", 
-                         ssh_passwd="ssh_passwd")
+                         max_num_papers=50, must_be_autclass_flagged=True, exclude_pap_types=['Review'], 
+                         exclude_temp_pdf=True, file_server_host="file_server_base_url", 
+                         file_server_user="username", file_server_passwd="password")
 paper_ids = [paper.paper_id for paper in cm.get_all_papers()]
 ```
