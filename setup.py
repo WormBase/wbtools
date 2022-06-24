@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="wbtools",
-    version="1.3.0",
+    version="1.3.1",
     author="Valerio Arnaboldi",
     author_email="valearna@caltech.edu",
     description="Interface to WormBase (www.wormbase.org) curation data, including literature management and NLP "

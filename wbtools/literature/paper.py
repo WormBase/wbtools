@@ -278,8 +278,7 @@ class WBPaper(object):
         Returns:
             bool: whether the paper has a temporary pdf file
         """
-        return self.main_text is None and self.html_text is None and self.ocr_text is None \
-            and self.aut_text is None and self.temp_text is None
+        return not (self.main_text or self.html_text or self.ocr_text or self.aut_text or self.temp_text)
 
     def has_supplementary_material(self):
         """determine if the paper has supplemental material associated to it
