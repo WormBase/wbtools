@@ -66,6 +66,7 @@ class TestCorpusManager(unittest.TestCase):
                                  file_server_user=tazendra_config["file_server"]["user"],
                                  file_server_passwd=tazendra_config["file_server"]["password"], max_num_papers=2)
         self.assertTrue(cm.size() == 2)
+        cm = CorpusManager()
         cm.load_from_wb_database(db_name=db_config["wb_database"]["db_name"],
                                  db_user=db_config["wb_database"]["db_user"],
                                  db_password=db_config["wb_database"]["db_password"],
