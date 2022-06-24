@@ -289,8 +289,8 @@ class WBPaper(object):
         return self.supplemental_docs
 
     def has_main_text(self):
-        return self.main_text is not None or self.html_text is not None or self.ocr_text is not None or self.aut_text \
-               is not None or self.temp_text is not None or self.proof_text is not None
+        return self.main_text != '' or self.html_text != '' or self.ocr_text != '' or self.aut_text != '' or \
+               self.temp_text != '' or self.proof_text != ''
 
     def extract_all_email_addresses_from_text(self, text: str = None):
         """get all the email addresses mentioned in any of the documents associated with this paper"""
