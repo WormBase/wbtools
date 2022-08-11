@@ -334,6 +334,9 @@ class WBAFPDBManager(AbstractWBDBManager):
     def set_submitted_other_alleles(self, other_alleles, paper_id):
         self.set_value_with_history(paper_id, "afp_othervariation", other_alleles)
 
+    def set_submitted_other_species(self, other_species, paper_id):
+        self.set_value_with_history(paper_id, "afp_otherspecies", other_species)
+
     def set_submitted_strains_list(self, strains, paper_id):
         self.set_value_with_history(paper_id, "afp_strain", strains)
 
