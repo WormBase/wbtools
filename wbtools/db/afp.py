@@ -534,7 +534,7 @@ class WBAFPDBManager(AbstractWBDBManager):
                          "join afp_version on afp_contributor.joinkey = afp_version.joinkey "
                          "where afp_version.afp_version = '2' "
                          "group by afp_contributor.afp_contributor order by count(DISTINCT afp_contributor.joinkey) "
-                         "desc OFFSET {} LIMIT {}".format(from_offset, count))
+                         "desc, afp_contributor.afp_contributor desc OFFSET {} LIMIT {}".format(from_offset, count))
             res = curs.fetchall()
             if res:
                 return [(person_db_manager.get_email(row[0]), row[1]) for row in res]
