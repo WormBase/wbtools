@@ -565,7 +565,7 @@ class WBAFPDBManager(AbstractWBDBManager):
 
     def get_author_token_from_email(self, email):
         with self.get_cursor() as curs:
-            curs.execute("SELECT two_timestamp FROM two_email WHERE two_email = '{}'".format(email))
+            curs.execute("SELECT two_timestamp FROM two_email WHERE LOWER(two_email) = LOWER('{}')".format(email))
             res = curs.fetchall()
             return str(res[0][0].timestamp()) + "/" + str(int(res[0][0].utcoffset().total_seconds() / 3600)) if res \
                 else None
