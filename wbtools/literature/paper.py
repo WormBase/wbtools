@@ -1,14 +1,18 @@
+import json
 import logging
 import os
 import re
 import tempfile
+import urllib.request
 from typing import List, Tuple, Union
+from urllib.error import HTTPError
 
 import numpy as np
 
 from collections import defaultdict
+
+import requests
 from pdfminer.high_level import extract_text
-from fabric.connection import Connection
 from pdfminer.layout import LAParams
 
 from wbtools.db.afp import WBAFPDBManager
@@ -16,67 +20,51 @@ from wbtools.db.paper import WBPaperDBManager
 from wbtools.db.person import WBPersonDBManager
 from wbtools.lib.nlp.entity_extraction.email_addresses import get_email_addresses_from_text
 from wbtools.lib.nlp.text_preprocessing import preprocess, get_documents_from_text, PaperSections
-from wbtools.lib.scraping import get_supp_file_names_from_paper_dir, download_pdf_file_from_url
 from wbtools.lib.timeout import timeout
 from wbtools.literature.person import WBAuthor
+from wbtools.utils.okta_utils import get_authentication_token, generate_headers
 
 logger = logging.getLogger(__name__)
 
 logging.getLogger("pdfminer").setLevel(logging.WARNING)
 
 
-class PaperFileReader(object):
+@timeout(3600)
+def convert_pdf_to_txt(file_path):
+    try:
+        logger.info("Started pdf to text conversion")
+        laparams = LAParams(char_margin=100)
+        text = extract_text(file_path, laparams=laparams)
+        return text if text is not None else ""
+    except:
+        return ""
 
-    def __init__(self, host: str = "https://tazendra.caltech.edu/~acedb/daniel/", user: str = '', password: str = ''):
-        self.host = host
-        self.user = user
-        self.passwd = password
 
-    @staticmethod
-    @timeout(3600)
-    def convert_pdf_to_txt(file_path):
-        try:
-            logger.info("Started pdf to text conversion")
-            laparams = LAParams(char_margin=100)
-            text = extract_text(file_path, laparams=laparams)
-            return text if text is not None else ""
-        except:
-            return ""
-
-    def get_supplemental_file_names(self, supp_dir_path):
-        return get_supp_file_names_from_paper_dir(self.host.rstrip("/") + "/" + supp_dir_path, self.user, self.passwd)
-
-    def download_paper_and_extract_txt(self, file_url, pdf: bool = False):
-        try:
-            tmp_file = download_pdf_file_from_url(file_url, self.user, self.passwd)
-            if pdf:
-                return self.convert_pdf_to_txt(tmp_file.name)
-            else:
-                return open(tmp_file.name).read()
-        except FileNotFoundError:
-            logger.warning("File not found: " + file_url)
-            return ""
-
-    def get_text_from_file(self, dir_path, supp_dir, filename, remote_file: bool = False, pdf: bool = False):
-        if remote_file:
-            text = self.download_paper_and_extract_txt(self.host.rstrip("/") + "/" + supp_dir + filename, pdf)
+def get_data_from_url(url, headers, file_type='json'):
+    try:
+        response = requests.request("GET", url, headers=headers)
+        # response.raise_for_status()  # Check if the request was successful
+        if file_type == 'pdf':
+            return response.content
         else:
-            with open(os.path.join(dir_path, filename), 'r') as file:
-                text = file.read()
-        if np.average([len(w) for w in preprocess(text).split("\n")]) < 1.001:
-            text = text.replace("\n\n", " ")
-        return text
+            content = response.json()
+            if content is None:
+                content = response.text()
+            return content
+    except requests.exceptions.RequestException as e:
+        logger.info(f"Error occurred for accessing/retrieving data from {url}: error={e}")
+        return None
 
 
 class WBPaper(object):
     """WormBase paper information"""
 
-    def __init__(self, paper_id: str = '', main_text: str = '', ocr_text: str = '', temp_text: str = '',
-                 aut_text: str = '', html_text: str = '', proof_text: str = '', supplemental_docs: list = None,
-                 file_server_host: str = 'https://tazendra.caltech.edu/~acedb/daniel/', file_server_user: str = '',
-                 file_server_passwd: str = '', title: str = '', journal: str = '', pub_date: str = '',
+    def __init__(self, agr_curie: str = '', paper_id: str = '', main_text: str = '', ocr_text: str = '',
+                 temp_text: str = '', aut_text: str = '', html_text: str = '', proof_text: str = '',
+                 supplemental_docs: list = None, title: str = '', journal: str = '', pub_date: str = '',
                  authors: List[WBAuthor] = None, abstract: str = '', doi: str = '', pmid: str = '',
                  db_manager: WBPaperDBManager = None):
+        self.agr_curie = agr_curie
         self.paper_id = paper_id
         self.title = title
         self.journal = journal
@@ -93,8 +81,6 @@ class WBPaper(object):
         self.proof_text = proof_text
         self.supplemental_docs = supplemental_docs if supplemental_docs else []
         self.aut_class_values = defaultdict(str)
-        self.paper_file_reader = PaperFileReader(host=file_server_host, user=file_server_user,
-                                                 password=file_server_passwd)
         self.afp_final_submission = False
         self.afp_processed = False
         self.afp_partial_submission = False
@@ -151,71 +137,57 @@ class WBPaper(object):
         else:
             return docs
 
-    def add_file(self, dir_path, filename, remote_file: bool = False, pdf: bool = False):
-        """add one or more files to the paper. Information about the type of file is derived from file name. If the file
-           path points to a directory, all supplementary files in it are loaded.
-
-        Args:
-            dir_path (str): path to the base directory
-            filename (str): name of the file to load
-            remote_file (bool): whether the file is on a remote location
-            pdf (bool): whether the file is in pdf format
-        """
-        all_supp = False
-        sup_dir = ""
-        if not self.paper_file_reader and remote_file:
-            raise Exception("a paper reader must be provided to access remote files")
-        if dir_path.endswith("supplemental/") and re.match(r'^[0-9]+$', filename):
-            filenames = self.paper_file_reader.get_supplemental_file_names(filename)
-            dir_path = dir_path + filename + "/"
-            sup_dir = "/" + filename + "/"
-            all_supp = True
+    def add_file_from_abc_reffile_obj(self, referencefile_json_obj):
+        blue_api_base_url = os.environ.get('API_SERVER', "literature-rest.alliancegenome.org")
+        file_download_api = (f"https://{blue_api_base_url}/reference/referencefile/download_file/"
+                             f"{referencefile_json_obj['referencefile_id']}")
+        token = get_authentication_token()
+        headers = generate_headers(token)
+        paper_content = get_data_from_url(file_download_api, headers, file_type='pdf')
+        with tempfile.NamedTemporaryFile() as tmp_file:
+            tmp_file.write(paper_content)
+            text_content = convert_pdf_to_txt(tmp_file.name)
+        if not text_content:
+            return False
+        if np.average([len(w) for w in preprocess(text_content).split("\n")]) < 1.001:
+            text_content = text_content.replace("\n\n", " ")
+        if referencefile_json_obj['file_class'] == 'supplement':
+            sup_doc = text_content
+            self.supplemental_docs.append(sup_doc)
         else:
-            filenames = [filename]
-        for filename in filenames:
-            logger.info("Adding file " + dir_path + filename)
-            if "_lib" not in filename and "Fig" not in filename and "Figure" not in filename:
-                wb_paperid, author_year, additional_options = self._get_matches_from_filename(filename)
-                if not self.paper_id:
-                    self.paper_id = wb_paperid
-                if all_supp or (author_year and ("_supp" in author_year or "_Supp" in author_year or "_Table" in
-                                                 author_year or "_table" in author_year or "_mmc" in author_year or
-                                                 "_Stable" in author_year or "_Movie" in author_year or "_movie" in
-                                                 author_year or "supplementary" in author_year or "Supplementary" in
-                                                 author_year or re.match(r'[_-][Ss][0-9]+', author_year))):
-                    self.supplemental_docs.append(self.paper_file_reader.get_text_from_file(
-                        dir_path, sup_dir, filename, remote_file, pdf))
-                    return
-                if not additional_options:
-                    self.main_text = self.paper_file_reader.get_text_from_file(dir_path, sup_dir, filename, remote_file, pdf)
-                elif "Supp" in additional_options or "supp" in additional_options or "Table" in additional_options or \
-                        "table" in additional_options or "Movie" in additional_options or "movie" in additional_options:
-                    self.supplemental_docs.append(self.paper_file_reader.get_text_from_file(
-                        dir_path, sup_dir, filename, remote_file, pdf))
-                elif "ocr" in additional_options:
-                    self.ocr_text = self.paper_file_reader.get_text_from_file(dir_path, sup_dir, filename, remote_file, pdf)
-                elif "_proof" in additional_options:
-                    self.proof_text = self.paper_file_reader.get_text_from_file(dir_path, sup_dir, filename, remote_file, pdf)
-                elif "temp" in additional_options:
-                    self.temp_text = self.paper_file_reader.get_text_from_file(dir_path, sup_dir, filename, remote_file, pdf)
-                elif "aut" in additional_options:
-                    self.aut_text = self.paper_file_reader.get_text_from_file(dir_path, sup_dir, filename, remote_file, pdf)
-                elif "html" in additional_options:
-                    self.html_text = self.paper_file_reader.get_text_from_file(dir_path, sup_dir, filename, remote_file, pdf)
-                else:
-                    logger.warning("No rule to read filename: " + filename)
+            if referencefile_json_obj['file_publication_status'] == 'temp':
+                self.temp_text = text_content
+            elif referencefile_json_obj['pdf_type'] == 'ocr':
+                self.ocr_text = text_content
+            elif referencefile_json_obj['pdf_type'] == 'aut':
+                self.aut_text = text_content
+            elif referencefile_json_obj['pdf_type'] == 'html':
+                self.html_text = text_content
+            else:
+                self.main_text = text_content
+        return True
 
     def load_text_from_pdf_files_in_db(self):
-        """load text from pdf files in the WormBase database"""
         if self.db_manager:
-            file_paths = self.db_manager.get_file_paths(self.paper_id)
-            for file_path in file_paths:
-                filename = file_path.split("/")[-1]
-                if filename.lower().endswith(".pdf") or re.match(r'^[0-9]+$', filename):
-                    dir_path = file_path.rstrip(filename)
-                    self.add_file(dir_path=dir_path, filename=filename, remote_file=True, pdf=True)
-        else:
-            raise Exception("PaperDBManager not set")
+            blue_api_base_url = os.environ.get('API_SERVER', "literature-rest.alliancegenome.org")
+            all_reffiles_for_pap_api = f'https://{blue_api_base_url}/reference/referencefile/show_all/{self.agr_curie}'
+            request = urllib.request.Request(url=all_reffiles_for_pap_api)
+            request.add_header("Content-type", "application/json")
+            request.add_header("Accept", "application/json")
+            added_ref_files = 0
+            try:
+                with urllib.request.urlopen(request) as response:
+                    resp = response.read().decode("utf8")
+                    resp_obj = json.loads(resp)
+                    for ref_file in resp_obj:
+                        if ref_file["file_extension"] == "pdf" and any(
+                                ref_file_mod["mod_abbreviation"] in [None, "WB"] for ref_file_mod in
+                                ref_file["referencefile_mods"]):
+                            if self.add_file_from_abc_reffile_obj(ref_file):
+                                added_ref_files += 1
+            except HTTPError:
+                return False
+            return added_ref_files > 0
 
     def load_curation_info_from_db(self):
         """load curation data from WormBase database"""

@@ -2,7 +2,7 @@ import os
 import unittest
 import tempfile
 
-from tests.config_reader import read_db_config, read_tazendra_config
+from tests.config_reader import read_db_config, load_env_file
 from wbtools.lib.nlp.common import PaperSections
 from wbtools.literature.corpus import CorpusManager
 from wbtools.literature.paper import WBPaper
@@ -10,18 +10,18 @@ from wbtools.literature.paper import WBPaper
 TESTDATA_DIR = os.path.join(os.path.dirname(__file__), '../data', 'text_files')
 
 
+@unittest.skipIf(not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data",
+                                                 "local_config", "db.cfg")), "Test DB config file not present")
 class TestCorpusManager(unittest.TestCase):
 
     def setUp(self) -> None:
+        config = read_db_config()
+        load_env_file()
         self.cm = CorpusManager()
-        self.cm.load_from_dir_with_txt_files(dir_path=TESTDATA_DIR)
-
-    def test_load_from_dir(self):
-        self.assertGreater(self.cm.size(), 0)
-        self.assertGreater(len([paper for paper in self.cm.get_all_papers()]), 0)
-        self.assertTrue(self.cm.get_paper('00026804').paper_id == '00026804')
-        self.assertTrue(self.cm.get_paper('00026804').get_text_docs() != "")
-        self.assertGreater(len(self.cm.get_paper('00026804').supplemental_docs), 0)
+        self.cm.load_from_wb_database(db_host=config["wb_database"]["db_host"],
+                                      db_user=config["wb_database"]["db_user"],
+                                      db_password=config["wb_database"]["db_password"],
+                                      db_name=config["wb_database"]["db_name"], max_num_papers=2)
 
     def test_get_flat_corpus_list_and_idx_paperid_map(self):
         flat_list, idx_paperid_map = self.cm.get_flat_corpus_list_and_idx_paperid_map(
@@ -54,52 +54,39 @@ class TestCorpusManager(unittest.TestCase):
             remove_alpha=False)
         pass
 
-    @unittest.skipIf(not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data",
-                                                     "local_config", "db.cfg")), "Test DB config file not present")
     def test_load_from_wb_database(self):
         db_config = read_db_config()
-        tazendra_config = read_tazendra_config()
         cm = CorpusManager()
         cm.load_from_wb_database(db_name=db_config["wb_database"]["db_name"], db_user=db_config["wb_database"]["db_user"],
                                  db_password=db_config["wb_database"]["db_password"],
-                                 db_host=db_config["wb_database"]["db_host"],
-                                 file_server_user=tazendra_config["file_server"]["user"],
-                                 file_server_passwd=tazendra_config["file_server"]["password"], max_num_papers=2)
+                                 db_host=db_config["wb_database"]["db_host"], max_num_papers=2)
         self.assertTrue(cm.size() == 2)
         cm = CorpusManager()
         cm.load_from_wb_database(db_name=db_config["wb_database"]["db_name"],
                                  db_user=db_config["wb_database"]["db_user"],
                                  db_password=db_config["wb_database"]["db_password"],
-                                 db_host=db_config["wb_database"]["db_host"],
-                                 file_server_user=tazendra_config["file_server"]["user"],
-                                 file_server_passwd=tazendra_config["file_server"]["password"], max_num_papers=2,
+                                 db_host=db_config["wb_database"]["db_host"], max_num_papers=2,
                                  exclude_temp_pdf=True)
         self.assertFalse(any([paper.is_temp() for paper in cm.get_all_papers()]))
 
     def test_load_supplemental(self):
         db_config = read_db_config()
-        tazendra_config = read_tazendra_config()
         cm = CorpusManager()
         cm.load_from_wb_database(db_name=db_config["wb_database"]["db_name"],
                                  db_user=db_config["wb_database"]["db_user"],
                                  db_password=db_config["wb_database"]["db_password"],
                                  db_host=db_config["wb_database"]["db_host"],
-                                 file_server_user=tazendra_config["file_server"]["user"],
-                                 file_server_passwd=tazendra_config["file_server"]["password"], paper_ids=["00062512"])
+                                 paper_ids=["00062512"])
         self.assertTrue(len(cm.get_paper("00062512").supplemental_docs) > 0)
 
-    @unittest.skipIf(not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data",
-                                                     "local_config", "db.cfg")), "Test DB config file not present")
     def test_load_from_wb_database_afp(self):
         db_config = read_db_config()
-        tazendra_config = read_tazendra_config()
         cm = CorpusManager()
         cm.load_from_wb_database(db_name=db_config["wb_database"]["db_name"],
                                  db_user=db_config["wb_database"]["db_user"],
                                  db_password=db_config["wb_database"]["db_password"],
                                  db_host=db_config["wb_database"]["db_host"],
-                                 file_server_user=tazendra_config["file_server"]["user"],
-                                 file_server_passwd=tazendra_config["file_server"]["password"], max_num_papers=2,
+                                 max_num_papers=2,
                                  load_curation_info=True, load_afp_info=True,
                                  exclude_temp_pdf=True, exclude_afp_processed=True, must_be_autclass_flagged=True)
         self.assertFalse(any([paper.afp_processed for paper in cm.get_all_papers()]))

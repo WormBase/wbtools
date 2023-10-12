@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from tests.config_reader import read_db_config, read_tazendra_config
+from tests.config_reader import read_db_config
 from wbtools.db.paper import WBPaperDBManager
 from wbtools.lib.nlp.common import PaperSections
 from wbtools.literature.paper import WBPaper
@@ -71,13 +71,10 @@ class TestWBPaper(unittest.TestCase):
                                                      "local_config", "db.cfg")), "Test DB config file not present")
     def test_pdf2txt_conversion(self):
         config = read_db_config()
-        file_server_config = read_tazendra_config()
         db_manager = WBPaperDBManager(
             dbname=config["wb_database"]["db_name"], user=config["wb_database"]["db_user"],
             password=config["wb_database"]["db_password"], host=config["wb_database"]["db_host"])
-        paper = WBPaper(paper_id="00003969", db_manager=db_manager,
-                        file_server_user=file_server_config["file_server"]["user"],
-                        file_server_passwd=file_server_config["file_server"]["password"])
+        paper = WBPaper(paper_id="00003969", db_manager=db_manager)
         paper.load_text_from_pdf_files_in_db()
         fulltext = paper.get_text_docs()
         self.assertGreater(len(fulltext), 0)
@@ -87,13 +84,10 @@ class TestWBPaper(unittest.TestCase):
                                                      "local_config", "db.cfg")), "Test DB config file not present")
     def test_pdf_table_conversion(self):
         config = read_db_config()
-        file_server_config = read_tazendra_config()
         db_manager = WBPaperDBManager(
             dbname=config["wb_database"]["db_name"], user=config["wb_database"]["db_user"],
             password=config["wb_database"]["db_password"], host=config["wb_database"]["db_host"])
-        paper = WBPaper(paper_id="00059755", db_manager=db_manager,
-                        file_server_user=file_server_config["file_server"]["user"],
-                        file_server_passwd=file_server_config["file_server"]["password"])
+        paper = WBPaper(paper_id="00059755", db_manager=db_manager)
         paper.load_text_from_pdf_files_in_db()
         fulltext = paper.get_text_docs()
         self.assertTrue(fulltext)
@@ -102,13 +96,10 @@ class TestWBPaper(unittest.TestCase):
                                                      "local_config", "db.cfg")), "Test DB config file not present")
     def test_tokenize_sentences_with_tables(self):
         config = read_db_config()
-        file_server_config = read_tazendra_config()
         db_manager = WBPaperDBManager(
             dbname=config["wb_database"]["db_name"], user=config["wb_database"]["db_user"],
             password=config["wb_database"]["db_password"], host=config["wb_database"]["db_host"])
-        paper = WBPaper(paper_id="00003969", db_manager=db_manager,
-                        file_server_user=file_server_config["file_server"]["user"],
-                        file_server_passwd=file_server_config["file_server"]["password"])
+        paper = WBPaper(paper_id="00003969", db_manager=db_manager)
         paper.load_text_from_pdf_files_in_db()
         sentences = paper.get_text_docs(split_sentences=True)
         self.assertGreater(len(sentences), 0)
@@ -117,13 +108,10 @@ class TestWBPaper(unittest.TestCase):
                                                      "local_config", "db.cfg")), "Test DB config file not present")
     def test_two_cols_conversion(self):
         config = read_db_config()
-        file_server_config = read_tazendra_config()
         db_manager = WBPaperDBManager(
             dbname=config["wb_database"]["db_name"], user=config["wb_database"]["db_user"],
             password=config["wb_database"]["db_password"], host=config["wb_database"]["db_host"])
-        paper = WBPaper(paper_id="00055367", db_manager=db_manager,
-                        file_server_user=file_server_config["file_server"]["user"],
-                        file_server_passwd=file_server_config["file_server"]["password"])
+        paper = WBPaper(paper_id="00055367", db_manager=db_manager)
         paper.load_text_from_pdf_files_in_db()
         fulltext = paper.get_text_docs()
         self.assertTrue(fulltext)

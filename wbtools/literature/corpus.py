@@ -38,28 +38,7 @@ class CorpusManager(object):
         """
         del self.corpus[wb_paper.paper_id]
 
-    def load_from_dir_with_txt_files(self, dir_path: str):
-        """
-        load papers from a directory containing text files with file name in the following format:
-        <WBPaperID>_<Author><Year>_<additional_options>.txt
-
-        Only files with .txt extension are loaded. Paper ID is derived from the file name and additional options are
-        used to understand the type of file (e.g., main article, ocr scanned article, supplementary material etc.)
-
-        Args:
-            dir_path (str): path to the input directory containing text files
-        """
-        paper = WBPaper()
-        for f in sorted(os.listdir(dir_path)):
-            if os.path.isfile(os.path.join(dir_path, f)) and f.endswith(".txt"):
-                if paper.paper_id and not paper.has_same_wbpaper_id_as_filename(f):
-                    self.add_or_update_wb_paper(paper)
-                    paper = WBPaper()
-                paper.add_file(dir_path=dir_path, filename=f, remote_file=False, pdf=False)
-
     def load_from_wb_database(self, db_name: str, db_user: str, db_password: str, db_host: str,
-                              file_server_host: str = 'https://tazendra.caltech.edu/~acedb/daniel/',
-                              file_server_user: str = None, file_server_passwd: str = None,
                               paper_ids: list = None,
                               from_date: str = None, load_pdf_files: bool = True, load_bib_info: bool = True,
                               load_curation_info: bool = True, load_afp_info: bool = False, max_num_papers: int = None,
@@ -120,8 +99,8 @@ class CorpusManager(object):
                 exclude_no_author_email else []
 
         for paper_id in paper_ids:
-            paper = WBPaper(paper_id=paper_id, file_server_host=file_server_host, file_server_user=file_server_user,
-                            file_server_passwd=file_server_passwd, db_manager=main_db_manager.paper)
+            paper = WBPaper(paper_id=paper_id, db_manager=main_db_manager.paper)
+            paper.agr_curie = main_db_manager.generic.get_paper_curie(paper_id)
             if exclude_afp_processed and paper_id in afp_processed_ids:
                 logger.info("Skipping paper already processed by AFP")
                 continue
@@ -130,7 +109,8 @@ class CorpusManager(object):
                 continue
             if load_pdf_files:
                 logger.info("Loading text from PDF files for paper")
-                paper.load_text_from_pdf_files_in_db()
+                if paper.load_text_from_pdf_files_in_db() is False:
+                    continue
                 if exclude_temp_pdf and paper.is_temp():
                     logger.info("Skipping proof paper")
                     continue

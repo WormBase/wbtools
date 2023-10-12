@@ -1,6 +1,8 @@
 import configparser
 import os
 
+import dotenv
+
 
 def read_config_file(file_path):
     config = configparser.ConfigParser()
@@ -17,6 +19,5 @@ def read_tpc_config():
                                          "textpresso.cfg"))
 
 
-def read_tazendra_config():
-    return read_config_file(os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "local_config",
-                                         "tazendra.cfg"))
+def load_env_file():
+    dotenv.load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "local_config", ".env"))
