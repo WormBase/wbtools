@@ -16,10 +16,12 @@ class TestWBPaper(unittest.TestCase):
                                                      "local_config", "db.cfg")), "Test DB config file not present")
     def test_load_curation_info_from_db(self):
         config = read_db_config()
+        load_env_file()
         paper = WBPaper(paper_id="00004161", db_manager=WBPaperDBManager(
             dbname=config["wb_database"]["db_name"], user=config["wb_database"]["db_user"],
             password=config["wb_database"]["db_password"], host=config["wb_database"]["db_host"]))
         paper.paper_id = "00004161"
+        paper.agr_curie = paper.db_manager.get_paper_curie(paper.paper_id)
         paper.load_curation_info_from_db()
         self.assertTrue(paper.aut_class_values["seqchange"] == 'high')
 
@@ -31,6 +33,7 @@ class TestWBPaper(unittest.TestCase):
             dbname=config["wb_database"]["db_name"], user=config["wb_database"]["db_user"],
             password=config["wb_database"]["db_password"], host=config["wb_database"]["db_host"])
         paper = WBPaper(paper_id="00004161", db_manager=db_manager)
+        paper.agr_curie = paper.db_manager.get_paper_curie(paper.paper_id)
         with db_manager:
             paper.load_bib_info_from_db()
         self.assertGreater(len(paper.authors), 0)
@@ -52,10 +55,12 @@ class TestWBPaper(unittest.TestCase):
                                                      "local_config", "db.cfg")), "Test DB config file not present")
     def test_pdf2txt_conversion(self):
         config = read_db_config()
+        load_env_file()
         db_manager = WBPaperDBManager(
             dbname=config["wb_database"]["db_name"], user=config["wb_database"]["db_user"],
             password=config["wb_database"]["db_password"], host=config["wb_database"]["db_host"])
         paper = WBPaper(paper_id="00003969", db_manager=db_manager)
+        paper.load_bib_info_from_db()
         paper.load_text_from_pdf_files_in_db()
         fulltext = paper.get_text_docs()
         self.assertGreater(len(fulltext), 0)
@@ -65,10 +70,12 @@ class TestWBPaper(unittest.TestCase):
                                                      "local_config", "db.cfg")), "Test DB config file not present")
     def test_pdf_table_conversion(self):
         config = read_db_config()
+        load_env_file()
         db_manager = WBPaperDBManager(
             dbname=config["wb_database"]["db_name"], user=config["wb_database"]["db_user"],
             password=config["wb_database"]["db_password"], host=config["wb_database"]["db_host"])
         paper = WBPaper(paper_id="00059755", db_manager=db_manager)
+        paper.agr_curie = paper.db_manager.get_paper_curie(paper.paper_id)
         paper.load_text_from_pdf_files_in_db()
         fulltext = paper.get_text_docs()
         self.assertTrue(fulltext)
@@ -77,10 +84,12 @@ class TestWBPaper(unittest.TestCase):
                                                      "local_config", "db.cfg")), "Test DB config file not present")
     def test_tokenize_sentences_with_tables(self):
         config = read_db_config()
+        load_env_file()
         db_manager = WBPaperDBManager(
             dbname=config["wb_database"]["db_name"], user=config["wb_database"]["db_user"],
             password=config["wb_database"]["db_password"], host=config["wb_database"]["db_host"])
         paper = WBPaper(paper_id="00003969", db_manager=db_manager)
+        paper.agr_curie = paper.db_manager.get_paper_curie(paper.paper_id)
         paper.load_text_from_pdf_files_in_db()
         sentences = paper.get_text_docs(split_sentences=True)
         self.assertGreater(len(sentences), 0)
@@ -89,10 +98,12 @@ class TestWBPaper(unittest.TestCase):
                                                      "local_config", "db.cfg")), "Test DB config file not present")
     def test_two_cols_conversion(self):
         config = read_db_config()
+        load_env_file()
         db_manager = WBPaperDBManager(
             dbname=config["wb_database"]["db_name"], user=config["wb_database"]["db_user"],
             password=config["wb_database"]["db_password"], host=config["wb_database"]["db_host"])
         paper = WBPaper(paper_id="00055367", db_manager=db_manager)
+        paper.agr_curie = paper.db_manager.get_paper_curie(paper.paper_id)
         paper.load_text_from_pdf_files_in_db()
         fulltext = paper.get_text_docs()
         self.assertTrue(fulltext)

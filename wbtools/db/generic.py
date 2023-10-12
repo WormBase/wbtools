@@ -19,13 +19,6 @@ class WBGenericDBManager(AbstractWBDBManager):
     def __init__(self, dbname, user, password, host):
         super().__init__(dbname, user, password, host)
 
-    def get_paper_curie(self, paper_id):
-        with self.get_cursor() as curs:
-            curs.execute(f"SELECT pap_identifier from pap_identifier WHERE joinkey = '{paper_id}' AND pap_identifier "
-                         f"LIKE 'AGRKB:%'")
-            res = curs.fetchone()
-            return res[0]
-
     def get_all_paper_ids(self, added_or_modified_after: str = '1970-01-01', exclude_ids: List[str] = None):
         if not added_or_modified_after:
             added_or_modified_after = '1970-01-01'

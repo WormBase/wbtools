@@ -185,7 +185,8 @@ class WBPaper(object):
                                 ref_file["referencefile_mods"]):
                             if self.add_file_from_abc_reffile_obj(ref_file):
                                 added_ref_files += 1
-            except HTTPError:
+            except HTTPError as e:
+                logger.error(e)
                 return False
             return added_ref_files > 0
 
@@ -208,6 +209,7 @@ class WBPaper(object):
             self.authors = self.db_manager.get_paper_authors(self.paper_id)
             self.doi = self.db_manager.get_doi(self.paper_id)
             self.pmid = self.db_manager.get_pmid(self.paper_id)
+            self.agr_curie = self.db_manager.get_paper_curie(self.paper_id)
         else:
             raise Exception("PaperDBManager not set")
 

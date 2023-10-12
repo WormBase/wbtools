@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from tests.config_reader import read_db_config, read_tazendra_config
+from tests.config_reader import read_db_config, load_env_file
 from wbtools.lib.nlp.common import PaperSections
 from wbtools.lib.nlp.text_preprocessing import remove_sections_from_text, get_documents_from_text, preprocess
 from wbtools.literature.corpus import CorpusManager
@@ -12,8 +12,14 @@ TESTDATA_DIR = os.path.join(os.path.dirname(__file__), '../data')
 class TestTextPreprocessing(unittest.TestCase):
 
     def setUp(self):
+        config = read_db_config()
+        load_env_file()
         self.cm = CorpusManager()
-        self.cm.load_from_dir_with_txt_files(dir_path=os.path.join(TESTDATA_DIR, 'text_files'))
+        self.cm.load_from_wb_database(db_name=config["wb_database"]["db_name"],
+                                      db_user=config["wb_database"]["db_user"],
+                                      db_password=config["wb_database"]["db_password"],
+                                      db_host=config["wb_database"]["db_host"],
+                                      paper_ids=['00062455'])
 
     def test_sectioning(self):
         text = list(self.cm.corpus.values())[0].get_text_docs()[0]
@@ -25,13 +31,11 @@ class TestTextPreprocessing(unittest.TestCase):
                                                      "local_config", "db.cfg")), "Test DB config file not present")
     def test_sectioning_cell_template(self):
         config = read_db_config()
-        tazendra_config = read_tazendra_config()
+        load_env_file()
         cm = CorpusManager()
         cm.load_from_wb_database(db_name=config["wb_database"]["db_name"], db_user=config["wb_database"]["db_user"],
                                  db_password=config["wb_database"]["db_password"],
                                  db_host=config["wb_database"]["db_host"],
-                                 file_server_user=tazendra_config["file_server"]["user"],
-                                 file_server_passwd=tazendra_config["file_server"]["password"],
                                  paper_ids=['00059375'])
         fulltext = cm.get_paper('00059375').get_text_docs(remove_sections=[PaperSections.REFERENCES],
                                                           must_be_present=[PaperSections.METHOD, PaperSections.RESULTS])

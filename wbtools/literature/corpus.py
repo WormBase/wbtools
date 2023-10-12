@@ -52,9 +52,6 @@ class CorpusManager(object):
             db_user (str): database user
             db_password (str): database password
             db_host (str): database host
-            file_server_host (str): host where to fetch the files via url
-            file_server_user (str): user required to log in to web form
-            file_server_passwd (str): password to fetch pdf files from web form
             paper_ids (list): optional list of paper ids to be fetched
             from_date (str): load papers added or modified from the specified date (only if paper_ids is not provided)
             load_pdf_files (bool): load pdf files using ssh credentials
@@ -98,7 +95,7 @@ class CorpusManager(object):
 
         for paper_id in paper_ids:
             paper = WBPaper(paper_id=paper_id, db_manager=main_db_manager.paper)
-            paper.agr_curie = main_db_manager.generic.get_paper_curie(paper_id)
+            paper.agr_curie = main_db_manager.paper.get_paper_curie(paper_id)
             if exclude_afp_processed and paper_id in afp_processed_ids:
                 logger.info("Skipping paper already processed by AFP")
                 continue

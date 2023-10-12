@@ -13,6 +13,13 @@ class WBPaperDBManager(AbstractWBDBManager):
         super().__init__(dbname, user, password, host)
         self.person_db_manager = WBPersonDBManager(dbname, user, password, host)
 
+    def get_paper_curie(self, paper_id):
+        with self.get_cursor() as curs:
+            curs.execute(f"SELECT pap_identifier from pap_identifier WHERE joinkey = '{paper_id}' AND pap_identifier "
+                         f"LIKE 'AGRKB:%'")
+            res = curs.fetchone()
+            return res[0]
+
     def get_paper_abstract(self, paper_id):
         return self._get_single_field(join_key=paper_id, field_name="pap_abstract")
 

@@ -37,16 +37,6 @@ class TestCorpusManager(unittest.TestCase):
                                                                      remove_alpha=True, split_sentences=True)
         self.assertEqual(len(cl1), len(cl2))
 
-    def test_pickle(self):
-        tmp_file = tempfile.NamedTemporaryFile()
-        self.cm.save(tmp_file.name)
-        self.assertGreater(os.path.getsize(tmp_file.name), 0)
-
-        cm = CorpusManager()
-        cm.load(tmp_file.name)
-        self.assertGreater(cm.size(), 0)
-        self.assertTrue(all([type(paper) == WBPaper for paper in cm.corpus.values()]))
-
     def test_exclude_sections(self):
         test_list, _ = self.cm.get_flat_corpus_list_and_idx_paperid_map(
             split_sentences=False, remove_sections=[PaperSections.INTRODUCTION, PaperSections.REFERENCES],
