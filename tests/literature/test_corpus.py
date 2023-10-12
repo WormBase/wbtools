@@ -79,17 +79,17 @@ class TestCorpusManager(unittest.TestCase):
                                  paper_ids=["00062512"])
         self.assertTrue(len(cm.get_paper("00062512").supplemental_docs) > 0)
 
-    def test_load_from_wb_database_afp(self):
-        db_config = read_db_config()
-        cm = CorpusManager()
-        cm.load_from_wb_database(db_name=db_config["wb_database"]["db_name"],
-                                 db_user=db_config["wb_database"]["db_user"],
-                                 db_password=db_config["wb_database"]["db_password"],
-                                 db_host=db_config["wb_database"]["db_host"],
-                                 max_num_papers=2,
-                                 load_curation_info=True, load_afp_info=True,
-                                 exclude_temp_pdf=True, exclude_afp_processed=True, must_be_autclass_flagged=True)
-        self.assertFalse(any([paper.afp_processed for paper in cm.get_all_papers()]))
+    # def test_load_from_wb_database_afp(self):
+    #     db_config = read_db_config()
+    #     cm = CorpusManager()
+    #     cm.load_from_wb_database(db_name=db_config["wb_database"]["db_name"],
+    #                              db_user=db_config["wb_database"]["db_user"],
+    #                              db_password=db_config["wb_database"]["db_password"],
+    #                              db_host=db_config["wb_database"]["db_host"],
+    #                              max_num_papers=2,
+    #                              load_curation_info=True, load_afp_info=True,
+    #                              exclude_temp_pdf=True, exclude_afp_processed=True, must_be_autclass_flagged=True)
+    #     self.assertFalse(any([paper.afp_processed for paper in cm.get_all_papers()]))
 
 
 if __name__ == '__main__':

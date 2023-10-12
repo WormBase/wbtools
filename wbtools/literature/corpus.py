@@ -1,6 +1,4 @@
 import logging
-import os
-import pickle
 
 from typing import Generator, List, Tuple, Dict
 from gensim.models import Word2Vec
@@ -196,25 +194,6 @@ class CorpusManager(object):
         """
         for paper in self.corpus.values():
             yield paper
-
-    def save(self, file_path: str) -> None:
-        """save corpus to file
-
-        Args:
-            file_path (str): path to file to save
-        """
-        with open(file_path, 'wb') as out_file:
-            pickle.dump(self, out_file)
-
-    def load(self, file_path: str) -> None:
-        """load corpus from previously saved file
-
-        Args:
-            file_path (str): path to file to load
-        """
-        with open(file_path, 'rb') as in_file:
-            tmp_self = pickle.load(in_file)
-            self.__dict__ = tmp_self.__dict__
 
     def query_papers_by_doc_similarity(self, query_docs: List[str], sentence_search: bool = False,
                                        remove_sections: List[PaperSections] = None,
