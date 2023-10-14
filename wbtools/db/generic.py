@@ -23,7 +23,7 @@ class WBGenericDBManager(AbstractWBDBManager):
         if not added_or_modified_after:
             added_or_modified_after = '1970-01-01'
         with self.get_cursor() as curs:
-            curs.execute("SELECT DISTINCT joinkey, pap_timestamp from pap_electronic_path WHERE pap_timestamp > %s "
+            curs.execute("SELECT DISTINCT joinkey, pap_timestamp from pap_title WHERE pap_timestamp > %s "
                          "ORDER BY pap_timestamp DESC",
                          (added_or_modified_after, ))
             res = curs.fetchall()
