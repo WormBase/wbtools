@@ -96,6 +96,8 @@ class CorpusManager(object):
         for paper_id in paper_ids:
             paper = WBPaper(paper_id=paper_id, db_manager=main_db_manager.paper)
             paper.agr_curie = main_db_manager.paper.get_paper_curie(paper_id)
+            if paper.agr_curie is None:
+                continue
             if exclude_afp_processed and paper_id in afp_processed_ids:
                 logger.info("Skipping paper already processed by AFP")
                 continue

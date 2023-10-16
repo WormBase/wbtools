@@ -18,7 +18,9 @@ class WBPaperDBManager(AbstractWBDBManager):
             curs.execute(f"SELECT pap_identifier from pap_identifier WHERE joinkey = '{paper_id}' AND pap_identifier "
                          f"LIKE 'AGRKB:%'")
             res = curs.fetchone()
-            return res[0]
+            if res:
+                return res[0]
+            return None
 
     def get_paper_abstract(self, paper_id):
         return self._get_single_field(join_key=paper_id, field_name="pap_abstract")
