@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="wbtools",
-    version="2.0.3",
+    version="3.0.0",
     author="Valerio Arnaboldi",
     author_email="valearna@caltech.edu",
     description="Interface to WormBase (www.wormbase.org) curation data, including literature management and NLP "
@@ -32,6 +32,7 @@ setuptools.setup(
         'pytz~=2021.1',
         'pandas~=1.3.3',
         'requests~=2.31.0',
-        'python-dateutil~=2.8.2'
+        'python-dateutil~=2.8.2',
+        'grobid-client'
     ]
 )
