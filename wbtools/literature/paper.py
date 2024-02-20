@@ -12,8 +12,12 @@ import numpy as np
 from collections import defaultdict
 
 import requests
-from pdfminer.high_level import extract_text
-from pdfminer.layout import LAParams
+from grobid_client import Client
+from pathlib import Path
+from grobid_client.api.pdf import process_fulltext_document
+from grobid_client.models import Article, ProcessForm
+from grobid_client.types import TEI, File
+
 
 from wbtools.db.afp import WBAFPDBManager
 from wbtools.db.paper import WBPaperDBManager
@@ -31,11 +35,20 @@ logging.getLogger("pdfminer").setLevel(logging.WARNING)
 
 @timeout(3600)
 def convert_pdf_to_txt(file_path):
+    client = Client(base_url="http://cervino.caltech.edu:8070/api", timeout=1000, verify_ssl=False)
     try:
         logger.info("Started pdf to text conversion")
-        laparams = LAParams(char_margin=100)
-        text = extract_text(file_path, laparams=laparams)
-        return text if text is not None else ""
+        pdf_file = Path(file_path)
+        with pdf_file.open("rb") as fin:
+            form = ProcessForm(
+                segment_sentences="1",
+                input_=File(file_name=pdf_file.name, payload=fin, mime_type="application/pdf"))
+            r = process_fulltext_document.sync_detailed(client=client, multipart_data=form)
+            if r.is_success:
+                article: Article = TEI.parse(r.content, figures=False)
+                assert article.title
+        return ". ".join([sentence.text for section in article.sections for paragraph in section.paragraphs
+                          for sentence in paragraph if section.name is not None])
     except:
         return ""
 
