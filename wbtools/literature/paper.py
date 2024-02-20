@@ -46,9 +46,10 @@ def convert_pdf_to_txt(file_path):
             r = process_fulltext_document.sync_detailed(client=client, multipart_data=form)
             if r.is_success:
                 article: Article = TEI.parse(r.content, figures=False)
-                assert article.title
-        return ". ".join([sentence.text for section in article.sections for paragraph in section.paragraphs
-                          for sentence in paragraph if section.name is not None])
+                return ". ".join([sentence.text for section in article.sections for paragraph in section.paragraphs
+                                  for sentence in paragraph if section.name is not None])
+            else:
+                return ""
     except:
         return ""
 
