@@ -35,7 +35,8 @@ logging.getLogger("pdfminer").setLevel(logging.WARNING)
 
 @timeout(3600)
 def convert_pdf_to_txt(file_path):
-    client = Client(base_url="http://cervino.caltech.edu:8070/api", timeout=1000, verify_ssl=False)
+    client = Client(base_url=os.environ.get("GROBID_API_URL", "http://cervino.caltech.edu:8070/api"), timeout=1000,
+                    verify_ssl=False)
     try:
         logger.info("Started pdf to text conversion")
         pdf_file = Path(file_path)
