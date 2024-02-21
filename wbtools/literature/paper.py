@@ -197,7 +197,7 @@ class WBPaper(object):
                         if ref_file["file_extension"] == "pdf" and any(
                                 ref_file_mod["mod_abbreviation"] in [None, "WB"] for ref_file_mod in
                                 ref_file["referencefile_mods"] and (not main_file_only or
-                                                                    ref_file_mod["file_class"] == "main")):
+                                                                    ref_file["file_class"] == "main")):
                             if self.add_file_from_abc_reffile_obj(ref_file):
                                 added_ref_files += 1
             except HTTPError as e:
