@@ -181,7 +181,7 @@ class WBPaper(object):
                 self.main_text = text_content
         return True
 
-    def load_text_from_pdf_files_in_db(self):
+    def load_text_from_pdf_files_in_db(self, main_file_only):
         if self.db_manager:
             blue_api_base_url = os.environ.get('API_SERVER', "literature-rest.alliancegenome.org")
             all_reffiles_for_pap_api = f'https://{blue_api_base_url}/reference/referencefile/show_all/{self.agr_curie}'
@@ -196,7 +196,8 @@ class WBPaper(object):
                     for ref_file in resp_obj:
                         if ref_file["file_extension"] == "pdf" and any(
                                 ref_file_mod["mod_abbreviation"] in [None, "WB"] for ref_file_mod in
-                                ref_file["referencefile_mods"]):
+                                ref_file["referencefile_mods"] and (not main_file_only or
+                                                                    ref_file_mod["file_class"] == "main")):
                             if self.add_file_from_abc_reffile_obj(ref_file):
                                 added_ref_files += 1
             except HTTPError as e:

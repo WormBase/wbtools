@@ -44,7 +44,8 @@ class CorpusManager(object):
                               exclude_temp_pdf: bool = False, exclude_pap_types: List[str] = None,
                               pap_types: List[str] = None,
                               exclude_afp_processed: bool = False, exclude_afp_not_curatable: bool = False,
-                              exclude_no_main_text: bool = False, exclude_no_author_email: bool = False) -> None:
+                              exclude_no_main_text: bool = False, exclude_no_author_email: bool = False,
+                              main_file_only: bool = False) -> None:
         """load papers from WormBase database
 
         Args:
@@ -106,7 +107,7 @@ class CorpusManager(object):
                 continue
             if load_pdf_files:
                 logger.info("Loading text from PDF files for paper")
-                if paper.load_text_from_pdf_files_in_db() is False:
+                if paper.load_text_from_pdf_files_in_db(main_file_only=main_file_only) is False:
                     continue
                 if exclude_temp_pdf and paper.is_temp():
                     logger.info("Skipping proof paper")
