@@ -47,8 +47,8 @@ def convert_pdf_to_txt(file_path):
             r = process_fulltext_document.sync_detailed(client=client, multipart_data=form)
             if r.is_success:
                 article: Article = TEI.parse(r.content, figures=False)
-                return "  ".join([sentence.text for section in article.sections for paragraph in section.paragraphs
-                                  for sentence in paragraph if section.name is not None])
+                return [sentence.text for section in article.sections for paragraph in section.paragraphs
+                        for sentence in paragraph if section.name is not None]
             else:
                 return ""
     except:
@@ -74,8 +74,9 @@ def get_data_from_url(url, headers, file_type='json'):
 class WBPaper(object):
     """WormBase paper information"""
 
-    def __init__(self, agr_curie: str = '', paper_id: str = '', main_text: str = '', ocr_text: str = '',
-                 temp_text: str = '', aut_text: str = '', html_text: str = '', proof_text: str = '',
+    def __init__(self, agr_curie: str = '', paper_id: str = '', main_text: List[str] = '', ocr_text: List[str] = '',
+                 temp_text: List[str] = '', aut_text: List[str] = '', html_text: List[str] = '',
+                 proof_text: List[str] = '',
                  supplemental_docs: list = None, title: str = '', journal: str = '', pub_date: str = '',
                  authors: List[WBAuthor] = None, abstract: str = '', doi: str = '', pmid: str = '',
                  db_manager: WBPaperDBManager = None):
@@ -114,17 +115,13 @@ class WBPaper(object):
                 return author
         return None
 
-    def get_text_docs(self, include_supplemental: bool = True, remove_sections: List[PaperSections] = None,
-                      must_be_present: List[PaperSections] = None, split_sentences: bool = False,
+    def get_text_docs(self, include_supplemental: bool = True, split_sentences: bool = False,
                       lowercase: bool = False, tokenize: bool = False, remove_stopwords: bool = False,
                       remove_alpha: bool = False, return_concatenated: bool = False) -> Union[List[str], str]:
         """get text documents for the paper
 
         Args:
             include_supplemental (bool): include supplemental material
-            remove_sections (List[PaperSections]): sections to be removed
-            must_be_present (List[PaperSections]): sections that must be present in the text to be able to remove
-                                                   undesired sections
             split_sentences (bool): split documents into sections
             lowercase (bool): transform text to lowercase
             tokenize (bool): tokenize text into words
@@ -142,9 +139,7 @@ class WBPaper(object):
                 self.proof_text]
         if include_supplemental:
             docs.extend(self.supplemental_docs)
-        docs = [d for doc in docs for d in get_documents_from_text(
-            text=doc, split_sentences=split_sentences, must_be_present=must_be_present,
-            remove_sections=remove_sections)]
+        docs = [d for doc in docs for d in get_documents_from_text(sentences=doc, split_sentences=split_sentences)]
         docs = [preprocess(doc, lower=lowercase, tokenize=tokenize, remove_stopwords=remove_stopwords,
                            remove_alpha=remove_alpha) for doc in docs]
         if return_concatenated:

@@ -10,20 +10,11 @@ from wbtools.lib.nlp.common import PaperSections, PAPER_SECTIONS
 stop_words = set(stopwords.words('english'))
 
 
-def get_documents_from_text(text: str, split_sentences: bool = False, remove_sections: List[PaperSections] = None,
-                            must_be_present: List[PaperSections] = None) -> list:
-    if remove_sections:
-        text = remove_sections_from_text(text=text, sections_to_remove=remove_sections, must_be_present=must_be_present)
+def get_documents_from_text(sentences: List[str], split_sentences: bool = False) -> list:
     if split_sentences:
-        text = text.replace("Fig.", "Fig")
-        text = text.replace("et al.", "et al")
-        text = text.replace('.\n\n', '. ')
-        text = text.replace('\n\n', '. ')
-        text = text.replace('-\n', '')
-        return sent_tokenize(text)
+        return sentences
     else:
-        text = text.replace('-\n', '')
-        return [text]
+        return ["  ".join(sentences)]
 
 
 def remove_sections_from_text(text: str, sections_to_remove: List[PaperSections] = None,
@@ -61,14 +52,14 @@ def remove_sections_from_text(text: str, sections_to_remove: List[PaperSections]
     return text
 
 
-def preprocess(doc, lower: bool = False, tokenize: bool = False, remove_stopwords: bool = False,
+def preprocess(sentences: List[str], lower: bool = False, tokenize: bool = False, remove_stopwords: bool = False,
                remove_alpha: bool = False):
     if lower:
-        doc = doc.lower()
+        sentences = [sentence.lower() for sentence in sentences]
     if tokenize:
-        doc = word_tokenize(doc)
+        sentences = [word_tokenize(sentence) for sentence in sentences]
     if remove_stopwords:
-        doc = [w for w in doc if w not in stop_words]  # Remove stopwords.
+        sentences = [w for sentence in sentences for w in sentence if w not in stop_words]  # Remove stopwords.
     if remove_alpha:
-        doc = [w for w in doc if w.isalpha()]  # Remove numbers and special characters
-    return doc
+        sentences = [w for sentence in sentences for w in sentence if w.isalpha()]  # Remove numbers and special characters
+    return sentences
