@@ -50,9 +50,9 @@ def convert_pdf_to_txt(file_path):
                 return [sentence.text for section in article.sections for paragraph in section.paragraphs
                         for sentence in paragraph if section.name is not None]
             else:
-                return ""
+                return []
     except:
-        return ""
+        return []
 
 
 def get_data_from_url(url, headers, file_type='json'):
@@ -159,8 +159,6 @@ class WBPaper(object):
             text_content = convert_pdf_to_txt(tmp_file.name)
         if not text_content:
             return False
-        if np.average([len(w) for w in preprocess(text_content).split("\n")]) < 1.001:
-            text_content = text_content.replace("\n\n", " ")
         if referencefile_json_obj['file_class'] == 'supplement':
             sup_doc = text_content
             self.supplemental_docs.append(sup_doc)
