@@ -32,6 +32,8 @@ logger = logging.getLogger(__name__)
 
 logging.getLogger("pdfminer").setLevel(logging.WARNING)
 
+ABC_API = os.environ.get('API_SERVER', "literature-rest.alliancegenome.org")
+
 
 @timeout(3600)
 def convert_pdf_to_txt(file_path):
@@ -55,7 +57,7 @@ def convert_pdf_to_txt(file_path):
         return []
 
 
-def get_data_from_url(url, headers, file_type='json'):
+def get_data_from_url(url, headers=None, file_type='json'):
     try:
         response = requests.request("GET", url, headers=headers)
         # response.raise_for_status()  # Check if the request was successful
@@ -148,8 +150,7 @@ class WBPaper(object):
             return docs
 
     def add_file_from_abc_reffile_obj(self, referencefile_json_obj):
-        blue_api_base_url = os.environ.get('API_SERVER', "literature-rest.alliancegenome.org")
-        file_download_api = (f"https://{blue_api_base_url}/reference/referencefile/download_file/"
+        file_download_api = (f"https://{ABC_API}/reference/referencefile/download_file/"
                              f"{referencefile_json_obj['referencefile_id']}")
         token = get_authentication_token()
         headers = generate_headers(token)
@@ -175,7 +176,7 @@ class WBPaper(object):
                 self.main_text = text_content
         return True
 
-    def load_text_from_pdf_files_in_db(self, main_file_only):
+    def load_text_from_pdf_files(self, main_file_only):
         if self.db_manager:
             blue_api_base_url = os.environ.get('API_SERVER', "literature-rest.alliancegenome.org")
             all_reffiles_for_pap_api = f'https://{blue_api_base_url}/reference/referencefile/show_all/{self.agr_curie}'
@@ -208,19 +209,22 @@ class WBPaper(object):
         else:
             raise Exception("PaperDBManager not set")
 
-    def load_bib_info_from_db(self):
-        """load curation data from WormBase database"""
-        if self.db_manager:
-            self.abstract = self.db_manager.get_paper_abstract(self.paper_id)
-            self.title = self.db_manager.get_paper_title(self.paper_id)
-            self.journal = self.db_manager.get_paper_journal(self.paper_id)
-            self.pub_date = self.db_manager.get_paper_pub_date(self.paper_id)
-            self.authors = self.db_manager.get_paper_authors(self.paper_id)
-            self.doi = self.db_manager.get_doi(self.paper_id)
-            self.pmid = self.db_manager.get_pmid(self.paper_id)
-            self.agr_curie = self.db_manager.get_paper_curie(self.paper_id)
-        else:
+    def load_bib_info(self):
+        """Load bibliographical info from ABC"""
+        if not self.db_manager:
             raise Exception("PaperDBManager not set")
+        # Get Alliance reference info from WBPaperID
+        ref_info_from_xref_api = f"https://{ABC_API}/reference/by_cross_reference/WB:WBPaper{self.paper_id}"
+        ref_info: dict = get_data_from_url(ref_info_from_xref_api)
+        self.abstract = ref_info["abstract"]
+        self.title = ref_info["title"]
+        self.journal = ref_info["resource_title"]
+        self.pub_date = ref_info["date_published"]
+        # Getting author data from db until ABC has author-person info
+        self.authors = self.db_manager.get_paper_authors(paper_id=self.paper_id)
+        self.doi = [xref["curie"] for xref in ref_info["cross_references"] if xref["curie_prefix"] == "DOI"][0]
+        self.pmid = [xref["curie"] for xref in ref_info["cross_references"] if xref["curie_prefix"] == "PMID"][0]
+        self.agr_curie = ref_info["curie"]
 
     def load_afp_info_from_db(self, paper_ids_no_submission: List[str] = None,
                               paper_ids_full_submission: List[str] = None,

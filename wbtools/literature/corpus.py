@@ -107,7 +107,7 @@ class CorpusManager(object):
                 continue
             if load_pdf_files:
                 logger.info("Loading text from PDF files for paper")
-                if paper.load_text_from_pdf_files_in_db(main_file_only=main_file_only) is False:
+                if paper.load_text_from_pdf_files(main_file_only=main_file_only) is False:
                     continue
                 if exclude_temp_pdf and paper.is_temp():
                     logger.info("Skipping proof paper")
@@ -125,7 +125,7 @@ class CorpusManager(object):
                         continue
                 if load_bib_info:
                     logger.info("Loading bib info for paper")
-                    paper.load_bib_info_from_db()
+                    paper.load_bib_info()
                     if exclude_no_author_email and not paper.get_authors_with_email_address_in_wb(
                             blacklisted_email_addresses=blacklisted_email_addresses):
                         logger.info("Skipping paper without any email address in text with records in WB")
