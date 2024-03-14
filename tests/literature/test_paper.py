@@ -27,7 +27,7 @@ class TestWBPaper(unittest.TestCase):
 
     @unittest.skipIf(not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data",
                                                      "local_config", "db.cfg")), "Test DB config file not present")
-    def test_load_bib_info_from_db(self):
+    def test_load_bib_info(self):
         config = read_db_config()
         db_manager = WBPaperDBManager(
             dbname=config["wb_database"]["db_name"], user=config["wb_database"]["db_user"],
@@ -35,8 +35,9 @@ class TestWBPaper(unittest.TestCase):
         paper = WBPaper(paper_id="00004161", db_manager=db_manager)
         paper.agr_curie = paper.db_manager.get_paper_curie(paper.paper_id)
         with db_manager:
-            paper.load_bib_info_from_db()
+            paper.load_bib_info()
         self.assertGreater(len(paper.authors), 0)
+        self.assertTrue(paper.abstract.startswith("Niemann-Pick type C (NP-C) disease is a progressive"))
 
     @unittest.skipIf(not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data",
                                                      "local_config", "db.cfg")), "Test DB config file not present")
@@ -60,8 +61,8 @@ class TestWBPaper(unittest.TestCase):
             dbname=config["wb_database"]["db_name"], user=config["wb_database"]["db_user"],
             password=config["wb_database"]["db_password"], host=config["wb_database"]["db_host"])
         paper = WBPaper(paper_id="00003969", db_manager=db_manager)
-        paper.load_bib_info_from_db()
-        paper.load_text_from_pdf_files_in_db()
+        paper.load_bib_info()
+        paper.load_text_from_pdf_files()
         fulltext = paper.get_text_docs()
         self.assertGreater(len(fulltext), 0)
         self.assertTrue("u253, u423 deletion in exon 3" in fulltext[0])
@@ -76,7 +77,7 @@ class TestWBPaper(unittest.TestCase):
             password=config["wb_database"]["db_password"], host=config["wb_database"]["db_host"])
         paper = WBPaper(paper_id="00059755", db_manager=db_manager)
         paper.agr_curie = paper.db_manager.get_paper_curie(paper.paper_id)
-        paper.load_text_from_pdf_files_in_db()
+        paper.load_text_from_pdf_files()
         fulltext = paper.get_text_docs()
         self.assertTrue(fulltext)
 
@@ -90,7 +91,7 @@ class TestWBPaper(unittest.TestCase):
             password=config["wb_database"]["db_password"], host=config["wb_database"]["db_host"])
         paper = WBPaper(paper_id="00003969", db_manager=db_manager)
         paper.agr_curie = paper.db_manager.get_paper_curie(paper.paper_id)
-        paper.load_text_from_pdf_files_in_db()
+        paper.load_text_from_pdf_files()
         sentences = paper.get_text_docs(split_sentences=True)
         self.assertGreater(len(sentences), 0)
 
@@ -104,6 +105,6 @@ class TestWBPaper(unittest.TestCase):
             password=config["wb_database"]["db_password"], host=config["wb_database"]["db_host"])
         paper = WBPaper(paper_id="00055367", db_manager=db_manager)
         paper.agr_curie = paper.db_manager.get_paper_curie(paper.paper_id)
-        paper.load_text_from_pdf_files_in_db()
+        paper.load_text_from_pdf_files()
         fulltext = paper.get_text_docs()
         self.assertTrue(fulltext)
