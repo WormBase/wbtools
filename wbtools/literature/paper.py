@@ -48,12 +48,14 @@ def convert_pdf_to_txt(file_path):
                 input_=File(file_name=pdf_file.name, payload=fin, mime_type="application/pdf"))
             r = process_fulltext_document.sync_detailed(client=client, multipart_data=form)
             if r.is_success:
-                article: Article = TEI.parse(r.content, figures=False)
+                article: Article = TEI.parse(r.content, figures=True)
                 return [re.sub('<[^<]+>', '', sentence.text) for section in article.sections for paragraph
-                        in section.paragraphs for sentence in paragraph if not (
+                        in section.paragraphs for sentence in paragraph if not sentence.text.isdigit() and
+                        not (
                             len(section.paragraphs) == 3 and
                             section.paragraphs[0][0].text in ['\n', ' '] and
-                            section.paragraphs[-1][0].text in ['\n', ' '])]
+                            section.paragraphs[-1][0].text in ['\n', ' ']
+                        )]
             else:
                 return []
     except:
