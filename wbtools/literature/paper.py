@@ -50,7 +50,9 @@ def convert_pdf_to_txt(file_path):
             if r.is_success:
                 article: Article = TEI.parse(r.content, figures=False)
                 return [re.sub('<[^<]+>', '', sentence.text) for section in article.sections for paragraph
-                        in section.paragraphs for sentence in paragraph if sentence.text != '\n']
+                        in section.paragraphs for sentence in paragraph if not (
+                            len(section.paragraphs) == 1 and len(section.paragraphs[0]) == 3 and
+                            section.paragraphs[0][0].text == '\n' and section.paragraphs[0][-1].text == '\n')]
             else:
                 return []
     except:
