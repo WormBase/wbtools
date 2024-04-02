@@ -49,13 +49,19 @@ def convert_pdf_to_txt(file_path):
             r = process_fulltext_document.sync_detailed(client=client, multipart_data=form)
             if r.is_success:
                 article: Article = TEI.parse(r.content, figures=True)
-                return [re.sub('<[^<]+>', '', sentence.text) for section in article.sections for paragraph
-                        in section.paragraphs for sentence in paragraph if not sentence.text.isdigit() and
-                        not (
-                            len(section.paragraphs) == 3 and
-                            section.paragraphs[0][0].text in ['\n', ' '] and
-                            section.paragraphs[-1][0].text in ['\n', ' ']
-                        )]
+                sentences = []
+                for section in article.sections:
+                    # skip sections that have three paragraph with the first and the last being empty. These are
+                    # usually references
+                    if (len(section.paragraphs) == 3 and section.paragraphs[0][0].text in ['\n', ' ']
+                            and section.paragraphs[-1][0].text in ['\n', ' ']):
+                        continue
+                    # add section titles as sentences
+                    if section.name:
+                        sentences.append(section.name)
+                    for paragraph in section.paragraphs:
+                        for sentence in paragraph.sentences:
+                            sentences.append(re.sub('<[^<]+>', '', sentence.text))
             else:
                 return []
     except:
