@@ -62,6 +62,7 @@ def convert_pdf_to_txt(file_path):
                     for paragraph in section.paragraphs:
                         for sentence in paragraph:
                             sentences.append(re.sub('<[^<]+>', '', sentence.text))
+                return sentences
             else:
                 return []
     except:
