@@ -20,7 +20,8 @@ QUERY_PAPER_IDS_PARTIAL_SUBMISSION = "SELECT distinct afp_ve.joinkey FROM afp_ve
 
 AFP_ENTITIES_SEPARATOR = " | "
 AFP_IDS_SEPARATOR = ";%;"
-PAP_AFP_EVIDENCE_CODE = "Inferred_automatically \"from author first pass afp_genestudied\""
+PAP_AFP_EVIDENCE_CODE_GENE = "Inferred_automatically \"from author first pass afp_genestudied\""
+PAP_AFP_EVIDENCE_CODE_SPECIES = "Inferred_automatically \"from author first pass afp_species\""
 
 
 class WBAFPDBManager(AbstractWBDBManager):
@@ -436,17 +437,17 @@ class WBAFPDBManager(AbstractWBDBManager):
     def set_pap_gene_list(self, paper_id, person_id):
         with self.get_cursor() as curs:
             curs.execute("SELECT * FROM pap_gene WHERE joinkey = %s AND pap_evidence = %s", (paper_id,
-                                                                                             PAP_AFP_EVIDENCE_CODE))
+                                                                                             PAP_AFP_EVIDENCE_CODE_GENE))
             res_pap = curs.fetchall()
             if res_pap:
                 for res in res_pap:
                     curs.execute("INSERT INTO h_pap_gene (joinkey, pap_gene, pap_order, pap_curator, pap_evidence) "
                                  "VALUES('{}', '{}', {}, '{}', '{}')".format(res[0], res[1], res[2], res[3], res[4]))
             curs.execute("DELETE FROM pap_gene WHERE joinkey = '{}' AND pap_evidence = '{}'".format(
-                paper_id, PAP_AFP_EVIDENCE_CODE))
+                paper_id, PAP_AFP_EVIDENCE_CODE_GENE))
             max_order = 0
             curs.execute("SELECT MAX(pap_order) FROM pap_gene WHERE joinkey = '{}' AND pap_evidence <> '{}'"
-                             .format(paper_id, PAP_AFP_EVIDENCE_CODE))
+                             .format(paper_id, PAP_AFP_EVIDENCE_CODE_GENE))
             res = curs.fetchone()
             if res and res[0]:
                 max_order = int(res[0])
@@ -459,16 +460,16 @@ class WBAFPDBManager(AbstractWBDBManager):
             for afp_id in afp_ids:
                 curs.execute("INSERT INTO pap_gene (joinkey, pap_gene, pap_order, pap_curator, pap_evidence) "
                                  "VALUES('{}', '{}', {}, '{}', '{}')".format(paper_id, afp_id, max_order + 1,
-                                                                             person_id, PAP_AFP_EVIDENCE_CODE))
+                                                                             person_id, PAP_AFP_EVIDENCE_CODE_GENE))
                 curs.execute("INSERT INTO h_pap_gene (joinkey, pap_gene, pap_order, pap_curator, pap_evidence) "
                                  "VALUES('{}', '{}', {}, '{}', '{}')".format(paper_id, afp_id, max_order + 1,
-                                                                             person_id, PAP_AFP_EVIDENCE_CODE))
+                                                                             person_id, PAP_AFP_EVIDENCE_CODE_GENE))
                 max_order += 1
 
     def set_pap_species_list(self, paper_id, person_id):
         with self.get_cursor() as curs:
             curs.execute("SELECT * FROM pap_species WHERE joinkey = '{}' AND pap_evidence = '{}'".format(
-                paper_id, PAP_AFP_EVIDENCE_CODE))
+                paper_id, PAP_AFP_EVIDENCE_CODE_SPECIES))
             res_pap = curs.fetchall()
             if res_pap:
                 for res in res_pap:
@@ -476,10 +477,10 @@ class WBAFPDBManager(AbstractWBDBManager):
                                      "pap_evidence) VALUES('{}', '{}', {}, '{}', '{}')".format(res[0], res[1],
                                                                                                res[2], res[3], res[4]))
             curs.execute("DELETE FROM pap_species WHERE joinkey = '{}' AND pap_evidence = '{}'".format(
-                paper_id, PAP_AFP_EVIDENCE_CODE))
+                paper_id, PAP_AFP_EVIDENCE_CODE_SPECIES))
             max_order = 0
             curs.execute("SELECT MAX(pap_order) FROM pap_species WHERE joinkey = '{}' AND pap_evidence <> '{}'"
-                             .format(paper_id, PAP_AFP_EVIDENCE_CODE))
+                             .format(paper_id, PAP_AFP_EVIDENCE_CODE_SPECIES))
             res = curs.fetchone()
             if res and res[0]:
                 max_order = int(res[0])
@@ -493,10 +494,10 @@ class WBAFPDBManager(AbstractWBDBManager):
                     curs.execute("INSERT INTO pap_species (joinkey, pap_species, pap_order, pap_curator, pap_evidence) "
                                      "VALUES('{}', '{}', {}, '{}', '{}')".format(paper_id, res_species_index[0],
                                                                                  max_order + 1, person_id,
-                                                                                 PAP_AFP_EVIDENCE_CODE))
+                                                                                 PAP_AFP_EVIDENCE_CODE_SPECIES))
                     curs.execute("INSERT INTO h_pap_species (joinkey, pap_species, pap_order, pap_curator, "
                                      "pap_evidence) VALUES('{}', '{}', {}, '{}', '{}')".format(
-                        paper_id, res_species_index[0], max_order + 1, person_id, PAP_AFP_EVIDENCE_CODE))
+                        paper_id, res_species_index[0], max_order + 1, person_id, PAP_AFP_EVIDENCE_CODE_SPECIES))
                     max_order += 1
 
     def set_contributor(self, paper_id, person_id):
