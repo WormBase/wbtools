@@ -270,10 +270,29 @@ class WBGenericDBManager(AbstractWBDBManager):
 
     def get_blacklisted_email_addresses(self):
         with self.get_cursor() as curs:
-            curs.execute("select frm_email_skip from frm_email_skip")
+            blocked_email_addresses = []
+            curs.execute("select distinct(frm_email_skip) from frm_email_skip")
             res = curs.fetchall()
             if res:
-                return [row[0] for row in res]
-            else:
-                return []
-
+                blocked_email_addresses.extend([row[0] for row in res])
+            curs.execute("select distinct(two_email.two_email) from two_unsubscribe join two_email on "
+                         "two_unsubscribe.joinkey = two_email.joinkey")
+            res = curs.fetchall()
+            if res:
+                blocked_email_addresses.extend([row[0] for row in res])
+            curs.execute("select distinct(two_old_email.two_old_email) from two_unsubscribe join two_old_email on "
+                         "two_unsubscribe.joinkey = two_old_email.joinkey")
+            res = curs.fetchall()
+            if res:
+                blocked_email_addresses.extend([row[0] for row in res])
+            curs.execute("select distinct(two_email.two_email) from frm_wbperson_skip join two_email "
+                         "ON CONCAT('two', SUBSTRING(frm_wbperson_skip, 9)) = two_email.joinkey")
+            res = curs.fetchall()
+            if res:
+                blocked_email_addresses.extend([row[0] for row in res])
+            curs.execute("select distinct(two_old_email.two_old_email) from frm_wbperson_skip join two_old_email "
+                         "ON CONCAT('two', SUBSTRING(frm_wbperson_skip, 9)) = two_old_email.joinkey")
+            res = curs.fetchall()
+            if res:
+                blocked_email_addresses.extend([row[0] for row in res])
+            return list(set(blocked_email_addresses))

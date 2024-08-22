@@ -35,6 +35,10 @@ class TestWBDBManager(unittest.TestCase):
         exclude_invalid = self.db_manager.get_curated_transgenes(exclude_id_used_as_name=False, exclude_invalid=True)
         self.assertGreater(len(all_curated), len(exclude_invalid))
 
+    def test_get_blacklisted_emails(self):
+        blacklisted_emails = self.db_manager.get_blacklisted_email_addresses()
+        self.assertGreater(len(blacklisted_emails), 0)
+
 
 if __name__ == '__main__':
     unittest.main()
