@@ -105,16 +105,6 @@ class CorpusManager(object):
             if exclude_afp_not_curatable and paper_id not in afp_curatable:
                 logger.info("Skipping paper not AFP curatable")
                 continue
-            if load_pdf_files:
-                logger.info("Loading text from PDF files for paper")
-                if paper.load_text_from_pdf_files(main_file_only=main_file_only) is False:
-                    continue
-                if exclude_temp_pdf and paper.is_temp():
-                    logger.info("Skipping proof paper")
-                    continue
-                if exclude_no_main_text and not paper.has_main_text():
-                    logger.info("Skipping paper without main text")
-                    continue
             # functions with db access
             with paper.db_manager:
                 if load_curation_info:
@@ -135,6 +125,16 @@ class CorpusManager(object):
                     paper.load_afp_info_from_db(paper_ids_no_submission=afp_no_submission_ids,
                                                 paper_ids_full_submission=afp_full_submission_ids,
                                                 paper_ids_partial_submission=afp_partial_submission_ids)
+            if load_pdf_files:
+                logger.info("Loading text from PDF files for paper")
+                if paper.load_text_from_pdf_files(main_file_only=main_file_only) is False:
+                    continue
+                if exclude_temp_pdf and paper.is_temp():
+                    logger.info("Skipping proof paper")
+                    continue
+                if exclude_no_main_text and not paper.has_main_text():
+                    logger.info("Skipping paper without main text")
+                    continue
             self.add_or_update_wb_paper(paper)
             logger.info("Paper " + paper_id + " added to corpus. Corpus size: " + str(self.size()))
             if max_num_papers and self.size() >= max_num_papers:
