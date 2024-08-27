@@ -407,6 +407,9 @@ class WBAFPDBManager(AbstractWBDBManager):
     def set_submitted_comments(self, comments, paper_id):
         self.set_value_with_history(paper_id, "afp_comment", comments)
 
+    def set_submitted_other_cc_contacts(self, other_cc_contacts, paper_id):
+        self.set_value_with_history(paper_id, "afp_communitycontact", other_cc_contacts)
+
     def set_version(self, paper_id):
         with self.get_cursor() as curs:
             curs.execute("DELETE FROM afp_version WHERE joinkey = %s", (paper_id,))
