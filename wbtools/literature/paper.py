@@ -72,7 +72,7 @@ def convert_pdf_to_txt(file_path):
 def get_data_from_url(url, headers=None, file_type='json'):
     try:
         response = requests.request("GET", url, headers=headers)
-        # response.raise_for_status()  # Check if the request was successful
+        response.raise_for_status()  # Check if the request was successful
         if file_type == 'pdf':
             return response.content
         else:
@@ -80,7 +80,7 @@ def get_data_from_url(url, headers=None, file_type='json'):
             if content is None:
                 content = response.text()
             return content
-    except requests.exceptions.RequestException as e:
+    except Exception as e:
         logger.info(f"Error occurred for accessing/retrieving data from {url}: error={e}")
         return None
 
@@ -228,15 +228,19 @@ class WBPaper(object):
         # Get Alliance reference info from WBPaperID
         ref_info_from_xref_api = f"https://{ABC_API}/reference/by_cross_reference/WB:WBPaper{self.paper_id}"
         ref_info: dict = get_data_from_url(ref_info_from_xref_api)
-        self.abstract = ref_info["abstract"]
-        self.title = ref_info["title"]
-        self.journal = ref_info["resource_title"]
-        self.pub_date = ref_info["date_published"]
-        # Getting author data from db until ABC has author-person info
-        self.authors = self.db_manager.get_paper_authors(paper_id=self.paper_id)
-        self.doi = [xref["curie"] for xref in ref_info["cross_references"] if xref["curie_prefix"] == "DOI"][0]
-        self.pmid = [xref["curie"] for xref in ref_info["cross_references"] if xref["curie_prefix"] == "PMID"][0]
-        self.agr_curie = ref_info["curie"]
+        if ref_info:
+            self.abstract = ref_info["abstract"]
+            self.title = ref_info["title"]
+            self.journal = ref_info["resource_title"]
+            self.pub_date = ref_info["date_published"]
+            # Getting author data from db until ABC has author-person info
+            self.authors = self.db_manager.get_paper_authors(paper_id=self.paper_id)
+            self.doi = [xref["curie"] for xref in ref_info["cross_references"] if xref["curie_prefix"] == "DOI"][0]
+            self.pmid = [xref["curie"] for xref in ref_info["cross_references"] if xref["curie_prefix"] == "PMID"][0]
+            self.agr_curie = ref_info["curie"]
+            return True
+        else:
+            return False
 
     def load_afp_info_from_db(self, paper_ids_no_submission: List[str] = None,
                               paper_ids_full_submission: List[str] = None,
