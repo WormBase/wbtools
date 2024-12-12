@@ -235,8 +235,12 @@ class WBPaper(object):
             self.pub_date = ref_info["date_published"]
             # Getting author data from db until ABC has author-person info
             self.authors = self.db_manager.get_paper_authors(paper_id=self.paper_id)
-            self.doi = [xref["curie"] for xref in ref_info["cross_references"] if xref["curie_prefix"] == "DOI"][0]
-            self.pmid = [xref["curie"] for xref in ref_info["cross_references"] if xref["curie_prefix"] == "PMID"][0]
+            dois_list = [xref["curie"] for xref in ref_info["cross_references"] if xref["curie_prefix"] == "DOI"]
+            if dois_list:
+                self.doi = dois_list[0]
+            pmids_list = [xref["curie"] for xref in ref_info["cross_references"] if xref["curie_prefix"] == "PMID"]
+            if pmids_list:
+                self.pmid = pmids_list[0]
             self.agr_curie = ref_info["curie"]
             return True
         else:
