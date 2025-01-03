@@ -118,16 +118,22 @@ class WBGenericDBManager(AbstractWBDBManager):
                     gene_name_id_map[row[1]] = "WBGene" + row[0]
             return gene_name_id_map
 
-    def get_curated_transgenes(self, exclude_id_used_as_name: bool = False, exclude_invalid: bool = True):
+    def get_curated_transgenes(self, exclude_id_used_as_name: bool = False, exclude_invalid: bool = True,
+                               exclude_new: bool = True):
         with self.get_cursor() as curs:
             invalid_ids = set()
             if exclude_invalid:
                 curs.execute("select joinkey from trp_objpap_falsepos where trp_objpap_falsepos = 'Fail'")
                 invalid_ids = set([row[0] for row in curs.fetchall()])
+            new_ids = set()
+            if exclude_new:
+                curs.execute("select joinkey from trp_curator where trp_curator = 'WBPerson4793'")
+                new_ids = set([row[0] for row in curs.fetchall()])
             curs.execute("SELECT * FROM trp_publicname")
             rows = curs.fetchall()
             return sorted(list(set([row[1] for row in rows if (not exclude_invalid or row[0] not in invalid_ids) and
-                                    (not exclude_id_used_as_name or not row[1].startswith("WBTransgene"))])))
+                                    (not exclude_id_used_as_name or not row[1].startswith("WBTransgene")) and
+                                    (not exclude_new or row[0] not in new_ids)])))
 
     def get_transgene_name_id_map(self):
         with self.get_cursor() as curs:
