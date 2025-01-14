@@ -79,4 +79,4 @@ class CurationDataManager:
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
     cdm = CurationDataManager()
-    print(cdm.get_all_curated_entities("gene", "WB"))
+    print(cdm.get_all_curated_entities("gene", "SGD"))
