@@ -2,19 +2,20 @@ import json
 import logging
 import urllib.request
 
+from wbtools.lib.nlp.common import EntityType
 from wbtools.utils.okta_utils import get_authentication_token
 
 
 logger = logging.getLogger(__name__)
 
 
-class CurationDataManager:
+class AllianceCurationDataManager:
     def __init__(self):
         self.curation_api_base_url = "https://curation.alliancegenome.org/api/"
         self.page_limit = 2000
 
-    def get_all_curated_entities(self, entity_type: str, mod_abbreviation: str):
-        if entity_type == "gene":
+    def get_all_curated_entities(self, entity_type: EntityType, mod_abbreviation: str):
+        if entity_type == EntityType.GENE:
             return self.get_all_curated_genes(mod_abbreviation)
 
     @staticmethod
@@ -78,5 +79,5 @@ class CurationDataManager:
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
-    cdm = CurationDataManager()
+    cdm = AllianceCurationDataManager()
     print(cdm.get_all_curated_entities("gene", "SGD"))

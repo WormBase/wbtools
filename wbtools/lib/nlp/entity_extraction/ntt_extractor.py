@@ -3,8 +3,9 @@ import re
 from typing import List, Dict
 
 from wbtools.db.generic import WBGenericDBManager
-from wbtools.lib.nlp.common import EntityType
+from wbtools.lib.nlp.common import EntityType, MODS
 from wbtools.lib.nlp.literature_index.abstract_index import AbstractLiteratureIndex
+from wbtools.utils.alliance import AllianceCurationDataManager
 
 ALL_VAR_REGEX = r'({designations}|m|p|It)(_)?([A-z]+)?([0-9]+)([a-zA-Z]{{1,4}}[0-9]*)?(\[[0-9]+\])?([a-zA-Z]{{1,4}}' \
                 r'[0-9]*)?(\[.+\])?'
@@ -28,9 +29,19 @@ class NttExtractor:
 
     def __init__(self, db_manager: WBGenericDBManager = None):
         self.db_manager = db_manager
+        self.alliance_curation_data_manager = AllianceCurationDataManager()
         self.curated_entities = {}
+        self.alliance_mod_curated_entities = {}
         for entity_type in EntityType:
             self.curated_entities[entity_type] = None
+        for mod in MODS:
+            if mod != "WB":
+                self.alliance_mod_curated_entities[mod] = {}
+                for entity_type in EntityType:
+                    self.alliance_mod_curated_entities[mod][entity_type] = None
+        self.alliance_mod_curated_entities["SGD"][EntityType.GENE] = (
+            self.alliance_curation_data_manager.get_all_curated_entities(
+                entity_type=EntityType.GENE, mod_abbreviation="SGD"))
         allele_designations = self.db_manager.get_allele_designations()
         new_var_regex = NEW_VAR_REGEX.format(designations="|".join(allele_designations))
         strain_regex = STRAIN_REGEX.format(designations="|".join(self.db_manager.get_strain_designations()))
@@ -44,6 +55,15 @@ class NttExtractor:
             self.curated_entities[entity_type] = self.db_manager.get_curated_entities(
                 entity_type=entity_type, exclude_id_used_as_name=exclude_id_used_as_name)
         return self.curated_entities[entity_type]
+
+    def get_alliance_curated_entities(self, entity_type: EntityType, mod_abbreviation: str):
+        if mod_abbreviation not in self.alliance_mod_curated_entities:
+            self.alliance_mod_curated_entities[mod_abbreviation] = {}
+        if not self.alliance_mod_curated_entities[mod_abbreviation][entity_type]:
+            self.alliance_mod_curated_entities[mod_abbreviation][entity_type] = (
+                self.alliance_curation_data_manager.get_all_curated_entities(
+                    entity_type=entity_type, mod_abbreviation=mod_abbreviation))
+        return self.alliance_mod_curated_entities[mod_abbreviation][entity_type]
 
     @staticmethod
     def match_entities_regex(text, regex):

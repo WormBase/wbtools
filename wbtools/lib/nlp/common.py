@@ -65,3 +65,5 @@ SPECIES_ALIASES = {"9913": ["cow", "bovine", "calf"],
                    "10116": ["rat"],
                    "559292": ["budding yeast"],
                    "4896": ["fission yeast"]}
+
+MODS = ["WB", "SGD"]
