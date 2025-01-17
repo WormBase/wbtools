@@ -39,9 +39,6 @@ class NttExtractor:
                 self.alliance_mod_curated_entities[mod] = {}
                 for entity_type in EntityType:
                     self.alliance_mod_curated_entities[mod][entity_type] = None
-        self.alliance_mod_curated_entities["SGD"][EntityType.GENE] = (
-            self.alliance_curation_data_manager.get_all_curated_entities(
-                entity_type=EntityType.GENE, mod_abbreviation="SGD"))
         allele_designations = self.db_manager.get_allele_designations()
         new_var_regex = NEW_VAR_REGEX.format(designations="|".join(allele_designations))
         strain_regex = STRAIN_REGEX.format(designations="|".join(self.db_manager.get_strain_designations()))
