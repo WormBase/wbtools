@@ -432,7 +432,7 @@ class WBAFPDBManager(AbstractWBDBManager):
         if self.get_db_manager(WBPaperDBManager).is_antibody_set(paper_id):
             self.set_extracted_antibody(paper_id)
         self.set_extracted_entities_in_paper(paper_id, genes, "tfp_genestudied")
-        # self.set_extracted_entities_in_paper(paper_id, sgd_genes, "tfp_genestudied_sgd")
+        # self.set_extracted_entities_in_paper(paper_id, genes_sgd, "tfp_genestudied_sgd")
         self.set_extracted_entities_in_paper(paper_id, alleles, "tfp_variation")
         self.set_extracted_entities_in_paper(paper_id, species, "tfp_species")
         self.set_extracted_entities_in_paper(paper_id, strains, "tfp_strain")
@@ -442,7 +442,7 @@ class WBAFPDBManager(AbstractWBDBManager):
         self.set_contact_emails(paper_id, author_emails)
         return passwd
 
-    def save_extracted_sgd_data_to_db(self, paper_id: str, genes_sgd: List[str]):
+    def save_extracted_sgd_genes_to_db(self, paper_id: str, genes_sgd: List[str]):
         self.set_extracted_entities_in_paper(paper_id, genes_sgd, "tfp_genestudied_sgd")
 
     def set_pap_gene_list(self, paper_id, person_id):
