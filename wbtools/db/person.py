@@ -22,6 +22,15 @@ class WBPersonDBManager(AbstractWBDBManager):
                     return res[0]
             return None
 
+    def get_current_email_address_for_person(self, person_id):
+        with self.get_cursor() as curs:
+            curs.execute("SELECT two_email from two_email WHERE joinkey=%s ORDER BY two_timestamp DESC LIMIT 1",
+                         (person_id,))
+            res = curs.fetchone()
+            if res:
+                return res[0]
+            return None
+
     def get_first_name(self, person_id):
         return self._get_single_field(person_id, "two_firstname")
 

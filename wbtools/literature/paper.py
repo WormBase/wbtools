@@ -339,32 +339,36 @@ class WBPaper(object):
                                                its email address, if any, otherwise None.
         """
         result = []
-        all_addresses = self.extract_all_email_addresses_from_text()
-        if not all_addresses:
-            all_addresses = self.extract_all_email_addresses_from_text(self.get_text_docs(
+        extracted_addresses = self.extract_all_email_addresses_from_text()
+        if not extracted_addresses:
+            extracted_addresses = self.extract_all_email_addresses_from_text(self.get_text_docs(
                 include_supplemental=False, return_concatenated=True).replace(". ", "."))
-        if all_addresses:
-            for address in all_addresses:
-                if "'" not in address and (not blacklisted_email_addresses or address not in
-                                           set(blacklisted_email_addresses)):
+        blacklisted_email_addresses = set(blacklisted_email_addresses)
+        if extracted_addresses:
+            for extracted_address in extracted_addresses:
+                if "'" not in extracted_address:
                     person_id = self.db_manager.get_db_manager(
-                        WBPersonDBManager).get_person_id_from_email_address(address)
+                        WBPersonDBManager).get_person_id_from_email_address(extracted_address)
                     if person_id:
-                        # curr_address = db_manager.get_current_email_address_for_person(person_id)
-                        if first_only:
-                            result = (self.db_manager.get_db_manager(WBPersonDBManager).get_person(person_id=person_id),
-                                      address)
-                        else:
+                        current_address = self.db_manager.get_db_manager(
+                                WBPersonDBManager).get_current_email_address_for_person(person_id)
+                        if current_address and current_address not in blacklisted_email_addresses:
                             result.append((self.db_manager.get_db_manager(WBPersonDBManager).get_person(
-                                person_id=person_id), address))
+                                person_id=person_id), current_address))
+                        if (extracted_address not in blacklisted_email_addresses and
+                                extracted_address != current_address):
+                            result.append((self.db_manager.get_db_manager(WBPersonDBManager).get_person(
+                                person_id=person_id), extracted_address))
+                        if first_only and result:
+                            return result
         if not result:
             if first_only:
                 corresponding_author = self.get_corresponding_author()
-                if corresponding_author:
+                if corresponding_author and corresponding_author.email not in blacklisted_email_addresses:
                     result = corresponding_author, corresponding_author.email
             else:
                 for author in self.authors:
-                    if author.email:
+                    if author.email and author.email not in blacklisted_email_addresses:
                         result.append((author, author.email))
         if result:
             return result

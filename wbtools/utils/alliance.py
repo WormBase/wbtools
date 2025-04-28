@@ -41,7 +41,7 @@ class AllianceCurationDataManager:
         params = {
             "searchFilters": {
                 "dataProviderFilter": {
-                    "dataProvider.sourceOrganization.abbreviation": {
+                    "dataProvider.abbreviation": {
                         "queryString": mod_abbreviation,
                         "tokenOperator": "OR"
                     }
@@ -80,4 +80,4 @@ class AllianceCurationDataManager:
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
     cdm = AllianceCurationDataManager()
-    print(cdm.get_all_curated_entities("gene", "SGD"))
+    print(cdm.get_all_curated_entities(EntityType.GENE, "SGD"))

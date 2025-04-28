@@ -301,4 +301,8 @@ class WBGenericDBManager(AbstractWBDBManager):
             res = curs.fetchall()
             if res:
                 blocked_email_addresses.extend([row[0] for row in res])
+            curs.execute("select distinct(two_old_email) from two_old_email")
+            res = curs.fetchall()
+            if res:
+                blocked_email_addresses.extend([row[0] for row in res])
             return list(set(blocked_email_addresses))
