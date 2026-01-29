@@ -3,7 +3,7 @@ import logging
 import urllib.request
 
 from wbtools.lib.nlp.common import EntityType
-from wbtools.utils.okta_utils import get_authentication_token
+from wbtools.utils.auth_utils import get_authentication_token
 
 
 logger = logging.getLogger(__name__)

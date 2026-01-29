@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "wbtools"
-version = "3.2.0"
+version = "3.3.0"
 authors = [
     {name = "Valerio Arnaboldi", email = "valearna@caltech.edu"},
 ]
@@ -30,6 +30,7 @@ dependencies = [
     "python-dateutil~=2.8.2",
     "python-dotenv~=1.0.0",
     "grobid-client",
+    "agr-cognito-py",
 ]
 
 [project.urls]

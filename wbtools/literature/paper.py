@@ -26,7 +26,7 @@ from wbtools.lib.nlp.entity_extraction.email_addresses import get_email_addresse
 from wbtools.lib.nlp.text_preprocessing import preprocess, get_documents_from_text, PaperSections
 from wbtools.lib.timeout import timeout
 from wbtools.literature.person import WBAuthor
-from wbtools.utils.okta_utils import get_authentication_token, generate_headers
+from wbtools.utils.auth_utils import get_authentication_token, generate_headers
 
 logger = logging.getLogger(__name__)
 
@@ -193,6 +193,7 @@ class WBPaper(object):
             blue_api_base_url = os.environ.get('API_SERVER', "literature-rest.alliancegenome.org")
             all_reffiles_for_pap_api = f'https://{blue_api_base_url}/reference/referencefile/show_all/{self.agr_curie}'
             request = urllib.request.Request(url=all_reffiles_for_pap_api)
+            request.add_header("Authorization", f"Bearer {get_authentication_token()}")
             request.add_header("Content-type", "application/json")
             request.add_header("Accept", "application/json")
             added_ref_files = 0
@@ -227,7 +228,9 @@ class WBPaper(object):
             raise Exception("PaperDBManager not set")
         # Get Alliance reference info from WBPaperID
         ref_info_from_xref_api = f"https://{ABC_API}/reference/by_cross_reference/WB:WBPaper{self.paper_id}"
-        ref_info: dict = get_data_from_url(ref_info_from_xref_api)
+        token = get_authentication_token()
+        headers = generate_headers(token)
+        ref_info: dict = get_data_from_url(ref_info_from_xref_api, headers)
         if ref_info:
             self.abstract = ref_info["abstract"]
             self.title = ref_info["title"]
