@@ -69,6 +69,10 @@ def convert_pdf_to_txt(file_path):
         return []
 
 
+class ABCRequestError(Exception):
+    """raised when data that is required to process a paper cannot be retrieved from the ABC"""
+
+
 def get_data_from_url(url, headers=None, file_type='json'):
     try:
         response = requests.request("GET", url, headers=headers)
@@ -115,6 +119,7 @@ class WBPaper(object):
         self.afp_processed = False
         self.afp_partial_submission = False
         self.afp_contact_emails = []
+        self.abc_email_addresses = None
         self.db_manager = db_manager
 
     def get_corresponding_author(self) -> Union[WBAuthor, None]:
@@ -322,46 +327,64 @@ class WBPaper(object):
     def extract_all_email_addresses_from_text_and_write_to_db(self):
         self.write_email_addresses_to_db(self.extract_all_email_addresses_from_text())
 
+    def get_abc_email_addresses(self) -> Union[List[str], None]:
+        """get the email addresses associated with the paper in the ABC
+
+        Returns:
+            Union[List[str], None]: the list of email addresses, or None if the ABC request failed
+        """
+        if self.abc_email_addresses is None:
+            reference_emails_api = f"https://{ABC_API}/reference/{self.agr_curie}/emails"
+            headers = generate_headers(get_authentication_token())
+            reference_emails = get_data_from_url(reference_emails_api, headers)
+            if reference_emails is not None:
+                self.abc_email_addresses = [reference_email["email_address"] for reference_email in
+                                            reference_emails]
+        return self.abc_email_addresses
+
     def get_aut_class_value_for_datatype(self, datatype: str):
         return self.aut_class_values[datatype] if self.aut_class_values[datatype] else None
 
     def get_authors_with_email_address_in_wb(self, blacklisted_email_addresses: List[str] = None,
                                              first_only: bool = False) -> Union[List[Tuple[WBAuthor, str]], None]:
         """
-        Get the first email address in the paper with a corresponding person entry in WB and return the person object
-        and the email address found in the paper, which may be more recent than the one in WB
+        Get the email addresses associated with the paper in the ABC that have a corresponding person entry in WB and
+        return the person object and the email address from the ABC, which may be more recent than the one in WB
 
         Args:
             blacklisted_email_addresses (List[str]): a list of email addresses to be excluded from the search
             first_only (bool): whether to return only the first available author
 
         Returns:
-            Union[List[Tuple[WBPerson, str]], None]: a tuple containing the WBPerson and the email address found in the paper.
+            Union[List[Tuple[WBPerson, str]], None]: a tuple containing the WBPerson and the email address from the ABC.
                                                If no email is found with a corresponding person in WB, then the function
                                                will return the corresponding author associated with the paper in WB and
                                                its email address, if any, otherwise None.
+
+        Raises:
+            ABCRequestError: if the email addresses cannot be retrieved from the ABC
         """
         result = []
-        extracted_addresses = self.extract_all_email_addresses_from_text()
-        if not extracted_addresses:
-            extracted_addresses = self.extract_all_email_addresses_from_text(self.get_text_docs(
-                include_supplemental=False, return_concatenated=True).replace(". ", "."))
-        blacklisted_email_addresses = set(blacklisted_email_addresses)
-        if extracted_addresses:
-            for extracted_address in extracted_addresses:
-                if "'" not in extracted_address:
+        abc_addresses = self.get_abc_email_addresses()
+        if abc_addresses is None:
+            raise ABCRequestError(f"Could not retrieve email addresses from ABC for paper {self.paper_id} "
+                                  f"({self.agr_curie})")
+        blacklisted_email_addresses = set(blacklisted_email_addresses or [])
+        if abc_addresses:
+            for abc_address in abc_addresses:
+                if "'" not in abc_address:
                     person_id = self.db_manager.get_db_manager(
-                        WBPersonDBManager).get_person_id_from_email_address(extracted_address)
+                        WBPersonDBManager).get_person_id_from_email_address(abc_address)
                     if person_id:
                         current_address = self.db_manager.get_db_manager(
                                 WBPersonDBManager).get_current_email_address_for_person(person_id)
                         if current_address and current_address not in blacklisted_email_addresses:
                             result.append((self.db_manager.get_db_manager(WBPersonDBManager).get_person(
                                 person_id=person_id), current_address))
-                        if (extracted_address not in blacklisted_email_addresses and
-                                extracted_address != current_address):
+                        if (abc_address not in blacklisted_email_addresses and
+                                abc_address != current_address):
                             result.append((self.db_manager.get_db_manager(WBPersonDBManager).get_person(
-                                person_id=person_id), extracted_address))
+                                person_id=person_id), abc_address))
                         if first_only and result:
                             return result
         if not result:

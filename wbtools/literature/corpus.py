@@ -8,7 +8,7 @@ from wbtools.db.dbmanager import WBDBManager
 from wbtools.lib.nlp.common import PaperSections
 from wbtools.lib.nlp.text_preprocessing import preprocess
 from wbtools.lib.nlp.text_similarity import get_softcosine_index, get_similar_documents, SimilarityResult
-from wbtools.literature.paper import WBPaper
+from wbtools.literature.paper import WBPaper, ABCRequestError
 
 
 logger = logging.getLogger(__name__)
@@ -117,10 +117,17 @@ class CorpusManager(object):
                     logger.info("Loading bib info for paper")
                     if paper.load_bib_info() is False:
                         continue
-                    if exclude_no_author_email and not paper.get_authors_with_email_address_in_wb(
-                            blacklisted_email_addresses=blacklisted_email_addresses):
-                        logger.info("Skipping paper without any email address in text with records in WB")
-                        continue
+                    if exclude_no_author_email:
+                        try:
+                            authors_with_email = paper.get_authors_with_email_address_in_wb(
+                                blacklisted_email_addresses=blacklisted_email_addresses)
+                        except ABCRequestError as e:
+                            logger.warning(f"Skipping paper: {e}")
+                            continue
+                        if not authors_with_email:
+                            logger.info("Skipping paper without any email address in ABC or WB authors with records "
+                                        "in WB")
+                            continue
                 if load_afp_info:
                     logger.info("Loading AFP info for paper")
                     paper.load_afp_info_from_db(paper_ids_no_submission=afp_no_submission_ids,
