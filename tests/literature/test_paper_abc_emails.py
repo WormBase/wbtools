@@ -236,5 +236,38 @@ class TestCorpusTextSource(unittest.TestCase):
                                                   text_source="grobid")
 
 
+class FakeWBDBManagerWithoutCuries(FakeWBDBManager):
+    """WB db copy that has no AGRKB curie for the papers (e.g. a stale dev copy)"""
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.paper.get_paper_curie.side_effect = lambda paper_id: None
+
+
+class TestCorpusAgrCuries(unittest.TestCase):
+
+    def load(self, db_manager_class, **kwargs):
+        cm = CorpusManager()
+        with mock.patch("wbtools.literature.corpus.WBDBManager", db_manager_class), \
+                mock.patch.object(WBPaper, "load_bib_info", return_value=True):
+            cm.load_from_wb_database("db", "user", "passwd", "host", paper_ids=["00000001"],
+                                     load_pdf_files=False, load_curation_info=False, **kwargs)
+        return cm
+
+    def test_curie_from_abc_is_used_when_the_wb_db_has_none(self):
+        cm = self.load(FakeWBDBManagerWithoutCuries, agr_curies={"00000001": "AGRKB:101000000000001"})
+        self.assertEqual([paper.agr_curie for paper in cm.get_all_papers()], ["AGRKB:101000000000001"])
+
+    def test_curie_from_abc_takes_precedence(self):
+        cm = self.load(FakeWBDBManager, agr_curies={"00000001": "AGRKB:101000000000009"})
+        self.assertEqual([paper.agr_curie for paper in cm.get_all_papers()], ["AGRKB:101000000000009"])
+
+    def test_paper_without_any_curie_is_skipped_with_a_warning(self):
+        with self.assertLogs("wbtools.literature.corpus", level="WARNING") as logs:
+            cm = self.load(FakeWBDBManagerWithoutCuries)
+        self.assertEqual(cm.size(), 0)
+        self.assertTrue(any("00000001" in line and "curie" in line.lower() for line in logs.output))
+
+
 if __name__ == '__main__':
     unittest.main()

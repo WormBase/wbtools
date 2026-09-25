@@ -45,7 +45,8 @@ class CorpusManager(object):
                               pap_types: List[str] = None,
                               exclude_afp_processed: bool = False, exclude_afp_not_curatable: bool = False,
                               exclude_no_main_text: bool = False, exclude_no_author_email: bool = False,
-                              main_file_only: bool = False, text_source: str = "pdf") -> None:
+                              main_file_only: bool = False, text_source: str = "pdf",
+                              agr_curies: Dict[str, str] = None) -> None:
         """load papers from WormBase database
 
         Args:
@@ -72,6 +73,8 @@ class CorpusManager(object):
             text_source (str): where to read the text of the papers from when load_pdf_files is True: "pdf" to
                                convert the PDF files with GROBID, "abc_markdown" to read the Markdown files
                                converted by the ABC
+            agr_curies (Dict[str, str]): AGRKB curies of the papers by paper id, e.g. from an ABC search. They take
+                                         precedence over the curies stored in the WB database
         """
         if text_source not in ("pdf", "abc_markdown"):
             raise ValueError(f"Unknown text_source {text_source}, use 'pdf' or 'abc_markdown'")
@@ -101,8 +104,9 @@ class CorpusManager(object):
 
         for paper_id in paper_ids:
             paper = WBPaper(paper_id=paper_id, db_manager=main_db_manager.paper)
-            paper.agr_curie = main_db_manager.paper.get_paper_curie(paper_id)
+            paper.agr_curie = (agr_curies or {}).get(paper_id) or main_db_manager.paper.get_paper_curie(paper_id)
             if paper.agr_curie is None:
+                logger.warning(f"Skipping paper {paper_id}: no AGRKB curie")
                 continue
             if exclude_afp_processed and paper_id in afp_processed_ids:
                 logger.info("Skipping paper already processed by AFP")
