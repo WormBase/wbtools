@@ -1,7 +1,9 @@
 import unittest
 from unittest import mock
 
-from wbtools.literature.paper import WBPaper, ABCRequestError
+import requests
+
+from wbtools.literature.paper import WBPaper, ABCRequestError, get_data_from_url, DEFAULT_REQUEST_TIMEOUT
 
 MAIN_MD = ("# Neuronal regulation of aging in C. elegans\n\n"
            "## Abstract\n\n"
@@ -108,6 +110,36 @@ class TestLoadTextFromAbcMarkdown(unittest.TestCase):
         latin1_markdown = "# Title\n\n## Results\n\nThe prot\xe9ine is expressed in neurons.\n".encode("latin-1")
         paper, _ = self.load([ref_file(2, "converted_merged_main")], {2: latin1_markdown})
         self.assertTrue(has_sentence(paper.main_text, "expressed in neurons"))
+
+    def test_main_markdown_with_only_a_title_raises(self, *_):
+        with self.assertRaises(ABCRequestError):
+            self.load([ref_file(2, "converted_merged_main")], {2: b"# Neuronal regulation of aging\n"})
+
+    def test_title_only_supplement_is_skipped(self, *_):
+        paper, _ = self.load(
+            [ref_file(2, "converted_merged_main"), ref_file(3, "converted_merged_supplement")],
+            {2: MAIN_MD.encode("utf-8"), 3: b"# Supplementary Table S1\n"})
+        self.assertEqual(paper.supplemental_docs, [])
+
+
+class TestGetDataFromUrlTimeout(unittest.TestCase):
+
+    def test_default_timeout_is_passed_to_requests(self):
+        with mock.patch("wbtools.literature.paper.requests.request") as request:
+            request.return_value.json.return_value = {"ok": True}
+            get_data_from_url("https://example.org/data")
+        self.assertEqual(request.call_args[1]["timeout"], DEFAULT_REQUEST_TIMEOUT)
+
+    def test_custom_timeout(self):
+        with mock.patch("wbtools.literature.paper.requests.request") as request:
+            request.return_value.json.return_value = {"ok": True}
+            get_data_from_url("https://example.org/data", timeout=5)
+        self.assertEqual(request.call_args[1]["timeout"], 5)
+
+    def test_timeout_returns_none(self):
+        with mock.patch("wbtools.literature.paper.requests.request",
+                        side_effect=requests.exceptions.Timeout("read timed out")):
+            self.assertIsNone(get_data_from_url("https://example.org/data"))
 
 
 if __name__ == '__main__':

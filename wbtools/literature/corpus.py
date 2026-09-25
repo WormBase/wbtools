@@ -19,6 +19,8 @@ class CorpusManager(object):
 
     def __init__(self):
         self.corpus = {}
+        # results of the WB db status queries, reused by repeated loads on the same manager (e.g. batches of a run)
+        self._status_cache = {}
 
     def add_or_update_wb_paper(self, wb_paper: WBPaper):
         """add a paper
@@ -27,6 +29,11 @@ class CorpusManager(object):
             wb_paper(WBPaper): the paper to add to the corpus
         """
         self.corpus[wb_paper.paper_id] = wb_paper
+
+    def _get_cached_status(self, name: str, query):
+        if name not in self._status_cache:
+            self._status_cache[name] = query()
+        return self._status_cache[name]
 
     def remove_wb_paper(self, wb_paper: WBPaper):
         """remove a paper
@@ -90,16 +97,21 @@ class CorpusManager(object):
                 ids_to_exclude = set(main_db_manager.generic.get_paper_ids_with_pap_types(exclude_pap_types))
                 paper_ids = [paper_id for paper_id in paper_ids if paper_id not in ids_to_exclude]
             if load_afp_info or exclude_afp_processed:
-                afp_no_submission_ids = main_db_manager.afp.get_paper_ids_afp_no_submission()
-                afp_full_submission_ids = main_db_manager.afp.get_paper_ids_afp_full_submission()
-                afp_partial_submission_ids = main_db_manager.afp.get_paper_ids_afp_partial_submission()
+                afp_no_submission_ids = self._get_cached_status(
+                    "afp_no_submission", main_db_manager.afp.get_paper_ids_afp_no_submission)
+                afp_full_submission_ids = self._get_cached_status(
+                    "afp_full_submission", main_db_manager.afp.get_paper_ids_afp_full_submission)
+                afp_partial_submission_ids = self._get_cached_status(
+                    "afp_partial_submission", main_db_manager.afp.get_paper_ids_afp_partial_submission)
             else:
                 afp_no_submission_ids = []
                 afp_full_submission_ids = []
                 afp_partial_submission_ids = []
             afp_processed_ids = set(afp_no_submission_ids) | set(afp_partial_submission_ids) | set(afp_full_submission_ids)
-            afp_curatable = set(main_db_manager.afp.get_afp_curatable_paper_ids() if exclude_afp_not_curatable else [])
-            blacklisted_email_addresses = main_db_manager.generic.get_blacklisted_email_addresses() if \
+            afp_curatable = set(self._get_cached_status(
+                "afp_curatable", main_db_manager.afp.get_afp_curatable_paper_ids) if exclude_afp_not_curatable else [])
+            blacklisted_email_addresses = self._get_cached_status(
+                "blacklisted_email_addresses", main_db_manager.generic.get_blacklisted_email_addresses) if \
                 exclude_no_author_email else []
 
         for paper_id in paper_ids:

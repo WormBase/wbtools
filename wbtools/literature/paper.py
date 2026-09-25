@@ -17,7 +17,7 @@ from pathlib import Path
 from grobid_client.api.pdf import process_fulltext_document
 from grobid_client.models import Article, ProcessForm
 from grobid_client.types import TEI, File
-from agr_abc_document_parsers import extract_sentences, read_markdown
+from agr_abc_document_parsers import extract_plain_text, extract_sentences, read_markdown
 
 
 from wbtools.db.afp import WBAFPDBManager
@@ -74,9 +74,12 @@ class ABCRequestError(Exception):
     """raised when data that is required to process a paper cannot be retrieved from the ABC"""
 
 
-def get_data_from_url(url, headers=None, file_type='json'):
+DEFAULT_REQUEST_TIMEOUT = 300
+
+
+def get_data_from_url(url, headers=None, file_type='json', timeout=DEFAULT_REQUEST_TIMEOUT):
     try:
-        response = requests.request("GET", url, headers=headers)
+        response = requests.request("GET", url, headers=headers, timeout=timeout)
         response.raise_for_status()  # Check if the request was successful
         if file_type == 'pdf':
             return response.content
@@ -99,6 +102,13 @@ def _decode_markdown(content: bytes) -> str:
         return content.decode("utf-8")
     except UnicodeDecodeError:
         return content.decode("latin-1", errors="replace")
+
+
+def _has_text_beyond_title(document) -> bool:
+    # a converted file with only a heading has no text to extract entities from
+    text = extract_plain_text(document).strip()
+    title = (document.title or "").strip()
+    return bool(text) and text != title
 
 
 def _is_wb_or_shared_file(ref_file: dict) -> bool:
@@ -283,7 +293,10 @@ class WBPaper(object):
                                     f"{ref_file['referencefile_id']}", headers, file_type='pdf')
         if not content:
             raise ValueError(f"download of ABC file {ref_file['referencefile_id']} failed")
-        return extract_sentences(read_markdown(_decode_markdown(content)))
+        document = read_markdown(_decode_markdown(content))
+        if not _has_text_beyond_title(document):
+            return []
+        return extract_sentences(document)
 
     def load_curation_info_from_db(self):
         """load curation data from WormBase database"""

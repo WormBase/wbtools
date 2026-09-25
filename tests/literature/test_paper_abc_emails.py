@@ -269,5 +269,52 @@ class TestCorpusAgrCuries(unittest.TestCase):
         self.assertTrue(any("00000001" in line and "curie" in line.lower() for line in logs.output))
 
 
+class CountingWBDBManager(FakeWBDBManager):
+    """shares one set of db mocks across instances so the queries of repeated loads can be counted"""
+
+    shared_afp = None
+    shared_generic = None
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.afp = CountingWBDBManager.shared_afp
+        self.generic = CountingWBDBManager.shared_generic
+
+
+class TestCorpusStatusQueriesAreCached(unittest.TestCase):
+
+    def setUp(self):
+        CountingWBDBManager.shared_afp = mock.MagicMock()
+        CountingWBDBManager.shared_afp.get_paper_ids_afp_no_submission.return_value = ["00000009"]
+        CountingWBDBManager.shared_afp.get_paper_ids_afp_full_submission.return_value = []
+        CountingWBDBManager.shared_afp.get_paper_ids_afp_partial_submission.return_value = []
+        CountingWBDBManager.shared_afp.get_afp_curatable_paper_ids.return_value = ["00000001", "00000002"]
+        CountingWBDBManager.shared_generic = mock.MagicMock()
+        CountingWBDBManager.shared_generic.get_blacklisted_email_addresses.return_value = []
+
+    def load_twice(self, cm):
+        with mock.patch("wbtools.literature.corpus.WBDBManager", CountingWBDBManager), \
+                mock.patch.object(WBPaper, "load_bib_info", return_value=True), \
+                mock.patch.object(WBPaper, "get_authors_with_email_address_in_wb", return_value=[("p", "a@b.c")]):
+            for paper_id in ("00000001", "00000002"):
+                cm.load_from_wb_database("db", "user", "passwd", "host", paper_ids=[paper_id], load_pdf_files=False,
+                                         load_curation_info=False, exclude_afp_processed=True,
+                                         exclude_afp_not_curatable=True, exclude_no_author_email=True)
+
+    def test_repeated_loads_on_one_manager_query_the_status_once(self):
+        cm = CorpusManager()
+        self.load_twice(cm)
+        afp = CountingWBDBManager.shared_afp
+        self.assertEqual(afp.get_paper_ids_afp_no_submission.call_count, 1)
+        self.assertEqual(afp.get_afp_curatable_paper_ids.call_count, 1)
+        self.assertEqual(CountingWBDBManager.shared_generic.get_blacklisted_email_addresses.call_count, 1)
+        self.assertEqual(cm.size(), 2)
+
+    def test_a_new_manager_queries_again(self):
+        self.load_twice(CorpusManager())
+        self.load_twice(CorpusManager())
+        self.assertEqual(CountingWBDBManager.shared_afp.get_afp_curatable_paper_ids.call_count, 2)
+
+
 if __name__ == '__main__':
     unittest.main()

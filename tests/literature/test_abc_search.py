@@ -43,7 +43,7 @@ class TestGetWbPaperIdsFromAbc(unittest.TestCase):
         body = post.call_args[1]["json"]
         self.assertEqual(body["facets_values"], {"mods_in_corpus.keyword": ["WB"], **REQUIRED_TAGS})
         self.assertEqual(body["date_created"], ["2024-09-24", "2026-09-24"])
-        self.assertEqual(body["sort"], [{"date_created": {"order": "desc"}}])
+        self.assertEqual(body["sort"], [{"date_created": {"order": "desc"}}, {"curie.keyword": {"order": "asc"}}])
         self.assertEqual(body["size_result_count"], SEARCH_PAGE_SIZE)
         self.assertEqual(body["page"], 1)
 

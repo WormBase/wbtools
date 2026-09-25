@@ -8,6 +8,8 @@ from wbtools.utils.auth_utils import get_authentication_token, generate_headers
 
 logger = logging.getLogger(__name__)
 
+# ABC search pages with Elasticsearch from/size. The ABC references index allows paging up to 5 million results
+# (max_result_window, raised in SCRUM-6581); deeper paging would fail and surface as ABCRequestError.
 SEARCH_PAGE_SIZE = 100
 WB_PAPER_XREF_PREFIX = "WB:WBPaper"
 
@@ -35,7 +37,9 @@ def get_wb_paper_ids_from_abc(required_workflow_tags: Dict[str, List[str]], date
     while True:
         hits = _search_references({"facets_values": facets_values,
                                    "date_created": [date_created_from, date_created_to],
-                                   "sort": [{"date_created": {"order": "desc"}}],
+                                   # the curie keeps the order stable across pages for equal creation dates
+                                   "sort": [{"date_created": {"order": "desc"}},
+                                            {"curie.keyword": {"order": "asc"}}],
                                    "size_result_count": SEARCH_PAGE_SIZE, "page": page})
         for hit in hits:
             wb_paper_id = _get_wb_paper_id(hit)
@@ -49,6 +53,7 @@ def get_wb_paper_ids_from_abc(required_workflow_tags: Dict[str, List[str]], date
 
 
 def _search_references(body: dict) -> list:
+    # agr_cognito_py caches the admin token and renews it when it expires, so this is cheap on every page
     headers = generate_headers(get_authentication_token())
     try:
         response = requests.post(f"https://{ABC_API}/search/references/", json=body, headers=headers, timeout=300)
