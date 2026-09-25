@@ -17,6 +17,7 @@ from pathlib import Path
 from grobid_client.api.pdf import process_fulltext_document
 from grobid_client.models import Article, ProcessForm
 from grobid_client.types import TEI, File
+from agr_abc_document_parsers import extract_sentences, read_markdown
 
 
 from wbtools.db.afp import WBAFPDBManager
@@ -87,6 +88,22 @@ def get_data_from_url(url, headers=None, file_type='json'):
     except Exception as e:
         logger.info(f"Error occurred for accessing/retrieving data from {url}: error={e}")
         return None
+
+
+MARKDOWN_MAIN_FILE_CLASS = "converted_merged_main"
+MARKDOWN_SUPPLEMENT_FILE_CLASS = "converted_merged_supplement"
+
+
+def _decode_markdown(content: bytes) -> str:
+    try:
+        return content.decode("utf-8")
+    except UnicodeDecodeError:
+        return content.decode("latin-1", errors="replace")
+
+
+def _is_wb_or_shared_file(ref_file: dict) -> bool:
+    mods = ref_file.get("referencefile_mods") or []
+    return not mods or any(mod.get("mod_abbreviation") in (None, "WB") for mod in mods)
 
 
 class WBPaper(object):
@@ -217,6 +234,56 @@ class WBPaper(object):
                 logger.error(e)
                 return False
             return added_ref_files > 0
+
+    def load_text_from_abc_markdown(self) -> bool:
+        """load the main text and the supplements of the paper from the Markdown files converted by the ABC
+
+        Returns:
+            bool: True, the main text has been loaded
+
+        Raises:
+            ABCRequestError: if the list of files, the main Markdown file or its conversion to sentences fails
+        """
+        headers = generate_headers(get_authentication_token())
+        ref_files = get_data_from_url(f"https://{ABC_API}/reference/referencefile/show_all/{self.agr_curie}", headers)
+        if ref_files is None:
+            raise ABCRequestError(f"Could not list the ABC files of paper {self.paper_id} ({self.agr_curie})")
+        markdown_files = [ref_file for ref_file in ref_files if ref_file.get("file_extension") == "md"]
+        main_files = [ref_file for ref_file in markdown_files
+                      if ref_file.get("file_class") == MARKDOWN_MAIN_FILE_CLASS]
+        if not main_files:
+            raise ABCRequestError(f"No converted Markdown file in ABC for paper {self.paper_id} ({self.agr_curie})")
+        main_file = next((ref_file for ref_file in main_files if _is_wb_or_shared_file(ref_file)), main_files[0])
+        try:
+            main_text = self._get_sentences_from_abc_markdown(main_file, headers)
+        except Exception as e:
+            raise ABCRequestError(f"Could not load the converted Markdown file of paper {self.paper_id} "
+                                  f"({self.agr_curie}): {e}") from e
+        if not main_text:
+            raise ABCRequestError(f"The converted Markdown file of paper {self.paper_id} ({self.agr_curie}) "
+                                  f"has no text")
+        self.main_text = main_text
+        for supplement in markdown_files:
+            if supplement.get("file_class") != MARKDOWN_SUPPLEMENT_FILE_CLASS or \
+                    not _is_wb_or_shared_file(supplement):
+                continue
+            try:
+                supplement_text = self._get_sentences_from_abc_markdown(supplement, headers)
+            except Exception as e:
+                logger.warning(f"Skipping supplement {supplement.get('display_name')} of paper {self.paper_id}: {e}")
+                continue
+            if supplement_text:
+                self.supplemental_docs.append(supplement_text)
+        return True
+
+    @staticmethod
+    def _get_sentences_from_abc_markdown(ref_file: dict, headers: dict) -> List[str]:
+        # file_type='pdf' makes get_data_from_url return the raw bytes of the file
+        content = get_data_from_url(f"https://{ABC_API}/reference/referencefile/download_file/"
+                                    f"{ref_file['referencefile_id']}", headers, file_type='pdf')
+        if not content:
+            raise ValueError(f"download of ABC file {ref_file['referencefile_id']} failed")
+        return extract_sentences(read_markdown(_decode_markdown(content)))
 
     def load_curation_info_from_db(self):
         """load curation data from WormBase database"""

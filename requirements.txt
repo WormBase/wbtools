@@ -13,3 +13,4 @@ python-dateutil~=2.8.2
 python-dotenv~=1.0.0
 grobid-client
 agr-cognito-py==0.1.0
+agr-abc-document-parsers>=1.7.2

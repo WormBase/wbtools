@@ -8,7 +8,7 @@ from wbtools.db.dbmanager import WBDBManager
 from wbtools.lib.nlp.common import PaperSections
 from wbtools.lib.nlp.text_preprocessing import preprocess
 from wbtools.lib.nlp.text_similarity import get_softcosine_index, get_similar_documents, SimilarityResult
-from wbtools.literature.paper import WBPaper, ABCRequestError
+from wbtools.literature.paper import WBPaper
 
 
 logger = logging.getLogger(__name__)
@@ -45,7 +45,7 @@ class CorpusManager(object):
                               pap_types: List[str] = None,
                               exclude_afp_processed: bool = False, exclude_afp_not_curatable: bool = False,
                               exclude_no_main_text: bool = False, exclude_no_author_email: bool = False,
-                              main_file_only: bool = False) -> None:
+                              main_file_only: bool = False, text_source: str = "pdf") -> None:
         """load papers from WormBase database
 
         Args:
@@ -69,7 +69,12 @@ class CorpusManager(object):
             exclude_afp_not_curatable (bool): whether to exclude papers that are not relevant for AFP curation
             exclude_no_main_text (bool): whether to exclude papers without a fulltext that can be converted to txt
             exclude_no_author_email (bool): whether to exclude papers without any contact email in WB
+            text_source (str): where to read the text of the papers from when load_pdf_files is True: "pdf" to
+                               convert the PDF files with GROBID, "abc_markdown" to read the Markdown files
+                               converted by the ABC
         """
+        if text_source not in ("pdf", "abc_markdown"):
+            raise ValueError(f"Unknown text_source {text_source}, use 'pdf' or 'abc_markdown'")
         main_db_manager = WBDBManager(db_name, db_user, db_password, db_host)
         with main_db_manager:
             if not paper_ids:
@@ -117,26 +122,24 @@ class CorpusManager(object):
                     logger.info("Loading bib info for paper")
                     if paper.load_bib_info() is False:
                         continue
-                    if exclude_no_author_email:
-                        try:
-                            authors_with_email = paper.get_authors_with_email_address_in_wb(
-                                blacklisted_email_addresses=blacklisted_email_addresses)
-                        except ABCRequestError as e:
-                            logger.warning(f"Skipping paper: {e}")
-                            continue
-                        if not authors_with_email:
-                            logger.info("Skipping paper without any email address in ABC or WB authors with records "
-                                        "in WB")
-                            continue
+                    if exclude_no_author_email and not paper.get_authors_with_email_address_in_wb(
+                            blacklisted_email_addresses=blacklisted_email_addresses):
+                        logger.info("Skipping paper without any email address in ABC or WB authors with records "
+                                    "in WB")
+                        continue
                 if load_afp_info:
                     logger.info("Loading AFP info for paper")
                     paper.load_afp_info_from_db(paper_ids_no_submission=afp_no_submission_ids,
                                                 paper_ids_full_submission=afp_full_submission_ids,
                                                 paper_ids_partial_submission=afp_partial_submission_ids)
             if load_pdf_files:
-                logger.info("Loading text from PDF files for paper")
-                if paper.load_text_from_pdf_files(main_file_only=main_file_only) is False:
-                    continue
+                if text_source == "abc_markdown":
+                    logger.info("Loading text from ABC Markdown files for paper")
+                    paper.load_text_from_abc_markdown()
+                else:
+                    logger.info("Loading text from PDF files for paper")
+                    if paper.load_text_from_pdf_files(main_file_only=main_file_only) is False:
+                        continue
                 if exclude_temp_pdf and paper.is_temp():
                     logger.info("Skipping proof paper")
                     continue

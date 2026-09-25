@@ -169,8 +169,8 @@ class FakeWBDBManager(object):
 
 class TestCorpusAuthorEmailFilter(unittest.TestCase):
 
-    def load(self, contacts_by_paper_id):
-        def fake_get_authors(paper, **kwargs):
+    def load(self, contacts_by_paper_id, **kwargs):
+        def fake_get_authors(paper, **_):
             outcome = contacts_by_paper_id[paper.paper_id]
             if isinstance(outcome, Exception):
                 raise outcome
@@ -183,14 +183,57 @@ class TestCorpusAuthorEmailFilter(unittest.TestCase):
                                   side_effect=fake_get_authors):
             cm.load_from_wb_database("db", "user", "passwd", "host", paper_ids=list(contacts_by_paper_id),
                                      load_pdf_files=False, load_curation_info=False,
-                                     exclude_no_author_email=True)
+                                     exclude_no_author_email=True, **kwargs)
         return sorted(paper.paper_id for paper in cm.get_all_papers())
 
-    def test_papers_with_abc_failure_or_no_contacts_are_skipped(self):
+    def test_papers_without_contacts_are_skipped(self):
         paper_ids = self.load({"00000001": [(WBPerson(person_id="two1"), "pi@lab.edu")],
-                               "00000002": None,
-                               "00000003": ABCRequestError("ABC down")})
+                               "00000002": None})
         self.assertEqual(paper_ids, ["00000001"])
+
+    def test_abc_email_failure_stops_the_load(self):
+        with self.assertRaises(ABCRequestError):
+            self.load({"00000001": [(WBPerson(person_id="two1"), "pi@lab.edu")],
+                       "00000003": ABCRequestError("ABC down")})
+
+
+class TestCorpusTextSource(unittest.TestCase):
+
+    def load(self, **kwargs):
+        cm = CorpusManager()
+        with mock.patch("wbtools.literature.corpus.WBDBManager", FakeWBDBManager), \
+                mock.patch.object(WBPaper, "load_bib_info", return_value=True), \
+                mock.patch.object(WBPaper, "load_text_from_pdf_files", return_value=True) as from_pdf, \
+                mock.patch.object(WBPaper, "load_text_from_abc_markdown", return_value=True) as from_markdown:
+            cm.load_from_wb_database("db", "user", "passwd", "host", paper_ids=["00000001"],
+                                     load_curation_info=False, **kwargs)
+        return cm, from_pdf, from_markdown
+
+    def test_pdf_is_the_default(self):
+        cm, from_pdf, from_markdown = self.load()
+        from_pdf.assert_called_once()
+        from_markdown.assert_not_called()
+        self.assertEqual(cm.size(), 1)
+
+    def test_abc_markdown(self):
+        cm, from_pdf, from_markdown = self.load(text_source="abc_markdown")
+        from_markdown.assert_called_once()
+        from_pdf.assert_not_called()
+        self.assertEqual(cm.size(), 1)
+
+    def test_abc_markdown_failure_stops_the_load(self):
+        cm = CorpusManager()
+        with mock.patch("wbtools.literature.corpus.WBDBManager", FakeWBDBManager), \
+                mock.patch.object(WBPaper, "load_bib_info", return_value=True), \
+                mock.patch.object(WBPaper, "load_text_from_abc_markdown", side_effect=ABCRequestError("no md")):
+            with self.assertRaises(ABCRequestError):
+                cm.load_from_wb_database("db", "user", "passwd", "host", paper_ids=["00000001"],
+                                         load_curation_info=False, text_source="abc_markdown")
+
+    def test_unknown_text_source_raises(self):
+        with self.assertRaises(ValueError):
+            CorpusManager().load_from_wb_database("db", "user", "passwd", "host", paper_ids=["00000001"],
+                                                  text_source="grobid")
 
 
 if __name__ == '__main__':
