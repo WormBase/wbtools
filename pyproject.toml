@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "wbtools"
-version = "3.5.1"
+version = "3.6.0"
 authors = [
     {name = "Valerio Arnaboldi", email = "valearna@caltech.edu"},
 ]
