@@ -7,9 +7,9 @@ from wbtools.literature.abc_entities import get_abc_extracted_entities, BATCH_SI
 from wbtools.literature.paper import ABCRequestError
 
 
-def tag(topic, entity=None, name=None, negated=False, source="abc_entity_extractor"):
+def tag(topic, entity=None, name=None, negated=False, source="abc_entity_extractor", mod="WB"):
     return {"topic": topic, "entity": entity, "entity_name": name, "negated": negated,
-            "tag_source": {"source_method": source}}
+            "tag_source": {"source_method": source, "secondary_data_provider_abbreviation": mod}}
 
 
 def response(json_body, status=200):
@@ -38,6 +38,7 @@ class TestGetAbcExtractedEntities(unittest.TestCase):
         body = post.call_args[1]["json"]
         self.assertEqual(body["curies_or_reference_ids"], ["AGRKB:1"])
         self.assertEqual(body["filters"]["source_methods"], ["abc_entity_extractor"])
+        self.assertEqual(body["filters"]["mods"], ["WB"])
         self.assertEqual(set(body["filters"]["topics"]),
                          {"ATP:0000005", "ATP:0000285", "ATP:0000006", "ATP:0000027", "ATP:0000110", "ATP:0000123"})
 
@@ -73,6 +74,12 @@ class TestGetAbcExtractedEntities(unittest.TestCase):
                                             tag("ATP:0000123", "NCBITaxon:10090", "Mus musculus")]})
         self.assertEqual(result["AGRKB:1"]["gene"], [])
         self.assertEqual(result["AGRKB:1"]["species"], [("NCBITaxon:10090", "Mus musculus")])
+
+    def test_tags_of_other_mods_are_ignored(self, *_):
+        # another MOD's extractor run on a shared reference can tag species the NCBITaxon prefix doesn't catch
+        result, _ = self.fetch({"AGRKB:1": [tag("ATP:0000123", "NCBITaxon:7227", "Drosophila melanogaster", mod="FB"),
+                                            tag("ATP:0000123", "NCBITaxon:6239", "Caenorhabditis elegans")]})
+        self.assertEqual(result["AGRKB:1"]["species"], [("NCBITaxon:6239", "Caenorhabditis elegans")])
 
     def test_papers_missing_from_the_response_are_empty(self, *_):
         result, _ = self.fetch({}, curies=("AGRKB:1",))

@@ -9,6 +9,7 @@ from wbtools.utils.auth_utils import get_authentication_token, generate_headers
 logger = logging.getLogger(__name__)
 
 ENTITY_EXTRACTOR_SOURCE_METHOD = "abc_entity_extractor"
+MOD = "WB"
 BATCH_SIZE = 100
 ENTITY_TYPES = ("gene", "allele", "strain", "transgene", "species")
 TOPIC_ENTITY_TYPES = {
@@ -48,9 +49,10 @@ def get_abc_extracted_entities(agr_curies: List[str]) -> Dict[str, Dict[str, Lis
             for tag in tags:
                 entity_type = TOPIC_ENTITY_TYPES.get(tag.get("topic"))
                 entity = tag.get("entity")
-                source_method = (tag.get("tag_source") or {}).get("source_method")
+                tag_source = tag.get("tag_source") or {}
                 if entity_type is None or not entity or tag.get("negated") or \
-                        source_method != ENTITY_EXTRACTOR_SOURCE_METHOD:
+                        tag_source.get("source_method") != ENTITY_EXTRACTOR_SOURCE_METHOD or \
+                        tag_source.get("secondary_data_provider_abbreviation", MOD) != MOD:
                     continue
                 if entity.startswith(ENTITY_PREFIXES[entity_type]):
                     entities[curie][entity_type].append((entity, tag.get("entity_name")))
@@ -60,7 +62,9 @@ def get_abc_extracted_entities(agr_curies: List[str]) -> Dict[str, Dict[str, Lis
 def _get_entity_tags(agr_curies: List[str]) -> dict:
     headers = generate_headers(get_authentication_token())
     body = {"curies_or_reference_ids": agr_curies,
-            "filters": {"source_methods": [ENTITY_EXTRACTOR_SOURCE_METHOD], "topics": list(TOPIC_ENTITY_TYPES)}}
+            # scoped to WB: another MOD's extractor can tag the same reference (e.g. with its own species)
+            "filters": {"source_methods": [ENTITY_EXTRACTOR_SOURCE_METHOD], "topics": list(TOPIC_ENTITY_TYPES),
+                        "mods": [MOD]}}
     try:
         response = requests.post(f"https://{ABC_API}/topic_entity_tag/by_references", json=body, headers=headers,
                                  timeout=DEFAULT_REQUEST_TIMEOUT)
