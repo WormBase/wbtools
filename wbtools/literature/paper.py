@@ -36,6 +36,12 @@ logging.getLogger("pdfminer").setLevel(logging.WARNING)
 ABC_API = os.environ.get('API_SERVER', "literature-rest.alliancegenome.org")
 
 
+def get_emails_from_tei_header(tei_content: bytes) -> List[str]:
+    header = tei_content.decode("utf-8", "replace").split("</teiHeader>", 1)[0]
+    emails = [re.sub('<[^<]+>', '', email).strip() for email in re.findall(r"<email>(.*?)</email>", header, re.S)]
+    return list(dict.fromkeys(email for email in emails if email))
+
+
 @timeout(3600)
 def convert_pdf_to_txt(file_path):
     client = Client(base_url=os.environ.get("GROBID_API_URL", "http://cervino.caltech.edu:8070/api"), timeout=1000,
@@ -49,7 +55,8 @@ def convert_pdf_to_txt(file_path):
                 input_=File(file_name=pdf_file.name, payload=fin, mime_type="application/pdf"))
             r = process_fulltext_document.sync_detailed(client=client, multipart_data=form)
             if r.is_success:
-                article: Article = TEI.parse(r.content, figures=True)
+                # back=True keeps the back matter (e.g. data availability, acknowledgements)
+                article: Article = TEI.parse(r.content, figures=True, back=True)
                 sentences = []
                 for section in article.sections:
                     # skip sections that have three paragraph with the first and the last being empty. These are
@@ -63,6 +70,8 @@ def convert_pdf_to_txt(file_path):
                     for paragraph in section.paragraphs:
                         for sentence in paragraph:
                             sentences.append(re.sub('<[^<]+>', '', sentence.text))
+                # GROBID moves the author emails to the TEI header, which is not part of the sections
+                sentences.extend(get_emails_from_tei_header(r.content))
                 return sentences
             else:
                 return []
