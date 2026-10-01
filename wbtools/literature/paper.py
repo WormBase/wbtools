@@ -199,6 +199,9 @@ class WBPaper(object):
         token = get_authentication_token()
         headers = generate_headers(token)
         paper_content = get_data_from_url(file_download_api, headers, file_type='pdf')
+        if paper_content is None:
+            # the download failed (get_data_from_url already logged why): skip this file, keep the others
+            return False
         with tempfile.NamedTemporaryFile() as tmp_file:
             tmp_file.write(paper_content)
             text_content = convert_pdf_to_txt(tmp_file.name)
