@@ -1,4 +1,5 @@
 import logging
+from contextlib import contextmanager
 
 import psycopg2
 
@@ -46,3 +47,18 @@ class WBDBManager(AbstractWBDBManager):
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         super(WBDBManager, self).__exit__(exc_type, exc_val, exc_tb)
+
+    @contextmanager
+    def transaction(self):
+        """one transaction for every sub-manager: committed on success, rolled back on any error (unlike
+        ``with manager:``, which commits even when the block raised), and the connection always closed"""
+        self.__enter__()
+        try:
+            yield self
+            self.conn.commit()
+        except BaseException:
+            self.conn.rollback()
+            raise
+        finally:
+            self.curs.close()
+            self.conn.close()
