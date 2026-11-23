@@ -1,6 +1,6 @@
 """The ABC calls of an ACKnowledge save: read a paper's ACKnowledge_form tags, send the save's changes as one batch
 (POST /topic_entity_tag/batch, SCRUM-4141)."""
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 import requests
 
@@ -12,6 +12,9 @@ from wbtools.utils.auth_utils import generate_headers, get_authentication_token
 # the ABC refuses larger batches; refusing here saves the call
 MAX_BATCH_CHANGES = 5000
 _SOURCE_IDS: Dict[str, int] = {}
+# ABC person curie -> the person's bare WB person id (None: the person has no WB cross reference)
+_WB_PERSON_IDS: Dict[str, Optional[str]] = {}
+WB_PERSON_XREF_PREFIX = "WB:WBPerson"
 
 
 def _post(path: str, body: dict, timeout: int) -> requests.Response:
@@ -41,8 +44,53 @@ def get_ack_form_source_id(timeout: int) -> int:
     return _SOURCE_IDS[ACK_FORM]
 
 
+def wb_person_id(person_curie: str, timeout: int) -> Optional[str]:
+    """the bare WB person id (WBPerson1843) of an ABC person, from the person's WB cross reference; None if they have
+    none. Looked up once per process.
+
+    Raises:
+        ABCRequestError: if the ABC can't be read
+    """
+    if person_curie not in _WB_PERSON_IDS:
+        path = f"/person_cross_reference/person/{person_curie}"
+        try:
+            response = requests.get(f"https://{ABC_API}{path}",
+                                    headers=generate_headers(get_authentication_token()), timeout=timeout)
+        except requests.exceptions.RequestException as e:
+            raise ABCRequestError(f"ABC {path} failed: {e}") from e
+        if response.status_code == 404:
+            _WB_PERSON_IDS[person_curie] = None
+            return None
+        if response.status_code != 200:
+            raise ABCRequestError(f"ABC {path} failed: HTTP {response.status_code} {response.text[:200]}")
+        try:
+            xrefs = response.json()
+            wb_ids = sorted(xref["curie"].split(":", 1)[1] for xref in xrefs
+                            if xref["curie"].startswith(WB_PERSON_XREF_PREFIX) and not xref.get("is_obsolete"))
+        except (ValueError, KeyError, TypeError, AttributeError) as e:
+            raise ABCRequestError(f"ABC {path} gave an unexpected answer: {e}") from e
+        _WB_PERSON_IDS[person_curie] = wb_ids[0] if wb_ids else None
+    return _WB_PERSON_IDS[person_curie]
+
+
+def _owner_as_wb_person(tag: dict, timeout: int) -> dict:
+    """the tag with its owner as the WB person id ACKnowledge uses, when the ABC gives the person's ABC curie
+
+    The ABC records a WB person it knows under their ABC person curie (SCRUM-6729), whatever form of the id it was
+    sent. ACKnowledge tells contributors apart by WB person id, so the owner is mapped back; the ABC's own value is
+    kept in abc_created_by_user_id.
+    """
+    raw = tag.get("created_by_user_id") or tag.get("created_by")
+    if not isinstance(raw, str) or not raw.startswith("AGRKB:"):
+        return tag
+    wb_id = wb_person_id(raw, timeout)
+    if wb_id is None:
+        return tag
+    return dict(tag, created_by_user_id=wb_id, abc_created_by_user_id=raw)
+
+
 def get_ack_form_tags(agr_curie: str, timeout: int) -> List[dict]:
-    """the paper's ACKnowledge_form tags, every contributor's copy
+    """the paper's ACKnowledge_form tags, every contributor's copy, owned by WB person ids (see _owner_as_wb_person)
 
     Raises:
         ABCRequestError: if the ABC can't be read
@@ -56,7 +104,7 @@ def get_ack_form_tags(agr_curie: str, timeout: int) -> List[dict]:
         tags = response.json()["tags"]
     except (ValueError, KeyError, TypeError) as e:
         raise ABCRequestError(f"ABC by_references gave an unexpected answer for {agr_curie}: {e}") from e
-    return tags.get(agr_curie) or []
+    return [_owner_as_wb_person(tag, timeout) for tag in tags.get(agr_curie) or []]
 
 
 def send_tag_batch(agr_curie: str, batch: TagBatch, timeout: int) -> List[int]:

@@ -93,3 +93,59 @@ def test_get_ack_form_source_id_raises_on_error():
     with mock.patch.object(abc.requests, "get", return_value=response(404, None, text="no source")):
         with pytest.raises(ABCRequestError, match="404"):
             abc.get_ack_form_source_id(timeout=30)
+
+
+PERSON = "AGRKB:103000000000024"
+
+
+@pytest.fixture(autouse=True)
+def no_cached_persons():
+    abc._WB_PERSON_IDS.clear()
+    yield
+    abc._WB_PERSON_IDS.clear()
+
+
+def test_wb_person_id_from_cross_reference():
+    xrefs = [{"curie": "ORCID:0000-0001-2345-6789", "is_obsolete": False},
+             {"curie": "WB:WBPerson1843", "is_obsolete": False},
+             {"curie": "WB:WBPerson9", "is_obsolete": True}]
+    with mock.patch.object(abc.requests, "get", return_value=response(200, xrefs)) as get:
+        assert abc.wb_person_id(PERSON, timeout=30) == "WBPerson1843"
+        assert abc.wb_person_id(PERSON, timeout=30) == "WBPerson1843"
+    get.assert_called_once()
+    assert get.call_args.args[0].endswith(f"/person_cross_reference/person/{PERSON}")
+
+
+def test_wb_person_id_none_without_wb_cross_reference():
+    xrefs = [{"curie": "ORCID:1", "is_obsolete": False}]
+    with mock.patch.object(abc.requests, "get", return_value=response(200, xrefs)):
+        assert abc.wb_person_id(PERSON, timeout=30) is None
+
+
+def test_wb_person_id_raises_on_error():
+    with mock.patch.object(abc.requests, "get", return_value=response(500, None, text="boom")):
+        with pytest.raises(ABCRequestError):
+            abc.wb_person_id(PERSON, timeout=30)
+
+
+def test_get_ack_form_tags_maps_abc_persons_back_to_wb_ids():
+    """SCRUM-6729: the ABC records a WB person it knows under their ABC curie. ACKnowledge tells contributors apart
+    by WB person id, so the tag is read back as the WBPerson that wrote it: otherwise the next save would see a new
+    contributor and create a second copy for the same person."""
+    tags = [{"topic_entity_tag_id": 1, "created_by": "Kimberly Van Auken", "created_by_user_id": PERSON},
+            {"topic_entity_tag_id": 2, "created_by": "WBPerson13824", "created_by_user_id": "WBPerson13824"},
+            {"topic_entity_tag_id": 3, "created_by": "unknown_author", "created_by_user_id": "unknown_author"}]
+    with mock.patch.object(abc.requests, "post", return_value=response(200, {"tags": {CURIE: tags}})), \
+            mock.patch.object(abc.requests, "get", return_value=response(
+                200, [{"curie": "WB:WBPerson1843", "is_obsolete": False}])) as get:
+        read = abc.get_ack_form_tags(CURIE, timeout=30)
+    assert [t["created_by_user_id"] for t in read] == ["WBPerson1843", "WBPerson13824", "unknown_author"]
+    assert read[0]["abc_created_by_user_id"] == PERSON
+    get.assert_called_once()
+
+
+def test_get_ack_form_tags_keeps_a_person_without_wb_id():
+    tags = [{"topic_entity_tag_id": 1, "created_by_user_id": PERSON}]
+    with mock.patch.object(abc.requests, "post", return_value=response(200, {"tags": {CURIE: tags}})), \
+            mock.patch.object(abc.requests, "get", return_value=response(404, None)):
+        assert abc.get_ack_form_tags(CURIE, timeout=30)[0]["created_by_user_id"] == PERSON
